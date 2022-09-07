@@ -1,5 +1,10 @@
 # Specific Aims
 
+Mesoscale neuroscience is currently undergoing a revolution fueled by advances in neural manipulation [@fenno11; @wiegert17; @sridharan22; @vierock21; @adesnik21; @faini21; @roth16; @eriksson22] and measurement [@steinmetz21; @siegle17; @gutruf18; @gobel07; @knopfel19; @svoboda06; @kazemipour19; @wu20] technologies as well as data analysis methods [@maaten08; @berman14; @mathis18; @sani21a; @sporns18; @schneider22]. 
+These have yielded unprecedented datasets [@scheffer20; @juavinett19] and insights into network activity and plasticity [@oby19; @yang21; @cowley20; @avitan22; @jazayeri21], as well as novel experimental paradigms such as direct closed-loop control of neural activity [@grosenick15; @kumar13; @potter14; @newman15; @bolus18; @bolus21; @emiliani15; @emiliani15; @zhang18; @krook-magnuson13; @witt13; @dutta19]. 
+
+
+
 ## Aim 1: An experiment simulation testbed for prototyping closed-loop optogenetic control experiments
 
 ## Aim 2: Enabling bidirectional actuation through the application of model-predictive control

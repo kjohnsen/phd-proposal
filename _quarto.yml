@@ -12,13 +12,17 @@ book:
     - summary.qmd
     - specific-aims.qmd
     - background.qmd
-    - aim1/aim1.qmd
-    - aim2/aim2.qmd
-    - aim3/aim3.qmd
+    - aim1.qmd
+    - aim2.qmd
+    - aim3.qmd
     - timeline.qmd
     - references.qmd
 
-bibliography: references.bib
+bibliography: references.json
+csl: science.csl
+
+execute: 
+  freeze: auto
 
 format:
   html:
@@ -33,7 +37,12 @@ format:
     papersize: letter
     include-in-header: header.tex
     fontfamily: libertinus
+    sansfont: "Open Sans"
     colorlinks: true
+    # not working
+    hyperrefoptions: 
+      - "backref=true"
+      - "linktoc=all"
 
 
 

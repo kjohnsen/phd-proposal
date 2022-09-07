@@ -1,0 +1,7 @@
+# Aim 3
+
+{{< include rationale.qmd >}}
+
+## Approach
+
+{{< include subaim.qmd >}}

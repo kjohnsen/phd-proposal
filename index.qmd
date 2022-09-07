@@ -10,7 +10,8 @@ tbl-colwidths: [38, 62]
 
 ## Thesis Proposal
 
-**PhD Program in Biomedical Engineering**<br>
+**PhD Program in Biomedical Engineering**
+
 *Georgia Institute of Technology and Emory University*
 
 ## Thesis committee
@@ -22,5 +23,3 @@ tbl-colwidths: [38, 62]
 | **Christopher Rozell (advisor)** | Georgia Institute of Technology |
 | Garrett Stanley     | Georgia Institute of Technology & Emory University |
 | Patricio Vela       | Georgia Institute of Technology |
-
-To learn more about Quarto books visit <https://quarto.org/docs/books>.

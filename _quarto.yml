@@ -10,16 +10,30 @@ book:
   chapters:
     - index.qmd
     - summary.qmd
-    - intro.qmd
+    - specific-aims.qmd
+    - background.qmd
+    - aim1/aim1.qmd
+    - aim2/aim2.qmd
+    - aim3/aim3.qmd
+    - timeline.qmd
     - references.qmd
 
 bibliography: references.bib
 
 format:
   html:
-    theme: cosmo
+    theme:
+      dark: darkly
+      light: flatly
+    number-depth: 1
+    toc-depth: 4
+
   pdf:
     documentclass: scrreprt
+    papersize: letter
+    include-in-header: header.tex
+    fontfamily: libertinus
+    colorlinks: true
 
 
 

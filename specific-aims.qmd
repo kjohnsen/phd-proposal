@@ -1,0 +1,7 @@
+# Specific Aims
+
+## Aim 1: An experiment simulation testbed for prototyping closed-loop optogenetic control experiments
+
+## Aim 2: Enabling bidirectional actuation through the application of model-predictive control
+
+## Aim 3: Applying CLOC to control latent population dynamics

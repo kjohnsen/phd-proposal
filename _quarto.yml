@@ -1,0 +1,25 @@
+project:
+  type: book
+
+book:
+  title: "Improving and applying closed-loop optogenetic control in mesoscale neuroscience"
+  author: "Kyle Johnsen"
+  date: "10/20/2022"
+  repo-url: https://github.com/kjohnsen/phd-proposal/
+  downloads: [pdf]
+  chapters:
+    - index.qmd
+    - summary.qmd
+    - intro.qmd
+    - references.qmd
+
+bibliography: references.bib
+
+format:
+  html:
+    theme: cosmo
+  pdf:
+    documentclass: scrreprt
+
+
+

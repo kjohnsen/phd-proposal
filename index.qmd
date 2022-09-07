@@ -1,0 +1,26 @@
+---
+format:
+  html:
+    toc: false
+tbl-colwidths: [38, 62]
+---
+::: {.hidden}
+# Front Matter {.unnumbered}
+:::
+
+## Thesis Proposal
+
+**PhD Program in Biomedical Engineering**<br>
+*Georgia Institute of Technology and Emory University*
+
+## Thesis committee
+
+| | |
+|------:|:------------|
+| Nabil Imam          | Georgia Institute of Technology |
+| Chethan Pandarinath | Emory University & Georgia Institute of Technology |
+| **Christopher Rozell (advisor)** | Georgia Institute of Technology |
+| Garrett Stanley     | Georgia Institute of Technology & Emory University |
+| Patricio Vela       | Georgia Institute of Technology |
+
+To learn more about Quarto books visit <https://quarto.org/docs/books>.

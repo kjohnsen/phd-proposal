@@ -8,18 +8,21 @@ tbl-colwidths: [38, 62]
 # Front Matter {.unnumbered}
 :::
 
-## Thesis Proposal
-
-**PhD Program in Biomedical Engineering**
-
-*Georgia Institute of Technology and Emory University*
-
 ## Thesis committee
 
-| | |
-|------:|:------------|
-| Nabil Imam          | Georgia Institute of Technology |
-| Chethan Pandarinath | Emory University & Georgia Institute of Technology |
-| **Christopher Rozell (advisor)** | Georgia Institute of Technology |
-| Garrett Stanley     | Georgia Institute of Technology & Emory University |
-| Patricio Vela       | Georgia Institute of Technology |
++------------------------:+:---------------------------------------------------+
+|    Nabil Imam           | Electrical and Computer Engineering \              |
+|                         | Georgia Institute of Technology                    |
++-------------------------+----------------------------------------------------+
+|    Chethan Pandarinath  | Biomedical Engineering \                           |
+|                         | Emory University & Georgia Institute of Technology |
++-------------------------+----------------------------------------------------+
+|  **Christopher Rozell** | Electrical and Computer Engineering \              |
+|     **(advisor)**       | Georgia Institute of Technology                    |
++-------------------------+----------------------------------------------------+
+|   Garrett Stanley       | Biomedical Engineering \                           |
+|   Garrett Stanley       | Georgia Institute of Technology & Emory University |
++-------------------------+----------------------------------------------------+
+|   Patricio Vela         | Electrical and Computer Engineering \              |
+|   Patricio Vela         | Georgia Institute of Technology                    |
++-------------------------+----------------------------------------------------+

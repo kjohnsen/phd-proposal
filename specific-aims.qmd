@@ -5,7 +5,7 @@ Feedback control is an important class of such manipulations for its ability to 
 Widely used throughout the engineering disciplines, it has had a significant impact through a variety of techniques (e.g., voltage clamp, dynamic clamp) on cellular neuroscience.
 However, feedback control also has great potential at the mesoscale/systems level, promising the ability to *unambiguously infer the downstream effects of circuit/population-level neural activity*.
 
-For a number of reasons, though, *this potential has not been realized*, as feedback control has not yet been widely applied in systems neuroscience.
+For a number of reasons, though, *this potential has not been widely realized*.
 The main challenges to wider adoption do not appear to lie with available technology, as the computational power and stimulation/recording requirements of feedback control are met by the ever-improving tools already available to neuroscientists, such as optogenetics and large-scale neural recording.
 I posit that the main challenges to adoption rather include the **complexity of implementing** fast closed-loop experiments, the need to **adapt the mature methods of control theory** to the idiosyncratic constraints of systems neuroscience experiments, and the **lack of established technical guidelines** for applying feedback control to address complex scientific questions.
 **The proposed work aims to begin to address these challenges, and thus strengthen the set of causal tools available to probe neural systems.**
@@ -17,9 +17,14 @@ In Aim 1, I attempt to address these obstacles by developing a simulation framew
 We demonstrate the software's utility in different virtual experiments and provide it to the public as open-source software with thorough documentation.
 
 ## Aim 2: Bidirectional CLOC
-In Aim 2, I will translate sophisticated model-based feedback control algorithms to the realistic experimental setting of bidirectional CLOC—the simultaneous use of both excitatory and inhibitory opsins.
-I will demonstrate some advantages of bidirectional CLOC and how it is not well accommodated by the algorithms previously demonstrated.
+Bidirectional CLOC---the simultaneous use of both excitatory and inhibitory opsins---is necessary for precise manipulation of neural systems, especially when maintaining naturalistic activity levels is important.
+However, the basic control theory methods previously used in conjuction with CLOC do not take actuator constraints into account and are thus inadequate for multi-actuator problems.
+The field of control theory provides elegant, powerful solutions to this class of problems, but applying them requires interdisciplinary expertise.
+In this aim I will translate more sophisticated model-based feedback control algorithms to the  bidirectional CLOC setting and demonstrate the advantages both of CLOC and these algorithmic improvements.
 
 ## Aim 3: Using CLOC to manipulate latent neural dynamics
-Finally, in Aim 3, I will explore how recording, stimulation, and control requirements vary in an example application of CLOC—controlling the latent dynamics of simulated neural population activity and assessing their causal relationship with behavior.
-I will model this population activity with recurrent spiking neural networks trained using state-of-the-art, biologically plausible methods, with differing degrees of brain-like architecture and task complexity.
+To our knowledge, CLOC has yet to be applied in answering complex systems neuroscience questions.
+In this aim I propose to set a technical and conceptual precedent for how this can be achieved in the context of controlling the latent dynamics of simulated neural populations.
+First, I will produce these virtual models by training recurrent spiking neural networks with state-of-the-art, biologically plausible methods---each differing in their degrees of brain-like architecture and training procedure complexity.
+I will then use the simulation testbed of Aim 1 to explore how recording, stimulation, and control requirements vary for controlling systems of varying complexity and size---thus giving researchers some idea of the relative importance of each factor of CLOC.
+Finally, I will demonstrate the conceptual utility of CLOC by quantitatively assessing the causal relationship between these latent dynamics and "behavior" (model output).

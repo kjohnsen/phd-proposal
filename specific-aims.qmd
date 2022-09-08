@@ -1,15 +1,25 @@
+<!-- think of this as an extended abstract -->
 # Specific Aims
+As the importance of causal inference becomes increasingly recognized in neuroscience, the need for technology enabling precise manipulation of neural variables becomes apparent.
+Feedback control is an important class of such manipulations for its ability to increase inference power by reducing response variability.
+Widely used throughout the engineering disciplines, it has had a significant impact through a variety of techniques (e.g., voltage clamp, dynamic clamp) on cellular neuroscience.
+However, feedback control also has great potential at the mesoscale/systems level, promising the ability to *unambiguously infer the downstream effects of circuit/population-level neural activity*.
 
-Mesoscale neuroscience is currently undergoing a revolution fueled by advances in neural manipulation [@fenno11; @wiegert17; @sridharan22; @vierock21; @adesnik21; @faini21; @roth16; @eriksson22] and measurement [@steinmetz21; @siegle17; @gutruf18; @gobel07; @knopfel19; @svoboda06; @kazemipour19; @wu20a] technologies as well as data analysis methods [@maaten08; @berman14; @mathis18; @sani21a; @sporns18; @schneider22]. 
-These have yielded unprecedented datasets [@scheffer20; @juavinett19] and insights into network activity and plasticity [@oby19; @yang21; @cowley20; @avitan22; @jazayeri21], as well as novel experimental paradigms such as direct closed-loop control of neural activity [@grosenick15; @kumar13; @potter14; @newman15; @bolus18; @bolus21; @emiliani15; @zhang18; @krook-magnuson13; @witt13; @dutta19]. 
+For a number of reasons, though, *this potential has not been realized*, as feedback control has not yet been widely applied in systems neuroscience.
+The main challenges to wider adoption do not appear to lie with available technology, as the computational power and stimulation/recording requirements of feedback control are met by the ever-improving tools already available to neuroscientists, such as optogenetics and large-scale neural recording.
+I posit that the main challenges to adoption rather include the **complexity of implementing** fast closed-loop experiments, the need to **adapt the mature methods of control theory** to the idiosyncratic constraints of systems neuroscience experiments, and the **lack of established technical guidelines** for applying feedback control to address complex scientific questions.
+**The proposed work aims to begin to address these challenges, and thus strengthen the set of causal tools available to probe neural systems.**
 
+## Aim 1: A CLOC experiment simulation testbed
+One significant obstacle to closed-loop optogenetic control (CLOC) experiments is the cost of acquiring and configuring compatible hardware-software systems. 
+Moreover, the maintenance of animals or cell cultures inherent in any _in-vivo_ or _in-silico_ can slow the pace of developing novel experimental techniques.
+In Aim 1, I attempt to address these obstacles by developing a simulation framework for easily prototyping CLOC experiments _in silico_, thus enabling faster, cheaper CLOC experiment design and method development.
+We demonstrate the software's utility in different virtual experiments and provide it to the public as open-source software with thorough documentation.
 
-An exciting emerging possibility is closed-loop control of neural activity [cite Grosenick, a bunch of other reviews], enabling intervention in processes that are too fast or unpredictable to control manually or with pre-defined stimulation, such as sensory information processing, motor planning, and oscillatory activity. Unlike other forms of closed-loop control altering the environment [cite examples, mouse knee rotation, visual stimuli to achieve target response,] or using neurofeedback training [cite Diester] to achieve a neural or behavioral target, the direct control of neural activity itself can unambiguously reveal the direct downstream effects of that activity.
+## Aim 2: Bidirectional CLOC
+In Aim 2, I will translate sophisticated model-based feedback control algorithms to the realistic experimental setting of bidirectional CLOC—the simultaneous use of both excitatory and inhibitory opsins.
+I will demonstrate some advantages of bidirectional CLOC and how it is not well accommodated by the algorithms previously demonstrated.
 
-Closed-loop control of neural activity can be implemented in an event-triggered sense [cite a bunch of examples, inhibiting seizures, altering power, SWR disruption, ]—enabling the experimenter to respond to discrete events of interest, such as the arrival of a traveling wave [cite Reynolds] or sharp wave ripple [cite some review paper]—or in a feedback sense [cite 2 Bolus papers, all-optical, any others], driving the system towards a target or along a trajectory. The latter has multiple advantages over open-loop control (delivery of a pre-defined stimulus): by rejecting exogenous inputs, noise, and disturbances, it reduces variability across time and across trials, allowing for finer-scale inference. Additionally, it can compensate for model mismatch, allowing it to succeed where open-loop control based on imperfect models is bound to miss the mark.
-
-## Aim 1: An experiment simulation testbed for prototyping closed-loop optogenetic control experiments
-
-## Aim 2: Enabling bidirectional actuation through the application of model-predictive control
-
-## Aim 3: Applying CLOC to control latent population dynamics
+## Aim 3: Using CLOC to manipulate latent neural dynamics
+Finally, in Aim 3, I will explore how recording, stimulation, and control requirements vary in an example application of CLOC—controlling the latent dynamics of simulated neural population activity and assessing their causal relationship with behavior.
+I will model this population activity with recurrent spiking neural networks trained using state-of-the-art, biologically plausible methods, with differing degrees of brain-like architecture and task complexity.

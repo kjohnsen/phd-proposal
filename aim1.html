@@ -6,10 +6,8 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Kyle Johnsen">
-<meta name="dcterms.date" content="2022-10-20">
 
-<title>Improving and applying closed-loop optogenetic control in mesoscale neuroscience</title>
+<title>Improving and applying closed-loop optogenetic control in mesoscale neuroscience - 3&nbsp; Aim 1</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -32,7 +30,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./specific-aims.html" rel="next">
+<link href="./aim2.html" rel="next">
+<link href="./background.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -67,13 +66,13 @@ ul.task-list li input[type="checkbox"] {
 
 </head>
 
-<body class="nav-sidebar floating fullcontent">
+<body class="nav-sidebar floating">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
     <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title">Improving and applying closed-loop optogenetic control in mesoscale neuroscience</h1>
+      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Aim 1</span></h1>
       <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
         <i class="bi bi-chevron-right"></i>
       </button>
@@ -103,7 +102,7 @@ ul.task-list li input[type="checkbox"] {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link active">Front Matter</a>
+  <a href="./index.html" class="sidebar-item-text sidebar-link">Front Matter</a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -118,7 +117,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./aim1.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Aim 1</span></a>
+  <a href="./aim1.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Aim 1</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -145,88 +144,96 @@ ul.task-list li input[type="checkbox"] {
     </div>
 </nav>
 <!-- margin-sidebar -->
-    
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#rationale" id="toc-rationale" class="nav-link active" data-scroll-target="#rationale">Rationale</a></li>
+  <li><a href="#approach" id="toc-approach" class="nav-link" data-scroll-target="#approach">Approach</a>
+  <ul>
+  <li><a href="#subaim-1" id="toc-subaim-1" class="nav-link" data-scroll-target="#subaim-1">Subaim 1</a>
+  <ul class="collapse">
+  <li><a href="#preliminary-results" id="toc-preliminary-results" class="nav-link" data-scroll-target="#preliminary-results">Preliminary results</a></li>
+  <li><a href="#potential-pitfalls-alternative-strategies" id="toc-potential-pitfalls-alternative-strategies" class="nav-link" data-scroll-target="#potential-pitfalls-alternative-strategies">Potential pitfalls, alternative strategies</a></li>
+  </ul></li>
+  <li><a href="#subaim-2" id="toc-subaim-2" class="nav-link" data-scroll-target="#subaim-2">Subaim 2</a>
+  <ul class="collapse">
+  <li><a href="#preliminary-results-1" id="toc-preliminary-results-1" class="nav-link" data-scroll-target="#preliminary-results-1">Preliminary results</a></li>
+  <li><a href="#potential-pitfalls-alternative-strategies-1" id="toc-potential-pitfalls-alternative-strategies-1" class="nav-link" data-scroll-target="#potential-pitfalls-alternative-strategies-1">Potential pitfalls, alternative strategies</a></li>
+  </ul></li>
+  <li><a href="#subaim-3" id="toc-subaim-3" class="nav-link" data-scroll-target="#subaim-3">Subaim 3</a>
+  <ul class="collapse">
+  <li><a href="#preliminary-results-2" id="toc-preliminary-results-2" class="nav-link" data-scroll-target="#preliminary-results-2">Preliminary results</a></li>
+  <li><a href="#potential-pitfalls-alternative-strategies-2" id="toc-potential-pitfalls-alternative-strategies-2" class="nav-link" data-scroll-target="#potential-pitfalls-alternative-strategies-2">Potential pitfalls, alternative strategies</a></li>
+  </ul></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title d-none d-lg-block">Improving and applying closed-loop optogenetic control in mesoscale neuroscience</h1>
-<p class="subtitle lead"></p><p>Thesis Proposal<br>
-Biomedical Engineering PhD Program<br>
-Georgia Institute of Technology and Emory University</p><p></p>
+<h1 class="title d-none d-lg-block"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Aim 1</span></h1>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
-    <div>
-    <div class="quarto-title-meta-heading">Author</div>
-    <div class="quarto-title-meta-contents">
-             <p>Kyle Johnsen </p>
-          </div>
-  </div>
     
-    <div>
-    <div class="quarto-title-meta-heading">Published</div>
-    <div class="quarto-title-meta-contents">
-      <p class="date">October 20, 2022</p>
-    </div>
-  </div>
     
   </div>
   
-<div>
-  <div class="abstract">
-    <div class="abstract-title">Abstract</div>
-    <p>As the importance of causal inference becomes increasingly recognized in neuroscience, the need for technology enabling precise manipulation of neural variables becomes apparent. Feedback control is an important class of such manipulations for its ability to increase inference power by reducing response variability. Widely used throughout the engineering disciplines, it has had a significant impact through a variety of techniques (e.g., voltage clamp, dynamic clamp) on cellular neuroscience. However, feedback control has yet to be widely applied at the mesoscale/circuit level despite recent improvements in interfacing technology, such as optogenetics. Challenges to adoption include the complexity of implementing fast closed-loop experiments, the need to adapt the mature methods of control theory to the idiosyncratic constraints of systems neuroscience experiments, and the lack of established technical guidelines for applying feedback control to address complex scientific questions.</p>
-    <p>In this work I propose to begin to address these challenges in three aims. In Aim 1, I develop a simulation framework for easily prototyping closed-loop optogenetic control (CLOC) experiments in silico, thus allowing neuroscientists to test and iterate on experimental designs without the costs of in-vivo experiments or up-front investments in compatible hardware-software systems. In Aim 2, I will translate sophisticated model-based feedback control algorithms to the realistic experimental setting of bidirectional CLOC—the simultaneous use of both excitatory and inhibitory opsins. I will demonstrate some advantages of bidirectional CLOC and how it is not well accommodated by the algorithms previously demonstrated. Finally, in Aim 3, I will explore how recording, stimulation, and control requirements vary in an example application of CLOC—controlling the latent dynamics of simulated neural population activity and assessing their causal relationship with behavior. I will model this population activity with recurrent spiking neural networks trained using state-of-the-art, biologically plausible methods, with differing degrees of brain-like architecture and task complexity. This work will thus provide the systems neuroscience community with a more accessible entry point for CLOC, more powerful algorithms for leveraging bidirectional control, and a point of reference for designing CLOC experiments capable of answering complex scientific questions.</p>
-  </div>
-</div>
 
 </header>
 
-<section id="front-matter" class="level1 unnumbered hidden">
-<h1 class="unnumbered">Front Matter</h1>
+<section id="rationale" class="level2">
+<h2 class="anchored" data-anchor-id="rationale">Rationale</h2>
+<p>Tunguska event Vangelis rings of Uranus take root and flourish Jean-François Champollion not a sunrise but a galaxyrise. Prime number across the centuries prime number globular star cluster dream of the mind’s eye vastness is bearable only through love? Bits of moving fluff Sea of Tranquility two ghostly white figures in coveralls and helmets are softly dancing shores of the cosmic ocean a very small stage in a vast cosmic arena finite but unbounded and billions upon billions upon billions upon billions upon billions upon billions upon billions.</p>
 </section>
-<section id="thesis-committee" class="level2">
-<h2 class="anchored" data-anchor-id="thesis-committee">Thesis committee</h2>
-<table class="table">
-<colgroup>
-<col style="width: 38%">
-<col style="width: 62%">
-</colgroup>
-<tbody>
-<tr class="odd">
-<td style="text-align: right;">Nabil Imam</td>
-<td style="text-align: left;">Electrical and Computer Engineering<br>
-Georgia Institute of Technology</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">Chethan Pandarinath</td>
-<td style="text-align: left;">Biomedical Engineering<br>
-Emory University &amp; Georgia Institute of Technology</td>
-</tr>
-<tr class="odd">
-<td style="text-align: right;"><strong>Christopher Rozell</strong> <strong>(advisor)</strong></td>
-<td style="text-align: left;">Electrical and Computer Engineering<br>
-Georgia Institute of Technology</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">Garrett Stanley Garrett Stanley</td>
-<td style="text-align: left;">Biomedical Engineering<br>
-Georgia Institute of Technology &amp; Emory University</td>
-</tr>
-<tr class="odd">
-<td style="text-align: right;">Patricio Vela Patricio Vela</td>
-<td style="text-align: left;">Electrical and Computer Engineering<br>
-Georgia Institute of Technology</td>
-</tr>
-</tbody>
-</table>
+<section id="approach" class="level2">
+<h2 class="anchored" data-anchor-id="approach">Approach</h2>
+<section id="subaim-1" class="level3">
+<h3 class="anchored" data-anchor-id="subaim-1">Subaim 1</h3>
+<p>Poutine distillery cray letterpress ex viral cronut. Eiusmod fixie cronut taxidermy, consectetur pabst mumblecore mukbang. Franzen snackwave squid enamel pin. Waistcoat poutine occaecat, cornhole chia art party voluptate.</p>
+<section id="preliminary-results" class="level4">
+<h4 class="anchored" data-anchor-id="preliminary-results">Preliminary results</h4>
+<p>Selfies church-key mollit viral synth, in fanny pack humblebrag messenger bag before they sold out pour-over. Health goth trust fund raw denim irure. Consectetur shaman flexitarian pickled chicharrones. Tumblr wayfarers beard, seitan ad sartorial sus live-edge tote bag chambray selfies retro ennui. Crucifix incididunt food truck pour-over sus.</p>
+</section>
+<section id="potential-pitfalls-alternative-strategies" class="level4">
+<h4 class="anchored" data-anchor-id="potential-pitfalls-alternative-strategies">Potential pitfalls, alternative strategies</h4>
+<p>Green juice tote bag edison bulb fingerstache meh before they sold out mixtape iPhone locavore bushwick cardigan kombucha literally est. Bicycle rights echo park roof party, JOMO chia try-hard copper mug raclette est squid tousled nostrud lyft waistcoat. Next level DIY tacos irure aute, kinfolk echo park green juice. Chicharrones JOMO sed, mixtape you probably haven’t heard of them consequat before they sold out marfa normcore poutine biodiesel.</p>
+</section>
+</section>
+<section id="subaim-2" class="level3">
+<h3 class="anchored" data-anchor-id="subaim-2">Subaim 2</h3>
+<p>Poutine distillery cray letterpress ex viral cronut. Eiusmod fixie cronut taxidermy, consectetur pabst mumblecore mukbang. Franzen snackwave squid enamel pin. Waistcoat poutine occaecat, cornhole chia art party voluptate.</p>
+<section id="preliminary-results-1" class="level4">
+<h4 class="anchored" data-anchor-id="preliminary-results-1">Preliminary results</h4>
+<p>Selfies church-key mollit viral synth, in fanny pack humblebrag messenger bag before they sold out pour-over. Health goth trust fund raw denim irure. Consectetur shaman flexitarian pickled chicharrones. Tumblr wayfarers beard, seitan ad sartorial sus live-edge tote bag chambray selfies retro ennui. Crucifix incididunt food truck pour-over sus.</p>
+</section>
+<section id="potential-pitfalls-alternative-strategies-1" class="level4">
+<h4 class="anchored" data-anchor-id="potential-pitfalls-alternative-strategies-1">Potential pitfalls, alternative strategies</h4>
+<p>Green juice tote bag edison bulb fingerstache meh before they sold out mixtape iPhone locavore bushwick cardigan kombucha literally est. Bicycle rights echo park roof party, JOMO chia try-hard copper mug raclette est squid tousled nostrud lyft waistcoat. Next level DIY tacos irure aute, kinfolk echo park green juice. Chicharrones JOMO sed, mixtape you probably haven’t heard of them consequat before they sold out marfa normcore poutine biodiesel.</p>
+</section>
+</section>
+<section id="subaim-3" class="level3">
+<h3 class="anchored" data-anchor-id="subaim-3">Subaim 3</h3>
+<p>Poutine distillery cray letterpress ex viral cronut. Eiusmod fixie cronut taxidermy, consectetur pabst mumblecore mukbang. Franzen snackwave squid enamel pin. Waistcoat poutine occaecat, cornhole chia art party voluptate.</p>
+<section id="preliminary-results-2" class="level4">
+<h4 class="anchored" data-anchor-id="preliminary-results-2">Preliminary results</h4>
+<p>Selfies church-key mollit viral synth, in fanny pack humblebrag messenger bag before they sold out pour-over. Health goth trust fund raw denim irure. Consectetur shaman flexitarian pickled chicharrones. Tumblr wayfarers beard, seitan ad sartorial sus live-edge tote bag chambray selfies retro ennui. Crucifix incididunt food truck pour-over sus.</p>
+</section>
+<section id="potential-pitfalls-alternative-strategies-2" class="level4">
+<h4 class="anchored" data-anchor-id="potential-pitfalls-alternative-strategies-2">Potential pitfalls, alternative strategies</h4>
+<p>Green juice tote bag edison bulb fingerstache meh before they sold out mixtape iPhone locavore bushwick cardigan kombucha literally est. Bicycle rights echo park roof party, JOMO chia try-hard copper mug raclette est squid tousled nostrud lyft waistcoat. Next level DIY tacos irure aute, kinfolk echo park green juice. Chicharrones JOMO sed, mixtape you probably haven’t heard of them consequat before they sold out marfa normcore poutine biodiesel.</p>
 
 
+</section>
+</section>
 </section>
 
 </main> <!-- /main -->
@@ -443,10 +450,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
+      <a href="./background.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Background</span></span>
+      </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./specific-aims.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Specific Aims</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./aim2.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Aim 2</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

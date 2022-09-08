@@ -20,6 +20,25 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1.6em;
   vertical-align: middle;
 }
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
 </style>
 
 
@@ -149,7 +168,8 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#innovation" id="toc-innovation" class="nav-link active" data-scroll-target="#innovation">Innovation</a></li>
+  <li><a href="#closed-loop-control-in-neuroscience" id="toc-closed-loop-control-in-neuroscience" class="nav-link active" data-scroll-target="#closed-loop-control-in-neuroscience">Closed-loop control in neuroscience</a></li>
+  <li><a href="#innovation" id="toc-innovation" class="nav-link" data-scroll-target="#innovation">Innovation</a></li>
   </ul>
 </nav>
     </div>
@@ -172,12 +192,140 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<p>A bunch of background info</p>
+<section id="closed-loop-control-in-neuroscience" class="level2">
+<h2 class="anchored" data-anchor-id="closed-loop-control-in-neuroscience">Closed-loop control in neuroscience</h2>
+<p>Mesoscale neuroscience is currently undergoing a revolution fueled by advances in neural manipulation <span class="citation" data-cites="fenno11 wiegert17 sridharan22 vierock21 adesnik21 faini21 roth16 eriksson22">(<a href="references.html#ref-fenno11" role="doc-biblioref"><em>1</em></a>–<a href="references.html#ref-eriksson22" role="doc-biblioref"><em>8</em></a>)</span> and measurement <span class="citation" data-cites="steinmetz21 siegle17 gutruf18 gobel07 knopfel19 svoboda06 kazemipour19 wu20a">(<a href="references.html#ref-steinmetz21" role="doc-biblioref"><em>9</em></a>–<a href="references.html#ref-wu20a" role="doc-biblioref"><em>16</em></a>)</span> technologies as well as data analysis methods <span class="citation" data-cites="maaten08 berman14 mathis18 sani21a sporns18 schneider22">(<a href="references.html#ref-maaten08" role="doc-biblioref"><em>17</em></a>–<a href="references.html#ref-schneider22" role="doc-biblioref"><em>22</em></a>)</span>. These have yielded unprecedented datasets <span class="citation" data-cites="scheffer20 juavinett19">(<a href="references.html#ref-scheffer20" role="doc-biblioref"><em>23</em></a>, <a href="references.html#ref-juavinett19" role="doc-biblioref"><em>24</em></a>)</span> and insights into network activity and plasticity <span class="citation" data-cites="oby19 yang21 cowley20 avitan22 jazayeri21">(<a href="references.html#ref-oby19" role="doc-biblioref"><em>25</em></a>–<a href="references.html#ref-jazayeri21" role="doc-biblioref"><em>29</em></a>)</span>, as well as novel experimental paradigms such as direct closed-loop control of neural activity <span class="citation" data-cites="grosenick15 kumar13 potter14 newman15 bolus18 bolus21 emiliani15 zhang18 krook-magnuson13 witt13 dutta19">(<a href="references.html#ref-grosenick15" role="doc-biblioref"><em>30</em></a>–<a href="references.html#ref-dutta19" role="doc-biblioref"><em>40</em></a>)</span>.</p>
+<p>An exciting emerging possibility is closed-loop control of neural activity [cite Grosenick, a bunch of other reviews], enabling intervention in processes that are too fast or unpredictable to control manually or with pre-defined stimulation, such as sensory information processing, motor planning, and oscillatory activity. Unlike other forms of closed-loop control altering the environment [cite examples, mouse knee rotation, visual stimuli to achieve target response,] or using neurofeedback training [cite Diester] to achieve a neural or behavioral target, the direct control of neural activity itself can unambiguously reveal the downstream effects of that activity.</p>
+<p>TODO: make link to voltage clamp/dynamic clamp</p>
+<p>Closed-loop control of neural activity can be implemented in an event-triggered sense [cite a bunch of examples, inhibiting seizures, altering power, SWR disruption, ]—enabling the experimenter to respond to discrete events of interest, such as the arrival of a traveling wave [cite Reynolds] or sharp wave ripple [cite some review paper]—or in a feedback sense [cite 2 Bolus papers, all-optical, any others], driving the system towards a target or along a trajectory. The latter has multiple advantages over open-loop control (delivery of a pre-defined stimulus): by rejecting exogenous inputs, noise, and disturbances, it reduces variability across time and across trials, allowing for finer-scale inference. Additionally, it can compensate for model mismatch, allowing it to succeed where open-loop control based on imperfect models is bound to miss the mark.</p>
+</section>
 <section id="innovation" class="level2">
 <h2 class="anchored" data-anchor-id="innovation">Innovation</h2>
 <p>What I’m bringing to the table</p>
 
 
+<div id="refs" class="references csl-bib-body" role="doc-bibliography" style="display: none">
+<div id="ref-fenno11" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">1. </div><div class="csl-right-inline">L. Fenno, O. Yizhar, K. Deisseroth, <a href="https://doi.org/10.1146/annurev-neuro-061010-113817">The development and application of optogenetics</a>. <em>Annual Review of Neuroscience</em>. <strong>34</strong>, 389–412 (2011).</div>
+</div>
+<div id="ref-wiegert17" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">2. </div><div class="csl-right-inline">J. S. Wiegert, M. Mahn, M. Prigge, Y. Printz, O. Yizhar, <a href="https://doi.org/10.1016/j.neuron.2017.06.050">Silencing Neurons: Tools, Applications, and Experimental Constraints</a>. <em>Neuron</em>. <strong>95</strong>, 504–529 (2017).</div>
+</div>
+<div id="ref-sridharan22" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">3. </div><div class="csl-right-inline">S. Sridharan, M. A. Gajowa, M. B. Ogando, U. K. Jagadisan, L. Abdeladim, M. Sadahiro, H. A. Bounds, W. D. Hendricks, T. S. Turney, I. Tayler, K. Gopakumar, I. A. Oldenburg, S. G. Brohawn, H. Adesnik, <a href="https://doi.org/10.1016/j.neuron.2022.01.008">High-performance microbial opsins for spatially and temporally precise perturbations of large neuronal networks</a>. <em>Neuron</em>. <strong>110</strong>, 1139–1155.e6 (2022).</div>
+</div>
+<div id="ref-vierock21" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">4. </div><div class="csl-right-inline">J. Vierock, S. Rodriguez-Rozada, A. Dieter, F. Pieper, R. Sims, F. Tenedini, A. C. F. Bergs, I. Bendifallah, F. Zhou, N. Zeitzschel, J. Ahlbeck, S. Augustin, K. Sauter, E. Papagiakoumou, A. Gottschalk, P. Soba, V. Emiliani, A. K. Engel, P. Hegemann, J. S. Wiegert, <a href="https://doi.org/10.1038/s41467-021-24759-5">BiPOLES is an optogenetic tool developed for bidirectional dual-color control of neurons</a>. <em>Nature Communications</em>. <strong>12</strong>, 1–20 (2021).</div>
+</div>
+<div id="ref-adesnik21" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">5. </div><div class="csl-right-inline">H. Adesnik, L. Abdeladim, <a href="https://doi.org/10.1038/s41593-021-00902-9">Probing neural codes with two-photon holographic optogenetics</a>. <em>Nat Neurosci</em>. <strong>24</strong>, 1356–1366 (2021).</div>
+</div>
+<div id="ref-faini21" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">6. </div><div class="csl-right-inline">G. Faini, C. Molinier, C. Telliez, C. Tourain, B. C. Forget, E. Ronzitti, V. Emiliani, <a href="https://doi.org/10.1101/2021.06.14.448315">Ultrafast Light Targeting for High-Throughput Precise Control of Neuronal Networks</a>. <em>bioRxiv</em>, 2021.06.14.448315 (2021).</div>
+</div>
+<div id="ref-roth16" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">7. </div><div class="csl-right-inline">B. L. Roth, <a href="https://doi.org/10.1016/j.neuron.2016.01.040">DREADDs for Neuroscientists</a>. <em>Neuron</em>. <strong>89</strong>, 683–694 (2016).</div>
+</div>
+<div id="ref-eriksson22" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">8. </div><div class="csl-right-inline">D. Eriksson, A. Schneider, A. Thirumalai, M. Alyahyay, B. de la Crompe, K. Sharma, P. Ruther, I. Diester, <a href="https://doi.org/10.1038/s41467-022-28629-6">Multichannel optogenetics combined with laminar recordings for ultra-controlled neuronal interrogation</a>. <em>Nat Commun</em>. <strong>13</strong>, 985 (2022).</div>
+</div>
+<div id="ref-steinmetz21" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">9. </div><div class="csl-right-inline">N. A. Steinmetz, C. Aydin, A. Lebedeva, M. Okun, M. Pachitariu, M. Bauza, M. Beau, J. Bhagat, C. Böhm, M. Broux, S. Chen, J. Colonell, R. J. Gardner, B. Karsh, F. Kloosterman, D. Kostadinov, C. Mora-Lopez, J. O’Callaghan, J. Park, J. Putzeys, B. Sauerbrei, R. J. J. van Daal, A. Z. Vollan, S. Wang, M. Welkenhuysen, Z. Ye, J. T. Dudman, B. Dutta, A. W. Hantman, K. D. Harris, A. K. Lee, E. I. Moser, J. O’Keefe, A. Renart, K. Svoboda, M. Häusser, S. Haesler, M. Carandini, T. D. Harris, Neuropixels 2.0: A miniaturized high-density probe for stable, long-term brain recordings. <em>Science</em>. <strong>372</strong> (2021), doi:<a href="https://doi.org/10.1126/science.abf4588">10.1126/science.abf4588</a>.</div>
+</div>
+<div id="ref-siegle17" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">10. </div><div class="csl-right-inline">J. H. Siegle, A. C. López, Y. A. Patel, K. Abramov, S. Ohayon, J. Voigts, <a href="https://doi.org/10.1088/1741-2552/aa5eea">Open Ephys: an open-source, plugin-based platform for multichannel electrophysiology</a>. <em>J. Neural Eng.</em> <strong>14</strong>, 045003 (2017).</div>
+</div>
+<div id="ref-gutruf18" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">11. </div><div class="csl-right-inline">P. Gutruf, J. A. Rogers, <a href="https://doi.org/10.1016/j.conb.2017.12.007">Implantable, wireless device platforms for neuroscience research</a>. <em>Current Opinion in Neurobiology</em>. <strong>50</strong>, 42–49 (2018).</div>
+</div>
+<div id="ref-gobel07" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">12. </div><div class="csl-right-inline">W. Göbel, F. Helmchen, <a href="https://doi.org/10.1152/physiol.00032.2007">In Vivo Calcium Imaging of Neural Network Function</a>. <em>Physiology</em>. <strong>22</strong>, 358–365 (2007).</div>
+</div>
+<div id="ref-knopfel19" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">13. </div><div class="csl-right-inline">T. Knöpfel, C. Song, <a href="https://doi.org/10.1038/s41583-019-0231-4">Optical voltage imaging in neurons: moving from technology development to practical tool</a>. <em>Nat Rev Neurosci</em>. <strong>20</strong>, 719–727 (2019).</div>
+</div>
+<div id="ref-svoboda06" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">14. </div><div class="csl-right-inline">K. Svoboda, R. Yasuda, <a href="https://doi.org/10.1016/j.neuron.2006.05.019">Principles of Two-Photon Excitation Microscopy and Its Applications to Neuroscience</a>. <em>Neuron</em>. <strong>50</strong>, 823–839 (2006).</div>
+</div>
+<div id="ref-kazemipour19" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">15. </div><div class="csl-right-inline">A. Kazemipour, O. Novak, D. Flickinger, J. S. Marvin, A. S. Abdelfattah, J. King, P. M. Borden, J. J. Kim, S. H. Al-Abdullatif, P. E. Deal, E. W. Miller, E. R. Schreiter, S. Druckmann, K. Svoboda, L. L. Looger, K. Podgorski, <a href="https://doi.org/10.1038/s41592-019-0493-9">Kilohertz frame-rate two-photon tomography</a>. <em>Nature Methods</em>. <strong>16</strong>, 778–786 (2019).</div>
+</div>
+<div id="ref-wu20a" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">16. </div><div class="csl-right-inline">J. Wu, Y. Liang, S. Chen, C. L. Hsu, M. Chavarha, S. W. Evans, D. Shi, M. Z. Lin, K. K. Tsia, N. Ji, <a href="https://doi.org/10.1038/s41592-020-0762-7">Kilohertz two-photon fluorescence microscopy imaging of neural activity in vivo</a>. <em>Nature Methods</em>. <strong>17</strong>, 287–290 (2020).</div>
+</div>
+<div id="ref-maaten08" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">17. </div><div class="csl-right-inline">L. van der Maaten, G. Hinton, <a href="http://jmlr.org/papers/v9/vandermaaten08a.html">Visualizing Data using t-SNE</a>. <em>Journal of Machine Learning Research</em>. <strong>9</strong>, 2579–2605 (2008).</div>
+</div>
+<div id="ref-berman14" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">18. </div><div class="csl-right-inline">G. J. Berman, D. M. Choi, W. Bialek, J. W. Shaevitz, <a href="https://doi.org/10.1098/rsif.2014.0672">Mapping the stereotyped behaviour of freely moving fruit flies</a>. <em>Journal of The Royal Society Interface</em>. <strong>11</strong>, 20140672 (2014).</div>
+</div>
+<div id="ref-mathis18" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">19. </div><div class="csl-right-inline">A. Mathis, P. Mamidanna, K. M. Cury, T. Abe, V. N. Murthy, M. W. Mathis, M. Bethge, <a href="https://doi.org/10.1038/s41593-018-0209-y">DeepLabCut: markerless pose estimation of user-defined body parts with deep learning</a>. <em>Nat Neurosci</em>. <strong>21</strong>, 1281–1289 (2018).</div>
+</div>
+<div id="ref-sani21a" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">20. </div><div class="csl-right-inline">O. G. Sani, H. Abbaspourazad, Y. T. Wong, B. Pesaran, M. M. Shanechi, <a href="https://doi.org/10.1038/s41593-020-00733-0">Modeling behaviorally relevant neural dynamics enabled by preferential subspace identification</a>. <em>Nature Neuroscience</em>. <strong>24</strong>, 140–149 (2021).</div>
+</div>
+<div id="ref-sporns18" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">21. </div><div class="csl-right-inline">O. Sporns, <a href="https://doi.org/10.31887/DCNS.2018.20.2/osporns">Graph theory methods: applications in brain networks</a>. <em>Dialogues in Clinical Neuroscience</em>. <strong>20</strong>, 111–121 (2018).</div>
+</div>
+<div id="ref-schneider22" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">22. </div><div class="csl-right-inline">S. Schneider, J. H. Lee, M. W. Mathis, Learnable latent embeddings for joint behavioral and neural analysis (2022), doi:<a href="https://doi.org/10.48550/arXiv.2204.00673">10.48550/arXiv.2204.00673</a>.</div>
+</div>
+<div id="ref-scheffer20" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">23. </div><div class="csl-right-inline">L. K. Scheffer, C. S. Xu, M. Januszewski, Z. Lu, S. Takemura, K. J. Hayworth, G. B. Huang, K. Shinomiya, J. Maitlin-Shepard, S. Berg, J. Clements, P. M. Hubbard, W. T. Katz, L. Umayam, T. Zhao, D. Ackerman, T. Blakely, J. Bogovic, T. Dolafi, D. Kainmueller, T. Kawase, K. A. Khairy, L. Leavitt, P. H. Li, L. Lindsey, N. Neubarth, D. J. Olbris, H. Otsuna, E. T. Trautman, M. Ito, A. S. Bates, J. Goldammer, T. Wolff, R. Svirskas, P. Schlegel, E. Neace, C. J. Knecht, C. X. Alvarado, D. A. Bailey, S. Ballinger, J. A. Borycz, B. S. Canino, N. Cheatham, M. Cook, M. Dreher, O. Duclos, B. Eubanks, K. Fairbanks, S. Finley, N. Forknall, A. Francis, G. P. Hopkins, E. M. Joyce, S. Kim, N. A. Kirk, J. Kovalyak, S. A. Lauchie, A. Lohff, C. Maldonado, E. A. Manley, S. McLin, C. Mooney, M. Ndama, O. Ogundeyi, N. Okeoma, C. Ordish, N. Padilla, C. M. Patrick, T. Paterson, E. E. Phillips, E. M. Phillips, N. Rampally, C. Ribeiro, M. K. Robertson, J. T. Rymer, S. M. Ryan, M. Sammons, A. K. Scott, A. L. Scott, A. Shinomiya, C. Smith, K. Smith, N. L. Smith, M. A. Sobeski, A. Suleiman, J. Swift, S. Takemura, I. Talebi, D. Tarnogorska, E. Tenshaw, T. Tokhi, J. J. Walsh, T. Yang, J. A. Horne, F. Li, R. Parekh, P. K. Rivlin, V. Jayaraman, M. Costa, G. S. Jefferis, K. Ito, S. Saalfeld, R. George, I. A. Meinertzhagen, G. M. Rubin, H. F. Hess, V. Jain, S. M. Plaza, <a href="https://doi.org/10.7554/eLife.57443">A connectome and analysis of the adult Drosophila central brain</a>. <em>eLife</em>. <strong>9</strong>, e57443 (2020).</div>
+</div>
+<div id="ref-juavinett19" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">24. </div><div class="csl-right-inline">A. L. Juavinett, G. Bekheet, A. K. Churchland, <a href="https://doi.org/10.7554/eLife.47188">Chronically implanted Neuropixels probes enable high-yield recordings in freely moving mice</a>. <em>eLife</em>. <strong>8</strong>, e47188 (2019).</div>
+</div>
+<div id="ref-oby19" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">25. </div><div class="csl-right-inline">E. R. Oby, M. D. Golub, J. A. Hennig, A. D. Degenhart, E. C. Tyler-Kabara, B. M. Yu, S. M. Chase, A. P. Batista, <a href="https://doi.org/10.1073/pnas.1820296116">New neural activity patterns emerge with long-term learning</a>. <em>Proceedings of the National Academy of Sciences</em>. <strong>116</strong>, 15210–15215 (2019).</div>
+</div>
+<div id="ref-yang21" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">26. </div><div class="csl-right-inline">Y. Yang, S. Qiao, O. G. Sani, J. I. Sedillo, B. Ferrentino, B. Pesaran, M. M. Shanechi, <a href="https://doi.org/10.1038/s41551-020-00666-w">Modelling and prediction of the dynamic responses of large-scale brain networks during direct electrical stimulation</a>. <em>Nature Biomedical Engineering</em>. <strong>5</strong>, 324–345 (2021).</div>
+</div>
+<div id="ref-cowley20" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">27. </div><div class="csl-right-inline">B. R. Cowley, A. C. Snyder, K. Acar, R. C. Williamson, B. M. Yu, M. A. Smith, <a href="https://doi.org/10.1016/j.neuron.2020.07.021">Slow Drift of Neural Activity as a Signature of Impulsivity in Macaque Visual and Prefrontal Cortex</a>. <em>Neuron</em>. <strong>108</strong>, 551–567.e8 (2020).</div>
+</div>
+<div id="ref-avitan22" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">28. </div><div class="csl-right-inline">L. Avitan, C. Stringer, Not so spontaneous: Multi-dimensional representations of behaviors and context in sensory areas. <em>Neuron</em> (2022), doi:<a href="https://doi.org/10.1016/j.neuron.2022.06.019">10.1016/j.neuron.2022.06.019</a>.</div>
+</div>
+<div id="ref-jazayeri21" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">29. </div><div class="csl-right-inline">M. Jazayeri, S. Ostojic, <a href="https://doi.org/10.1016/j.conb.2021.08.002">Interpreting neural computations by examining intrinsic and embedding dimensionality of neural activity</a>. <em>Current Opinion in Neurobiology</em>. <strong>70</strong>, 113–120 (2021).</div>
+</div>
+<div id="ref-grosenick15" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">30. </div><div class="csl-right-inline">L. Grosenick, J. H. Marshel, K. Deisseroth, <a href="https://doi.org/10.1016/j.neuron.2015.03.034">Review Closed-Loop and Activity-Guided Optogenetic Control</a>. <em>Neuron</em>. <strong>86</strong>, 106–139 (2015).</div>
+</div>
+<div id="ref-kumar13" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">31. </div><div class="csl-right-inline">A. Kumar, I. Vlachos, A. Aertsen, C. Boucsein, <a href="https://doi.org/10.1016/j.tins.2013.06.005">Challenges of understanding brain function by selective modulation of neuronal subpopulations</a>. <em>Trends in Neurosciences</em>. <strong>36</strong>, 579–586 (2013).</div>
+</div>
+<div id="ref-potter14" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">32. </div><div class="csl-right-inline">S. M. Potter, A. El Hady, E. E. Fetz, <a href="https://doi.org/10.3389/FNCIR.2014.00115">Closed-loop neuroscience and neuroengineering</a>. <em>Frontiers in Neural Circuits</em>. <strong>0</strong>, 115 (2014).</div>
+</div>
+<div id="ref-newman15" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">33. </div><div class="csl-right-inline">J. P. Newman, M. F. Fong, D. C. Millard, C. J. Whitmire, G. B. Stanley, S. M. Potter, Optogenetic feedback control of neural activity. <em>eLife</em> (2015), doi:<a href="https://doi.org/10.7554/eLife.07192">10.7554/eLife.07192</a>.</div>
+</div>
+<div id="ref-bolus18" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">34. </div><div class="csl-right-inline">M. F. Bolus, A. A. Willats, C. J. Whitmire, C. J. Rozell, G. B. Stanley, <a href="https://doi.org/10.1088/1741-2552/aaa506">Design strategies for dynamic closed-loop optogenetic neurocontrol in vivo</a>. <em>Journal of Neural Engineering</em>. <strong>15</strong>, 026011 (2018).</div>
+</div>
+<div id="ref-bolus21" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">35. </div><div class="csl-right-inline">M. F. Bolus, A. A. Willats, C. J. Rozell, G. B. Stanley, <em>Journal of neural engineering</em>, in press, doi:<a href="https://doi.org/10.1101/2020.06.25.171785">10.1101/2020.06.25.171785</a>.</div>
+</div>
+<div id="ref-emiliani15" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">36. </div><div class="csl-right-inline">V. Emiliani, A. E. Cohen, K. Deisseroth, M. Häusser, <a href="https://doi.org/10.1523/JNEUROSCI.2916-15.2015">All-optical interrogation of neural circuits</a>. <em>Journal of Neuroscience</em>. <strong>35</strong>, 13917–13926 (2015).</div>
+</div>
+<div id="ref-zhang18" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">37. </div><div class="csl-right-inline">Z. Zhang, L. E. Russell, A. M. Packer, O. M. Gauld, M. Häusser, <a href="https://doi.org/10.1038/s41592-018-0183-z">Closed-loop all-optical interrogation of neural circuits in vivo</a>. <em>Nature Methods</em>. <strong>15</strong>, 1037–1040 (2018).</div>
+</div>
+<div id="ref-krook-magnuson13" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">38. </div><div class="csl-right-inline">E. Krook-Magnuson, C. Armstrong, M. Oijala, I. Soltesz, <a href="https://doi.org/10.1038/ncomms2376">On-demand optogenetic control of spontaneous seizures in temporal lobe epilepsy</a>. <em>Nature Communications</em>. <strong>4</strong>, 1–8 (2013).</div>
+</div>
+<div id="ref-witt13" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">39. </div><div class="csl-right-inline">A. Witt, A. Palmigiano, A. Neef, A. El Hady, F. Wolf, D. Battaglia, <a href="https://doi.org/10.3389/fncir.2013.00049">Controlling the oscillation phase through precisely timed closed-loop optogenetic stimulation: a computational study</a>. <em>Frontiers in Neural Circuits</em>. <strong>7</strong>, 1–17 (2013).</div>
+</div>
+<div id="ref-dutta19" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">40. </div><div class="csl-right-inline">S. Dutta, E. Ackermann, C. Kemere, <a href="https://doi.org/10.1088/1741-2552/aae90e">Analysis of an open source, closed-loop, realtime system for hippocampal sharp-wave ripple disruption</a>. <em>Journal of Neural Engineering</em>. <strong>16</strong>, 016009 (2019).</div>
+</div>
+</div>
 </section>
 
 </main> <!-- /main -->

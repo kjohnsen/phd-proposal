@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Improving and applying closed-loop optogenetic control in mesoscale neuroscience - 3&nbsp; Aim 1</title>
+<title>Exploiting optogenetic feedback control in mesoscale neuroscience - 3&nbsp; Aim 1</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -85,10 +85,10 @@ ul.task-list li input[type="checkbox"] {
   <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation floating overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
-      <a href="./">Improving and applying closed-loop optogenetic control in mesoscale neuroscience</a> 
+      <a href="./">Exploiting optogenetic feedback control in mesoscale neuroscience</a> 
         <div class="sidebar-tools-main tools-wide">
     <a href="https://github.com/kjohnsen/phd-proposal/" title="Source Code" class="sidebar-tool px-1"><i class="bi bi-github"></i></a>
-    <a href="./Improving-and-applying-closed-loop-optogenetic-control-in-mesoscale-neuroscience.pdf" title="Download PDF" class="sidebar-tool px-1"><i class="bi bi-file-pdf"></i></a>
+    <a href="./Exploiting-optogenetic-feedback-control-in-mesoscale-neuroscience.pdf" title="Download PDF" class="sidebar-tool px-1"><i class="bi bi-file-pdf"></i></a>
   <a href="" class="quarto-color-scheme-toggle sidebar-tool" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
 </div>
     </div>
@@ -150,6 +150,7 @@ ul.task-list li input[type="checkbox"] {
    
   <ul>
   <li><a href="#rationale" id="toc-rationale" class="nav-link active" data-scroll-target="#rationale">Rationale</a></li>
+  <li><a href="#innovation" id="toc-innovation" class="nav-link" data-scroll-target="#innovation">Innovation</a></li>
   <li><a href="#approach" id="toc-approach" class="nav-link" data-scroll-target="#approach">Approach</a>
   <ul>
   <li><a href="#subaim-1" id="toc-subaim-1" class="nav-link" data-scroll-target="#subaim-1">Subaim 1</a>
@@ -192,7 +193,11 @@ ul.task-list li input[type="checkbox"] {
 
 <section id="rationale" class="level2">
 <h2 class="anchored" data-anchor-id="rationale">Rationale</h2>
-<p>Tunguska event Vangelis rings of Uranus take root and flourish Jean-François Champollion not a sunrise but a galaxyrise. Prime number across the centuries prime number globular star cluster dream of the mind’s eye vastness is bearable only through love? Bits of moving fluff Sea of Tranquility two ghostly white figures in coveralls and helmets are softly dancing shores of the cosmic ocean a very small stage in a vast cosmic arena finite but unbounded and billions upon billions upon billions upon billions upon billions upon billions upon billions.</p>
+<p>CLOC experiments are difficult and costly. This can be a barrier to entry for neuroscientists that find CLOC’s advantages attractive. Their lab might lack the funds to invest in necessary hardware or the time to invest in adding high-performance signal processing loop to their experimental workflow. Or, they may possess the resources but do not want to spend them without some assurance that their proposed experiment would be fruitful. Finally, when the proposed experiment requires signal processing/control method development, iterating on designs <em>in-vivo</em> may be cumbersome, given the additional cost of husbandry.</p>
+</section>
+<section id="innovation" class="level2">
+<h2 class="anchored" data-anchor-id="innovation">Innovation</h2>
+<p>The innovation I introduce is developing a testbed for simulating CLOC experiments, providing researchers a “free trial” and a low-cost environment to design experiments and develop methods. Existing mesoscale neural network simulation programs do not contain all the ingredients necessary for CLOC simulation: electrode recording, light and opsin models for optogenetic stimulation, and arbitrary closed-loop stimulation (including latency).</p>
 </section>
 <section id="approach" class="level2">
 <h2 class="anchored" data-anchor-id="approach">Approach</h2>

@@ -43,6 +43,9 @@ format:
       light: flatly
     number-depth: 1
     toc-depth: 4
+    filters:
+    - lightbox
+    lightbox: auto
 
   pdf:
     documentclass: scrreprt

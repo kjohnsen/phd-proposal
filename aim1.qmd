@@ -1,58 +1,110 @@
-# Aim 1
+# Aim 1: A CLOC simulation testbed
 
 ## Rationale
 
-Tunguska event Vangelis rings of Uranus take root and flourish Jean-François Champollion not a sunrise but a galaxyrise. Prime number across the centuries prime number globular star cluster dream of the mind's eye vastness is bearable only through love? Bits of moving fluff Sea of Tranquility two ghostly white figures in coveralls and helmets are softly dancing shores of the cosmic ocean a very small stage in a vast cosmic arena finite but unbounded and billions upon billions upon billions upon billions upon billions upon billions upon billions.
+CLOC experiments are difficult and costly.
+This can be a barrier to entry for neuroscientists that find CLOC's advantages attractive.
+Their lab might lack the funds to invest in necessary hardware or the time to invest in adding high-performance signal processing loop to their experimental workflow.
+Or, they may possess the resources but do not want to spend them without some assurance that their proposed experiment would be fruitful.
+Finally, when the proposed experiment requires signal processing/control method development, iterating on designs *in-vivo* may be cumbersome, given the additional cost of animal care and training.
+
+Taken together, these factors not only make CLOC experiments a significant investment for a researcher, but one laden with risk.
+Unknown properties of the system under study can make it hard to predict whether a proposed experiment (e.g., whether a given population of neurons can be controlled in a given way) is likely to succeed, and even more so when working with innovative methods with little precedent in the literature.
+
+However, these costs and risks can be mitigated through in silico prototyping.
+Given a reliable model of the system of interest, one can simulate a proposed experiment, assessing the effectiveness of a given setup.
+Alternate models can be tested to assess robustness of the given method to unknown model properties, or a single method can be validated on a variety of models to determine its general applicability.
+This strategy not only allows for a researcher to evaluate and optimize methods before committing significant resources to them, but also accelerates the development cycle.
+
+For these reasons, I have developed Cleo: Closed Loop, Electrophysiology, and Optogenetics experiment simulation testbed.
+Unlike existing software, Cleo simultaneously provides a high-level interface to fast and flexible neural network simulations; easy, model-independent injection of electrode recording and optogenetic perturbations; and a real-time, closed-loop processing module capable of modeling communication and processing delays inherent in real experiments.
+I thus provide a "free trial" to researchers who are unsure if CLOC will serve their research agenda, as well as a low-cost environment to design experiments and develop methods, for those who are already committed to the technqiue.
+
+## Guiding principles
+Two factors drove our choice of recording and stimulation models to integrate into Cleo.
+First, because a main purpose of Cleo is to enable prototyping of experiments, we focused on models at the level of the parameters an experimenter is able to alter.
+Because parameters such as electrode location, channel count and density, and optic fiber depth and size are all defined naturally in spatially extended models, Cleo’s electrode and optogenetics modules require a “spatial” network model where relevant neurons must be assigned coordinates in space.
+
+Second, we assumed that highly realistic models of individual neurons are not needed to capture most mesoscale-level phenomena.
+Accordingly, Cleo was developed with the intention of using point neurons models, rather than multi-compartment neuron models with realistic morphologies.
+Simulating simpler neuron models offers advantages of speed and intuitiveness, which are important in the context of prototyping an experiment.
+This decision had consequences in our software (@sec-cleo-arch) and optogenetics (@sec-opto) and LFP (@sec-elec) modeling decisions.
+
+## Closed-loop simulation architecture
+
+### Approach {#sec-cleo-arch}
+We chose Brian 2 [@stimberg19] as the spiking neural network simulator to build Cleo around.
+Brian is a relatively new spiking neural network simulator written in Python with multiple advantages.
+It flexibly allows (and even requires) the user to define models mathematically rather than selecting from a pre-defined library of cell types and features, while maintaining the ease of a high-level interface.
+This keeps model and experiment details together and enables us to define arbitrary recording and stimulation models that easily interface with the simulation.
+Moreover, the Python programming language has the advantages of being open-source, intuitive to learn [@bogdanchikov13], and widely used in computational neuroscience [@davison09; @muller15].
+Users do not need to use any other languages to use Brian.
+Brian is also relatively fast (especially since it is developed primarily for point neuron simulations), as shown in benchmarks [@stimberg19].
+
+Cleo provides three modules—recording, stimulation, and closed-loop processing—for integration with an existing Brian model (see @fig-cleo-arch).
+Cleo’s functionality centers around a `CLSimulator` object that orchestrates the interactions between these three modules and the Brian simulation by injecting devices, running the simulation, and communicating with an `IOProcessor` object at each time step.
+The `IOProcessor` receives recorder measurements according to a specified sampling rate and returns any updates to stimulator devices.
+
+::: {#fig-cleo-arch}
+![](img/cleo-arch.png)
+
+A conceptual diagram of Cleo’s functionality. Cleo wraps a Brian network model, injects stimulation and recording devices, and interfaces with the network in real time through a simulated “I/O processor”.
+:::
+
+In order to simulate the effects of latency in closed-loop control, Cleo provides a `LatencyIOProcessor` class capable of delivering control signals after some delay.
+It does this by storing the outputs calculated for every sample in a buffer along with the time they can be delivered to the network.
+For example, if a sample is taken at 20 ms and the user wishes to simulate a processing and communication latency of 3 ms, the control signal, along with the output time of 23 ms is stored in a buffer which the simulation checks at every timestep.
+As soon as the simulation clock reaches 23 ms, the control signal is taken from the buffer and applied to the stimulator devices.
+Because the user has arbitrary control over this latency, they can easily simulate probabilistic delays if, for example, they wish to assess the effect of the experimental platform stalling occasionally.
+
+By default, `LatencyIOProcessor` samples on a fixed schedule and simulates processing samples in parallel—that is, the computation time for one sample does not affect that of others.
+Some alternatives are available, as illustrated in @fig-latency.
+
+::: {#fig-latency}
+![](img/fig-latency.svg)
+
+Latency emulation strategy and available configurations. (A) Cleo registers the time a sample is taken from the recording devices, the times the computation starts and ends, applying the user-specified delay, and updates stimulation devices when finished. (B) The default, parallel processing/fixed sampling mode. (C) The serial processing/fixed sampling case reflects when computations are not performed in parallel, but sampling continues on a fixed schedule. (D) The final processing mode avoids buffer overflow by sampling only once the computation for the previous step has terminated.
+:::
+
+### Limitations
 
 
-## Approach
+## Electrode recording
 
-### Subaim 1
+### Approach
 
-Poutine distillery cray letterpress ex viral cronut. Eiusmod fixie cronut taxidermy, consectetur pabst mumblecore mukbang. Franzen snackwave squid enamel pin. Waistcoat poutine occaecat, cornhole chia art party voluptate.
+### Preliminary results
 
+### Expected results
 
-#### Preliminary results
-
-Selfies church-key mollit viral synth, in fanny pack humblebrag messenger bag before they sold out pour-over. Health goth trust fund raw denim irure. Consectetur shaman flexitarian pickled chicharrones. Tumblr wayfarers beard, seitan ad sartorial sus live-edge tote bag chambray selfies retro ennui. Crucifix incididunt food truck pour-over sus.
-
+### Potential pitfalls, alternative strategies
 
 
-#### Potential pitfalls, alternative strategies
+## Optogenetic stimulation
 
-Green juice tote bag edison bulb fingerstache meh before they sold out mixtape iPhone locavore bushwick cardigan kombucha literally est. Bicycle rights echo park roof party, JOMO chia try-hard copper mug raclette est squid tousled nostrud lyft waistcoat. Next level DIY tacos irure aute, kinfolk echo park green juice. Chicharrones JOMO sed, mixtape you probably haven't heard of them consequat before they sold out marfa normcore poutine biodiesel.
+### Approach
 
+### Preliminary results
 
+### Expected results
 
-### Subaim 2
-
-Poutine distillery cray letterpress ex viral cronut. Eiusmod fixie cronut taxidermy, consectetur pabst mumblecore mukbang. Franzen snackwave squid enamel pin. Waistcoat poutine occaecat, cornhole chia art party voluptate.
-
-
-#### Preliminary results
-
-Selfies church-key mollit viral synth, in fanny pack humblebrag messenger bag before they sold out pour-over. Health goth trust fund raw denim irure. Consectetur shaman flexitarian pickled chicharrones. Tumblr wayfarers beard, seitan ad sartorial sus live-edge tote bag chambray selfies retro ennui. Crucifix incididunt food truck pour-over sus.
+### Potential pitfalls, alternative strategies
 
 
+## Usability & accessibility
 
-#### Potential pitfalls, alternative strategies
+### Approach
 
-Green juice tote bag edison bulb fingerstache meh before they sold out mixtape iPhone locavore bushwick cardigan kombucha literally est. Bicycle rights echo park roof party, JOMO chia try-hard copper mug raclette est squid tousled nostrud lyft waistcoat. Next level DIY tacos irure aute, kinfolk echo park green juice. Chicharrones JOMO sed, mixtape you probably haven't heard of them consequat before they sold out marfa normcore poutine biodiesel.
+### Preliminary results
 
+### Expected results
 
+### Potential pitfalls, alternative strategies
 
+## Limitations
+One limitation previously mentioned is that because we have prioritized point neuron models, Cleo does not currently provide tools for recording realistic extracellular potentials. This would preclude realistically simulating such methods as spike sorting. Currently, the sorted spikes signal Cleo can record assumes perfect sorting but could be made more realistic by adding sorting noise.
 
-### Subaim 3
+- also, spatial stimulation detail
+- and advanced spatial dynamics
 
-Poutine distillery cray letterpress ex viral cronut. Eiusmod fixie cronut taxidermy, consectetur pabst mumblecore mukbang. Franzen snackwave squid enamel pin. Waistcoat poutine occaecat, cornhole chia art party voluptate.
-
-
-#### Preliminary results
-
-Selfies church-key mollit viral synth, in fanny pack humblebrag messenger bag before they sold out pour-over. Health goth trust fund raw denim irure. Consectetur shaman flexitarian pickled chicharrones. Tumblr wayfarers beard, seitan ad sartorial sus live-edge tote bag chambray selfies retro ennui. Crucifix incididunt food truck pour-over sus.
-
-
-
-#### Potential pitfalls, alternative strategies
-
-Green juice tote bag edison bulb fingerstache meh before they sold out mixtape iPhone locavore bushwick cardigan kombucha literally est. Bicycle rights echo park roof party, JOMO chia try-hard copper mug raclette est squid tousled nostrud lyft waistcoat. Next level DIY tacos irure aute, kinfolk echo park green juice. Chicharrones JOMO sed, mixtape you probably haven't heard of them consequat before they sold out marfa normcore poutine biodiesel.
+But, Brian does have some support for morphology

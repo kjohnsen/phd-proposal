@@ -28,11 +28,14 @@ Because parameters such as electrode location, channel count and density, and op
 Second, we assumed that highly realistic models of individual neurons are not needed to capture most mesoscale-level phenomena.
 Accordingly, Cleo was developed with the intention of using point neurons models, rather than multi-compartment neuron models with realistic morphologies.
 Simulating simpler neuron models offers advantages of speed and intuitiveness, which are important in the context of prototyping an experiment.
-This decision had consequences in our software (@sec-cleo-arch) and optogenetics (@sec-opto) and LFP (@sec-elec) modeling decisions.
+This decision had consequences in our software (@sec-cleo-arch) and LFP modeling (@sec-elec) decisions.
 
-## Closed-loop simulation architecture
+### Limitations and workarounds
+Because we prioritize point neuron models, Cleo does not currently provide tools for recording realistic extracellular potentials.
+This would preclude realistically simulating such methods as spike sorting.
+Currently, the sorted spikes signal Cleo can record assumes perfect sorting but could be made more realistic by adding sorting noise.
 
-### Approach {#sec-cleo-arch}
+## Closed-loop simulation architecture {#sec-cleo-arch}
 We chose Brian 2 [@stimberg19] as the spiking neural network simulator to build Cleo around.
 Brian is a relatively new spiking neural network simulator written in Python with multiple advantages.
 It flexibly allows (and even requires) the user to define models mathematically rather than selecting from a pre-defined library of cell types and features, while maintaining the ease of a high-level interface.
@@ -61,32 +64,87 @@ By default, `LatencyIOProcessor` samples on a fixed schedule and simulates proce
 Some alternatives are available, as illustrated in @fig-latency.
 
 ::: {#fig-latency}
-![](img/fig-latency.svg)
+![](img/fig-latency.png)
 
 Latency emulation strategy and available configurations. (A) Cleo registers the time a sample is taken from the recording devices, the times the computation starts and ends, applying the user-specified delay, and updates stimulation devices when finished. (B) The default, parallel processing/fixed sampling mode. (C) The serial processing/fixed sampling case reflects when computations are not performed in parallel, but sampling continues on a fixed schedule. (D) The final processing mode avoids buffer overflow by sampling only once the computation for the previous step has terminated.
 :::
 
 ### Limitations
+One downside of using Brian is that it does not have the same first-class support for multi-compartment neurons as the popular NEURON [@hines97] simulator.
+Using point neurons precludes advanced, morphology-dependent features of neural dynamics as well as recording and stimulation.
+However, if this feature is needed, Cleo could be developed further to integrate with Brian's morphological neuron features.
 
+## Electrode recording {#sec-elec}
 
-## Electrode recording
+### Spiking
+Because we have prioritized point neuron simulations, the electrode functionality currently implemented in Cleo does not rely on raw extracellular potentials, which can only be computed from multi-compartment neurons [@pettersen12; @buzsaki12].
+This biophysical forward modeling approach has been taken in other software [@hagen18; @parasuram16; @tomsett15; @thornton19].
 
-### Approach
+To approximate spike recording without filtering and thresholding of extracellular potentials, Cleo simply takes ground-truth spikes and stochastically determines which to report using a detection probability function.
+This function is parametrized by a perfect detection radius, within which all spikes are reported, a half detection radius, at which distance there is a 50% chance a spike will be detected, and a cutoff probability, below which all neurons are ignored.
+The detection probability function is interpolated between the parametrized points with a $1/r$ function [@nason20; @holt99], where $r$ is the distance between the neuron and the electrode (see @fig-elec).
 
-### Preliminary results
+Cleo provides spike recording functionality in two forms: multi-unit and sorted.
+Multi-unit spiking reports every spike detected by every channel, without regard for the origin of the spike.
+Thus, each channel can report spikes from multiple neurons and a single spike can be reported on multiple channels.
+Sorted spiking reports all spikes detected on at least one channel, where each neuron is identified by a unique index.
+While real-time spike sorting is currently not feasible in practice for large numbers of contacts, this sorted spiking option could be used to emulate a common workflow of isolating one or a few neurons to report spikes from in real time.
 
-### Expected results
+:::{#fig-elec}
+![](img/fig-electrodes.png)
 
-### Potential pitfalls, alternative strategies
+Illustration of LFP and spiking from Cleo’s electrophysiology module. (A) The probabilistic spike detection model. All spikes within the 100% detection radius, 50% of spikes at the 50% detection radius, and none of those outside the threshold radius are recorded. The detection probability decays with 1/r. (B) An example plot generated by Cleo showing the positions of neurons and electrode contacts. (C) Randomly generated spikes for the neurons shown in B. Top: the sorted spike signal, which gives the ground truth source neuron for every spike as a perfect proxy for spike sorting. Bottom: multi-unit spikes, where spikes are reported on every channel they are detected on, regardless of the source neuron. (D) The TKLFP signal generated from the spikes in C for each channel. Y-axis units are not shown.
+:::
 
+### LFP
+In order to approximate cortical LFP without recurring to morphological neurons and biophysical forward modeling, we implemented the kernel LFP approximation from [@telenczuk20], which we term TKLFP (Teleńczuk kernel LFP).
+This method approximates the per-spike contribution to LFP (termed uLFP: unitary LFP) with a delayed Gaussian function, where amplitude and delay depend on the position of the neuron relative to the electrode.
+While the original study included reference peak amplitude $A_0$ values at just four cortical depths, we inferred these values for arbitrary depths by performing cubic interpolation on data from their figure 5 and assumed that this profile dropped to zero at 600 µm below the soma and 1000 µm above.
+This implementation is available as a standalone Python package on PyPI [@johnsen22].
+Accuracy of this implementation is verified in automated test suites in both TKLFP and Cleo packages.
+
+### Limitations
+Using point neurons requires approximation of extraceullar potentials, which do not perfectly match ground-truth signals.
+The TKLFP approximation Cleo uses, for example, underrepresents high-frequency signals.
+Fortunately, there is an alternate, potentially more accurate, LFP approximation for point neurons that can be added to Cleo in the future if needed [@mazzoni15a].
 
 ## Optogenetic stimulation
 
 ### Approach
+#### Light model
+Cleo simulates optogenetic stimulation by combining a model of light propagation with an opsin model relating light to current.
+The light model is taken from [@foutz12] and uses Kubelka-Munk light propagation.
+This is a simplified model operating on the assumption that the medium is optically homogeneous, which, while not true, was shown by Foutz et al.
+to be a suitable approximation.
+Cleo includes absorbance, scattering, and refraction parameters for blue, 473-nm light as given in [@foutz12].
 
-### Preliminary results
+#### Opsin models
+Independent of the light propagation model, Cleo provides two different opsin models.
+One is a four-state Markov model as presented in [@evans16], which captures rise, peak, plateau, and fall dynamics as the opsin is activated and deactivated through a Markov process.
+Additionally, by defining conductance rather than current directly, the model is able to reproduce the photocurrent’s dependence on the membrane potential (see @fig-opto).
+While the four-state model fits experimental data fairly well, the code is structured so that the three- or six-state models in [@evans16]
+could also be easily implemented.
 
-### Expected results
+Because the Markov model depends on somewhat realistic membrane potential and resistance values, however, it is not well suited for many pre-existing models that do not.
+For example, many commonly used leaky integrate-and-fire (LIF) neurons define the membrane potential as ranging from 0 to 1, rather than -70 mV to -50 mV, rendering both the units and values (relative to the opsin’s reversal potential) incompatible.
+One solution would be for users to adapt their neuron models for compatibility with this Markov opsin model, but since this would be burdensome, we developed an alternative model that simply delivers photocurrent proportional to the light intensity at each neuron.
+Thus, users can retain their original model with no need to add units or modify parameters.
+
+In addition to options for opsin modeling, Cleo allows the user to specify both the probability that cells of a target population express an opsin and the per-cell expression level.
+This allows for the study of the impact of heterogeneous expression on the outcome of an experiment.
+
+
+### Results
+The light model from [@foutz12] was successfully replicated, and the light intensity-firing rate relationship was qualitatively similar to that originally reported, though differing in some respects.
+This can be attributed to the use of point neurons rather than morphological neurons.
+See @fig-opto for details.
+Additionally, preliminary experiments show that the simplified, proportional current opsin model is able to produce a firing response qualitatively similar to that of the Markov model. 
+
+:::{#fig-opto}
+![](img/fig-opto.png)
+
+caption
+:::
 
 ### Potential pitfalls, alternative strategies
 
@@ -102,9 +160,5 @@ Latency emulation strategy and available configurations. (A) Cleo registers the 
 ### Potential pitfalls, alternative strategies
 
 ## Limitations
-One limitation previously mentioned is that because we have prioritized point neuron models, Cleo does not currently provide tools for recording realistic extracellular potentials. This would preclude realistically simulating such methods as spike sorting. Currently, the sorted spikes signal Cleo can record assumes perfect sorting but could be made more realistic by adding sorting noise.
 
-- also, spatial stimulation detail
-- and advanced spatial dynamics
-
-But, Brian does have some support for morphology
+Bring your own model

@@ -21,8 +21,8 @@ tbl-colwidths: [38, 62]
 |     **(advisor)**       | Georgia Institute of Technology                    |
 +-------------------------+----------------------------------------------------+
 |   Garrett Stanley       | Biomedical Engineering \                           |
-|   Garrett Stanley       | Georgia Institute of Technology & Emory University |
+|                         | Georgia Institute of Technology & Emory University |
 +-------------------------+----------------------------------------------------+
 |   Patricio Vela         | Electrical and Computer Engineering \              |
-|   Patricio Vela         | Georgia Institute of Technology                    |
+|                         | Georgia Institute of Technology                    |
 +-------------------------+----------------------------------------------------+

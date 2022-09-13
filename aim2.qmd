@@ -1,4 +1,4 @@
-# Aim 2
+# Aim 2 {#sec-aim2}
 
 ## Rationale
 

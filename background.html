@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Exploiting optogenetic feedback control in mesoscale neuroscience - 2&nbsp; Background</title>
+<title>Developing and exploiting optogenetic feedback control in mesoscale neuroscience - 2&nbsp; Background</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -62,6 +62,9 @@ div.csl-indent {
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
 <link href="site_libs/bootstrap/bootstrap-dark.min.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<script src="site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
+<link href="site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
+<link href="site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -105,10 +108,10 @@ div.csl-indent {
   <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation floating overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
-      <a href="./">Exploiting optogenetic feedback control in mesoscale neuroscience</a> 
+      <a href="./">Developing and exploiting optogenetic feedback control in mesoscale neuroscience</a> 
         <div class="sidebar-tools-main tools-wide">
     <a href="https://github.com/kjohnsen/phd-proposal/" title="Source Code" class="sidebar-tool px-1"><i class="bi bi-github"></i></a>
-    <a href="./Exploiting-optogenetic-feedback-control-in-mesoscale-neuroscience.pdf" title="Download PDF" class="sidebar-tool px-1"><i class="bi bi-file-pdf"></i></a>
+    <a href="./Developing-and-exploiting-optogenetic-feedback-control-in-mesoscale-neuroscience.pdf" title="Download PDF" class="sidebar-tool px-1"><i class="bi bi-file-pdf"></i></a>
   <a href="" class="quarto-color-scheme-toggle sidebar-tool" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
 </div>
     </div>
@@ -137,7 +140,7 @@ div.csl-indent {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./aim1.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Aim 1</span></a>
+  <a href="./aim1.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Aim 1: A CLOC simulation testbed</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -210,31 +213,25 @@ div.csl-indent {
 <div id="fig-prev-work" class="quarto-layout-panel">
 <figure class="figure">
 <div class="quarto-layout-row quarto-layout-valign-top">
-<div class="quarto-layout-cell quarto-layout-cell-subref" style="flex-basis: 50.0%;justify-content: center;">
-<div id="fig-newman15" class="quarto-figure quarto-figure-center anchored">
+<div id="fig-newman15" class="quarto-figure quarto-figure-center anchored" style="flex-basis: 50.0%;justify-content: center;">
 <figure class="figure">
-<p><img src="img/newman15.jpg" class="img-fluid figure-img" data-ref-parent="fig-prev-work"></p>
+<p><a href="img/newman15.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="img/newman15.jpg" class="img-fluid figure-img"></a></p>
 <p></p><figcaption class="figure-caption">(a)</figcaption><p></p>
 </figure>
 </div>
-</div>
-<div class="quarto-layout-cell quarto-layout-cell-subref" style="flex-basis: 50.0%;justify-content: center;">
-<div id="fig-bolus18" class="quarto-figure quarto-figure-center anchored">
+<div id="fig-bolus18" class="quarto-figure quarto-figure-center anchored" style="flex-basis: 50.0%;justify-content: center;">
 <figure class="figure">
-<p><img src="img/bolus18.jpg" class="img-fluid figure-img" data-ref-parent="fig-prev-work"></p>
+<p><a href="img/bolus18.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-2"><img src="img/bolus18.jpg" class="img-fluid figure-img"></a></p>
 <p></p><figcaption class="figure-caption">(b)</figcaption><p></p>
 </figure>
 </div>
 </div>
-</div>
 <div class="quarto-layout-row quarto-layout-valign-top">
-<div class="quarto-layout-cell quarto-layout-cell-subref" style="flex-basis: 100.0%;justify-content: center;">
-<div id="fig-bolus21" class="quarto-figure quarto-figure-center anchored">
+<div id="fig-bolus21" class="quarto-figure quarto-figure-center anchored" style="flex-basis: 100.0%;justify-content: center;">
 <figure class="figure">
-<p><img src="img/bolus21.jpg" class="img-fluid figure-img" data-ref-parent="fig-prev-work"></p>
+<p><a href="img/bolus21.jpg" class="lightbox" data-gallery="quarto-lightbox-gallery-3"><img src="img/bolus21.jpg" class="img-fluid figure-img"></a></p>
 <p></p><figcaption class="figure-caption">(c)</figcaption><p></p>
 </figure>
-</div>
 </div>
 </div>
 <p></p><figcaption class="figure-caption">Figure&nbsp;2.1: Previous CLOC experiments. (A) Figure 2 from <span class="citation" data-cites="newman15">(<a href="references.html#ref-newman15" role="doc-biblioref"><em>33</em></a>)</span>, demonstrating control clamping a cultured neuron to different firing rates. <span class="math inline">\(U_C\)</span> refers to the control signal for channelrhodopsin2(H134R) (ChR2<sub>R</sub>), parametrizing 470-nm light delivery. <span class="math inline">\(U_H\)</span> likewise parametrizes 590-nm light delivery to activate enhanced halorhodopsin-3.0 (eNpHR3.0). (B) Figure 2 from <span class="citation" data-cites="bolus18">(<a href="references.html#ref-bolus18" role="doc-biblioref"><em>34</em></a>)</span>, outlining an <em>in-vivo</em> experiment setup, a control diagram showing how optical input is determined from the firing rate estimated in real time, and a strategy for tuning the controller. (C) Figure 4b from <span class="citation" data-cites="bolus21">(<a href="references.html#ref-bolus21" role="doc-biblioref"><em>35</em></a>)</span>, showing how CLOC clamps the firing rate of a single thalamic neuron in the awake mouse over multiple trials, reducing response variability (as measured by the Fano factor).</figcaption><p></p>
@@ -677,11 +674,12 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   </div>
   <div class="nav-page nav-page-next">
       <a href="./aim1.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Aim 1</span></span> <i class="bi bi-arrow-right-short"></i>
+        <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Aim 1: A CLOC simulation testbed</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
 </div> <!-- /content -->
+<script>var lightboxQuarto = GLightbox({"openEffect":"zoom","selector":".lightbox","closeEffect":"zoom","loop":true,"descPosition":"bottom"});</script>
 
 
 

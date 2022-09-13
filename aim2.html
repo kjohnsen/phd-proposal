@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Exploiting optogenetic feedback control in mesoscale neuroscience - 4&nbsp; Aim 2</title>
+<title>Developing and exploiting optogenetic feedback control in mesoscale neuroscience - 4&nbsp; Aim 2</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -85,10 +85,10 @@ ul.task-list li input[type="checkbox"] {
   <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation floating overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
-      <a href="./">Exploiting optogenetic feedback control in mesoscale neuroscience</a> 
+      <a href="./">Developing and exploiting optogenetic feedback control in mesoscale neuroscience</a> 
         <div class="sidebar-tools-main tools-wide">
     <a href="https://github.com/kjohnsen/phd-proposal/" title="Source Code" class="sidebar-tool px-1"><i class="bi bi-github"></i></a>
-    <a href="./Exploiting-optogenetic-feedback-control-in-mesoscale-neuroscience.pdf" title="Download PDF" class="sidebar-tool px-1"><i class="bi bi-file-pdf"></i></a>
+    <a href="./Developing-and-exploiting-optogenetic-feedback-control-in-mesoscale-neuroscience.pdf" title="Download PDF" class="sidebar-tool px-1"><i class="bi bi-file-pdf"></i></a>
   <a href="" class="quarto-color-scheme-toggle sidebar-tool" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
 </div>
     </div>
@@ -117,7 +117,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./aim1.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Aim 1</span></a>
+  <a href="./aim1.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Aim 1: A CLOC simulation testbed</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -150,22 +150,29 @@ ul.task-list li input[type="checkbox"] {
    
   <ul>
   <li><a href="#rationale" id="toc-rationale" class="nav-link active" data-scroll-target="#rationale">Rationale</a></li>
-  <li><a href="#approach" id="toc-approach" class="nav-link" data-scroll-target="#approach">Approach</a>
+  <li><a href="#subaim-x" id="toc-subaim-x" class="nav-link" data-scroll-target="#subaim-x">Subaim X</a>
   <ul>
-  <li><a href="#subaim-1" id="toc-subaim-1" class="nav-link" data-scroll-target="#subaim-1">Subaim 1</a>
-  <ul class="collapse">
+  <li><a href="#approach" id="toc-approach" class="nav-link" data-scroll-target="#approach">Approach</a></li>
   <li><a href="#preliminary-results" id="toc-preliminary-results" class="nav-link" data-scroll-target="#preliminary-results">Preliminary results</a></li>
+  <li><a href="#expected-results" id="toc-expected-results" class="nav-link" data-scroll-target="#expected-results">Expected results</a></li>
   <li><a href="#potential-pitfalls-alternative-strategies" id="toc-potential-pitfalls-alternative-strategies" class="nav-link" data-scroll-target="#potential-pitfalls-alternative-strategies">Potential pitfalls, alternative strategies</a></li>
   </ul></li>
-  <li><a href="#subaim-2" id="toc-subaim-2" class="nav-link" data-scroll-target="#subaim-2">Subaim 2</a>
+  <li><a href="#approach-1" id="toc-approach-1" class="nav-link" data-scroll-target="#approach-1">Approach</a>
+  <ul>
+  <li><a href="#subaim-1" id="toc-subaim-1" class="nav-link" data-scroll-target="#subaim-1">Subaim 1</a>
   <ul class="collapse">
   <li><a href="#preliminary-results-1" id="toc-preliminary-results-1" class="nav-link" data-scroll-target="#preliminary-results-1">Preliminary results</a></li>
   <li><a href="#potential-pitfalls-alternative-strategies-1" id="toc-potential-pitfalls-alternative-strategies-1" class="nav-link" data-scroll-target="#potential-pitfalls-alternative-strategies-1">Potential pitfalls, alternative strategies</a></li>
   </ul></li>
-  <li><a href="#subaim-3" id="toc-subaim-3" class="nav-link" data-scroll-target="#subaim-3">Subaim 3</a>
+  <li><a href="#subaim-2" id="toc-subaim-2" class="nav-link" data-scroll-target="#subaim-2">Subaim 2</a>
   <ul class="collapse">
   <li><a href="#preliminary-results-2" id="toc-preliminary-results-2" class="nav-link" data-scroll-target="#preliminary-results-2">Preliminary results</a></li>
   <li><a href="#potential-pitfalls-alternative-strategies-2" id="toc-potential-pitfalls-alternative-strategies-2" class="nav-link" data-scroll-target="#potential-pitfalls-alternative-strategies-2">Potential pitfalls, alternative strategies</a></li>
+  </ul></li>
+  <li><a href="#subaim-3" id="toc-subaim-3" class="nav-link" data-scroll-target="#subaim-3">Subaim 3</a>
+  <ul class="collapse">
+  <li><a href="#preliminary-results-3" id="toc-preliminary-results-3" class="nav-link" data-scroll-target="#preliminary-results-3">Preliminary results</a></li>
+  <li><a href="#potential-pitfalls-alternative-strategies-3" id="toc-potential-pitfalls-alternative-strategies-3" class="nav-link" data-scroll-target="#potential-pitfalls-alternative-strategies-3">Potential pitfalls, alternative strategies</a></li>
   </ul></li>
   </ul></li>
   </ul>
@@ -176,7 +183,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title d-none d-lg-block"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Aim 2</span></h1>
+<h1 class="title"><span id="sec-aim2" class="quarto-section-identifier d-none d-lg-block"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Aim 2</span></span></h1>
 </div>
 
 
@@ -194,22 +201,25 @@ ul.task-list li input[type="checkbox"] {
 <h2 class="anchored" data-anchor-id="rationale">Rationale</h2>
 <p>Tunguska event Vangelis rings of Uranus take root and flourish Jean-François Champollion not a sunrise but a galaxyrise. Prime number across the centuries prime number globular star cluster dream of the mind’s eye vastness is bearable only through love? Bits of moving fluff Sea of Tranquility two ghostly white figures in coveralls and helmets are softly dancing shores of the cosmic ocean a very small stage in a vast cosmic arena finite but unbounded and billions upon billions upon billions upon billions upon billions upon billions upon billions.</p>
 </section>
-<section id="approach" class="level2">
-<h2 class="anchored" data-anchor-id="approach">Approach</h2>
+<section id="subaim-x" class="level2">
+<h2 class="anchored" data-anchor-id="subaim-x">Subaim X</h2>
+<section id="approach" class="level3">
+<h3 class="anchored" data-anchor-id="approach">Approach</h3>
+</section>
+<section id="preliminary-results" class="level3">
+<h3 class="anchored" data-anchor-id="preliminary-results">Preliminary results</h3>
+</section>
+<section id="expected-results" class="level3">
+<h3 class="anchored" data-anchor-id="expected-results">Expected results</h3>
+</section>
+<section id="potential-pitfalls-alternative-strategies" class="level3">
+<h3 class="anchored" data-anchor-id="potential-pitfalls-alternative-strategies">Potential pitfalls, alternative strategies</h3>
+</section>
+</section>
+<section id="approach-1" class="level2">
+<h2 class="anchored" data-anchor-id="approach-1">Approach</h2>
 <section id="subaim-1" class="level3">
 <h3 class="anchored" data-anchor-id="subaim-1">Subaim 1</h3>
-<p>Poutine distillery cray letterpress ex viral cronut. Eiusmod fixie cronut taxidermy, consectetur pabst mumblecore mukbang. Franzen snackwave squid enamel pin. Waistcoat poutine occaecat, cornhole chia art party voluptate.</p>
-<section id="preliminary-results" class="level4">
-<h4 class="anchored" data-anchor-id="preliminary-results">Preliminary results</h4>
-<p>Selfies church-key mollit viral synth, in fanny pack humblebrag messenger bag before they sold out pour-over. Health goth trust fund raw denim irure. Consectetur shaman flexitarian pickled chicharrones. Tumblr wayfarers beard, seitan ad sartorial sus live-edge tote bag chambray selfies retro ennui. Crucifix incididunt food truck pour-over sus.</p>
-</section>
-<section id="potential-pitfalls-alternative-strategies" class="level4">
-<h4 class="anchored" data-anchor-id="potential-pitfalls-alternative-strategies">Potential pitfalls, alternative strategies</h4>
-<p>Green juice tote bag edison bulb fingerstache meh before they sold out mixtape iPhone locavore bushwick cardigan kombucha literally est. Bicycle rights echo park roof party, JOMO chia try-hard copper mug raclette est squid tousled nostrud lyft waistcoat. Next level DIY tacos irure aute, kinfolk echo park green juice. Chicharrones JOMO sed, mixtape you probably haven’t heard of them consequat before they sold out marfa normcore poutine biodiesel.</p>
-</section>
-</section>
-<section id="subaim-2" class="level3">
-<h3 class="anchored" data-anchor-id="subaim-2">Subaim 2</h3>
 <p>Poutine distillery cray letterpress ex viral cronut. Eiusmod fixie cronut taxidermy, consectetur pabst mumblecore mukbang. Franzen snackwave squid enamel pin. Waistcoat poutine occaecat, cornhole chia art party voluptate.</p>
 <section id="preliminary-results-1" class="level4">
 <h4 class="anchored" data-anchor-id="preliminary-results-1">Preliminary results</h4>
@@ -220,8 +230,8 @@ ul.task-list li input[type="checkbox"] {
 <p>Green juice tote bag edison bulb fingerstache meh before they sold out mixtape iPhone locavore bushwick cardigan kombucha literally est. Bicycle rights echo park roof party, JOMO chia try-hard copper mug raclette est squid tousled nostrud lyft waistcoat. Next level DIY tacos irure aute, kinfolk echo park green juice. Chicharrones JOMO sed, mixtape you probably haven’t heard of them consequat before they sold out marfa normcore poutine biodiesel.</p>
 </section>
 </section>
-<section id="subaim-3" class="level3">
-<h3 class="anchored" data-anchor-id="subaim-3">Subaim 3</h3>
+<section id="subaim-2" class="level3">
+<h3 class="anchored" data-anchor-id="subaim-2">Subaim 2</h3>
 <p>Poutine distillery cray letterpress ex viral cronut. Eiusmod fixie cronut taxidermy, consectetur pabst mumblecore mukbang. Franzen snackwave squid enamel pin. Waistcoat poutine occaecat, cornhole chia art party voluptate.</p>
 <section id="preliminary-results-2" class="level4">
 <h4 class="anchored" data-anchor-id="preliminary-results-2">Preliminary results</h4>
@@ -229,6 +239,18 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="potential-pitfalls-alternative-strategies-2" class="level4">
 <h4 class="anchored" data-anchor-id="potential-pitfalls-alternative-strategies-2">Potential pitfalls, alternative strategies</h4>
+<p>Green juice tote bag edison bulb fingerstache meh before they sold out mixtape iPhone locavore bushwick cardigan kombucha literally est. Bicycle rights echo park roof party, JOMO chia try-hard copper mug raclette est squid tousled nostrud lyft waistcoat. Next level DIY tacos irure aute, kinfolk echo park green juice. Chicharrones JOMO sed, mixtape you probably haven’t heard of them consequat before they sold out marfa normcore poutine biodiesel.</p>
+</section>
+</section>
+<section id="subaim-3" class="level3">
+<h3 class="anchored" data-anchor-id="subaim-3">Subaim 3</h3>
+<p>Poutine distillery cray letterpress ex viral cronut. Eiusmod fixie cronut taxidermy, consectetur pabst mumblecore mukbang. Franzen snackwave squid enamel pin. Waistcoat poutine occaecat, cornhole chia art party voluptate.</p>
+<section id="preliminary-results-3" class="level4">
+<h4 class="anchored" data-anchor-id="preliminary-results-3">Preliminary results</h4>
+<p>Selfies church-key mollit viral synth, in fanny pack humblebrag messenger bag before they sold out pour-over. Health goth trust fund raw denim irure. Consectetur shaman flexitarian pickled chicharrones. Tumblr wayfarers beard, seitan ad sartorial sus live-edge tote bag chambray selfies retro ennui. Crucifix incididunt food truck pour-over sus.</p>
+</section>
+<section id="potential-pitfalls-alternative-strategies-3" class="level4">
+<h4 class="anchored" data-anchor-id="potential-pitfalls-alternative-strategies-3">Potential pitfalls, alternative strategies</h4>
 <p>Green juice tote bag edison bulb fingerstache meh before they sold out mixtape iPhone locavore bushwick cardigan kombucha literally est. Bicycle rights echo park roof party, JOMO chia try-hard copper mug raclette est squid tousled nostrud lyft waistcoat. Next level DIY tacos irure aute, kinfolk echo park green juice. Chicharrones JOMO sed, mixtape you probably haven’t heard of them consequat before they sold out marfa normcore poutine biodiesel.</p>
 
 
@@ -451,7 +473,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
       <a href="./aim1.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Aim 1</span></span>
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Aim 1: A CLOC simulation testbed</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">

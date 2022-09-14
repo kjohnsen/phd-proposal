@@ -1,11 +1,48 @@
-# Aim 2 {#sec-aim2}
+# Aim 2: Bidirectional CLOC {#sec-aim2}
 
 ## Rationale
+### Advantages of bidirectional control
+The power of closed-loop optogenetic control (CLOC, henceforth referring specifically to feedback control; see @sec-cl-types) is limited by the degrees of freedom provided by the optogenetic actuation scheme.
+One important distinction in possible actuation schemes is between "unidirectional"---control by a single opsin type---and "bidirectional"---where both excitatory and inhibitory opsins are used.
+Unidirectional control has obvious shortcomings: for example, an excitatory opsin alone can only raise the firing rate of target neurons, not lower it or even clamp to a baseline level.
+This setup would also be unable to *lower* the firing rate quickly, in the case of a dynamic reference trajectory.
 
-Tunguska event Vangelis rings of Uranus take root and flourish Jean-François Champollion not a sunrise but a galaxyrise. Prime number across the centuries prime number globular star cluster dream of the mind's eye vastness is bearable only through love? Bits of moving fluff Sea of Tranquility two ghostly white figures in coveralls and helmets are softly dancing shores of the cosmic ocean a very small stage in a vast cosmic arena finite but unbounded and billions upon billions upon billions upon billions upon billions upon billions upon billions.
+While a previous study [@newman15] has already laid the foundation for bidirectional [@newman15] CLOC, it does not feature the generalizability and scalability of the model-based, optimal control algorithms introduced by later work [@bolus21] (see @sec-prev-work) for unidirectional actuation.
+This adaptive linear-quadratic regulator (LQR) approach is more robust to disturbances and can handle multi-input multi-output (MIMO) systems, but unfortunately operates on assumptions that are unsuitable for bidirectional actuation.
+Specifically, constraints in the input (photostimulation) are not a part of standard LQR control TODO
+
+:::{.callout-caution}
+## TODO: Hammerstein? or whatever for constrained linear systems
+:::
+
+They also fail to account for the undesirable effects of prolonged stimulation.
 
 
-## Subaim X
+### Challenges of combining
+Combining these advantages, however, poses additional challenges and opportunities.
+Whereas previous experiments’ elevated and slowly varying targets were tracked well with a merely excitatory stimulus, model mismatch error resulting from negative control signals was minimal.
+In a bidirectional input scenario, however, model mismatch poses a greater problem—without constraints, a controller might call for negative inhibitory input rather than positive excitatory input, for example.
+Previous approaches also do not account for the undesirable effects of prolonged optogenetic stimulation, such as heating and ion imbalances14–16.
+
+### Innovation
+I propose addressing both these problems using model predictive control (MPC), which is widely used for its flexibility in implementing optimal control with constraints.
+I hypothesize that a model predictive strategy will be able to optimize bidirectional optogenetic actuation while accommodating experimental constraints and considerations and maintaining low error levels during fast, real-time control.
+I aim to implement this strategy with previously demonstrated linear models, adding constraints and costs, and accelerating as needed.
+Using the simulation framework from @sec-aim1, I will evaluate controller performance and prolonged stimulation avoidance compared to previous approaches.
+
+## Model formulation
+### Approach
+#### Linear-quadratic-Gaussian problem
+#### Penalizing prolonged photostimulation
+
+### Preliminary results
+
+### Expected results
+
+### Potential pitfalls, alternative strategies
+
+
+## Abstract proof of concept
 
 ### Approach
 
@@ -16,54 +53,23 @@ Tunguska event Vangelis rings of Uranus take root and flourish Jean-François Ch
 ### Potential pitfalls, alternative strategies
 
 
-## Approach
+## Demonstration in spiking neural network simulation
 
-### Subaim 1
+### Approach
 
-Poutine distillery cray letterpress ex viral cronut. Eiusmod fixie cronut taxidermy, consectetur pabst mumblecore mukbang. Franzen snackwave squid enamel pin. Waistcoat poutine occaecat, cornhole chia art party voluptate.
+### Preliminary results
 
+### Expected results
 
-#### Preliminary results
-
-Selfies church-key mollit viral synth, in fanny pack humblebrag messenger bag before they sold out pour-over. Health goth trust fund raw denim irure. Consectetur shaman flexitarian pickled chicharrones. Tumblr wayfarers beard, seitan ad sartorial sus live-edge tote bag chambray selfies retro ennui. Crucifix incididunt food truck pour-over sus.
-
+### Potential pitfalls, alternative strategies
 
 
-#### Potential pitfalls, alternative strategies
+## Acceleration for real-time use
 
-Green juice tote bag edison bulb fingerstache meh before they sold out mixtape iPhone locavore bushwick cardigan kombucha literally est. Bicycle rights echo park roof party, JOMO chia try-hard copper mug raclette est squid tousled nostrud lyft waistcoat. Next level DIY tacos irure aute, kinfolk echo park green juice. Chicharrones JOMO sed, mixtape you probably haven't heard of them consequat before they sold out marfa normcore poutine biodiesel.
+### Approach
 
+### Preliminary results
 
+### Expected results
 
-### Subaim 2
-
-Poutine distillery cray letterpress ex viral cronut. Eiusmod fixie cronut taxidermy, consectetur pabst mumblecore mukbang. Franzen snackwave squid enamel pin. Waistcoat poutine occaecat, cornhole chia art party voluptate.
-
-
-#### Preliminary results
-
-Selfies church-key mollit viral synth, in fanny pack humblebrag messenger bag before they sold out pour-over. Health goth trust fund raw denim irure. Consectetur shaman flexitarian pickled chicharrones. Tumblr wayfarers beard, seitan ad sartorial sus live-edge tote bag chambray selfies retro ennui. Crucifix incididunt food truck pour-over sus.
-
-
-
-#### Potential pitfalls, alternative strategies
-
-Green juice tote bag edison bulb fingerstache meh before they sold out mixtape iPhone locavore bushwick cardigan kombucha literally est. Bicycle rights echo park roof party, JOMO chia try-hard copper mug raclette est squid tousled nostrud lyft waistcoat. Next level DIY tacos irure aute, kinfolk echo park green juice. Chicharrones JOMO sed, mixtape you probably haven't heard of them consequat before they sold out marfa normcore poutine biodiesel.
-
-
-
-
-### Subaim 3
-
-Poutine distillery cray letterpress ex viral cronut. Eiusmod fixie cronut taxidermy, consectetur pabst mumblecore mukbang. Franzen snackwave squid enamel pin. Waistcoat poutine occaecat, cornhole chia art party voluptate.
-
-
-#### Preliminary results
-
-Selfies church-key mollit viral synth, in fanny pack humblebrag messenger bag before they sold out pour-over. Health goth trust fund raw denim irure. Consectetur shaman flexitarian pickled chicharrones. Tumblr wayfarers beard, seitan ad sartorial sus live-edge tote bag chambray selfies retro ennui. Crucifix incididunt food truck pour-over sus.
-
-
-
-#### Potential pitfalls, alternative strategies
-
-Green juice tote bag edison bulb fingerstache meh before they sold out mixtape iPhone locavore bushwick cardigan kombucha literally est. Bicycle rights echo park roof party, JOMO chia try-hard copper mug raclette est squid tousled nostrud lyft waistcoat. Next level DIY tacos irure aute, kinfolk echo park green juice. Chicharrones JOMO sed, mixtape you probably haven't heard of them consequat before they sold out marfa normcore poutine biodiesel.
+### Potential pitfalls, alternative strategies

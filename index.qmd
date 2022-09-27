@@ -10,19 +10,19 @@ tbl-colwidths: [38, 62]
 
 ## Thesis committee
 
-+------------------------:+:---------------------------------------------------+
-|    Nabil Imam           | Electrical and Computer Engineering \              |
-|                         | Georgia Institute of Technology                    |
-+-------------------------+----------------------------------------------------+
-|    Chethan Pandarinath  | Biomedical Engineering \                           |
-|                         | Emory University & Georgia Institute of Technology |
-+-------------------------+----------------------------------------------------+
-|  **Christopher Rozell** | Electrical and Computer Engineering \              |
-|     **(advisor)**       | Georgia Institute of Technology                    |
-+-------------------------+----------------------------------------------------+
-|   Garrett Stanley       | Biomedical Engineering \                           |
-|                         | Georgia Institute of Technology & Emory University |
-+-------------------------+----------------------------------------------------+
-|   Patricio Vela         | Electrical and Computer Engineering \              |
-|                         | Georgia Institute of Technology                    |
-+-------------------------+----------------------------------------------------+
++------------------------:+:-----------------------------------------------------+
+|    Nabil Imam           | Georgia Institute of Technology \                    |
+|                         | Computational Science and Engineering                |
++-------------------------+------------------------------------------------------+
+|    Chethan Pandarinath  | Emory University & Georgia Institute of Technology \ |
+|                         | Biomedical Engineering                               |
++-------------------------+------------------------------------------------------+
+|  **Christopher Rozell** | Georgia Institute of Technology \                    |
+|     **(advisor)**       | Electrical and Computer Engineering                  |
++-------------------------+------------------------------------------------------+
+|   Garrett Stanley       | Georgia Institute of Technology & Emory University \ |
+|                         | Biomedical Engineering                               |
++-------------------------+------------------------------------------------------+
+|   Patricio Vela         | Georgia Institute of Technology \                    |
+|                         | Electrical and Computer Engineering                  |
++-------------------------+------------------------------------------------------+

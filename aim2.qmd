@@ -1,4 +1,12 @@
 # Aim 2: Bidirectional CLOC {#sec-aim2}
+::: {.hidden}
+$$
+ \def\RR{\mathbb{R}}
+ \def\NN{\mathbb{N}}
+ \def\mini #1{ \underset{#1} {\text{minimize}} }
+%  \def\bold#1{{\bf #1}}
+$$
+:::
 
 ## Rationale
 ### Advantages of bidirectional control
@@ -27,48 +35,91 @@ How do I know I want to continue using an LDS? At what point would I want to go 
 I propose addressing this problem using model predictive control (MPC), which is widely used for its flexibility in implementing optimal control with constraints.
 Rather than computing the control signal from the current error signal at each step, MPC looks ahead, optimizing over the predicted trajectory some finite number of steps into the future, in what is known as "receding horizon control."
 I hypothesize that a model predictive strategy will be able to optimize bidirectional optogenetic actuation while accommodating experimental constraints and considerations and maintaining low error levels during fast, real-time control.
-I plan to achieve this aim by adapting previously demonstrated linear models, adding constraints and costs, and accelerating as needed.
-Using the simulation framework from @sec-aim1, I will evaluate controller performance and prolonged stimulation avoidance compared to previous approaches.
+I plan to achieve this aim by adapting previously demonstrated linear models and adding input constraints, demonstrating the advantage of MPC-powered bidirectional CLOC *in silico*, and benchmarking algorithm performance to inform future *in-vivo* experiments.
 
-## Model formulation
-### Approach
-#### Linear-quadratic-Gaussian problem
+:::{#fig-mpc}
+![](img/mpc-schematic.svg){style='background-color:white; padding:.5em'}
 
-### Preliminary results
+An illustration of how MPC optimizes the system input over a receding horizon.
+By [Martin Behrendt](https://en.wikipedia.org/wiki/File:MPC_scheme_basic.svg), licensed under [CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0/deed.en).
+:::
 
-### Expected results
+## Approach
+### System and controller formulation
+As the name implies, the model is a vital element of MPC.
+I will use a previously developed Gaussian linear dynamical system (GLDS) model [@bolus21], which has been shown to reliably capture firing rate dynamics in a light-driven spiking neuron system.
+The discrete-time GLDS is governed by the following equations:
 
-### Potential pitfalls, alternative strategies
+$$ x_{t + 1} = Ax_{t} + Bu_{t} + w_t\ , $$
+
+$$ y_{t} = Cx_{t} + d\ , $$
+
+$$ z_{t} = y_{t} + v_t\ , $$
+
+where $x_{t} \in \RR^n$ is the $n$-dimensional state, $u_{t} \in \RR^k$ is the $k$-dimensional stimulus (i.e., $k = 2$ for two opsins, one light source each), $y_{t} \in \RR^m$ is the firing rate in spikes/timestep (for each of $m$ measured neurons), and $z_{t} \in \RR^m$ is the number of binned spikes observed at time $t$.
+$A \in \RR^{n \times n}$, $B \in \RR^{n \times k}$, and $C \in \RR^{m \times n}$ are the state transition, input, and output matrices, respectively.
+$w_{t} \sim \mathcal{N}\left( 0, Q \right)$ and $v_{t}\mathcal{\sim N}\left( 0, R \right)$ are Gaussian-distributed process and measurement noise, respectively, and $d \in \RR^{m \times 1}$ represents baseline firing rates.
+Model order ($n$) and horizon length ($T \in \NN$) will be chosen to balance complexity and prediction error for noise-driven fitting data generated from the test network.
+The latent state $x_{t}$ will be estimated online using the Kalman filter [@kalman60], driven by the prediction error $z_{t} - {\widehat{y}}_{t|t - 1}$.
+
+I will set hard non-negative constraints on the light input as well as a ceiling determined by hardware limitations (i.e., the maximum voltage deliverable to the LED driver).
+To design an appropriate cost function, I will use a conventional per-timestep quadratic form
+
+$$\ell( x_{t},r_{t},u_{t} ) = ( x_{t} - r_{t} )^{T}Q^{\text{ctrl}}( x_{t} - r_{t} ) + u^{T}R^{\text{ctrl}}u\ ,$$
+
+where $r_{t} \in \RR^n$ is the reference trajectory at time $t$.
+$Q^{\text{ctrl}}$ and $R^{\text{ctrl}}$ are real $n \times n$ and $k \times k$ matrices chosen to appropriately penalize tracking error and stimulus size, respectively.
+This quadratic cost function formulation lends the problem well to standard optimization techniques---combined with a linear dynamical system, it constitutes the classical linear-quadratic-Gaussian (LQG) control problem.
+
+Then, at every time step $t$ the controller solves the following quadratic program:
+
+$$ 
+\begin{aligned}
+    \mini{} \quad & \sum_{\tau=t}^{t+T} \ell(x_\tau, u_\tau) \\
+    \text{subject to} \quad & u_\tau \succeq 0 \\
+        & x_{\tau + 1} = Ax_{\tau}+Bu_\tau \\
+\end{aligned}
+$$
+
+where $T \in \NN$ is the number of steps in the prediction/control horizon and $\succeq$ indicates an inequality for each element of $u_\tau \in \RR^k$.
+This yields the solution $\tilde{u}_\tau,...,\tilde{u}_{\tau+T-1}$, of which we take just the first step to apply to the system:
+
+$$ u_t = \tilde{u}_t $$.
 
 
-## Abstract proof of concept
+### Demonstration of advantages *in silico*
+:::{.callout-important}
+What's the story?
+- we need bidirectional (simple target, dynamic target, disturbance), and for that we need MPC
+  - 1-in LQR < 2-in hacky LQR < 2-in MPC
+  - naive LQR might do okay, but won't cut it
+- MPC also allows us to do multi-input 
+  - do parallel to Bolus 21 SIMO experiments
+:::
 
-### Approach
+In order to demonstrate the advantages of bidirectional control and of MPC, we simulate control of the firing rate of spiking neurons under four conditions: LQR with one opsin, LQR with two opsins, MPC with one opsin and MPC with two opsins.
+We will test scenarios where the limitations of unidirectional control and LQR will be manifest, namely clamping activity in the presence of unmodeled disturbances to the system and for sinusoidal reference trajectories of varying frequencies.
+We will also demonstrate the more advanced multi-input applications of MPC by controlling multiple neurons simultaneously with multiple light sources.
 
-### Preliminary results
+All experiments will be performed on a simulated randomly connected network of excitatory and inhibitory leaky integrate-and-fire (LIF) neurons or a Poisson linear dynamical system (PLDS) model fit to simulated data.
+The framework of Aim 1 will be leveraged to simulate electrode recording and optogenetic stimulation, and spikes from individual neurons will be used as inputs to the controller.
+In all experiments I will compare my MPC approach to the unconstrained LQR controller developed previously [@bolus21].
+I will also compare to an optimal open-loop (OL) stimulus computed over a whole-trial horizon.
+To evaluate controller performance, I will use the mean-squared error (MSE) between the reference firing rate and the Gaussian window-smoothed firing rate of the spikes received by the controller during the trial.
+Noise will be provided to the network where needed to simulate an external disturbance.
 
-### Expected results
+### Benchmarking
 
-### Potential pitfalls, alternative strategies
+## Preliminary results
 
+## Expected results
 
-## Demonstration in spiking neural network simulation
-
-### Approach
-
-### Preliminary results
-
-### Expected results
-
-### Potential pitfalls, alternative strategies
+## Potential pitfalls, alternative strategies
+As such, I anticipate that it will be adequate, though a Poisson linear dynamical system model may be needed in the case that negative predicted firing rates produce significant model mismatch error.
 
 
-## Acceleration for real-time use
+Some variations that can be explored to balance speed and performance include setting 
 
-### Approach
+Nonlinear output model
 
-### Preliminary results
-
-### Expected results
-
-### Potential pitfalls, alternative strategies
+### Acceleration for real-time use

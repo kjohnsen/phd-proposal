@@ -74,4 +74,4 @@ I propose lowering the barrier to entry and the cost of experiment design and me
 Second, the algorithms previously used for CLOC are not well suited for actuation via multiple simultaneous light sources.
 I propose adapting more **powerful control theory methods** to enable bidirectional CLOC, which to our knowledge **has not been done previously**.
 Third, technical and conceptual guidelines for the effective application of CLOC do not exist because **CLOC has not yet been applied to answer a complex scientific question**. 
-I propose to model how this can be done by controlling latent neural dynamics *in silico*, exploring how technical requirements scale with model and experiment parameters, and inferring a causal relationship between latent variables and model behavior.
+I propose to model how this can be done by controlling latent neural dynamics *in silico*, exploring how technical requirements scale with model and experiment parameters and inferring a causal relationship between latent variables and model behavior.

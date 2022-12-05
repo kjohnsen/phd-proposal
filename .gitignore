@@ -2,3 +2,7 @@
 /_book/
 /.vscode/
 /_extensions/
+index.tex
+index.aux
+index.log
+index.toc

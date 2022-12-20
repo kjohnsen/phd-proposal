@@ -1,17 +1,7 @@
 /*-- scss:defaults --*/
 
-$font-family-sans-serif: "Open Sans", "Lato", “Source Sans Pro”, Helvetica, sans-serif;
-// $body-bg: #191919;
-// $body-color: #fff;
-$link-color: royalblue;
-
 /*-- scss:rules --*/
 
-img {
-    background-color: white;
-    border-radius: 10px;
-}
-
-.dark-invert {
-    filter: invert(1) hue-rotate(180deg);
+.dark-invert img {
+    filter: invert(.85) hue-rotate(180deg);
 }

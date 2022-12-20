@@ -1,22 +1,25 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!-- Created with Inkscape (http://www.inkscape.org/) -->
+
 <svg
-   xmlns:dc="http://purl.org/dc/elements/1.1/"
-   xmlns:cc="http://creativecommons.org/ns#"
-   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
-   xmlns:svg="http://www.w3.org/2000/svg"
-   xmlns="http://www.w3.org/2000/svg"
-   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
-   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    width="434.36832"
    height="240.66504"
    id="svg2"
    sodipodi:version="0.32"
-   inkscape:version="0.46"
-   sodipodi:docbase="/afs/mpi-magdeburg.mpg.de/home/mbehrend/martin/thesis/make_pics/control"
-   sodipodi:docname="MPC_scheme_basic.svg"
+   inkscape:version="1.2.1 (9c6d41e410, 2022-07-14)"
+   sodipodi:docname="mpc-schematic.svg"
    version="1.0"
-   inkscape:output_extension="org.inkscape.output.svg.inkscape">
+   inkscape:output_extension="org.inkscape.output.svg.inkscape"
+   inkscape:export-filename="mpc-schematic.png"
+   inkscape:export-xdpi="96"
+   inkscape:export-ydpi="96"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:dc="http://purl.org/dc/elements/1.1/">
   <defs
      id="defs4">
     <inkscape:perspective
@@ -126,18 +129,22 @@
      gridtolerance="10000"
      guidetolerance="10"
      objecttolerance="10"
-     inkscape:pageopacity="0.0"
+     inkscape:pageopacity="1"
      inkscape:pageshadow="2"
-     inkscape:zoom="1.979899"
-     inkscape:cx="240.12898"
-     inkscape:cy="81.327789"
+     inkscape:zoom="0.9899495"
+     inkscape:cx="151.0178"
+     inkscape:cy="85.862966"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
-     inkscape:window-width="1280"
-     inkscape:window-height="1000"
-     inkscape:window-x="1676"
-     inkscape:window-y="-4"
-     showgrid="false" />
+     inkscape:window-width="1360"
+     inkscape:window-height="697"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     showgrid="false"
+     inkscape:showpageshadow="0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:window-maximized="1" />
   <metadata
      id="metadata7">
     <rdf:RDF>
@@ -208,15 +215,15 @@
        id="text2982" />
     <text
        xml:space="preserve"
-       style="font-size: 12px; font-style: normal; font-weight: normal; fill: black; fill-opacity: 1; stroke: none; stroke-width: 1px; stroke-linecap: butt; stroke-linejoin: miter; stroke-opacity: 1; font-family: Bitstream Vera Sans;"
-       x="256.114"
+       style="font-style:normal;font-weight:normal;line-height:0%;font-family:'Bitstream Vera Sans';fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="256.11401"
        y="242.362"
        id="text2986"><tspan
          sodipodi:role="line"
          id="tspan2988"
-         x="256.114"
+         x="256.11401"
          y="242.362"
-         style="font-size: 14px;">...</tspan></text>
+         style="font-size:14px;line-height:1.25">...</tspan></text>
     <path
        style="fill: none; fill-rule: evenodd; stroke: black; stroke-width: 1.50032; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 4; stroke-dasharray: none; stroke-opacity: 1;"
        d="M 30.750161,193.11237 L 30.750161,211.61202"

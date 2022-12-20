@@ -25,7 +25,7 @@ book:
     - aim1.qmd
     - aim2.qmd
     - aim3.qmd
-    - timeline.qmd
+    # - timeline.qmd
     - references.qmd
 
 bibliography: references.json
@@ -38,8 +38,8 @@ execute:
 format:
   html:
     theme:
-      dark: [darkly, theme-dark.scss]
-      light: [flatly, theme-light.scss]
+      dark: [darkly, theme.scss, theme-dark.scss]
+      light: [flatly, theme.scss]
     number-depth: 1
     toc-depth: 4
     filters:
@@ -49,7 +49,7 @@ format:
   pdf:
     documentclass: scrreprt
     papersize: letter
-    # include-in-header: header.tex
+    include-in-header: header.tex
     latex-auto-install: true
     mainfont: TeX Gyre Pagella
     mathfont: TeX Gyre Pagella Math

@@ -1,4 +1,4 @@
-# Aim 3
+# Aim 3: Latent Factor Control
 
 ## Rationale
 

@@ -2,16 +2,12 @@
 execute: 
   echo: false
 ---
-
 # Aim 2: Multi-input CLOC {#sec-aim2}
-::: {.hidden}
-$$
- \def\RR{\mathbb{R}}
- \def\NN{\mathbb{N}}
- \def\mini #1{ \underset{#1} {\text{minimize}} }
-%  \def\bold#1{{\bf #1}}
-$$
-:::
+
+<!-- math macros -->
+\newcommand\RR{\mathbb{R}}
+\newcommand\NN{\mathbb{N}}
+\newcommand\mini{\text{minimize}}
 
 ## Rationale
 ### Advantages of multi-input control
@@ -39,7 +35,9 @@ I hypothesize that a model predictive strategy will be able to optimize multi-in
 I plan to achieve this aim by adapting previously demonstrated linear models and adding input constraints, demonstrating the advantage of MPC-powered multi-input CLOC *in silico*, and benchmarking algorithm performance to inform future *in-vivo* experiments.
 
 :::{#fig-mpc}
-![](img/mpc-schematic.svg){.dark-invert style='padding:.5em'}
+::::{.dark-invert}
+![](img/mpc-schematic.png){style='padding:.5em; background: white'}
+::::
 
 An illustration of how MPC optimizes the system input over a receding horizon.
 By [Martin Behrendt](https://en.wikipedia.org/wiki/File:MPC_scheme_basic.svg), licensed under [CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0/deed.en).

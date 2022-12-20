@@ -4,13 +4,7 @@ format:
     toc: false
 tbl-colwidths: [38, 62]
 ---
-::: {.hidden}
-# Front Matter {.unnumbered}
-:::
-
-Abstract
-========
-
+# Abstract
 As the importance of causal inference becomes increasingly recognized in neuroscience, the need for technology enabling precise manipulation of neural variables becomes apparent.
 Feedback control is an important class of such manipulations for its ability to increase inference power by reducing response variability.
 Widely used throughout the engineering disciplines, it has had a significant impact through a variety of techniques (e.g., voltage clamp, dynamic clamp) on cellular neuroscience.
@@ -25,8 +19,11 @@ Finally, in Aim 3, I will explore how recording, stimulation, and control requir
 I will model this population activity with recurrent spiking neural networks trained using state-of-the-art, biologically plausible methods, with differing degrees of brain-like architecture and task complexity.
 This work will thus provide the systems neuroscience community with a more accessible entry point for CLOC, more powerful algorithms for leveraging bidirectional control, and a point of reference for designing CLOC experiments capable of answering complex scientific questions.
 
-Thesis committee
-----------------
+::: {.hidden}
+# Front Matter {.unnumbered}
+:::
+
+## Thesis committee {.unnumbered}
 
 +------------------------:+:-----------------------------------------------------+
 |    Nabil Imam           | Georgia Institute of Technology \                    |

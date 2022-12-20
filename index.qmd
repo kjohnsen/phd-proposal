@@ -26,7 +26,7 @@ I will model this population activity with recurrent spiking neural networks tra
 This work will thus provide the systems neuroscience community with a more accessible entry point for CLOC, more powerful algorithms for leveraging bidirectional control, and a point of reference for designing CLOC experiments capable of answering complex scientific questions.
 
 Thesis committee
-================
+----------------
 
 +------------------------:+:-----------------------------------------------------+
 |    Nabil Imam           | Georgia Institute of Technology \                    |

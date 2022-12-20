@@ -172,7 +172,7 @@ Another limitation is support for multiple simultaneous opsins or light sources.
 ### Open-source code and documentation
 Cleo is open-source and can be installed from the Python Package Index under the name `cleosim`. The code can be found on [GitHub](https://github.com/Sensory-Information-Processing-Lab/Cleo). Documentation, including an overview, tutorials, and API reference, can be found at [](cleosim.readthedocs.io). 
 
-### Example experiments
+### Example experiments {#sec-cleo-experiments}
 In order to demonstrate Cleo's utility to the public, we implemented three example experiments to feature in the upcoming publication:
 
 1. Closed-loop inhibition of a traveling wave in a rodent somatosensory cortex model [@moldakarimov18].

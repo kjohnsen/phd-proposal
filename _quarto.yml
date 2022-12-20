@@ -33,6 +33,7 @@ csl: science.csl
 
 execute: 
   freeze: auto
+  cache: true
 
 format:
   html:

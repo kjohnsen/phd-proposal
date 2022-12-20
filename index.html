@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.1.189">
+<meta name="generator" content="quarto-1.2.269">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -103,37 +103,32 @@ ul.task-list li input[type="checkbox"] {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link active">Front Matter</a>
+  <a href="./index.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Abstract</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./specific-aims.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Specific Aims</span></a>
+  <a href="./specific-aims.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Specific Aims</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./background.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Background</span></a>
+  <a href="./background.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Background</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./aim1.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Aim 1: A CLOC simulation testbed</span></a>
+  <a href="./aim1.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Aim 1: A CLOC simulation testbed</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./aim2.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Aim 2</span></a>
+  <a href="./aim2.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Aim 2: Multi-input CLOC</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./aim3.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Aim 3</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./timeline.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Timeline</span></a>
+  <a href="./aim3.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Aim 3: Latent Factor Control</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -174,6 +169,7 @@ Georgia Institute of Technology and Emory University</p><p></p>
       <p class="date">October 20, 2022</p>
     </div>
   </div>
+  
     
   </div>
   
@@ -181,53 +177,52 @@ Georgia Institute of Technology and Emory University</p><p></p>
   <div class="abstract">
     <div class="abstract-title">Abstract</div>
     <p>As the importance of causal inference becomes increasingly recognized in neuroscience, the need for technology enabling precise manipulation of neural variables becomes apparent. Feedback control is an important class of such manipulations for its ability to increase inference power by reducing response variability. Widely used throughout the engineering disciplines, it has had a significant impact through a variety of techniques (e.g., voltage clamp, dynamic clamp) on cellular neuroscience. However, feedback control has yet to be widely applied at the mesoscale/circuit level despite recent improvements in interfacing technology, such as optogenetics. Challenges to adoption include the complexity of implementing fast closed-loop experiments, the need to adapt the mature methods of control theory to the idiosyncratic constraints of systems neuroscience experiments, and the lack of established technical guidelines for applying feedback control to address complex scientific questions.</p>
-    <p>In this work I propose to begin to address these challenges in three aims. In Aim 1, I develop a simulation framework for easily prototyping closed-loop optogenetic control (CLOC) experiments in silico, thus allowing neuroscientists to test and iterate on experimental designs without the costs of in-vivo experiments or up-front investments in compatible hardware-software systems. In Aim 2, I will translate sophisticated model-based feedback control algorithms to the realistic experimental setting of bidirectional CLOC—the simultaneous use of both excitatory and inhibitory opsins. I will demonstrate some advantages of bidirectional CLOC and how it is not well accommodated by the algorithms previously demonstrated. Finally, in Aim 3, I will explore how recording, stimulation, and control requirements vary in an example application of CLOC—controlling the latent dynamics of simulated neural population activity and assessing their causal relationship with behavior. I will model this population activity with recurrent spiking neural networks trained using state-of-the-art, biologically plausible methods, with differing degrees of brain-like architecture and task complexity. This work will thus provide the systems neuroscience community with a more accessible entry point for CLOC, more powerful algorithms for leveraging bidirectional control, and a point of reference for designing CLOC experiments capable of answering complex scientific questions.</p>
+    <p>In this work I propose to begin to address these challenges in three aims. In Aim 1, I develop a simulation framework for easily prototyping closed-loop optogenetic control (CLOC) experiments <em>in silico</em>, thus allowing neuroscientists to test and iterate on experimental designs without the costs of in-vivo experiments or up-front investments in compatible hardware-software systems. In Aim 2, I will translate sophisticated model-based feedback control algorithms to the realistic experimental setting of bidirectional CLOC—the simultaneous use of both excitatory and inhibitory opsins. I will demonstrate some advantages of bidirectional CLOC and how it is not well accommodated by the algorithms previously demonstrated. Finally, in Aim 3, I will explore how recording, stimulation, and control requirements vary in an example application of CLOC—controlling the latent dynamics of simulated neural population activity and assessing their causal relationship with behavior. I will model this population activity with recurrent spiking neural networks trained using state-of-the-art, biologically plausible methods, with differing degrees of brain-like architecture and task complexity. This work will thus provide the systems neuroscience community with a more accessible entry point for CLOC, more powerful algorithms for leveraging bidirectional control, and a point of reference for designing CLOC experiments capable of answering complex scientific questions.</p>
+    <div class="hidden">
+    <h1 id="front-matter" class="unnumbered">Front Matter</h1>
+    </div>
+    <h2 id="thesis-committee" class="unnumbered anchored">Thesis committee</h2>
+    <table class="table">
+    <colgroup>
+    <col style="width: 38%">
+    <col style="width: 62%">
+    </colgroup>
+    <tbody>
+    <tr class="odd">
+    <td style="text-align: right;">Nabil Imam</td>
+    <td style="text-align: left;">Georgia Institute of Technology<br>
+    Computational Science and Engineering</td>
+    </tr>
+    <tr class="even">
+    <td style="text-align: right;">Chethan Pandarinath</td>
+    <td style="text-align: left;">Emory University &amp; Georgia Institute of Technology<br>
+    Biomedical Engineering</td>
+    </tr>
+    <tr class="odd">
+    <td style="text-align: right;"><strong>Christopher Rozell</strong> <strong>(advisor)</strong></td>
+    <td style="text-align: left;">Georgia Institute of Technology<br>
+    Electrical and Computer Engineering</td>
+    </tr>
+    <tr class="even">
+    <td style="text-align: right;">Garrett Stanley</td>
+    <td style="text-align: left;">Georgia Institute of Technology &amp; Emory University<br>
+    Biomedical Engineering</td>
+    </tr>
+    <tr class="odd">
+    <td style="text-align: right;">Patricio Vela</td>
+    <td style="text-align: left;">Georgia Institute of Technology<br>
+    Electrical and Computer Engineering</td>
+    </tr>
+    </tbody>
+    </table>
+    
+    
   </div>
 </div>
 
 </header>
 
-<section id="front-matter" class="level1 unnumbered hidden">
-<h1 class="unnumbered">Front Matter</h1>
-</section>
-<section id="thesis-committee" class="level2">
-<h2 class="anchored" data-anchor-id="thesis-committee">Thesis committee</h2>
-<table class="table">
-<colgroup>
-<col style="width: 38%">
-<col style="width: 62%">
-</colgroup>
-<tbody>
-<tr class="odd">
-<td style="text-align: right;">Nabil Imam</td>
-<td style="text-align: left;">Electrical and Computer Engineering<br>
-Georgia Institute of Technology</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">Chethan Pandarinath</td>
-<td style="text-align: left;">Biomedical Engineering<br>
-Emory University &amp; Georgia Institute of Technology</td>
-</tr>
-<tr class="odd">
-<td style="text-align: right;"><strong>Christopher Rozell</strong> <strong>(advisor)</strong></td>
-<td style="text-align: left;">Electrical and Computer Engineering<br>
-Georgia Institute of Technology</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">Garrett Stanley</td>
-<td style="text-align: left;">Biomedical Engineering<br>
-Georgia Institute of Technology &amp; Emory University</td>
-</tr>
-<tr class="odd">
-<td style="text-align: right;">Patricio Vela</td>
-<td style="text-align: left;">Electrical and Computer Engineering<br>
-Georgia Institute of Technology</td>
-</tr>
-</tbody>
-</table>
 
-
-</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -362,7 +357,9 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   // Switch to dark mode if need be
   if (hasAlternateSentinel()) {
     toggleColorMode(true);
-  } 
+  } else {
+    toggleColorMode(false);
+  }
   const icon = "";
   const anchorJS = new window.AnchorJS();
   anchorJS.options = {
@@ -384,7 +381,24 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     button.classList.add('code-copy-button-checked');
     var currentTitle = button.getAttribute("title");
     button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
     setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
       button.setAttribute("title", currentTitle);
       button.classList.remove('code-copy-button-checked');
     }, 1000);
@@ -420,24 +434,42 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       return note.innerHTML;
     });
   }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
   var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
   for (var i=0; i<bibliorefs.length; i++) {
     const ref = bibliorefs[i];
-    const cites = ref.parentNode.getAttribute('data-cites').split(' ');
-    tippyHover(ref, function() {
-      var popup = window.document.createElement('div');
-      cites.forEach(function(cite) {
-        var citeDiv = window.document.createElement('div');
-        citeDiv.classList.add('hanging-indent');
-        citeDiv.classList.add('csl-entry');
-        var biblioDiv = window.document.getElementById('ref-' + cite);
-        if (biblioDiv) {
-          citeDiv.innerHTML = biblioDiv.innerHTML;
-        }
-        popup.appendChild(citeDiv);
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
       });
-      return popup.innerHTML;
-    });
+    }
   }
 });
 </script>
@@ -446,7 +478,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   </div>
   <div class="nav-page nav-page-next">
       <a href="./specific-aims.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Specific Aims</span></span> <i class="bi bi-arrow-right-short"></i>
+        <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Specific Aims</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

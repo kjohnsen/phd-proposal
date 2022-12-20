@@ -2,12 +2,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.1.189">
+<meta name="generator" content="quarto-1.2.269">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Developing and exploiting optogenetic feedback control in mesoscale neuroscience - 2&nbsp; Background</title>
+<title>Developing and exploiting optogenetic feedback control in mesoscale neuroscience - 3&nbsp; Background</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -95,7 +95,7 @@ div.csl-indent {
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
     <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Background</span></h1>
+      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Background</span></h1>
       <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
         <i class="bi bi-chevron-right"></i>
       </button>
@@ -125,37 +125,32 @@ div.csl-indent {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link">Front Matter</a>
+  <a href="./index.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Abstract</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./specific-aims.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Specific Aims</span></a>
+  <a href="./specific-aims.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Specific Aims</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./background.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Background</span></a>
+  <a href="./background.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Background</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./aim1.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Aim 1: A CLOC simulation testbed</span></a>
+  <a href="./aim1.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Aim 1: A CLOC simulation testbed</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./aim2.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Aim 2</span></a>
+  <a href="./aim2.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Aim 2: Multi-input CLOC</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./aim3.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Aim 3</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./timeline.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Timeline</span></a>
+  <a href="./aim3.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Aim 3: Latent Factor Control</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -172,8 +167,12 @@ div.csl-indent {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#sec-cl-neuro" id="toc-sec-cl-neuro" class="nav-link active" data-scroll-target="#sec-cl-neuro">Closed-loop control in neuroscience</a></li>
+  <li><a href="#sec-cl-neuro" id="toc-sec-cl-neuro" class="nav-link active" data-scroll-target="#sec-cl-neuro">Closed-loop control in neuroscience</a>
+  <ul>
+  <li><a href="#sec-cl-types" id="toc-sec-cl-types" class="nav-link" data-scroll-target="#sec-cl-types">Types of closed-loop control</a></li>
+  </ul></li>
   <li><a href="#various-scales-and-tools-for-closed-loop-control" id="toc-various-scales-and-tools-for-closed-loop-control" class="nav-link" data-scroll-target="#various-scales-and-tools-for-closed-loop-control">Various scales and tools for closed-loop control</a></li>
+  <li><a href="#sec-prev-work" id="toc-sec-prev-work" class="nav-link" data-scroll-target="#sec-prev-work">Previous work</a></li>
   <li><a href="#potential-applications-in-mesoscale-neuroscience" id="toc-potential-applications-in-mesoscale-neuroscience" class="nav-link" data-scroll-target="#potential-applications-in-mesoscale-neuroscience">Potential applications in mesoscale neuroscience</a></li>
   <li><a href="#innovation" id="toc-innovation" class="nav-link" data-scroll-target="#innovation">Innovation</a></li>
   </ul>
@@ -184,7 +183,7 @@ div.csl-indent {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title d-none d-lg-block"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Background</span></h1>
+<h1 class="title d-none d-lg-block"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Background</span></h1>
 </div>
 
 
@@ -192,6 +191,7 @@ div.csl-indent {
 <div class="quarto-title-meta">
 
     
+  
     
   </div>
   
@@ -202,14 +202,20 @@ div.csl-indent {
 <h2 class="anchored" data-anchor-id="sec-cl-neuro">Closed-loop control in neuroscience</h2>
 <p>Mesoscale neuroscience is currently undergoing a revolution fueled by advances in neural manipulation <span class="citation" data-cites="fenno11 wiegert17 sridharan22 vierock21 adesnik21 faini21 roth16 eriksson22">(<a href="references.html#ref-fenno11" role="doc-biblioref"><em>1</em></a>–<a href="references.html#ref-eriksson22" role="doc-biblioref"><em>8</em></a>)</span> and measurement <span class="citation" data-cites="steinmetz21 siegle17 gutruf18 gobel07 knopfel19 svoboda06 kazemipour19 wu20a">(<a href="references.html#ref-steinmetz21" role="doc-biblioref"><em>9</em></a>–<a href="references.html#ref-wu20a" role="doc-biblioref"><em>16</em></a>)</span> technologies as well as data analysis methods <span class="citation" data-cites="maaten08 berman14 mathis18 sani21a sporns18 schneider22">(<a href="references.html#ref-maaten08" role="doc-biblioref"><em>17</em></a>–<a href="references.html#ref-schneider22" role="doc-biblioref"><em>22</em></a>)</span>. These have yielded unprecedented datasets <span class="citation" data-cites="scheffer20 juavinett19">(<a href="references.html#ref-scheffer20" role="doc-biblioref"><em>23</em></a>, <a href="references.html#ref-juavinett19" role="doc-biblioref"><em>24</em></a>)</span> and insights into network activity and plasticity <span class="citation" data-cites="oby19 yang21 cowley20 avitan22 jazayeri21">(<a href="references.html#ref-oby19" role="doc-biblioref"><em>25</em></a>–<a href="references.html#ref-jazayeri21" role="doc-biblioref"><em>29</em></a>)</span>, as well as novel experimental paradigms such as direct closed-loop control of neural activity <span class="citation" data-cites="grosenick15 kumar13 potter14 newman15 bolus18 bolus21 emiliani15 zhang18 krook-magnuson13 witt13 dutta19">(<a href="references.html#ref-grosenick15" role="doc-biblioref"><em>30</em></a>–<a href="references.html#ref-dutta19" role="doc-biblioref"><em>40</em></a>)</span>.</p>
 <p>An exciting emerging possibility is closed-loop control of neural activity <span class="citation" data-cites="grosenick15 other-reviews">(<a href="references.html#ref-grosenick15" role="doc-biblioref"><em>30</em></a>, <a href="references.html#ref-other-reviews" role="doc-biblioref"><strong>other-reviews?</strong></a>)</span>, enabling intervention in processes that are too fast or unpredictable to control manually or with pre-defined stimulation, such as sensory information processing, motor planning, and oscillatory activity. Unlike other forms of closed-loop control altering the environment [cite examples, mouse knee rotation, visual stimuli to achieve target response,] or using neurofeedback training <span class="citation" data-cites="eriksson22">(<a href="references.html#ref-eriksson22" role="doc-biblioref"><em>8</em></a>)</span> to achieve a neural or behavioral target, the direct control of neural activity itself can unambiguously reveal the downstream effects of that activity.</p>
+<section id="sec-cl-types" class="level3">
+<h3 class="anchored" data-anchor-id="sec-cl-types">Types of closed-loop control</h3>
 <p>Closed-loop control of neural activity can be implemented in an event-triggered sense [cite a bunch of examples, inhibiting seizures, altering power, SWR disruption, ]—enabling the experimenter to respond to discrete events of interest, such as the arrival of a traveling wave [cite Reynolds] or sharp wave ripple [cite some review paper]—or in a feedback sense [cite 2 Bolus papers, all-optical, any others], driving the system towards a target or along a trajectory. The latter has multiple advantages over open-loop control (delivery of a pre-defined stimulus): by rejecting exogenous inputs, noise, and disturbances, it reduces variability across time and across trials, allowing for finer-scale inference. Additionally, it can compensate for model mismatch, allowing it to succeed where open-loop control based on imperfect models is bound to miss the mark. Moreover, whereas traditional perturbation methods include lesioning <span class="citation" data-cites="vaidya19">(<a href="references.html#ref-vaidya19" role="doc-biblioref"><em>41</em></a>)</span>, unnatural silencing, or extreme stimulation, feedback control poses a more naturalistic alternative, increasing generalizability.</p>
+</section>
 </section>
 <section id="various-scales-and-tools-for-closed-loop-control" class="level2">
 <h2 class="anchored" data-anchor-id="various-scales-and-tools-for-closed-loop-control">Various scales and tools for closed-loop control</h2>
 <p>Closed-loop control of neural activity can be performed at multiple scales and with different sets of tools. At the smallest, sub-neuron scale, dynamic clamping has yielded decades of fruitful research <span class="citation" data-cites="hodgkin53 cite">(<a href="references.html#ref-hodgkin53" role="doc-biblioref"><strong>hodgkin53?</strong></a>, <a href="references.html#ref-cite" role="doc-biblioref"><strong>cite?</strong></a> some-review-paper)</span> in the forms of tools such as the dynamic clamp and voltage clamp, controlling electrical properties of small patches of membrane. The frontiers of this small-scale neuroscience often involve scaling up to multiple neurons and scaling down to subcellular structures such as dendrites <span class="citation" data-cites="cite">(<a href="references.html#ref-cite" role="doc-biblioref"><strong>cite?</strong></a>)</span>, but multi-electrode intracellular recording face limitations <span class="citation" data-cites="davie06 wang15 engel16 cite">(<a href="references.html#ref-davie06" role="doc-biblioref"><em>42</em></a>–<a href="references.html#ref-engel16" role="doc-biblioref"><em>44</em></a>, <a href="references.html#ref-cite" role="doc-biblioref"><strong>cite?</strong></a> more, not just patch clamping)</span>. Optical tools—e.g., optogenetics and fluorescence microscopy—can circumvent the difficulties of working with electrodes at such small scales, but an optical approach is not yet feasible for this purpose. The obstacles lie mainly in recording technology: the kinetics of both voltage indicators <span class="citation" data-cites="wu20a">(<a href="references.html#ref-wu20a" role="doc-biblioref"><em>16</em></a>)</span> and intracellular calcium <span class="citation" data-cites="cite">(<a href="references.html#ref-cite" role="doc-biblioref"><strong>cite?</strong></a>)</span> are too slow to capture phenomena faster than a typical action potential.</p>
 <p>By contrast, the current state of technology is ripe for innovating closed-loop control methods at larger scales of neural activity, from single neurons to populations and circuits. Several promising combinations of recording and stimulation modalities are possible and still relatively novel: electrode recording with optogenetic stimulation <span class="citation" data-cites="cardin10">(<a href="references.html#ref-cardin10" role="doc-biblioref"><em>45</em></a>, our papers)</span>, fluorescence microscopy with electrical stimulation <span class="citation" data-cites="cite">(<a href="references.html#ref-cite" role="doc-biblioref"><strong>cite?</strong></a>)</span>, fluorescence microscopy with photostimulation (all-optical control) <span class="citation" data-cites="flytzanis14 hochbaum14 emiliani15 zhang18 kishi22">(<a href="references.html#ref-emiliani15" role="doc-biblioref"><em>36</em></a>, <a href="references.html#ref-zhang18" role="doc-biblioref"><em>37</em></a>, <a href="references.html#ref-hochbaum14" role="doc-biblioref"><em>46</em></a>, <a href="references.html#ref-kishi22" role="doc-biblioref"><em>47</em></a>, <a href="references.html#ref-flytzanis14" role="doc-biblioref"><strong>flytzanis14?</strong></a>)</span>, and fMRI with optionally transcranial <span class="citation" data-cites="lin13 chen18a">(<a href="references.html#ref-lin13" role="doc-biblioref"><em>48</em></a>, <a href="references.html#ref-chen18a" role="doc-biblioref"><em>49</em></a>)</span> photostimulation. Each of these tool combinations has pros and cons in terms of spatial and temporal resolution, crosstalk <span class="citation" data-cites="packer13">(<a href="references.html#ref-packer13" role="doc-biblioref"><em>50</em></a>)</span>, and degrees of freedom.</p>
 <p>A natural starting point for many neuroscientists is the first of these tool sets—electrode recording combined with optogenetics—since the two methods are so widely used, interfere little with each other (as long as metal electrodes are not directly illuminated <span class="citation" data-cites="cardin10 packer13">(<a href="references.html#ref-cardin10" role="doc-biblioref"><em>45</em></a>, <a href="references.html#ref-packer13" role="doc-biblioref"><em>50</em></a>)</span>), and allow for genetically targeted stimulation. I will henceforth refer to this combination as CLOC, following the convention established by previous works <span class="citation" data-cites="bolus18 bolus21">(<a href="references.html#ref-bolus18" role="doc-biblioref"><em>34</em></a>, <a href="references.html#ref-bolus21" role="doc-biblioref"><em>35</em></a>)</span>.</p>
-<p>The proposed work builds on the work my lab and collaborators have done previously in implementing CLOC feedback control. Newman et al. <span class="citation" data-cites="newman15">(<a href="references.html#ref-newman15" role="doc-biblioref"><em>33</em></a>)</span> demonstrated bidirectional CLOC for fixed firing and slowly varying rate targets and using a model-free proportional-integral (PI) control scheme <em>in silico</em> (<a href="#fig-newman15">Figure&nbsp;<span>2.1 (a)</span></a>), as well as unidirectional integral control in the anesthetized rat. Bolus et al. <span class="citation" data-cites="bolus18">(<a href="references.html#ref-bolus18" role="doc-biblioref"><em>34</em></a>)</span> used PI control again, but developed a more principled approach to set estimation and control parameters and tracked dynamic firing rate trajectories down to a ~100-ms timescale (<a href="#fig-bolus18">Figure&nbsp;<span>2.1 (b)</span></a>). Bolus et al.&nbsp;later employed more sophisticated and scalable optimal feedback control methods which are more robust to disturbances—important especially in awake animal experiments, where dynamic brain state changes contribute to high per-trial variability (<a href="#fig-bolus21">Figure&nbsp;<span>2.1 (c)</span></a>).</p>
+</section>
+<section id="sec-prev-work" class="level2">
+<h2 class="anchored" data-anchor-id="sec-prev-work">Previous work</h2>
+<p>The proposed work builds on the work my lab and collaborators have done previously in implementing CLOC feedback control. Newman et al. <span class="citation" data-cites="newman15">(<a href="references.html#ref-newman15" role="doc-biblioref"><em>33</em></a>)</span> demonstrated bidirectional CLOC for fixed firing and slowly varying rate targets and using a model-free proportional-integral (PI) control scheme <em>in silico</em> (<a href="#fig-newman15">Figure&nbsp;<span>3.1 (a)</span></a>), as well as unidirectional integral control in the anesthetized rat. Bolus et al. <span class="citation" data-cites="bolus18">(<a href="references.html#ref-bolus18" role="doc-biblioref"><em>34</em></a>)</span> used PI control again, but developed a more principled approach to set estimation and control parameters and tracked dynamic firing rate trajectories down to a ~100-ms timescale (<a href="#fig-bolus18">Figure&nbsp;<span>3.1 (b)</span></a>). Bolus et al.&nbsp;later employed more sophisticated and scalable optimal feedback control methods which are more robust to disturbances—important especially in awake animal experiments, where dynamic brain state changes contribute to high per-trial variability (<a href="#fig-bolus21">Figure&nbsp;<span>3.1 (c)</span></a>).</p>
 <div id="fig-prev-work" class="quarto-layout-panel">
 <figure class="figure">
 <div class="quarto-layout-row quarto-layout-valign-top">
@@ -234,19 +240,19 @@ div.csl-indent {
 </figure>
 </div>
 </div>
-<p></p><figcaption class="figure-caption">Figure&nbsp;2.1: Previous CLOC experiments. (A) Figure 2 from <span class="citation" data-cites="newman15">(<a href="references.html#ref-newman15" role="doc-biblioref"><em>33</em></a>)</span>, demonstrating control clamping a cultured neuron to different firing rates. <span class="math inline">\(U_C\)</span> refers to the control signal for channelrhodopsin2(H134R) (ChR2<sub>R</sub>), parametrizing 470-nm light delivery. <span class="math inline">\(U_H\)</span> likewise parametrizes 590-nm light delivery to activate enhanced halorhodopsin-3.0 (eNpHR3.0). (B) Figure 2 from <span class="citation" data-cites="bolus18">(<a href="references.html#ref-bolus18" role="doc-biblioref"><em>34</em></a>)</span>, outlining an <em>in-vivo</em> experiment setup, a control diagram showing how optical input is determined from the firing rate estimated in real time, and a strategy for tuning the controller. (C) Figure 4b from <span class="citation" data-cites="bolus21">(<a href="references.html#ref-bolus21" role="doc-biblioref"><em>35</em></a>)</span>, showing how CLOC clamps the firing rate of a single thalamic neuron in the awake mouse over multiple trials, reducing response variability (as measured by the Fano factor).</figcaption><p></p>
+<p></p><figcaption class="figure-caption">Figure&nbsp;3.1: Previous CLOC experiments. (A) Figure 2 from <span class="citation" data-cites="newman15">(<a href="references.html#ref-newman15" role="doc-biblioref"><em>33</em></a>)</span>, demonstrating control clamping a cultured neuron to different firing rates. <span class="math inline">\(U_C\)</span> refers to the control signal for channelrhodopsin2(H134R) (ChR2<sub>R</sub>), parametrizing 470-nm light delivery. <span class="math inline">\(U_H\)</span> likewise parametrizes 590-nm light delivery to activate enhanced halorhodopsin-3.0 (eNpHR3.0). (B) Figure 2 from <span class="citation" data-cites="bolus18">(<a href="references.html#ref-bolus18" role="doc-biblioref"><em>34</em></a>)</span>, outlining an <em>in-vivo</em> experiment setup, a control diagram showing how optical input is determined from the firing rate estimated in real time, and a strategy for tuning the controller. (C) Figure 4b from <span class="citation" data-cites="bolus21">(<a href="references.html#ref-bolus21" role="doc-biblioref"><em>35</em></a>)</span>, showing how CLOC clamps the firing rate of a single thalamic neuron in the awake mouse over multiple trials, reducing response variability (as measured by the Fano factor).</figcaption><p></p>
 </figure>
 </div>
 </section>
 <section id="potential-applications-in-mesoscale-neuroscience" class="level2">
 <h2 class="anchored" data-anchor-id="potential-applications-in-mesoscale-neuroscience">Potential applications in mesoscale neuroscience</h2>
-<p>Seeing that a suitable technological foundation for feedback control of neural activity has already been laid with CLOC, I turn now to a discussion of several exciting areas where CLOC could further causal hypothesis testing. These deal with concrete questions of scientific interest, as opposed to the conceptual/technical advantages previously explained (<a href="#sec-cl-neuro"><span>Section&nbsp;2.1</span></a>). Neuroscientists often identify specific variables or phenomena to assess their role in a larger neural system, in search of interpretable components of brain activity. A natural application of CLOC is to control these variables and phenomena of interest directly to enable stronger inference of their relationship to downstream variables. Examples of these potential targets for control include the activity of different cell types <span class="citation" data-cites="martinez-garcia20 more">(<a href="references.html#ref-martinez-garcia20" role="doc-biblioref"><em>51</em></a>, <a href="references.html#ref-more" role="doc-biblioref"><strong>more?</strong></a>)</span>; the type <span class="citation" data-cites="cole17 cole19 fabus21">(<a href="references.html#ref-cole17" role="doc-biblioref"><em>52</em></a>–<a href="references.html#ref-fabus21" role="doc-biblioref"><em>54</em></a>)</span>, frequency <span class="citation" data-cites="saleem17">(<a href="references.html#ref-saleem17" role="doc-biblioref"><em>55</em></a>)</span>, amplitude <span class="citation" data-cites="saleem17">(<a href="references.html#ref-saleem17" role="doc-biblioref"><em>55</em></a>)</span>, spike coherence <span class="citation" data-cites="buschman12 buffalo11">(<a href="references.html#ref-buschman12" role="doc-biblioref"><em>56</em></a>, <a href="references.html#ref-buffalo11" role="doc-biblioref"><em>57</em></a>)</span> and relationship <span class="citation" data-cites="aru15 zhang19">(<a href="references.html#ref-aru15" role="doc-biblioref"><em>58</em></a>, <a href="references.html#ref-zhang19" role="doc-biblioref"><strong>zhang19?</strong></a>)</span> of different oscillatory patterns <span class="citation" data-cites="buzsaki04">(<a href="references.html#ref-buzsaki04" role="doc-biblioref"><em>59</em></a>)</span>; discrete phenomena such as bursts <span class="citation" data-cites="cite">(<a href="references.html#ref-cite" role="doc-biblioref"><strong>cite?</strong></a>)</span>, sharp wave ripples <span class="citation" data-cites="buzsaki15">(<a href="references.html#ref-buzsaki15" role="doc-biblioref"><strong>buzsaki15?</strong></a>)</span>, oscillatory bursts <span class="citation" data-cites="lundqvist16 lundqvist22 eriksson22">(<a href="references.html#ref-eriksson22" role="doc-biblioref"><em>8</em></a>, <a href="references.html#ref-lundqvist16" role="doc-biblioref"><em>60</em></a>, <a href="references.html#ref-lundqvist22" role="doc-biblioref"><em>61</em></a>)</span>, traveling waves <span class="citation" data-cites="muller18 davis20">(<a href="references.html#ref-muller18" role="doc-biblioref"><em>62</em></a>, <a href="references.html#ref-davis20" role="doc-biblioref"><em>63</em></a>)</span>, or sleep spindles <span class="citation" data-cites="cite">(<a href="references.html#ref-cite" role="doc-biblioref"><strong>cite?</strong></a>)</span>; and latent states describing neural dynamics <span class="citation" data-cites="vyas20 cite">(<a href="references.html#ref-vyas20" role="doc-biblioref"><em>64</em></a>, <a href="references.html#ref-cite" role="doc-biblioref"><strong>cite?</strong></a> review, Shenoy lab causal test, Hantman)</span>, including those most relevant to behavior <span class="citation" data-cites="sani21a sani21 hurwitz21">(<a href="references.html#ref-sani21a" role="doc-biblioref"><em>20</em></a>, <a href="references.html#ref-sani21" role="doc-biblioref"><em>65</em></a>, <a href="references.html#ref-hurwitz21" role="doc-biblioref"><em>66</em></a>)</span>.</p>
+<p>Seeing that a suitable technological foundation for feedback control of neural activity has already been laid with CLOC, I turn now to a discussion of several exciting areas where CLOC could further causal hypothesis testing. These deal with concrete questions of scientific interest, as opposed to the conceptual/technical advantages previously explained (<a href="#sec-cl-neuro"><span>Section&nbsp;3.1</span></a>). Neuroscientists often identify specific variables or phenomena to assess their role in a larger neural system, in search of interpretable components of brain activity. A natural application of CLOC is to control these variables and phenomena of interest directly to enable stronger inference of their relationship to downstream variables. Examples of these potential targets for control include the activity of different cell types <span class="citation" data-cites="martinez-garcia20 more">(<a href="references.html#ref-martinez-garcia20" role="doc-biblioref"><em>51</em></a>, <a href="references.html#ref-more" role="doc-biblioref"><strong>more?</strong></a>)</span>; the type <span class="citation" data-cites="cole17 cole19 fabus21">(<a href="references.html#ref-cole17" role="doc-biblioref"><em>52</em></a>–<a href="references.html#ref-fabus21" role="doc-biblioref"><em>54</em></a>)</span>, frequency <span class="citation" data-cites="saleem17">(<a href="references.html#ref-saleem17" role="doc-biblioref"><em>55</em></a>)</span>, amplitude <span class="citation" data-cites="saleem17">(<a href="references.html#ref-saleem17" role="doc-biblioref"><em>55</em></a>)</span>, spike coherence <span class="citation" data-cites="buschman12 buffalo11">(<a href="references.html#ref-buschman12" role="doc-biblioref"><em>56</em></a>, <a href="references.html#ref-buffalo11" role="doc-biblioref"><em>57</em></a>)</span> and relationship <span class="citation" data-cites="aru15 zhang19">(<a href="references.html#ref-aru15" role="doc-biblioref"><em>58</em></a>, <a href="references.html#ref-zhang19" role="doc-biblioref"><em>59</em></a>)</span> of different oscillatory patterns <span class="citation" data-cites="buzsaki04">(<a href="references.html#ref-buzsaki04" role="doc-biblioref"><em>60</em></a>)</span>; discrete phenomena such as bursts <span class="citation" data-cites="cite">(<a href="references.html#ref-cite" role="doc-biblioref"><strong>cite?</strong></a>)</span>, sharp wave ripples <span class="citation" data-cites="buzsaki15">(<a href="references.html#ref-buzsaki15" role="doc-biblioref"><em>61</em></a>)</span>, oscillatory bursts <span class="citation" data-cites="lundqvist16 lundqvist22 eriksson22">(<a href="references.html#ref-eriksson22" role="doc-biblioref"><em>8</em></a>, <a href="references.html#ref-lundqvist16" role="doc-biblioref"><em>62</em></a>, <a href="references.html#ref-lundqvist22" role="doc-biblioref"><em>63</em></a>)</span>, traveling waves <span class="citation" data-cites="muller18 davis20">(<a href="references.html#ref-muller18" role="doc-biblioref"><em>64</em></a>, <a href="references.html#ref-davis20" role="doc-biblioref"><em>65</em></a>)</span>, or sleep spindles <span class="citation" data-cites="cite">(<a href="references.html#ref-cite" role="doc-biblioref"><strong>cite?</strong></a>)</span>; and latent states describing neural dynamics <span class="citation" data-cites="vyas20 cite">(<a href="references.html#ref-vyas20" role="doc-biblioref"><em>66</em></a>, <a href="references.html#ref-cite" role="doc-biblioref"><strong>cite?</strong></a> review, Shenoy lab causal test, Hantman)</span>, including those most relevant to behavior <span class="citation" data-cites="sani21a sani21 hurwitz21">(<a href="references.html#ref-sani21a" role="doc-biblioref"><em>20</em></a>, <a href="references.html#ref-sani21" role="doc-biblioref"><em>67</em></a>, <a href="references.html#ref-hurwitz21" role="doc-biblioref"><em>68</em></a>)</span>.</p>
 <p>While some of these targets lend themselves easily to CLOC, others require continued innovation in interfacing technology. While recent advances in recording technology allow us to infer neural state with unprecedented precision <span class="citation" data-cites="steinmetz21 siegle17 calcium-imaging kazemipour19 wu20a GEVI">(<a href="references.html#ref-steinmetz21" role="doc-biblioref"><em>9</em></a>, <a href="references.html#ref-siegle17" role="doc-biblioref"><em>10</em></a>, <a href="references.html#ref-kazemipour19" role="doc-biblioref"><em>15</em></a>, <a href="references.html#ref-wu20a" role="doc-biblioref"><em>16</em></a>, <a href="references.html#ref-calcium-imaging" role="doc-biblioref"><strong>calcium-imaging?</strong></a>, <a href="references.html#ref-GEVI" role="doc-biblioref"><strong>GEVI?</strong></a>)</span>, available actuation technologies are much more limited in their degrees of freedom and thus unlikely to sufficiently control what is observed. For this reason, the development of micro-LED arrays <span class="citation" data-cites="cite">(<a href="references.html#ref-cite" role="doc-biblioref"><strong>cite?</strong></a>)</span>, multi-channel optrodes <span class="citation" data-cites="eriksson22">(<a href="references.html#ref-eriksson22" role="doc-biblioref"><em>8</em></a>)</span>, and holographic optogenetic stimulation <span class="citation" data-cites="zhang18 cite">(<a href="references.html#ref-zhang18" role="doc-biblioref"><em>37</em></a>, <a href="references.html#ref-cite" role="doc-biblioref"><strong>cite?</strong></a>)</span> are of particular interest. Moreover, rigorous investigation of the importance of recording and stimulation capabilities relative to each other would be helpful in guiding technological development and experimental design.</p>
-<p>In addition to controlling variables of interest, CLOC can serve a paradigm of decoupling variables. This could be in the context of a circuit, where clamping the activity of a given node decouples its activity from all inputs except for the controller. This functionally severs links in the circuit, aiding in circuit identification and in testing the function of different nodes and connections <span class="citation" data-cites="willats-clinc">(<a href="references.html#ref-willats-clinc" role="doc-biblioref"><strong>willats-clinc?</strong></a>)</span>. Moreover, CLOC could be used in the more general sense of controlling for confounding variables. For example, one might want to manipulate the synchrony of a population without changing the mean firing rate, or vice-versa. Whereas the conventional open-loop stimulation approach might accomplish this through tedious titration of stimulation parameters <span class="citation" data-cites="nandy19">(<a href="references.html#ref-nandy19" role="doc-biblioref"><em>67</em></a>)</span>, the feedback control approach could simultaneously manipulate both variables as desired, requiring only a passable model of the system.</p>
+<p>In addition to controlling variables of interest, CLOC can serve a paradigm of decoupling variables. This could be in the context of a circuit, where clamping the activity of a given node decouples its activity from all inputs except for the controller. This functionally severs links in the circuit, aiding in circuit identification and in testing the function of different nodes and connections <span class="citation" data-cites="willats-clinc">(<a href="references.html#ref-willats-clinc" role="doc-biblioref"><strong>willats-clinc?</strong></a>)</span>. Moreover, CLOC could be used in the more general sense of controlling for confounding variables. For example, one might want to manipulate the synchrony of a population without changing the mean firing rate, or vice-versa. Whereas the conventional open-loop stimulation approach might accomplish this through tedious titration of stimulation parameters <span class="citation" data-cites="nandy19">(<a href="references.html#ref-nandy19" role="doc-biblioref"><em>69</em></a>)</span>, the feedback control approach could simultaneously manipulate both variables as desired, requiring only a passable model of the system.</p>
 </section>
 <section id="innovation" class="level2">
 <h2 class="anchored" data-anchor-id="innovation">Innovation</h2>
-<p>Despite CLOC’s great promise to be applied in these areas, it has not yet been widely applied in mesoscale neuroscience. As outlined in <a href="specific-aims.html"><span>Chapter&nbsp;1</span></a>, I identify three main reasons for this, which I will begin to address. First, CLOC experiments are difficult and costly. I propose lowering the barrier to entry and the cost of experiment design and method development for CLOC experiments by creating a simulation framework, since <strong>existing mesoscale neural network simulators do not contain the necessary ingredients for CLOC simulation</strong>. Second, the algorithms previously used for CLOC are not well suited for actuation via multiple simultaneous light sources. I propose adapting more <strong>powerful control theory methods</strong> to enable bidirectional CLOC, which to our knowledge <strong>has not been done previously</strong>. Third, technical and conceptual guidelines for the effective application of CLOC do not exist because <strong>CLOC has not yet been applied to answer a complex scientific question</strong>. I propose to model how this can be done by controlling latent neural dynamics <em>in silico</em>, exploring how technical requirements scale with model and experiment parameters, and inferring a causal relationship between latent variables and model behavior.</p>
+<p>Despite CLOC’s great promise to be applied in these areas, it has not yet been widely applied in mesoscale neuroscience. As outlined in <a href="specific-aims.html"><span>Chapter&nbsp;2</span></a>, I identify three main reasons for this, which I will begin to address. First, CLOC experiments are difficult and costly. I propose lowering the barrier to entry and the cost of experiment design and method development for CLOC experiments by creating a simulation framework, since <strong>existing mesoscale neural network simulators do not contain the necessary ingredients for CLOC simulation</strong>. Second, the algorithms previously used for CLOC are not well suited for actuation via multiple simultaneous light sources. I propose adapting more <strong>powerful control theory methods</strong> to enable bidirectional CLOC, which to our knowledge <strong>has not been done previously</strong>. Third, technical and conceptual guidelines for the effective application of CLOC do not exist because <strong>CLOC has not yet been applied to answer a complex scientific question</strong>. I propose to model how this can be done by controlling latent neural dynamics <em>in silico</em>, exploring how technical requirements scale with model and experiment parameters and inferring a causal relationship between latent variables and model behavior.</p>
 
 
 <div id="refs" class="references csl-bib-body" role="doc-bibliography" style="display: none">
@@ -353,7 +359,7 @@ div.csl-indent {
 <div class="csl-left-margin">34. </div><div class="csl-right-inline">M. F. Bolus, A. A. Willats, C. J. Whitmire, C. J. Rozell, G. B. Stanley, <a href="https://doi.org/10.1088/1741-2552/aaa506">Design strategies for dynamic closed-loop optogenetic neurocontrol in vivo</a>. <em>Journal of Neural Engineering</em>. <strong>15</strong>, 026011 (2018).</div>
 </div>
 <div id="ref-bolus21" class="csl-entry" role="doc-biblioentry">
-<div class="csl-left-margin">35. </div><div class="csl-right-inline">M. F. Bolus, A. A. Willats, C. J. Rozell, G. B. Stanley, <em>Journal of neural engineering</em>, in press, doi:<a href="https://doi.org/10.1101/2020.06.25.171785">10.1101/2020.06.25.171785</a>.</div>
+<div class="csl-left-margin">35. </div><div class="csl-right-inline">M. F. Bolus, A. A. Willats, C. J. Rozell, G. B. Stanley, <a href="https://doi.org/10.1101/2020.06.25.171785">State-space optimal feedback control of optogenetically driven neural activity</a>. <em>Journal of neural engineering</em>. <strong>18</strong>, 036006 (2021).</div>
 </div>
 <div id="ref-emiliani15" class="csl-entry" role="doc-biblioentry">
 <div class="csl-left-margin">36. </div><div class="csl-right-inline">V. Emiliani, A. E. Cohen, K. Deisseroth, M. Häusser, <a href="https://doi.org/10.1523/JNEUROSCI.2916-15.2015">All-optical interrogation of neural circuits</a>. <em>Journal of Neuroscience</em>. <strong>35</strong>, 13917–13926 (2015).</div>
@@ -424,32 +430,38 @@ div.csl-indent {
 <div id="ref-aru15" class="csl-entry" role="doc-biblioentry">
 <div class="csl-left-margin">58. </div><div class="csl-right-inline">J. Aru, J. Aru, V. Priesemann, M. Wibral, L. Lana, G. Pipa, W. Singer, R. Vicente, <a href="https://doi.org/10.1016/j.conb.2014.08.002">Untangling cross-frequency coupling in neuroscience</a>. <em>Current Opinion in Neurobiology</em>. <strong>31</strong>, 51–61 (2015).</div>
 </div>
+<div id="ref-zhang19" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">59. </div><div class="csl-right-inline">L. Zhang, J. Lee, C. Rozell, A. C. Singer, Sub-second dynamics of theta-gamma coupling in hippocampal CA1. <em>eLife</em>. <strong>8</strong> (2019), doi:<a href="https://doi.org/10.7554/eLife.44320">10.7554/eLife.44320</a>.</div>
+</div>
 <div id="ref-buzsaki04" class="csl-entry" role="doc-biblioentry">
-<div class="csl-left-margin">59. </div><div class="csl-right-inline">G. Buzsáki, A. Draguhn, <a href="https://doi.org/10.1126/science.1099745">Neuronal oscillations in cortical networks</a>. <em>Science</em>. <strong>304</strong>, 1926–1929 (2004).</div>
+<div class="csl-left-margin">60. </div><div class="csl-right-inline">G. Buzsáki, A. Draguhn, <a href="https://doi.org/10.1126/science.1099745">Neuronal oscillations in cortical networks</a>. <em>Science</em>. <strong>304</strong>, 1926–1929 (2004).</div>
+</div>
+<div id="ref-buzsaki15" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">61. </div><div class="csl-right-inline">G. Buzsáki, <a href="https://doi.org/10.1002/hipo.22488">Hippocampal sharp wave-ripple: A cognitive biomarker for episodic memory and planning</a>. <em>Hippocampus</em>. <strong>25</strong>, 1073–1188 (2015).</div>
 </div>
 <div id="ref-lundqvist16" class="csl-entry" role="doc-biblioentry">
-<div class="csl-left-margin">60. </div><div class="csl-right-inline">M. Lundqvist, J. Rose, P. Herman, S. L. L. Brincat, T. J. J. Buschman, E. K. K. Miller, <a href="https://doi.org/10.1016/j.neuron.2016.02.028">Gamma and Beta Bursts Underlie Working Memory</a>. <em>Neuron</em>. <strong>90</strong>, 152–164 (2016).</div>
+<div class="csl-left-margin">62. </div><div class="csl-right-inline">M. Lundqvist, J. Rose, P. Herman, S. L. L. Brincat, T. J. J. Buschman, E. K. K. Miller, <a href="https://doi.org/10.1016/j.neuron.2016.02.028">Gamma and Beta Bursts Underlie Working Memory</a>. <em>Neuron</em>. <strong>90</strong>, 152–164 (2016).</div>
 </div>
 <div id="ref-lundqvist22" class="csl-entry" role="doc-biblioentry">
-<div class="csl-left-margin">61. </div><div class="csl-right-inline">M. Lundqvist, J. Rose, M. Warden, T. Buschman, P. Herman, Reduced variability of bursting activity during working memory (2022), doi:<a href="https://doi.org/10.1101/2022.02.18.481088">10.1101/2022.02.18.481088</a>.</div>
+<div class="csl-left-margin">63. </div><div class="csl-right-inline">M. Lundqvist, J. Rose, M. Warden, T. Buschman, P. Herman, Reduced variability of bursting activity during working memory (2022), doi:<a href="https://doi.org/10.1101/2022.02.18.481088">10.1101/2022.02.18.481088</a>.</div>
 </div>
 <div id="ref-muller18" class="csl-entry" role="doc-biblioentry">
-<div class="csl-left-margin">62. </div><div class="csl-right-inline">L. Muller, F. Chavane, J. Reynolds, T. J. Sejnowski, <a href="https://doi.org/10.1038/nrn.2018.20">Cortical travelling waves: Mechanisms and computational principles</a>. <em>Nature Reviews Neuroscience</em>. <strong>19</strong>, 255–268 (2018).</div>
+<div class="csl-left-margin">64. </div><div class="csl-right-inline">L. Muller, F. Chavane, J. Reynolds, T. J. Sejnowski, <a href="https://doi.org/10.1038/nrn.2018.20">Cortical travelling waves: Mechanisms and computational principles</a>. <em>Nature Reviews Neuroscience</em>. <strong>19</strong>, 255–268 (2018).</div>
 </div>
 <div id="ref-davis20" class="csl-entry" role="doc-biblioentry">
-<div class="csl-left-margin">63. </div><div class="csl-right-inline">Z. W. Davis, L. Muller, J. Martinez-Trujillo, T. Sejnowski, J. H. Reynolds, <a href="https://doi.org/10.1038/s41586-020-2802-y">Spontaneous travelling cortical waves gate perception in behaving primates</a>. <em>Nature</em>. <strong>587</strong>, 432–436 (2020).</div>
+<div class="csl-left-margin">65. </div><div class="csl-right-inline">Z. W. Davis, L. Muller, J. Martinez-Trujillo, T. Sejnowski, J. H. Reynolds, <a href="https://doi.org/10.1038/s41586-020-2802-y">Spontaneous travelling cortical waves gate perception in behaving primates</a>. <em>Nature</em>. <strong>587</strong>, 432–436 (2020).</div>
 </div>
 <div id="ref-vyas20" class="csl-entry" role="doc-biblioentry">
-<div class="csl-left-margin">64. </div><div class="csl-right-inline">S. Vyas, M. D. Golub, D. Sussillo, K. V. Shenoy, <a href="https://doi.org/10.1146/annurev-neuro-092619-094115">Computation through Neural Population Dynamics</a>. <em>Annual Review of Neuroscience</em>. <strong>43</strong>, 249–275 (2020).</div>
+<div class="csl-left-margin">66. </div><div class="csl-right-inline">S. Vyas, M. D. Golub, D. Sussillo, K. V. Shenoy, <a href="https://doi.org/10.1146/annurev-neuro-092619-094115">Computation through Neural Population Dynamics</a>. <em>Annual Review of Neuroscience</em>. <strong>43</strong>, 249–275 (2020).</div>
 </div>
 <div id="ref-sani21" class="csl-entry" role="doc-biblioentry">
-<div class="csl-left-margin">65. </div><div class="csl-right-inline">O. G. Sani, B. Pesaran, M. M. Shanechi, M. Hsieh, <a href="https://doi.org/10.1101/2021.09.03.458628">Where is all the nonlinearity: flexible nonlinear modeling of behaviorally relevant neural dynamics using recurrent neural networks</a>. <em>bioRxiv</em>, 2021.09.03.458628 (2021).</div>
+<div class="csl-left-margin">67. </div><div class="csl-right-inline">O. G. Sani, B. Pesaran, M. M. Shanechi, M. Hsieh, <a href="https://doi.org/10.1101/2021.09.03.458628">Where is all the nonlinearity: flexible nonlinear modeling of behaviorally relevant neural dynamics using recurrent neural networks</a>. <em>bioRxiv</em>, 2021.09.03.458628 (2021).</div>
 </div>
 <div id="ref-hurwitz21" class="csl-entry" role="doc-biblioentry">
-<div class="csl-left-margin">66. </div><div class="csl-right-inline">C. Hurwitz, A. Srivastava, K. Xu, J. Jude, M. G. Perich, L. E. Miller, M. H. Hennig, "Targeted Neural Dynamical Modeling" in <em>Advances in Neural Information Processing Systems</em> (2021; <a href="https://github.com/HennigLab/tndm.">https://github.com/HennigLab/tndm.</a>), vol. 35, pp. 29379–29392.</div>
+<div class="csl-left-margin">68. </div><div class="csl-right-inline">C. Hurwitz, A. Srivastava, K. Xu, J. Jude, M. G. Perich, L. E. Miller, M. H. Hennig, "Targeted Neural Dynamical Modeling" in <em>Advances in Neural Information Processing Systems</em> (2021; <a href="https://github.com/HennigLab/tndm.">https://github.com/HennigLab/tndm.</a>), vol. 35, pp. 29379–29392.</div>
 </div>
 <div id="ref-nandy19" class="csl-entry" role="doc-biblioentry">
-<div class="csl-left-margin">67. </div><div class="csl-right-inline">A. Nandy, J. J. Nassi, M. P. Jadi, J. Reynolds, Optogenetically induced low-frequency correlations impair perception. <em>eLife</em>. <strong>8</strong> (2019), doi:<a href="https://doi.org/10.7554/eLife.35123">10.7554/eLife.35123</a>.</div>
+<div class="csl-left-margin">69. </div><div class="csl-right-inline">A. Nandy, J. J. Nassi, M. P. Jadi, J. Reynolds, Optogenetically induced low-frequency correlations impair perception. <em>eLife</em>. <strong>8</strong> (2019), doi:<a href="https://doi.org/10.7554/eLife.35123">10.7554/eLife.35123</a>.</div>
 </div>
 </div>
 </section>
@@ -587,7 +599,9 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   // Switch to dark mode if need be
   if (hasAlternateSentinel()) {
     toggleColorMode(true);
-  } 
+  } else {
+    toggleColorMode(false);
+  }
   const icon = "";
   const anchorJS = new window.AnchorJS();
   anchorJS.options = {
@@ -609,7 +623,24 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     button.classList.add('code-copy-button-checked');
     var currentTitle = button.getAttribute("title");
     button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
     setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
       button.setAttribute("title", currentTitle);
       button.classList.remove('code-copy-button-checked');
     }, 1000);
@@ -645,41 +676,59 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       return note.innerHTML;
     });
   }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
   var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
   for (var i=0; i<bibliorefs.length; i++) {
     const ref = bibliorefs[i];
-    const cites = ref.parentNode.getAttribute('data-cites').split(' ');
-    tippyHover(ref, function() {
-      var popup = window.document.createElement('div');
-      cites.forEach(function(cite) {
-        var citeDiv = window.document.createElement('div');
-        citeDiv.classList.add('hanging-indent');
-        citeDiv.classList.add('csl-entry');
-        var biblioDiv = window.document.getElementById('ref-' + cite);
-        if (biblioDiv) {
-          citeDiv.innerHTML = biblioDiv.innerHTML;
-        }
-        popup.appendChild(citeDiv);
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
       });
-      return popup.innerHTML;
-    });
+    }
   }
 });
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
       <a href="./specific-aims.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Specific Aims</span></span>
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Specific Aims</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
       <a href="./aim1.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Aim 1: A CLOC simulation testbed</span></span> <i class="bi bi-arrow-right-short"></i>
+        <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Aim 1: A CLOC simulation testbed</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
 </div> <!-- /content -->
-<script>var lightboxQuarto = GLightbox({"openEffect":"zoom","selector":".lightbox","closeEffect":"zoom","loop":true,"descPosition":"bottom"});</script>
+<script>var lightboxQuarto = GLightbox({"openEffect":"zoom","loop":true,"closeEffect":"zoom","descPosition":"bottom","selector":".lightbox"});</script>
 
 
 

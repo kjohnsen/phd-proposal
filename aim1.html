@@ -2,12 +2,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.1.189">
+<meta name="generator" content="quarto-1.2.269">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Developing and exploiting optogenetic feedback control in mesoscale neuroscience - 3&nbsp; Aim 1: A CLOC simulation testbed</title>
+<title>Developing and exploiting optogenetic feedback control in mesoscale neuroscience - 4&nbsp; Aim 1: A CLOC simulation testbed</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -95,7 +95,7 @@ div.csl-indent {
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
     <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Aim 1: A CLOC simulation testbed</span></h1>
+      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Aim 1: A CLOC simulation testbed</span></h1>
       <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
         <i class="bi bi-chevron-right"></i>
       </button>
@@ -125,37 +125,32 @@ div.csl-indent {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link">Front Matter</a>
+  <a href="./index.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Abstract</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./specific-aims.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Specific Aims</span></a>
+  <a href="./specific-aims.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Specific Aims</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./background.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Background</span></a>
+  <a href="./background.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Background</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./aim1.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Aim 1: A CLOC simulation testbed</span></a>
+  <a href="./aim1.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Aim 1: A CLOC simulation testbed</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./aim2.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Aim 2</span></a>
+  <a href="./aim2.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Aim 2: Multi-input CLOC</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./aim3.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Aim 3</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./timeline.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Timeline</span></a>
+  <a href="./aim3.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Aim 3: Latent Factor Control</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -200,7 +195,7 @@ div.csl-indent {
   <li><a href="#usability-accessibility" id="toc-usability-accessibility" class="nav-link" data-scroll-target="#usability-accessibility">Usability &amp; accessibility</a>
   <ul>
   <li><a href="#open-source-code-and-documentation" id="toc-open-source-code-and-documentation" class="nav-link" data-scroll-target="#open-source-code-and-documentation">Open-source code and documentation</a></li>
-  <li><a href="#example-experiments" id="toc-example-experiments" class="nav-link" data-scroll-target="#example-experiments">Example experiments</a></li>
+  <li><a href="#sec-cleo-experiments" id="toc-sec-cleo-experiments" class="nav-link" data-scroll-target="#sec-cleo-experiments">Example experiments</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -210,7 +205,7 @@ div.csl-indent {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title d-none d-lg-block"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Aim 1: A CLOC simulation testbed</span></h1>
+<h1 class="title"><span id="sec-aim1" class="quarto-section-identifier d-none d-lg-block"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Aim 1: A CLOC simulation testbed</span></span></h1>
 </div>
 
 
@@ -218,6 +213,7 @@ div.csl-indent {
 <div class="quarto-title-meta">
 
     
+  
     
   </div>
   
@@ -234,7 +230,7 @@ div.csl-indent {
 <section id="guiding-principles" class="level2">
 <h2 class="anchored" data-anchor-id="guiding-principles">Guiding principles</h2>
 <p>Two factors drove our choice of recording and stimulation models to integrate into Cleo. First, because a main purpose of Cleo is to enable prototyping of experiments, we focused on models at the level of the parameters an experimenter is able to alter. Because parameters such as electrode location, channel count and density, and optic fiber depth and size are all defined naturally in spatially extended models, Cleo’s electrode and optogenetics modules require a “spatial” network model where relevant neurons must be assigned coordinates in space.</p>
-<p>Second, we assumed that highly realistic models of individual neurons are not needed to capture most mesoscale-level phenomena. Accordingly, Cleo was developed with the intention of using point neurons models, rather than multi-compartment neuron models with realistic morphologies. Simulating simpler neuron models offers advantages of speed and intuitiveness, which are important in the context of prototyping an experiment. This decision had consequences in our software (<a href="#sec-cleo-arch"><span>Section&nbsp;3.3</span></a>) and LFP modeling (<a href="#sec-elec"><span>Section&nbsp;3.4</span></a>) decisions.</p>
+<p>Second, we assumed that highly realistic models of individual neurons are not needed to capture most mesoscale-level phenomena. Accordingly, Cleo was developed with the intention of using point neurons models, rather than multi-compartment neuron models with realistic morphologies. Simulating simpler neuron models offers advantages of speed and intuitiveness, which are important in the context of prototyping an experiment. This decision had consequences in our software (<a href="#sec-cleo-arch"><span>Section&nbsp;4.3</span></a>) and LFP modeling (<a href="#sec-elec"><span>Section&nbsp;4.4</span></a>) decisions.</p>
 <p>In addition to our modeling priorities, the goals of usability, flexibility, and extensibility guided our choices in software dependencies and infrastructure. Ease of use is important to make Cleo as accessible as possible, especially to researchers with primarily experimental backgrounds who may not have extensive experience with computational modeling. This usability goal also motivated Cleo’s modular design, which allows users to add different recording or stimulation devices with little or no modification to the underlying network model, easing the burden of testing a variety of experimental configurations. Flexibility in the underlying simulator, in addition to enabling compatibility with a wide variety of models, is necessary for arbitrarily interacting with the simulation in a closed-loop fashion. Finally, extensibility is important for the testbed to remain relevant under changing needs in the future, allowing for new functionality to be easily added in a “plug-in,” modular architecture.</p>
 <section id="limitations-and-workarounds" class="level3">
 <h3 class="anchored" data-anchor-id="limitations-and-workarounds">Limitations and workarounds</h3>
@@ -244,7 +240,7 @@ div.csl-indent {
 <section id="sec-cleo-arch" class="level2">
 <h2 class="anchored" data-anchor-id="sec-cleo-arch">Closed-loop simulation architecture</h2>
 <p>We chose Brian 2 <span class="citation" data-cites="stimberg19">(<a href="references.html#ref-stimberg19" role="doc-biblioref"><em>1</em></a>)</span> as the spiking neural network simulator to build Cleo around. Brian is a relatively new spiking neural network simulator written in Python with multiple advantages. It flexibly allows (and even requires) the user to define models mathematically rather than selecting from a pre-defined library of cell types and features, while maintaining the ease of a high-level interface. This keeps model and experiment details together and enables us to define arbitrary recording and stimulation models that easily interface with the simulation. Moreover, the Python programming language has the advantages of being open-source, intuitive to learn <span class="citation" data-cites="bogdanchikov13">(<a href="references.html#ref-bogdanchikov13" role="doc-biblioref"><em>2</em></a>)</span>, and widely used in computational neuroscience <span class="citation" data-cites="davison09 muller15">(<a href="references.html#ref-davison09" role="doc-biblioref"><em>3</em></a>, <a href="references.html#ref-muller15" role="doc-biblioref"><em>4</em></a>)</span>. Users do not need to use any other languages to use Brian. Brian is also relatively fast (especially since it is developed primarily for point neuron simulations), as shown in benchmarks <span class="citation" data-cites="stimberg19">(<a href="references.html#ref-stimberg19" role="doc-biblioref"><em>1</em></a>)</span>.</p>
-<p>Cleo provides three modules—recording, stimulation, and closed-loop processing—for integration with an existing Brian model (see <a href="#fig-cleo-arch">Figure&nbsp;<span>3.1</span></a>). Cleo’s functionality centers around a <code>CLSimulator</code> object that orchestrates the interactions between these three modules and the Brian simulation by injecting devices, running the simulation, and communicating with an <code>IOProcessor</code> object at each time step. The <code>IOProcessor</code> receives recorder measurements according to a specified sampling rate and returns any updates to stimulator devices.</p>
+<p>Cleo provides three modules—recording, stimulation, and closed-loop processing—for integration with an existing Brian model (see <a href="#fig-cleo-arch">Figure&nbsp;<span>4.1</span></a>). Cleo’s functionality centers around a <code>CLSimulator</code> object that orchestrates the interactions between these three modules and the Brian simulation by injecting devices, running the simulation, and communicating with an <code>IOProcessor</code> object at each time step. The <code>IOProcessor</code> receives recorder measurements according to a specified sampling rate and returns any updates to stimulator devices.</p>
 <div id="fig-cleo-arch" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <div class="quarto-figure quarto-figure-center">
@@ -252,11 +248,11 @@ div.csl-indent {
 <p><a href="img/cleo-arch.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="img/cleo-arch.png" class="img-fluid figure-img"></a></p>
 </figure>
 </div>
-<p></p><figcaption class="figure-caption">Figure&nbsp;3.1: A conceptual diagram of Cleo’s functionality. Cleo wraps a Brian network model, injects stimulation and recording devices, and interfaces with the network in real time through a simulated “I/O processor”.</figcaption><p></p>
+<p></p><figcaption class="figure-caption">Figure&nbsp;4.1: A conceptual diagram of Cleo’s functionality. Cleo wraps a Brian network model, injects stimulation and recording devices, and interfaces with the network in real time through a simulated “I/O processor”.</figcaption><p></p>
 </figure>
 </div>
 <p>In order to simulate the effects of latency in closed-loop control, Cleo provides a <code>LatencyIOProcessor</code> class capable of delivering control signals after some delay. It does this by storing the outputs calculated for every sample in a buffer along with the time they can be delivered to the network. For example, if a sample is taken at 20 ms and the user wishes to simulate a processing and communication latency of 3 ms, the control signal, along with the output time of 23 ms is stored in a buffer which the simulation checks at every timestep. As soon as the simulation clock reaches 23 ms, the control signal is taken from the buffer and applied to the stimulator devices. Because the user has arbitrary control over this latency, they can easily simulate probabilistic delays if, for example, they wish to assess the effect of the experimental platform stalling occasionally.</p>
-<p>By default, <code>LatencyIOProcessor</code> samples on a fixed schedule and simulates processing samples in parallel—that is, the computation time for one sample does not affect that of others. Some alternatives are available, as illustrated in <a href="#fig-latency">Figure&nbsp;<span>3.2</span></a>.</p>
+<p>By default, <code>LatencyIOProcessor</code> samples on a fixed schedule and simulates processing samples in parallel—that is, the computation time for one sample does not affect that of others. Some alternatives are available, as illustrated in <a href="#fig-latency">Figure&nbsp;<span>4.2</span></a>.</p>
 <div id="fig-latency" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <div class="quarto-figure quarto-figure-center">
@@ -264,7 +260,7 @@ div.csl-indent {
 <p><a href="img/fig-latency.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2"><img src="img/fig-latency.png" class="img-fluid figure-img"></a></p>
 </figure>
 </div>
-<p></p><figcaption class="figure-caption">Figure&nbsp;3.2: Latency emulation strategy and available configurations. (A) Cleo registers the time a sample is taken from the recording devices, the times the computation starts and ends, applying the user-specified delay, and updates stimulation devices when finished. (B) The default, parallel processing/fixed sampling mode. (C) The serial processing/fixed sampling case reflects when computations are not performed in parallel, but sampling continues on a fixed schedule. (D) The final processing mode avoids buffer overflow by sampling only once the computation for the previous step has terminated.</figcaption><p></p>
+<p></p><figcaption class="figure-caption">Figure&nbsp;4.2: Latency emulation strategy and available configurations. (A) Cleo registers the time a sample is taken from the recording devices, the times the computation starts and ends, applying the user-specified delay, and updates stimulation devices when finished. (B) The default, parallel processing/fixed sampling mode. (C) The serial processing/fixed sampling case reflects when computations are not performed in parallel, but sampling continues on a fixed schedule. (D) The final processing mode avoids buffer overflow by sampling only once the computation for the previous step has terminated.</figcaption><p></p>
 </figure>
 </div>
 <section id="limitations" class="level3">
@@ -278,7 +274,7 @@ div.csl-indent {
 <section id="spiking" class="level3">
 <h3 class="anchored" data-anchor-id="spiking">Spiking</h3>
 <p>Because we have prioritized point neuron simulations, the electrode functionality currently implemented in Cleo does not rely on raw extracellular potentials, which can only be computed from multi-compartment neurons <span class="citation" data-cites="pettersen12 buzsaki12">(<a href="references.html#ref-pettersen12" role="doc-biblioref"><em>6</em></a>, <a href="references.html#ref-buzsaki12" role="doc-biblioref"><em>7</em></a>)</span>. This biophysical forward modeling approach has been taken in other software <span class="citation" data-cites="hagen18 parasuram16 tomsett15 thornton19">(<a href="references.html#ref-hagen18" role="doc-biblioref"><em>8</em></a>–<a href="references.html#ref-thornton19" role="doc-biblioref"><em>11</em></a>)</span>.</p>
-<p>To approximate spike recording without filtering and thresholding of extracellular potentials, Cleo simply takes ground-truth spikes and stochastically determines which to report using a detection probability function. This function is parametrized by a perfect detection radius, within which all spikes are reported, a half detection radius, at which distance there is a 50% chance a spike will be detected, and a cutoff probability, below which all neurons are ignored. The detection probability function is interpolated between the parametrized points with a <span class="math inline">\(1/r\)</span> function <span class="citation" data-cites="nason20 holt99">(<a href="references.html#ref-nason20" role="doc-biblioref"><em>12</em></a>, <a href="references.html#ref-holt99" role="doc-biblioref"><em>13</em></a>)</span>, where <span class="math inline">\(r\)</span> is the distance between the neuron and the electrode (see <a href="#fig-elec">Figure&nbsp;<span>3.3</span></a>).</p>
+<p>To approximate spike recording without filtering and thresholding of extracellular potentials, Cleo simply takes ground-truth spikes and stochastically determines which to report using a detection probability function. This function is parametrized by a perfect detection radius, within which all spikes are reported, a half detection radius, at which distance there is a 50% chance a spike will be detected, and a cutoff probability, below which all neurons are ignored. The detection probability function is interpolated between the parametrized points with a <span class="math inline">\(1/r\)</span> function <span class="citation" data-cites="nason20 holt99">(<a href="references.html#ref-nason20" role="doc-biblioref"><em>12</em></a>, <a href="references.html#ref-holt99" role="doc-biblioref"><em>13</em></a>)</span>, where <span class="math inline">\(r\)</span> is the distance between the neuron and the electrode (see <a href="#fig-elec">Figure&nbsp;<span>4.3</span></a>).</p>
 <p>Cleo provides spike recording functionality in two forms: multi-unit and sorted. Multi-unit spiking reports every spike detected by every channel, without regard for the origin of the spike. Thus, each channel can report spikes from multiple neurons and a single spike can be reported on multiple channels. Sorted spiking reports all spikes detected on at least one channel, where each neuron is identified by a unique index. While real-time spike sorting is currently not feasible in practice for large numbers of contacts, this sorted spiking option could be used to emulate a common workflow of isolating one or a few neurons to report spikes from in real time.</p>
 <div id="fig-elec" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
@@ -287,7 +283,7 @@ div.csl-indent {
 <p><a href="img/fig-electrodes.png" class="lightbox" data-gallery="quarto-lightbox-gallery-3"><img src="img/fig-electrodes.png" class="img-fluid figure-img"></a></p>
 </figure>
 </div>
-<p></p><figcaption class="figure-caption">Figure&nbsp;3.3: Illustration of LFP and spiking from Cleo’s electrophysiology module. (A) The probabilistic spike detection model. All spikes within the 100% detection radius, 50% of spikes at the 50% detection radius, and none of those outside the threshold radius are recorded. The detection probability decays with 1/r. (B) An example plot generated by Cleo showing the positions of neurons and electrode contacts. (C) Randomly generated spikes for the neurons shown in B. Top: the sorted spike signal, which gives the ground truth source neuron for every spike as a perfect proxy for spike sorting. Bottom: multi-unit spikes, where spikes are reported on every channel they are detected on, regardless of the source neuron. (D) The TKLFP signal generated from the spikes in C for each channel. Y-axis units are not shown.</figcaption><p></p>
+<p></p><figcaption class="figure-caption">Figure&nbsp;4.3: Illustration of LFP and spiking from Cleo’s electrophysiology module. (A) The probabilistic spike detection model. All spikes within the 100% detection radius, 50% of spikes at the 50% detection radius, and none of those outside the threshold radius are recorded. The detection probability decays with 1/r. (B) An example plot generated by Cleo showing the positions of neurons and electrode contacts. (C) Randomly generated spikes for the neurons shown in B. Top: the sorted spike signal, which gives the ground truth source neuron for every spike as a perfect proxy for spike sorting. Bottom: multi-unit spikes, where spikes are reported on every channel they are detected on, regardless of the source neuron. (D) The TKLFP signal generated from the spikes in C for each channel. Y-axis units are not shown.</figcaption><p></p>
 </figure>
 </div>
 </section>
@@ -310,14 +306,14 @@ div.csl-indent {
 </section>
 <section id="opsin-models" class="level4">
 <h4 class="anchored" data-anchor-id="opsin-models">Opsin models</h4>
-<p>Independent of the light propagation model, Cleo provides two different opsin models. One is a four-state Markov model as presented in <span class="citation" data-cites="evans16">(<a href="references.html#ref-evans16" role="doc-biblioref"><em>18</em></a>)</span>, which captures rise, peak, plateau, and fall dynamics as the opsin is activated and deactivated through a Markov process. Additionally, by defining conductance rather than current directly, the model is able to reproduce the photocurrent’s dependence on the membrane potential (see <a href="#fig-opto">Figure&nbsp;<span>3.4</span></a>). While the four-state model fits experimental data fairly well, the code is structured so that the three- or six-state models in <span class="citation" data-cites="evans16">(<a href="references.html#ref-evans16" role="doc-biblioref"><em>18</em></a>)</span> could also be easily implemented.</p>
+<p>Independent of the light propagation model, Cleo provides two different opsin models. One is a four-state Markov model as presented in <span class="citation" data-cites="evans16">(<a href="references.html#ref-evans16" role="doc-biblioref"><em>18</em></a>)</span>, which captures rise, peak, plateau, and fall dynamics as the opsin is activated and deactivated through a Markov process. Additionally, by defining conductance rather than current directly, the model is able to reproduce the photocurrent’s dependence on the membrane potential (see <a href="#fig-opto">Figure&nbsp;<span>4.4</span></a>). While the four-state model fits experimental data fairly well, the code is structured so that the three- or six-state models in <span class="citation" data-cites="evans16">(<a href="references.html#ref-evans16" role="doc-biblioref"><em>18</em></a>)</span> could also be easily implemented.</p>
 <p>Because the Markov model depends on somewhat realistic membrane potential and resistance values, however, it is not well suited for many pre-existing models that do not. For example, many commonly used leaky integrate-and-fire (LIF) neurons define the membrane potential as ranging from 0 to 1, rather than -70 mV to -50 mV, rendering both the units and values (relative to the opsin’s reversal potential) incompatible. One solution would be for users to adapt their neuron models for compatibility with this Markov opsin model, but since this would be burdensome, we developed an alternative model that simply delivers photocurrent proportional to the light intensity at each neuron. Thus, users can retain their original model with no need to add units or modify parameters.</p>
 <p>In addition to options for opsin modeling, Cleo allows the user to specify both the probability that cells of a target population express an opsin and the per-cell expression level. This allows for the study of the impact of heterogeneous expression on the outcome of an experiment.</p>
 </section>
 </section>
 <section id="results" class="level3">
 <h3 class="anchored" data-anchor-id="results">Results</h3>
-<p>The light model from <span class="citation" data-cites="foutz12">(<a href="references.html#ref-foutz12" role="doc-biblioref"><em>17</em></a>)</span> was successfully replicated, and the light intensity-firing rate relationship was qualitatively similar to that originally reported, though differing in some respects. This can be attributed to the use of point neurons rather than morphological neurons. See <a href="#fig-opto">Figure&nbsp;<span>3.4</span></a> for details. Additionally, preliminary experiments show that the simplified, proportional current opsin model is able to produce a firing response qualitatively similar to that of the Markov model.</p>
+<p>The light model from <span class="citation" data-cites="foutz12">(<a href="references.html#ref-foutz12" role="doc-biblioref"><em>17</em></a>)</span> was successfully replicated, and the light intensity-firing rate relationship was qualitatively similar to that originally reported, though differing in some respects. This can be attributed to the use of point neurons rather than morphological neurons. See <a href="#fig-opto">Figure&nbsp;<span>4.4</span></a> for details. Additionally, preliminary experiments show that the simplified, proportional current opsin model is able to produce a firing response qualitatively similar to that of the Markov model.</p>
 <div id="fig-opto" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
 <div class="quarto-figure quarto-figure-center">
@@ -325,7 +321,7 @@ div.csl-indent {
 <p><a href="img/fig-opto.png" class="lightbox" data-gallery="quarto-lightbox-gallery-4"><img src="img/fig-opto.png" class="img-fluid figure-img"></a></p>
 </figure>
 </div>
-<p></p><figcaption class="figure-caption">Figure&nbsp;3.4: Validation of the optogenetics module. (A) Light transmittance T as a function of radius and axial distance from the optic fiber tip. Transmittance refers to the irradiance Irr as a proportion of the irradiance at the fiber tip Irr0 . After Figure 2a from <span class="citation" data-cites="foutz12">(<a href="references.html#ref-foutz12" role="doc-biblioref"><em>17</em></a>)</span> (B) Light transmittance T as a function of axial radius z for different optic fiber sizes. After Figure 2b from <span class="citation" data-cites="foutz12">(<a href="references.html#ref-foutz12" role="doc-biblioref"><em>17</em></a>)</span> (C) Photocurrent Iopto for ramping light of different intensities. After the figure produced by the “ramp” protocol from the default PyRhO simulator <span class="citation" data-cites="evans16">(<a href="references.html#ref-evans16" role="doc-biblioref"><em>18</em></a>)</span> (D) Neuron firing rates in response to optical stimulation with 5-ms pulse frequencies ranging from 1 to 200Hz. The left column re-plots data from <span class="citation" data-cites="foutz12">(<a href="references.html#ref-foutz12" role="doc-biblioref"><em>17</em></a>)</span>. The middle column shows results for an LIF neuron with a simple opsin, and the right column for a tonic AdEx neuron with a Markov opsin model. The top row shows results for different light intensities: 100%, 120%, and 140% of the threshold for producing a single spike with a 5-ms pulse. The bottom row shows results for different expression levels relative to the default, <span class="math inline">\(\rho_{\text{rel}}\)</span>. The irradiance used for these simulations was 120% of the single-spike threshold.</figcaption><p></p>
+<p></p><figcaption class="figure-caption">Figure&nbsp;4.4: Validation of the optogenetics module. (A) Light transmittance T as a function of radius and axial distance from the optic fiber tip. Transmittance refers to the irradiance Irr as a proportion of the irradiance at the fiber tip Irr0 . After Figure 2a from <span class="citation" data-cites="foutz12">(<a href="references.html#ref-foutz12" role="doc-biblioref"><em>17</em></a>)</span> (B) Light transmittance T as a function of axial radius z for different optic fiber sizes. After Figure 2b from <span class="citation" data-cites="foutz12">(<a href="references.html#ref-foutz12" role="doc-biblioref"><em>17</em></a>)</span> (C) Photocurrent Iopto for ramping light of different intensities. After the figure produced by the “ramp” protocol from the default PyRhO simulator <span class="citation" data-cites="evans16">(<a href="references.html#ref-evans16" role="doc-biblioref"><em>18</em></a>)</span> (D) Neuron firing rates in response to optical stimulation with 5-ms pulse frequencies ranging from 1 to 200Hz. The left column re-plots data from <span class="citation" data-cites="foutz12">(<a href="references.html#ref-foutz12" role="doc-biblioref"><em>17</em></a>)</span>. The middle column shows results for an LIF neuron with a simple opsin, and the right column for a tonic AdEx neuron with a Markov opsin model. The top row shows results for different light intensities: 100%, 120%, and 140% of the threshold for producing a single spike with a 5-ms pulse. The bottom row shows results for different expression levels relative to the default, <span class="math inline">\(\rho_{\text{rel}}\)</span>. The irradiance used for these simulations was 120% of the single-spike threshold.</figcaption><p></p>
 </figure>
 </div>
 </section>
@@ -341,13 +337,13 @@ div.csl-indent {
 <h3 class="anchored" data-anchor-id="open-source-code-and-documentation">Open-source code and documentation</h3>
 <p>Cleo is open-source and can be installed from the Python Package Index under the name <code>cleosim</code>. The code can be found on <a href="https://github.com/Sensory-Information-Processing-Lab/Cleo">GitHub</a>. Documentation, including an overview, tutorials, and API reference, can be found at <a href="cleosim.readthedocs.io"></a>.</p>
 </section>
-<section id="example-experiments" class="level3">
-<h3 class="anchored" data-anchor-id="example-experiments">Example experiments</h3>
+<section id="sec-cleo-experiments" class="level3">
+<h3 class="anchored" data-anchor-id="sec-cleo-experiments">Example experiments</h3>
 <p>In order to demonstrate Cleo’s utility to the public, we implemented three example experiments to feature in the upcoming publication:</p>
 <ol type="1">
 <li>Closed-loop inhibition of a traveling wave in a rodent somatosensory cortex model <span class="citation" data-cites="moldakarimov18">(<a href="references.html#ref-moldakarimov18" role="doc-biblioref"><em>37</em></a>)</span>.</li>
 <li>Feedback control of layer 2/3 interneurons, disrupting plasticity in a model of primary visual cortex <span class="citation" data-cites="wilmes19">(<a href="references.html#ref-wilmes19" role="doc-biblioref"><em>38</em></a>)</span>.</li>
-<li>Optogenetic evocation of sharp wave-ripples in an anatomically detailed model of hippocampus <span class="citation" data-cites="aussel18 aussel22">(<a href="references.html#ref-aussel18" role="doc-biblioref"><em>39</em></a>, <a href="references.html#ref-aussel22" role="doc-biblioref"><em>40</em></a>)</span>. See <a href="#fig-hpc">Figure&nbsp;<span>3.5</span></a> for details, and note that feedback control, not looking ahead, so to speak, fails to evoke the reference signal at the desired time. The strategy I propose in <a href="aim2.html"><span>Chapter&nbsp;4</span></a> should remedy this.</li>
+<li>Optogenetic evocation of sharp wave-ripples in an anatomically detailed model of hippocampus <span class="citation" data-cites="aussel18 aussel22">(<a href="references.html#ref-aussel18" role="doc-biblioref"><em>39</em></a>, <a href="references.html#ref-aussel22" role="doc-biblioref"><em>40</em></a>)</span>. See <a href="#fig-hpc">Figure&nbsp;<span>4.5</span></a> for details, and note that feedback control, not looking ahead, so to speak, fails to evoke the reference signal at the desired time. The strategy I propose in <a href="aim2.html"><span>Chapter&nbsp;5</span></a> should remedy this.</li>
 </ol>
 <div id="fig-hpc" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
@@ -356,7 +352,7 @@ div.csl-indent {
 <p><a href="img/fig-case-study-3.png" class="lightbox" data-gallery="quarto-lightbox-gallery-5"><img src="img/fig-case-study-3.png" class="img-fluid figure-img"></a></p>
 </figure>
 </div>
-<p></p><figcaption class="figure-caption">Figure&nbsp;3.5: An example application of Cleo to the anatomical hippocampus model by Aussel et al.<span class="citation" data-cites="aussel18">(<a href="references.html#ref-aussel18" role="doc-biblioref"><em>39</em></a>)</span>. (A) A 2.5 mm-thick slice of the 15 mm-tall model is shown using Cleo’s built-in experiment plotting utilities. The model consists of four regions, entorhinal cortex (EC), dentate gyrus (DG), CA3, and CA1. Electrode contacts are represented as black dots and are in the same location as in the original model. Two light sources are shown in EC. Nine other such pairs (for a total of 20 light sources) not pictured here were spaced regularly parallel to the z axis. (B) Results are shown for ten trials each of three stimulation paradigms: naïve open-loop, where the input is simply a mirrored, rectified version of the reference signal; model-based open-loop, where a controller is run offline on a simulated model; and feedback control, where a controller is run using online measurements. Input Irr0 is the light intensity at the tip of each optic fiber. The system output TKLFP refers to the Teleńczuk kernel LFP approximation.</figcaption><p></p>
+<p></p><figcaption class="figure-caption">Figure&nbsp;4.5: An example application of Cleo to the anatomical hippocampus model by Aussel et al.<span class="citation" data-cites="aussel18">(<a href="references.html#ref-aussel18" role="doc-biblioref"><em>39</em></a>)</span>. (A) A 2.5 mm-thick slice of the 15 mm-tall model is shown using Cleo’s built-in experiment plotting utilities. The model consists of four regions, entorhinal cortex (EC), dentate gyrus (DG), CA3, and CA1. Electrode contacts are represented as black dots and are in the same location as in the original model. Two light sources are shown in EC. Nine other such pairs (for a total of 20 light sources) not pictured here were spaced regularly parallel to the z axis. (B) Results are shown for ten trials each of three stimulation paradigms: naïve open-loop, where the input is simply a mirrored, rectified version of the reference signal; model-based open-loop, where a controller is run offline on a simulated model; and feedback control, where a controller is run using online measurements. Input Irr0 is the light intensity at the tip of each optic fiber. The system output TKLFP refers to the Teleńczuk kernel LFP approximation.</figcaption><p></p>
 </figure>
 </div>
 
@@ -619,7 +615,9 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   // Switch to dark mode if need be
   if (hasAlternateSentinel()) {
     toggleColorMode(true);
-  } 
+  } else {
+    toggleColorMode(false);
+  }
   const icon = "";
   const anchorJS = new window.AnchorJS();
   anchorJS.options = {
@@ -641,7 +639,24 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     button.classList.add('code-copy-button-checked');
     var currentTitle = button.getAttribute("title");
     button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
     setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
       button.setAttribute("title", currentTitle);
       button.classList.remove('code-copy-button-checked');
     }, 1000);
@@ -677,41 +692,59 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       return note.innerHTML;
     });
   }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
   var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
   for (var i=0; i<bibliorefs.length; i++) {
     const ref = bibliorefs[i];
-    const cites = ref.parentNode.getAttribute('data-cites').split(' ');
-    tippyHover(ref, function() {
-      var popup = window.document.createElement('div');
-      cites.forEach(function(cite) {
-        var citeDiv = window.document.createElement('div');
-        citeDiv.classList.add('hanging-indent');
-        citeDiv.classList.add('csl-entry');
-        var biblioDiv = window.document.getElementById('ref-' + cite);
-        if (biblioDiv) {
-          citeDiv.innerHTML = biblioDiv.innerHTML;
-        }
-        popup.appendChild(citeDiv);
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
       });
-      return popup.innerHTML;
-    });
+    }
   }
 });
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
       <a href="./background.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Background</span></span>
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Background</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
       <a href="./aim2.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Aim 2</span></span> <i class="bi bi-arrow-right-short"></i>
+        <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Aim 2: Multi-input CLOC</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
 </div> <!-- /content -->
-<script>var lightboxQuarto = GLightbox({"openEffect":"zoom","closeEffect":"zoom","descPosition":"bottom","loop":true,"selector":".lightbox"});</script>
+<script>var lightboxQuarto = GLightbox({"loop":true,"closeEffect":"zoom","selector":".lightbox","descPosition":"bottom","openEffect":"zoom"});</script>
 
 
 

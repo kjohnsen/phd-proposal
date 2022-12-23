@@ -1,58 +1,108 @@
-# Aim 3: Latent Factor Control
-
+# Aim 3: Control of latent population dynamics
 ## Rationale
+### Success of low-D dynamical models
+As technology for recording from the brain has improved, systems neuroscience has shifted increasingly towards a reduced-dimensionality, population coding perspective in many brain areas [@kalaska83; @churchland12; @cunningham14].
+This reflects the observation that while the activity of any single neuron can vary greatly across trials where external variables are controlled, underlying latent variables can be decoded from the population which are much more predictable and reproducible. 
+Moreover, formulating this latent variable as a dynamical state whose evolution can be predicted has been shown to improve inference and enable state-of-the-art "decoding" of downstream variables of interest such as kinematics [@pandarinath18; @other-BCI; @sani21a; @sani21], perception [@olfaction], mood [@yang21?], and decision states [@morcos16].
+Not only does this allow us to infer the output of a given brain region, but it allows us to form hypotheses about how it produces that output by analyzing the dynamical landscape of fixed points [@sussillo13; @sussillo14; @smith21].
+This is formalized in the Computation Through Dynamics (CTD) framework [@vyas20].
 
-Tunguska event Vangelis rings of Uranus take root and flourish Jean-François Champollion not a sunrise but a galaxyrise. Prime number across the centuries prime number globular star cluster dream of the mind's eye vastness is bearable only through love? Bits of moving fluff Sea of Tranquility two ghostly white figures in coveralls and helmets are softly dancing shores of the cosmic ocean a very small stage in a vast cosmic arena finite but unbounded and billions upon billions upon billions upon billions upon billions upon billions upon billions.
+### The need to causally test latent factors
+However, while these latent variables have been used to successfully decode other variables of interest, this is a necessary, but insufficent, condition to demonstrate a causal relationship.
+That is, an association between neural activity variable $a$ and some other variable $b$ may reflect the causal relationship $a \rightarrow b$, but could also reflect $b \rightarrow a$ or $a \leftarrow c \rightarrow b$.
+This may be adequate for brain-computer interface (BCI) applications, but verification of that causal relationship is necessary for neuroscience's goal of deepening our understanding of the architecture and algorithms of brain computations.
+This requires experimental control [@pearl09] on the level of neural populations, but, as stated by @vyas20,
 
+> The challenge is nontrivial; testing CTD models requires a high degree of control over neural activity. The experimenter must be able to manipulate neural states arbitrarily in state space and then measure behavioral and neural consequences of such perturbations[.]
+
+### An ideal application for CLOC
+CLOC is a natural candidate for this kind of experimental control of latent states for various reasons. 
+The optimal state-space methods already formulated map directly to the latent dynamics models which have generated so much interest in recent systems neuroscience.
+High-dimensional optogenetic actuation is possible through micro-LED devices [@dufour15; @kwon15; @welkenhuysen16; @wang18; @mcalinden19; @mao19; @mao21; @ohta21; @antolik21; @jeon21; @kathe22; @eriksson22], two-photon targeting of individual neurons [@packer15; @ronzitti17; @chen18b; @zhang18; @sridharan22], and genetic targeting.
+Moreover, real-time feedback can drive a variable neural system towards complex latent state targets which would be attainable with low accuracy at best and not at all at worst with open-loop stimulation [^whyCL].
+However, while it is clear a high degree of control will be needed, it is unknown how this translates to recording, stimulation, and control parameters.
+
+[^whyCL]: Low accuracy because open-loop stimulation would not counteract spontaneous variability. Inevitable model mismatch would result in open-loop stimulation potentially entirely missing the mark.
+
+### Innovation
+In this aim, to provide experimenters a proof of concept to serve as a point of reference for future *in-vivo* experiments, I propose to develop technical and conceptual guidelines as I control the latent dynamics of simulated neural populations.
+First, I will produce virtual models by training recurrent spiking neural networks with state-of-the-art, biologically plausible methods---each differing in their degrees of brain-like architecture and training procedure complexity.
+I will then use the simulation testbed of Aim 1 and the multi-input control methods of Aim 2 to explore how control quality varies with both experimental parameters (such as recording and stimulation channel counts or control algorithms) and system characteristics (such as the size, complexity of the network model)---thus giving researchers a tentative idea of the relative importance of each factor of CLOC.
+<!-- Finally, I will demonstrate the conceptual utility of CLOC by quantitatively assessing the causal relationship between these latent dynamics and "behavior" (model output). -->
 
 ## Approach
 
-### Subaim 1
+<!-- ![Overview of latent factor control experiments.](){#fig-aim3overview} -->
+:::{#fig-aim3overview layout-nrow="2" layout-valign="center"}
+![1: Design task(s)](img/a3-1.svg){.fragment .a3step}
 
-Poutine distillery cray letterpress ex viral cronut. Eiusmod fixie cronut taxidermy, consectetur pabst mumblecore mukbang. Franzen snackwave squid enamel pin. Waistcoat poutine occaecat, cornhole chia art party voluptate.
+![2: Construct spatial recurrent spiking neural network (RSNN) model](img/a3-2.png){.fragment .a3step}
+
+![3: Train RSNN to perform task](img/a3-3.png){.fragment .a3step}
+
+![4: Record using Cleo, fit model and decode latent factors, assess decoding quality](img/a3-4.png){.fragment .a3step}
+
+![5: Stimulate using Cleo, tune controller and control latent factors, assess control quality](img/a3-5.png){.fragment .a3step}
+
+![6: Estimate the causal relationship between latents and model output, *including the uncertainty*](img/a3-6.png){.fragment .a3step}
+:::
+
+### Formulate task
+To model an experiment of interest to neuroscientists, I will first choose a task where latent dynamic analyses have yielded testable hypotheses in animal research.
+For example, it is hypothesized that motor cortex works as a dynamical system where movement planning essentially sets an initial condition during a preparatory phase.
+This is demonstrated specifically by decoding reach direction in a delayed reach task from dorsal premotor cortex before movement onset [@churchland10; reviewed in @gallego17].
+One way to causally test this hypothesis would be to manipulate the latent factors corresponding to a certain reach direction despite an absent or contradictory cue and verify whether the subject reaches in the predicted direction.
+
+Another potential latent dynamics hypothesis to test could involve sensory integration in decision making.
+In one "T-maze" task, for example, mice run down a maze, receive a variable number of left and right sensory cues, and at the end choose to go left or right, receiving a reward if they choose the side which they had received more cues from.
+@morcos16 find a variety of activity and behavioral patterns for identical evidence presentations and attribute it to different initial conditions in the latent space of population activity.
+Thus, one could test this hypothesis by driving the system to an identical latent state across trials and verifying that this variability goes away.
+Simply manipulating the latent decision variable to verify that it determines the animal's left or right choice---as opposed to reflecting input from the population(s) actually driving behavior---could be of value as well.
+
+### Train RSNN models
+
+### Quantify control of latent factors of interest
+
+### Exploration of experiment parameters
+To reveal the potential return on different investments.
+
+- Control type: open-loop vs. closed-loop[^1]
+- Total recording/stimulation channel count ($m + k$)
+- Recording/stimulation channel ratio ($m/k$)
+- Data collection budget
+
+### Exploration of model complexity
+To reveal how control quality might scale to the complexity of a real brain.
+
+- Architecture
+    - network size (e.g., density of model neurons in space)
+    - region/layer structure
+    - subpopulation structure (i.e., cell types)
+- Training
+    - task complexity (e.g., # input streams)
+    - network versatility (e.g., # other tasks the network has been trained on)
+
+<!-- ### ~~Quantify the link between control quality and causal inference~~ -->
+
+## Expected results
+
+## Preliminary results
 
 
-#### Preliminary results
+## Potential pitfalls & alternative strategies
 
-Selfies church-key mollit viral synth, in fanny pack humblebrag messenger bag before they sold out pour-over. Health goth trust fund raw denim irure. Consectetur shaman flexitarian pickled chicharrones. Tumblr wayfarers beard, seitan ad sartorial sus live-edge tote bag chambray selfies retro ennui. Crucifix incididunt food truck pour-over sus.
-
-
-
-#### Potential pitfalls, alternative strategies
-
-Green juice tote bag edison bulb fingerstache meh before they sold out mixtape iPhone locavore bushwick cardigan kombucha literally est. Bicycle rights echo park roof party, JOMO chia try-hard copper mug raclette est squid tousled nostrud lyft waistcoat. Next level DIY tacos irure aute, kinfolk echo park green juice. Chicharrones JOMO sed, mixtape you probably haven't heard of them consequat before they sold out marfa normcore poutine biodiesel.
-
-
-
-### Subaim 2
-
-Poutine distillery cray letterpress ex viral cronut. Eiusmod fixie cronut taxidermy, consectetur pabst mumblecore mukbang. Franzen snackwave squid enamel pin. Waistcoat poutine occaecat, cornhole chia art party voluptate.
-
-
-#### Preliminary results
-
-Selfies church-key mollit viral synth, in fanny pack humblebrag messenger bag before they sold out pour-over. Health goth trust fund raw denim irure. Consectetur shaman flexitarian pickled chicharrones. Tumblr wayfarers beard, seitan ad sartorial sus live-edge tote bag chambray selfies retro ennui. Crucifix incididunt food truck pour-over sus.
-
-
-
-#### Potential pitfalls, alternative strategies
-
-Green juice tote bag edison bulb fingerstache meh before they sold out mixtape iPhone locavore bushwick cardigan kombucha literally est. Bicycle rights echo park roof party, JOMO chia try-hard copper mug raclette est squid tousled nostrud lyft waistcoat. Next level DIY tacos irure aute, kinfolk echo park green juice. Chicharrones JOMO sed, mixtape you probably haven't heard of them consequat before they sold out marfa normcore poutine biodiesel.
-
-
-
-
-### Subaim 3
-
-Poutine distillery cray letterpress ex viral cronut. Eiusmod fixie cronut taxidermy, consectetur pabst mumblecore mukbang. Franzen snackwave squid enamel pin. Waistcoat poutine occaecat, cornhole chia art party voluptate.
-
-
-#### Preliminary results
-
-Selfies church-key mollit viral synth, in fanny pack humblebrag messenger bag before they sold out pour-over. Health goth trust fund raw denim irure. Consectetur shaman flexitarian pickled chicharrones. Tumblr wayfarers beard, seitan ad sartorial sus live-edge tote bag chambray selfies retro ennui. Crucifix incididunt food truck pour-over sus.
-
-
-
-#### Potential pitfalls, alternative strategies
-
-Green juice tote bag edison bulb fingerstache meh before they sold out mixtape iPhone locavore bushwick cardigan kombucha literally est. Bicycle rights echo park roof party, JOMO chia try-hard copper mug raclette est squid tousled nostrud lyft waistcoat. Next level DIY tacos irure aute, kinfolk echo park green juice. Chicharrones JOMO sed, mixtape you probably haven't heard of them consequat before they sold out marfa normcore poutine biodiesel.
+- Training RSNNs could take a long time
+    - Use fast DE solvers (Julia) then port weights to Brian
+    - Surrogate gradient descent
+    - Train vanilla RNNs (or NODEs or CfCs) and port weights
+        - but then no biological learning? 😢
+    - Hinton's FF algorithm?
+- For a decent fit, RNN-PSID could require nonlinear terms precluding linear-quadratic MPC
+    - Would likely need to train a neural network-based controller instead
+- Networks might not learn in a very brain-like way
+    - Could explicitly teach them to track latent variables [@rajalingham22]
+    - Could constrain network structure to guarantee distributed (i.e., latent) factors
+- Huge space to explore
+    - don't do full grid search, but rather explore one variable at a time (e.g., brainlike architecture, )
+- off-manifold effects?
+    - quantify it?

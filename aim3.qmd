@@ -1,11 +1,11 @@
 # Aim 3: Control of latent population dynamics
 ## Rationale
 ### Success of low-D dynamical models
-As technology for recording from the brain has improved, systems neuroscience has shifted increasingly towards a reduced-dimensionality, population coding perspective in many brain areas [@kalaska83; @churchland12; @cunningham14].
+As technology for recording from the brain has improved, systems neuroscience has shifted increasingly towards a reduced-dimensionality, population coding perspective in many brain areas [@kalaska83; @churchland12; @cunningham14; @barack21].
 This reflects the observation that while the activity of any single neuron can vary greatly across trials where external variables are controlled, underlying latent variables can be decoded from the population which are much more predictable and reproducible. 
-Moreover, formulating this latent variable as a dynamical state whose evolution can be predicted has been shown to improve inference and enable state-of-the-art "decoding" of downstream variables of interest such as kinematics [@pandarinath18; @other-BCI; @sani21a; @sani21], perception [@olfaction], mood [@yang21?], and decision states [@morcos16].
+Moreover, formulating this latent variable as a dynamical state whose evolution can be predicted has been shown to improve inference and enable state-of-the-art "decoding" of downstream variables of interest such as movement [@pandarinath18; @willett21; @sani21a; @sani21], mood [@sani18], speech [@anumanchipalli19], and decision states [@morcos16; @kim21].
 Not only does this allow us to infer the output of a given brain region, but it allows us to form hypotheses about how it produces that output by analyzing the dynamical landscape of fixed points [@sussillo13; @sussillo14; @smith21].
-This is formalized in the Computation Through Dynamics (CTD) framework [@vyas20].
+This is formalized in the Computation through Dynamics (CTD) framework [@vyas20].
 
 ### The need to causally test latent factors
 However, while these latent variables have been used to successfully decode other variables of interest, this is a necessary, but insufficent, condition to demonstrate a causal relationship.
@@ -21,12 +21,12 @@ The optimal state-space methods already formulated map directly to the latent dy
 High-dimensional optogenetic actuation is possible through micro-LED devices [@dufour15; @kwon15; @welkenhuysen16; @wang18; @mcalinden19; @mao19; @mao21; @ohta21; @antolik21; @jeon21; @kathe22; @eriksson22], two-photon targeting of individual neurons [@packer15; @ronzitti17; @chen18b; @zhang18; @sridharan22], and genetic targeting.
 Moreover, real-time feedback can drive a variable neural system towards complex latent state targets which would be attainable with low accuracy at best and not at all at worst with open-loop stimulation [^whyCL].
 However, while it is clear a high degree of control will be needed, it is unknown how this translates to recording, stimulation, and control parameters.
-Furthermore, finding optimal parameters will likely require a high degree of trial and error and actuation hardware that does not exist or is not readily available, making it very costly if not infeasible to do *in vivo*.
+Furthermore, finding optimal parameters would likely require extensive trial and error, as well actuation hardware that does not exist or is not readily available, making it costly if not infeasible to do *in vivo*.
 
 [^whyCL]: Low accuracy because open-loop stimulation would not counteract spontaneous variability. Inevitable model mismatch would result in open-loop stimulation potentially entirely missing the mark.
 
 ### Innovation
-Thus, to provide experimenters a point of reference for future *in-vivo* experiments, I propose to develop technical and conceptual guidelines as I control the latent dynamics of simulated neural populations.
+Thus, to provide experimenters a proof of concept as well as a point of reference for future *in-vivo* experiments, I propose to develop technical and conceptual guidelines as I control the latent dynamics of simulated neural populations.
 First, I will produce virtual models by training recurrent spiking neural networks with state-of-the-art, biologically plausible methods---each differing in their degrees of brain-like architecture and training procedure complexity.
 I will then use the simulation testbed of Aim 1 and the multi-input control methods of Aim 2 to explore how control quality varies with both experimental parameters (such as recording and stimulation channel counts or control algorithms) and system characteristics (such as the size, complexity of the network model)---thus giving researchers a tentative idea of the relative importance of each factor of CLOC.
 <!-- Finally, I will demonstrate the conceptual utility of CLOC by quantitatively assessing the causal relationship between these latent dynamics and "behavior" (model output). -->
@@ -34,18 +34,20 @@ I will then use the simulation testbed of Aim 1 and the multi-input control meth
 ## Approach
 
 <!-- ![Overview of latent factor control experiments.](){#fig-aim3overview} -->
-:::{#fig-aim3overview layout-nrow="2" layout-valign="center"}
-![1: Design task(s)](img/a3-1.svg){.fragment .a3step}
+:::{#fig-aim3overview layout="[[1,1,1],[1,1]]" layout-valign="center"}
+![1: Design task(s)](img/a3-1.svg){.nolightbox .a3step .dark-invert}
 
-![2: Construct spatial recurrent spiking neural network (RSNN) model](img/a3-2.png){.fragment .a3step}
+![2: Construct spatial RSNN model](img/a3-2.png){.nolightbox .a3step .dark-invert}
 
-![3: Train RSNN to perform task](img/a3-3.png){.fragment .a3step}
+![3: Train RSNN to perform task](img/a3-3.png){.nolightbox .a3step .dark-invert}
 
-![4: Record using Cleo, fit model and decode latent factors, assess decoding quality](img/a3-4.png){.fragment .a3step}
+![4: Record using Cleo, fit model and decode latent factors, assess decoding quality](img/a3-4.png){.nolightbox .a3step .dark-invert}
 
-![5: Stimulate using Cleo, tune controller and control latent factors, assess control quality](img/a3-5.png){.fragment .a3step}
+![5: Stimulate using Cleo, tune controller and control latent factors, assess control quality](img/a3-5.png){.nolightbox .a3step .dark-invert}
 
 <!-- ![6: Estimate the causal relationship between latents and model output, *including the uncertainty*](img/a3-6.png){.fragment .a3step} -->
+
+Overview of latent factor control experiments.
 :::
 
 ### Formulate task with latent dynamics hypothesis
@@ -65,24 +67,24 @@ Simply manipulating the latent decision variable to verify that it determines th
 ### Train RSNN models
 After identifying a task and latent dynamics hypothesis to test, I will train recurrent spiking neural network (RSNN) models to perform the task.
 These RSNN models will be defined in 3D space to make them compatible with the electrode and optogenetics models from Aim 1.
-To avoid painstaking implementation of every known anatomical detail of the brain region(s) involved in the task---an approach which is not guaranteed to include every important detail or capture true circuitry---I propose using a simple, abstract form such as a rectangular prism of cortical tissue and measuring the effect of adding brain-like structural constraints (see @sec-model-complexity).
+To avoid painstaking implementation of every known anatomical detail of the brain region(s) involved in the task---an approach which is not guaranteed to include every important detail or capture true circuitry---I propose using a simple, abstract form such as a rectangular prism of cortical tissue and measuring the effect of adding progressivley more brain-like structural constraints (see @sec-model-realism).
 
 I will then train these models to perform the given task.
 While a few different methods for training RSNNs exist, I plan on using e-prop [@bellec20], a biologically plausible approximation to backpropagation through time (BPTT), the method typically used to train artificial recurrent neural networks (RNNs).
 This biological plausibility consists in updating synaptic weights using only local information about past activity---"eligibility traces"---and a top-down learning signal and enables learning sparsely firing spike-coding---as opposed to only rate-coding---solutions.
 While e-prop has been shown to learn complex tasks such as Atari games via reinforcement learning, I propose a simpler supervised learning approach.
-This is both more data-efficient and would directly allow for the learning of auxiliary variables, which has been shown in one study to make model dynamics more brainlike [@rajalingham22] (see @sec-aim3-pitfalls).
+This is both more data-efficient and would directly allow for the learning of auxiliary variables, which has been shown in one study to make model dynamics more brain-like [@rajalingham22] (see @sec-aim3-pitfalls).
 
 To give a concrete example of inputs and outputs for the case of the delayed center-out reaching task before mentioned, inputs might include the task phase (stop or go), the target position, and the current hand position.
-The model output might be hand velocity, and the learning signal could be computed from the x/y distance between the current position and either the center before the go cue is given or the target afterwards.
+The model output might be hand velocity, and the learning signal could be computed from the x/y distance between the current position and the center (target) before (after) the go cue is given.
 A regularizer term on acceleration could be added to ensure trajectories are smooth.
 
 
 ### Fit dynamical systems model
-After a model has been trained to some threshold performance level, I will record from the network while it performs the task.
+After a model has been trained to some threshold performance level, I will record spikes and/or LFP from the network while it performs the task.
 The resulting data will then be used to fit a low-dimensional dynamical systems model.
 Seeing that the goal of the virtual experiment is to test the causal effect of a latent factor on model output, I propose using system identification methods that prioritize the discovery of those latent factors that are most relevant to behavior.
-The preferential subspace identification (PSID) method presented by @sani21a are a good candidate, having been shown to predict behavior well with few dimensions.
+The preferential subspace identification (PSID) method presented by @sani21a is a good candidate, having been shown to predict behavior well with few dimensions.
 The linear system it produces is also ideal for the control theory methods I develop in Aim 2.
 In a follow-up study, @sani21 introduce RNN-PSID supporting nonlinearities as well and find empirically that linear dynamics with only a nonlinear mapping from latent to behavior are often sufficient to describe experimental data well.
 Using a potentially nonlinear output mapping in this way would increase the expressiveness of my models while maintaining underlying linear dynamics for fast optimization.
@@ -97,50 +99,77 @@ Importantly, the model and hypothesis from the previous step were formed without
 Thus, I will first need to do expand the model by simulating random optogenetic stimulation and fitting an input model---e.g., an input matrix $B$ for the typical LDS case.
 If this is insufficient to fit the data well, I may need to increase the dimensionality of the latent state $x$ to account for the actuator state (i.e., opsin kinetics) or dimensions of neural activity not arising during unperturbed activity.
 
-### Exploration of experiment parameters
-To reveal the potential return on different investments.
+With an input model, I will then be able to run control experiments.
+The methods from Aim 2 will calculate optimal actuation strategies as the simulation progresses to drive the identified latent factors to the desired state.
+Control quality will be assessed for each experiment using metrics such as mean-squared error (MSE) and will serve as the criterion for how successful the experiment was, seeing that low error serves the larger goal of testing the causal relationship with model behavior.
 
-- Control type: open-loop vs. closed-loop[^1]
-- Total recording/stimulation channel count ($m + k$)
-- Recording/stimulation channel ratio ($m/k$)
-- Data collection budget
+<!-- could be interesting to compute theoretical controllability from model fit too. what would that look like though? The controllability matrix will tell you where you can get to, but we want to know *how* controllable the system is in the directions we care about. Something like "directed controllability"? i remember Steve Brunton talking about the controllability and observability matrices being aligned differently. Oh, and I guess we can't use the typical controllability matrix for constrained inputs...  -->
 
-### Exploration of model complexity {#sec-model-complexity}
-To reveal how control quality might scale to the complexity of a real brain.
+### Exploration of experiment parameters and expected effects
+To guide experimental design, I propose repeating the above process many times to explore how different factors affect control quality, thus informing which investments might be most fruitful.
+These factors might include:
 
-- Architecture
-    - network size (e.g., density of model neurons in space)
-    - region/layer structure
-    - subpopulation structure (i.e., cell types)
-    - spatial, cell-type connectivity
-- Training
-    - task complexity (e.g., # input streams)
-    - network versatility (e.g., # other tasks the network has been trained on)
+- *Control type*. Open-loop control is faster and easier but cannot counteract variability inherent to the system and in the presence of model mismatch will fail to reach the target. Closed-loop methods will almost certainly perform better, but are harder to implement. Moreover, closed-loop control offers a range of options spanning the cost/quality spectrum, with the fast linear quadratic regulator (LQR) on one end and the expensive long-horizon, high-resolution model predictive control (MPC) on the other.
+- *Total recording/stimulation channel count ($m + k$)*. It may be helpful to think of these two parameters together, since they both require limited space in a device that is placed in or on the brain. I expect control quality to increase with channel count up to a point where the computational cost required for closed-loop control outweighs the benefits. 
+- *Recording/stimulation channel ratio ($m/k$)*. Related to the previous point, when space for interface is hardware, it is an open question whether the current landscape of neuroscience technology, which has prioritized high-channel-count recording over stimulation, is the most effective for causal perturbations of neural dynamics.
+- *Data collection budget*. Data collection is not free, and thus must be considered especially when considering the data-efficiency advantages of feedback control. This is also relevant for choosing models to control the system---with little training data, for example, a simple, easy-to-fit model may outperform a more expressive, data-hungry one.
+- *Optogenetic stimulation parameters*. These could include the number and type of opsins and genetic targeting. Using at least two opsins could be expected to perform better than just one, as shown in Aim 2, though many more might not be useful due to overlapping spectral sensitivity and increased computation time. The effect of genetic targeting will likely depend on how well the targeted population correlates with the latent factor of interest.
+
+### Exploration of model realism and expected effects {#sec-model-realism}
+As explained above, I propose using abstract RSNN models with varying degrees of brain-like realism rather than extremely detailed models.
+This is because highly detailed models are difficult to develop and expensive to simulate---moreover, it is hard to say exactly when a model has enough to detail to behave similarly to a real brain.
+On the other hand, by assessing the effect of a handful of brain-like features on how well we can contol latent neural dynamics *in silico*, I hope to identify trends that give a rough outlook of doing so *in vivo*.
+For example, if control quality tends to drop with the addition of each feature, we might infer control of a real brain will be considerably more challenging than in simulations.
+On the other hand, if control quality does not decrease considerably with brain similarity, we might have reason to be more optimistic.
+
+The brain-like features I propose assessing include structural characteristics such as:
+
+- *Variability*. Brains are far from deterministic, with unpredictability on the level of synaptic transmission all the way up to firing rates across a population. Small-scale stochasticity encourages redundance and robustness, which may make the model harder to "hack," or perturb unnaturally. I expect that large-scale variability, such as an unmodeled input to the region, will highlight the advantages of feedback control.
+- *Network size (how many neurons are in the model)*. More neurons would likely mean more dimensions along which activity can vary, complicating the prospect of arbitrary control.
+- *Subpopulation structure*. This could include constraining connectivity to circuits of brain regions, cortical layers, and cell types. This could also make control harder if the latent factor to control operates in cells that are multiple synapses away from those stimulated or if dynamics become driven by recurrent connections more than stimulation.
+- *Connectivity profiles*. Cell pairs within a given population might have a uniform or a spatially dependent connection probability. I expect this, like subpopulation structure, to encourage segregated dynamics which could be either easier or harder to perturb.
+- *Cell diversity*. Cells might have uniform or a random distribution of parameters such as membrane resistance, synaptic transmission delays, resting potentials, adaptivity, etc. Again, I expect this would encourage the segregation of neural dynamics.
+- *Neuron model complexity*. Individual cell models could range from simple leaky integrate-and-fire (LIF) to Hodgkin-Huxley dynamics. I do not expect this to considerably impact control quality.
+
+They also include characteristics about how the model is trained.
+A real brain regions is capable of performing not only one, simple, stereotyped task, but many tasks in many contexts.
+Therefore, another way to make models more brain-like is to diversify their experience---to train them on other tasks.
+It has been shown that this can result in an RNN reusing computational motifs learned in one task to solve others [@yang19; @driscoll22].
+
+<!-- I don't know about the curriculum learning part...it's more about accelerating training on a single task (at least in kepple...rajan) than qualitatively changing dynamics. -->
+<!-- Another perspective worth exploring is that of "curriculum learning," which might focus on a single task but present it an different ways over time to facilitate learning [@soviany22; @kepple22]. -->
+
+<!-- don't really need to test task complexity right? We want a rough idea of how hard the real experiment will be, so we can just stick with the one real experiment -->
+<!-- - task complexity (e.g., # input streams) -->
 
 <!-- ### ~~Quantify the link between control quality and causal inference~~ -->
 
 ## Expected results
-
-## Preliminary results
+In addition to the specific expectations for experimental and model parameters described above, I expect that control quality will be relatively low (error will be high) especially for low actuator counts $k$. 
+However, I do not anticipate that $k$ will need to approach the per-neuron limit either; rather, that low-error control will be possible with $k$ close to the same order of magnitude as the latent state dimensionality.
+While expectations for each brain-like model feature are explained above, I predict that on the whole, control quality will decrease as models become more realistic.
+However, I predict that that that decrease will plateau, providing some level of assurance that the complexity of the real brain may not be an insurmountable barrier to future *in-vivo* experiments.
+ 
+<!-- ## Preliminary results -->
 
 
 ## Potential pitfalls & alternative strategies {#sec-aim3-pitfalls}
+One potential problem is that the RSNN models could learn dynamics that are not very brain-like.
+For example, they might learn a complicated feedforward function instead of tracking latent variables in a more natural way, in which case explicitly teaching the models to track variables of interest has been shown to make dynamics more brain-like [@rajalingham22].
+Alternatively, the latent variables decoded could be dominated by very few neurons, thus producing "latent variables" which are not actually latent and distributed, as in the brain. 
+This can be avoided by regularizing the state inference step to discourage sparsity, thus inferring the state from a more diverse set of neurons.
 
-- Training RSNNs could take a long time
-    - Use fast DE solvers (Julia) then port weights to Brian
-    - Surrogate gradient descent
-    - Train vanilla RNNs (or NODEs or CfCs) and port weights
-        - but then no biological learning? 😢
-    - Hinton's FF algorithm?
-- RL is hard
-    - Do supervised learning to follow experimental data directly
-- For a decent fit, RNN-PSID could require nonlinear terms precluding linear-quadratic MPC
-    - Would likely need to train a neural network-based controller instead
-- Networks might not learn in a very brain-like way
-    - Could explicitly teach them to track latent variables [@rajalingham22]
-    - Could constrain network structure to guarantee distributed (i.e., latent) factors
-        - maybe just regularize the latent readout so it's not sparse?
-- Huge space to explore
-    - don't do full grid search, but rather explore one variable at a time (e.g., brainlike architecture, )
-- off-manifold effects?
-    - quantify it?
+Another caveat to generalizing conclusions is that the proposed perturbations may be unnatural---by perturbing the latent factors decoded from passive observation, I may unwittingly by pushing neurons "off-manifold," causing them to fire in unnatural combinations [@shenoy21].
+While it is beyond the scope of the proposed work to avoid this, I can at least quantify the phenomenon via the proxy of neural activity *unexplained* by our latent dynamical, assuming our intrinsic manifold is a subspace rather than a lower-dimensional attractor structure embedded therein [@vyas20; @duncker21].
+For example, if under passive observation we can predict 95% of neural activity, and that drops to 50% under perturbation, we could conclude that 45% of the activity is now unnatural, as it must be explained by dimensions of activity introduced by stimulation.
+
+Besides conceptual obstacles, the proposed work has practical challenges too---its large scale, to begin with. 
+To adequately assess control prospects across the whole space of experiment and structural factors described could represent a prohibitively high computational cost.
+This can be mitigated by avoiding a grid search of this space, analyzing random combinations of features or just one at a time rather than every single combination.
+Another factor in the computational cost is the speed of the training, model fitting, and control simulations themselves.
+In the case that simulations are too slow with the Brian/Cleo framework described in Aim 1, it may be worth exploring simpler simulations for the training step which does not require Cleo.
+This could involve using fast differential equation solvers [@rackauckas17] for the training step or even a less biological learning algorithm such as backpropagation through time with surrogate gradients for the nondifferentiable spike threshold function [@zenke21].
+Training might also be accelerated using a form of "warm start" where weights are initialized from a pre-trained model, though care would need to be taken that the effects of the warm start on learned dynamics not overshadow those of the structural features being tested.
+
+Additionally, there is a possibility that RNN-PSID requires nonlinear terms to fit model data well, despite the authors' findings that linear dynamics are often sufficient [@sani21].
+In the case that nonlinearities preclude the formulation of MPC as a fast quadratic program, I may need to turn to neural networks, which, after training, could quickly produce approximate solutions for nonlinear optimization problems (see @sec-aim2-pitfalls).

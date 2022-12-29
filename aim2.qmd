@@ -12,7 +12,7 @@ execute:
 ## Rationale
 ### Advantages of multi-input control
 The power of closed-loop optogenetic control (CLOC, henceforth referring specifically to feedback control; see @sec-cl-types) is limited by the degrees of freedom provided by the optogenetic actuation scheme.
-One important distinction in possible actuation schemes is between "unidirectional"---control by a single opsin type---and "bidirectional"---where both excitatory and inhibitory opsins are used.
+One important distinction in possible actuation schemes is between unidirectional and bidirectional actuation, referring to whether a single opsin type or both excitatory and inhibitory opsins are used simultaneously.
 Unidirectional control has obvious shortcomings: for example, an excitatory opsin alone can only raise the firing rate of target neurons, not lower it or even clamp to a baseline level.
 This setup would also be unable to *lower* the firing rate quickly, in the case of a dynamic reference trajectory.
 Moreover, besides enabling bidirectional stimulation, general multi-input methods could enable more precise control by targeting different neurons simultaneously, such as stimulation of cells at different depths in a cortical column or across columns.
@@ -23,8 +23,8 @@ This adaptive linear-quadratic regulator (LQR) approach is more robust to distur
 Moreover, its behavior can be easily configured by setting penalties on state error, the control signal, and even the derivative of the control signal to encourage smooth actuation.
 
 ### Challenges of combining
-Thus, a natural goal for furthering CLOC is to combine the advantages of bidirectional actuation and model-based optimal control---however, this poses additional challenges and opportunities.
-The adaptive LQR method previously developed is unsuitable for bidirectional actuation because it does not model the constraint that the input (light intensity) must be nonnegative. 
+Thus, a natural goal for furthering CLOC is to combine the advantages of multi-input/bidirectional actuation and model-based optimal control---however, this poses additional challenges and opportunities.
+The adaptive LQR method previously developed is unsuitable for multi-input actuation because it does not model the constraint that the input (light intensity) must be nonnegative. 
 While violations of this constraint are relatively infrequent and of little consequence when using an excitatory opsin to reach elevated, slowly varying trajectories, a dual-input scenario would be different.
 For instance, the controller might call for negative inhibitory input rather than positive excitatory input---a problem that might be solvable with heuristics for the simplest cases but which would pose serious limitations with increasing actuator count.
 
@@ -87,7 +87,7 @@ $$ u_t = \tilde{u}_t $$
 
 
 ### Demonstration of advantages *in silico*
-To demonstrate the advantages of bidirectional control and of MPC, I will control the firing rate of simulated spiking neurons under four conditions: LQR with one opsin, LQR with two opsins, MPC with one opsin and MPC with two opsins.
+To demonstrate the advantages of  control and of MPC, I will control the firing rate of simulated spiking neurons under four conditions: LQR with one opsin, LQR with two opsins, MPC with one opsin and MPC with two opsins.
 I will test scenarios where the limitations of unidirectional control and LQR will be manifest, namely clamping activity to baseline levels in the presence of unmodeled disturbances to the system and for time-varying reference trajectories.
 I will also demonstrate the more advanced multi-input applications of MPC by controlling multiple neurons simultaneously with multiple light sources.
 
@@ -354,7 +354,7 @@ mpc2plot = plotctrl(mpc2res...; title="2-input MPC")
 plot(lqr1plot, lqr2plot, mpc1plot, mpc2plot, layout=4)
 ```
 
-## Potential pitfalls, alternative strategies
+## Potential pitfalls & alternative strategies {#sec-aim2-pitfalls}
 There are some limitations in the proposed GLDS model that may need to be addressed.
 While it was adequate for the experiments in @bolus21, a Poisson linear dynamical system model [@macke11] may be needed in the case that negative predicted firing rates (because the output is not constrained to be nonnegative) produce significant model mismatch error.
 Also, in case the data is not fit well by a GLDS, I may explore the impact of making parts of the model nonlinear.

@@ -25,11 +25,11 @@ book:
     - aim1.qmd
     - aim2.qmd
     - aim3.qmd
-    # - timeline.qmd
+    - timeline.qmd
     - references.qmd
 
 bibliography: references.json
-csl: science.csl
+csl: elife.csl
 
 execute: 
   freeze: auto

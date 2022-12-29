@@ -16,11 +16,11 @@ Moreover, the maintenance of animals or cell cultures inherent in lab experiment
 In Aim 1, I attempt to address these obstacles by developing a simulation framework for easily prototyping CLOC experiments _in silico_, thus enabling faster, cheaper CLOC experiment design and method development.
 We demonstrate the software's utility in different virtual experiments and provide it to the public as open-source software with thorough documentation.
 
-## Aim 2: Bidirectional CLOC
-Bidirectional CLOC---the simultaneous use of both excitatory and inhibitory opsins---is necessary for precise manipulation of neural systems, especially when maintaining naturalistic activity levels is important.
+## Aim 2: Multi-input CLOC
+Multi-input CLOC---the simultaneous use of multiple light sources---is necessary for precise manipulation of neural systems, especially when bidirectional actuation (both excitatory and inhibitory opsins) is needed to maintain naturalistic activity levels.
 However, the basic control theory methods previously used in conjuction with CLOC do not take actuator constraints into account and are thus inadequate for multi-actuator (i.e., multi-light source) problems.
 The field of control theory provides elegant, powerful solutions to this class of problems, but applying them requires interdisciplinary expertise.
-In this aim I will translate more sophisticated model-based feedback control algorithms to the  bidirectional CLOC setting and demonstrate the advantages both of bidirectional actuation and these algorithmic improvements.
+In this aim I will translate more sophisticated model-based feedback control algorithms to the multi-input CLOC setting and demonstrate the advantages both of bidirectional actuation and these algorithmic improvements.
 
 ## Aim 3: Using CLOC to manipulate latent neural dynamics
 To our knowledge, CLOC has yet to be applied in answering complex systems neuroscience questions.

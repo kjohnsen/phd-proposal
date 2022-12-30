@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.2.269">
+<meta name="generator" content="quarto-1.2.280">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -127,7 +127,12 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./aim3.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Aim 3: Latent Factor Control</span></a>
+  <a href="./aim3.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Aim 3: Control of latent population dynamics</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./timeline.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Proposed timeline</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -144,8 +149,9 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#aim-1-a-cloc-experiment-simulation-testbed" id="toc-aim-1-a-cloc-experiment-simulation-testbed" class="nav-link active" data-scroll-target="#aim-1-a-cloc-experiment-simulation-testbed">Aim 1: A CLOC experiment simulation testbed</a></li>
-  <li><a href="#aim-2-bidirectional-cloc" id="toc-aim-2-bidirectional-cloc" class="nav-link" data-scroll-target="#aim-2-bidirectional-cloc">Aim 2: Bidirectional CLOC</a></li>
+  <li><a href="#sec-aims-rationale" id="toc-sec-aims-rationale" class="nav-link active" data-scroll-target="#sec-aims-rationale">Rationale</a></li>
+  <li><a href="#aim-1-a-cloc-experiment-simulation-testbed" id="toc-aim-1-a-cloc-experiment-simulation-testbed" class="nav-link" data-scroll-target="#aim-1-a-cloc-experiment-simulation-testbed">Aim 1: A CLOC experiment simulation testbed</a></li>
+  <li><a href="#aim-2-multi-input-cloc" id="toc-aim-2-multi-input-cloc" class="nav-link" data-scroll-target="#aim-2-multi-input-cloc">Aim 2: Multi-input CLOC</a></li>
   <li><a href="#aim-3-using-cloc-to-manipulate-latent-neural-dynamics" id="toc-aim-3-using-cloc-to-manipulate-latent-neural-dynamics" class="nav-link" data-scroll-target="#aim-3-using-cloc-to-manipulate-latent-neural-dynamics">Aim 3: Using CLOC to manipulate latent neural dynamics</a></li>
   </ul>
 </nav>
@@ -171,15 +177,18 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 <!-- think of this as an extended abstract -->
+<section id="sec-aims-rationale" class="level2">
+<h2 class="anchored" data-anchor-id="sec-aims-rationale">Rationale</h2>
 <p>As the importance of causal inference becomes increasingly recognized in neuroscience, the need for technology enabling precise manipulation of neural variables becomes apparent. Feedback control is an important class of such manipulations for its ability to increase inference power by reducing response variability. Widely used throughout the engineering disciplines, it has had a significant impact through a variety of techniques (e.g., voltage clamp, dynamic clamp) on cellular neuroscience. However, feedback control also has great potential at the mesoscale/systems level, potentially enabling researchers to <em>unambiguously infer the downstream effects of circuit/population-level neural activity</em>.</p>
 <p>For a number of reasons, though, <em>this potential has not been widely realized</em>. The main challenges to wider adoption do not appear to lie with available technology, as the computational power and stimulation/recording requirements of feedback control are met by the ever-improving tools already available to neuroscientists, such as optogenetics and large-scale neural recording. I posit that the main challenges to adoption rather include the <strong>complexity of implementing</strong> fast closed-loop experiments, the need to <strong>adapt the mature methods of control theory</strong> to the idiosyncratic constraints of systems neuroscience experiments, and the <strong>lack of established technical guidelines</strong> for applying feedback control to address complex scientific questions. <strong>The proposed work aims to begin to address these challenges, and thus strengthen the set of causal tools available to probe neural systems.</strong></p>
+</section>
 <section id="aim-1-a-cloc-experiment-simulation-testbed" class="level2">
 <h2 class="anchored" data-anchor-id="aim-1-a-cloc-experiment-simulation-testbed">Aim 1: A CLOC experiment simulation testbed</h2>
 <p>One significant obstacle to closed-loop optogenetic control (CLOC) experiments is the cost of acquiring and configuring compatible hardware-software systems. Moreover, the maintenance of animals or cell cultures inherent in lab experiments can slow the pace of developing novel techniques. In Aim 1, I attempt to address these obstacles by developing a simulation framework for easily prototyping CLOC experiments <em>in silico</em>, thus enabling faster, cheaper CLOC experiment design and method development. We demonstrate the software’s utility in different virtual experiments and provide it to the public as open-source software with thorough documentation.</p>
 </section>
-<section id="aim-2-bidirectional-cloc" class="level2">
-<h2 class="anchored" data-anchor-id="aim-2-bidirectional-cloc">Aim 2: Bidirectional CLOC</h2>
-<p>Bidirectional CLOC—the simultaneous use of both excitatory and inhibitory opsins—is necessary for precise manipulation of neural systems, especially when maintaining naturalistic activity levels is important. However, the basic control theory methods previously used in conjuction with CLOC do not take actuator constraints into account and are thus inadequate for multi-actuator (i.e., multi-light source) problems. The field of control theory provides elegant, powerful solutions to this class of problems, but applying them requires interdisciplinary expertise. In this aim I will translate more sophisticated model-based feedback control algorithms to the bidirectional CLOC setting and demonstrate the advantages both of bidirectional actuation and these algorithmic improvements.</p>
+<section id="aim-2-multi-input-cloc" class="level2">
+<h2 class="anchored" data-anchor-id="aim-2-multi-input-cloc">Aim 2: Multi-input CLOC</h2>
+<p>Multi-input CLOC—the simultaneous use of multiple light sources—is necessary for precise manipulation of neural systems, especially when bidirectional actuation (both excitatory and inhibitory opsins) is needed to maintain naturalistic activity levels. However, the basic control theory methods previously used in conjuction with CLOC do not take actuator constraints into account and are thus inadequate for multi-actuator (i.e., multi-light source) problems. The field of control theory provides elegant, powerful solutions to this class of problems, but applying them requires interdisciplinary expertise. In this aim I will translate more sophisticated model-based feedback control algorithms to the multi-input CLOC setting and demonstrate the advantages both of bidirectional actuation and these algorithmic improvements.</p>
 </section>
 <section id="aim-3-using-cloc-to-manipulate-latent-neural-dynamics" class="level2">
 <h2 class="anchored" data-anchor-id="aim-3-using-cloc-to-manipulate-latent-neural-dynamics">Aim 3: Using CLOC to manipulate latent neural dynamics</h2>

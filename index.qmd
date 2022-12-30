@@ -4,10 +4,6 @@ format:
     toc: false
 tbl-colwidths: [38, 62]
 ---
-::: {.hidden}
-# Front Matter {.unnumbered}
-:::
-
 # Abstract
 As the importance of causal inference becomes increasingly recognized in neuroscience, the need for technology enabling precise manipulation of neural variables becomes apparent.
 Feedback control is an important class of such manipulations for its ability to increase inference power by reducing response variability.
@@ -22,6 +18,10 @@ I will demonstrate some advantages of multi-input CLOC and how it is not well ac
 Finally, in Aim 3, I will explore how recording, stimulation, and control requirements vary in an example application of CLOC—controlling the latent dynamics of simulated neural population activity and assessing their causal relationship with behavior.
 I will model this population activity with recurrent spiking neural networks trained using state-of-the-art, biologically plausible methods, with differing degrees of brain-like architecture and task complexity.
 This work will thus provide the systems neuroscience community with a more accessible entry point for CLOC, more powerful algorithms for leveraging multi-input control, and a point of reference for designing CLOC experiments capable of answering complex scientific questions.
+
+::: {.hidden}
+# Front Matter {.unnumbered}
+:::
 
 ## Thesis committee {.unnumbered}
 

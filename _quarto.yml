@@ -14,7 +14,7 @@ book:
     Georgia Institute of Technology and Emory University 
 
   author: Kyle Johnsen
-  date: 10/20/2022
+  date: 1/1/2023
 
   repo-url: https://github.com/kjohnsen/phd-proposal/
   downloads: [pdf]
@@ -50,11 +50,10 @@ format:
     documentclass: scrreprt
     papersize: letter
     include-in-header: header.tex
-    latex-auto-install: true
-    mainfont: TeX Gyre Pagella
-    mathfont: TeX Gyre Pagella Math
-    sansfont: Open Sans
+    latex-auto-install: false
+    # mainfont: TeX Gyre Pagella
+    # mathfont: TeX Gyre Pagella Math
+    # sansfont: Open Sans
+    # sansfont: Source Sans 3
     colorlinks: true
-
-
-
+    link-citations: true

@@ -33,9 +33,10 @@ I will then use the simulation testbed of Aim 1 and the multi-input control meth
 
 ## Approach
 
-<!-- ![Overview of latent factor control experiments.](){#fig-aim3overview} -->
-:::{#fig-aim3overview layout="[[1,1,1],[1,1]]" layout-valign="center"}
-![1: Design task(s)](img/a3-1.svg){.nolightbox .a3step .dark-invert}
+![Overview of latent factor control experiments.](img/aim3overview.jpg){#fig-aim3overview}
+
+<!-- :::{#fig-aim3overview layout="[[1,1,1],[1,1]]" layout-valign="center"} -->
+<!-- ![1: Design task(s)](img/a3-1.png){.nolightbox .a3step .dark-invert}
 
 ![2: Construct spatial RSNN model](img/a3-2.png){.nolightbox .a3step .dark-invert}
 
@@ -43,12 +44,12 @@ I will then use the simulation testbed of Aim 1 and the multi-input control meth
 
 ![4: Record using Cleo, fit model and decode latent factors, assess decoding quality](img/a3-4.png){.nolightbox .a3step .dark-invert}
 
-![5: Stimulate using Cleo, tune controller and control latent factors, assess control quality](img/a3-5.png){.nolightbox .a3step .dark-invert}
+![5: Stimulate using Cleo, tune controller and control latent factors, assess control quality](img/a3-5.png){.nolightbox .a3step .dark-invert} -->
 
 <!-- ![6: Estimate the causal relationship between latents and model output, *including the uncertainty*](img/a3-6.png){.fragment .a3step} -->
 
-Overview of latent factor control experiments.
-:::
+<!-- Overview of latent factor control experiments. -->
+<!-- ::: -->
 
 ### Formulate task with latent dynamics hypothesis
 To model an experiment of interest to neuroscientists, I will first choose a task where latent dynamic analyses have yielded testable hypotheses in animal research.

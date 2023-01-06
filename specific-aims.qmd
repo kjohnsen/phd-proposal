@@ -8,7 +8,7 @@ Widely used throughout the engineering disciplines, it has had a significant imp
 However, feedback control also has great potential at the mesoscale/systems level, potentially enabling researchers to *unambiguously infer the downstream effects of circuit/population-level neural activity*.
 
 For a number of reasons, though, *this potential has not been widely realized*.
-The main challenges to wider adoption do not appear to lie with available technology, as the computational power and stimulation/recording requirements of feedback control are met by the ever-improving tools already available to neuroscientists, such as optogenetics and large-scale neural recording.
+The main challenges to wider adoption do not appear to lie with available technology, as the requirements of feedback control are beginning to be met by the ever-improving computational power and stimulation/recording tools (such as optogenetics and large-scale neural recording) already available to neuroscientists.
 I posit that the main challenges to adoption rather include the **complexity of implementing** fast closed-loop experiments, the need to **adapt the mature methods of control theory** to the idiosyncratic constraints of systems neuroscience experiments, and the **lack of established technical guidelines** for applying feedback control to address complex scientific questions.
 **The proposed work aims to begin to address these challenges, and thus strengthen the set of causal tools available to probe neural systems.**
 
@@ -29,4 +29,3 @@ To our knowledge, CLOC has yet to be applied in answering complex systems neuros
 In this aim, to pave the way for future *in-vivo* experiments that accomplish this, I propose to develop technical and conceptual guidelines as I control the latent dynamics of simulated neural populations.
 First, I will produce these virtual models by training recurrent spiking neural networks with state-of-the-art, biologically plausible methods---each differing in their degrees of brain-like architecture and training procedure complexity.
 I will then use the simulation testbed of Aim 1 to explore how recording, stimulation, and control requirements vary with the complexity and size of the system---thus giving researchers some idea of the relative importance of each factor of CLOC.
-Finally, I will demonstrate the conceptual utility of CLOC by quantitatively assessing the causal relationship between these latent dynamics and "behavior" (model output).

@@ -3,34 +3,46 @@
 ## Closed-loop control in neuroscience {#sec-cl-neuro}
 
 Mesoscale neuroscience---on the level of populations of neurons, rather than the whole brain or individual cells---is currently undergoing a revolution fueled by advances in neural manipulation [@fenno11; @wiegert17; @sridharan22; @vierock21; @adesnik21; @faini21; @roth16; @eriksson22] and measurement [@steinmetz21; @siegle17; @gutruf18; @gobel07; @knopfel19; @svoboda06; @kazemipour19; @wu20a] technologies as well as data analysis methods [@maaten08; @berman14; @mathis18; @sani21a; @sporns18; @schneider22].
-These have yielded unprecedented datasets [@scheffer20; @juavinett19] and insights into network activity and plasticity [@oby19; @yang21; @cowley20; @avitan22; @jazayeri21], as well as novel experimental paradigms such as direct closed-loop control of neural activity [@grosenick15; @kumar13; @potter14; @newman15; @bolus18; @bolus21; @zhang18; @krook-magnuson13; @witt13; @dutta19]. 
-This closed-loop control of neural activity offers exciting prospects of intervention in processes that are too fast or unpredictable to control manually or with pre-defined stimulation, such as sensory information processing, motor planning, and oscillatory activity. Unlike other forms of closed-loop control using environmental/stimulus input [@tafazoli20], behavioral output [@srinivasan18] or neurofeedback training [@prsa17; @eriksson22], the direct control of neural activity itself can unambiguously reveal the downstream effects of that activity. 
+These have yielded unprecedented datasets [@scheffer20; @juavinett19] and insights into network activity and plasticity [@oby19; @yang21; @cowley20; @avitan22; @jazayeri21]
+Moreover, they enable novel experimental paradigms such as direct closed-loop control of neural activity [@grosenick15; @kumar13; @potter14; @newman15; @bolus18; @bolus21; @zhang18; @krook-magnuson13; @witt13; @dutta19]. 
+This closed-loop control of neural activity offers exciting prospects of intervention in processes that are too fast or unpredictable to control manually or with pre-defined stimulation, such as sensory information processing, motor planning, and oscillatory activity. Unlike other forms of closed-loop control using environmental/stimulus input [@tafazoli20], behavioral output [@srinivasan18] or neurofeedback training [@prsa17; @eriksson22], the direct control of neural activity itself provides more opportunities for revealing the downstream effects of that activity. 
 
 ### Types of closed-loop control {#sec-cl-types}
-Closed-loop control of neural activity can be implemented in an event-triggered sense [@krook-magnuson13; @witt13; @dutta19]---enabling the experimenter to respond to discrete events of interest, such as the arrival of a traveling wave [@davis20] or sharp wave ripple [@buzsaki15]---or in a feedback sense [@newman15; @bolus18; @bolus21; @zhang18], driving the system towards a target or along a trajectory. The latter has multiple advantages over open-loop control (delivery of a pre-defined stimulus): by rejecting exogenous inputs, noise, and disturbances, it reduces variability across time and across trials, allowing for finer-scale inference. Additionally, it can compensate for model mismatch, allowing it to succeed where open-loop control based on imperfect models is bound to miss the mark.
+Closed-loop control of neural activity can be implemented in an event-triggered sense [@krook-magnuson13; @witt13; @dutta19]---enabling the experimenter to respond to discrete events of interest, such as the arrival of a traveling wave [@davis20] or sharp wave ripple [@buzsaki15]---or in a feedback sense [@newman15; @bolus18; @bolus21; @zhang18], driving the system towards a target or along a trajectory.
+The latter has multiple advantages over open-loop control (delivery of a pre-defined stimulus): by rejecting exogenous inputs, noise, and disturbances, it reduces variability across time and across trials, allowing for finer-scale inference.
+Additionally, it can compensate for model mismatch as it actively reduces error, whereas an open-loop stimulus is defined and limited by imperfect models.
 Moreover, whereas traditional perturbation methods often include lesioning [@vaidya19], unnatural silencing, or extreme stimulation, feedback control poses a more naturalistic alternative, increasing generalizability.
-Clamping the activity of a population of neurons to their baseline, for example, effectively shuts down information flow from those neurons without departing from constitutive firing rates.
+Clamping the activity of a population of neurons to their baseline, for example, effectively shuts down information flow from those neurons without departing from typical firing rates.
 
 
 ## Various scales and tools for closed-loop control
 
 Closed-loop control of neural activity can be performed at multiple scales and with different sets of tools.
-At the smallest, sub-neuron scale, dynamic clamping has yielded decades of fruitful research in the forms of tools such as the voltage clamp [@hodgkin52a] and dynamic clamp [@hodgkin52; @sharp93; @prinz04], controlling electrical properties of small patches of membrane. 
+At the smallest, sub-neuron scale, feedback control has yielded decades of fruitful research in the form of tools such as the voltage clamp [@hodgkin52a] and dynamic clamp [@sharp93; @prinz04], controlling electrical properties of the cell membrane. 
 The frontiers of this small-scale neuroscience often involve scaling up to many neurons and scaling down to subcellular structures such as dendrites, but multi-electrode, *in-vivo*, intracellular recording methods are challenging [@davie06; @wang15; @engel16; @peng19; @alegria20].
 Optical tools---e.g., optogenetics and fluorescence microscopy---can circumvent the difficulties of working with electrodes at such small scales, but an optical approach is not yet feasible for this purpose.
 The obstacles lie mainly in recording technology: the kinetics of both voltage indicators [@wu20a] and intracellular calcium [@inoue21] are too slow to capture phenomena faster than a typical action potential. 
 
 By contrast, the current state of technology is ripe for innovating closed-loop control methods at larger scales of neural activity, from single neurons to populations and circuits.
-Several promising combinations of recording and stimulation modalities are possible and still relatively novel: electrode recording with optogenetic stimulation [@cardin10, @newman15; @bolus18; @bolus21], fluorescence microscopy with electrical stimulation [@wu20a], fluorescence microscopy with photostimulation (all-optical control) [@flytzanis14; @hochbaum14; @emiliani15; @zhang18; @kishi22], and fMRI with optionally transcranial [@lin13; @chen18a] photostimulation.
+Several promising combinations of recording and stimulation modalities are possible and still relatively novel: electrode recording with optogenetic stimulation [@cardin10; @newman15; @bolus18; @bolus21], fluorescence microscopy with electrical stimulation [@wu20a], fluorescence microscopy with photostimulation (all-optical control) [@flytzanis14; @hochbaum14; @emiliani15; @zhang18; @kishi22], and fMRI with optionally transcranial photostimulation [@lin13; @chen18a].
 Each of these tool combinations has pros and cons in terms of spatial and temporal resolution, crosstalk [@packer13], and degrees of freedom.
 
 A natural starting point for many neuroscientists is the first of these tool sets—electrode recording combined with optogenetics—since the two methods are so widely used, interfere little with each other (as long as metal electrodes are not directly illuminated [@cardin10; @packer13]), and allow for genetically targeted stimulation.
 I will henceforth refer to this combination as CLOC, following the convention established by previous works [@bolus18; @bolus21].
 
 ## Previous work {#sec-prev-work}
-The proposed work builds on the work my lab and collaborators have done previously in implementing CLOC feedback control.
-Newman et al. [-@newman15] demonstrated bidirectional CLOC for fixed firing and slowly varying rate targets and using a model-free proportional-integral (PI) control scheme *in silico* (@fig-newman15), as well as unidirectional integral control in the anesthetized rat.
-Bolus et al. [-@bolus18] used PI control again, but developed a more principled approach to set estimation and control parameters and tracked dynamic firing rate trajectories down to a ~100-ms timescale (@fig-bolus18). Bolus et al. later employed more sophisticated and scalable optimal feedback control methods which are more robust to disturbances---important especially in awake animal experiments, where dynamic brain state changes contribute to high per-trial variability (@fig-bolus21).
+The proposed work builds on the work my lab and collaborators have done previously in developing CLOC.
+This includes pioneering work taking feedback control from the cellular to the network level by controlling population firing rates *in vitro*---first by @wagenaar05, who reduce unnatural global bursting and conclude as a result that such bursting results from the lack of the exogenous input present in the live, awake cortex.
+Later, @newman13 used the same proportional error-driven controller in a demonstration of user-friendly real-time electrophysiology software.
+
+These error-free control methods later saw further development and the introduction of optogenetic actuation.
+In the first known demonstration of optogenetic feedback control, @newman15 used bidirectional stimulation for fixed and slowly varying firing rate targets *in vitro* (@fig-newman15). 
+The authors improved control methods by an introducing an integral term to the model-free controller and, in another first, demonstrated feedback control of firing rates *in vivo* by bringing CLOC to the anesthetized rat.
+@bolus18 used PI control again, but developed a more principled approach to set estimation and control parameters and tracked dynamic firing rate trajectories down to a ~100-ms timescale (@fig-bolus18).
+
+Later, in a direct precursor to the proposed work, @bolus21 employed more sophisticated and scalable optimal feedback control methods that can be characterized as an adaptive linear quadratic regulator (LQR).
+Built on a state-space, linear dynamical system model, the controller estimates the latent state using Kalman filtering [@kalman60] and calculates in real-time the optimal control input based on the current error.
+The authors enable adaptivity by estimating a second latent state, added to the first, that represents a slowly varying bias or disturbance to the system---important especially in awake animal experiments, where dynamic brain state changes contribute to high per-trial variability (@fig-bolus21).
 
 ::: {#fig-prev-work layout="[[1,1], [1]]"}
 
@@ -47,26 +59,28 @@ $U_H$ likewise parametrizes 590-nm light delivery to activate enhanced halorhodo
 (C) Figure 4b from @bolus21, showing how CLOC clamps the firing rate of a single thalamic neuron in the awake mouse over multiple trials, reducing response variability (as measured by the Fano factor). 
 :::
 
-## Potential applications in mesoscale neuroscience
-Seeing that a suitable technological foundation for feedback control of neural activity has already been laid with CLOC, I turn now to a discussion of several exciting areas where CLOC could further causal hypothesis testing.
-These deal with concrete questions of scientific interest, as opposed to the conceptual/technical advantages previously explained (@sec-cl-neuro).
-Neuroscientists often identify specific variables or phenomena to assess their role in a larger neural system, in search of interpretable components of brain activity.
-A natural application of CLOC is to control these variables and phenomena of interest directly to enable stronger inference of their relationship to downstream variables.
-Examples of these potential targets for control include the activity of different cell types [@mukamel19; @nemec20; @martinez-garcia20; @lee20; @joglekar21; @zeng22]; the type [@cole17; @cole19; @fabus21], frequency [@saleem17], amplitude [@saleem17], spike coherence [@buffalo11; @buschman12] and interactions [@aru15; @zhang19] of different oscillatory patterns [@buzsaki04]; discrete phenomena such as bursts [@gerstner14], sharp wave ripples [@buzsaki15], oscillatory bursts [@akam14; @tal20; @lundqvist16; @lundqvist22a; @karvat20], traveling waves [@sato12; @muller18; @rule18; @zhang18; @moldakarimov18; @davis20], or sleep spindles [@fernandez20]; and latent states describing neural dynamics [@churchland12; @shenoy13; @cunningham14;@kaufman14;  @gallego17; @vyas20; @shenoy21; @peixoto21], including those most relevant to behavior [@sani21a; @sani21; @hurwitz21].
+## Unexplored applications for network-level control
+While preliminary technological foundations for feedback control of neural activity have already been laid, CLOC has yet to be applied to network-level variables beyond population firing rates to further causal hypothesis testing.
+<!-- These deal with concrete questions of scientific interest, as opposed to the conceptual/technical advantages previously explained (@sec-cl-neuro). -->
+<!-- Neuroscientists often identify specific variables or phenomena to assess their role in a larger neural system, in search of interpretable components of brain activity. -->
+<!-- A natural application of CLOC is to control these variables and phenomena of interest directly to enable stronger inference of their relationship to downstream variables. -->
+Examples of these potential targets for control include the activity of different cell types [@mukamel19; @nemec20; @martinez-garcia20; @lee20; @joglekar21; @zeng22]; the type [@cole17; @cole19; @fabus21], frequency [@saleem17], amplitude [@saleem17], spike coherence [@buffalo11; @buschman12] and interactions [@aru15; @zhang19] of different oscillatory patterns [@buzsaki04]; discrete phenomena such as bursts [@gerstner14], sharp wave ripples [@buzsaki15], oscillatory bursts [@akam14; @tal20; @lundqvist16; @lundqvist22a; @karvat20], traveling waves [@sato12; @muller18; @rule18; @zhang18; @moldakarimov18; @davis20], or sleep spindles [@fernandez20]; and latent states describing neural dynamics [@churchland12; @shenoy13; @cunningham14;@kaufman14;  @gallego17; @vyas20; @shenoy21; @peixoto21], including those most predictive of behavior [@sani21a; @sani21; @hurwitz21].
+In the proposed work, I focus on the latter for their success in generating computational hypotheses for brain function and in predicting behavior.
+In the following chapters, I describe plans to move towards *in-vivo* control of latent dynamics by developing CLOC infrastructure and algorithms and finally performing simulations and analysis *in silico*. 
 
-While some of these targets lend themselves easily to CLOC, others require continued innovation in interfacing technology.
+<!-- While some of these targets lend themselves easily to CLOC, others require continued innovation in interfacing technology.
 Specifically, stimulation technologies have been much more limited in their degrees of freedom than modern recording technology [@steinmetz21; @siegle17; @gutruf18; @gobel07; @knopfel19; @svoboda06; @kazemipour19; @wu20a], and thus unlikely to sufficiently control what is observed.
 For this reason, the development of multi-channel micro-LED/optrode devices [@dufour15; @kwon15; @welkenhuysen16; @wang18; @mcalinden19; @mao19; @mao21; @ohta21; @antolik21; @jeon21; @kathe22; @eriksson22] and holographic optogenetic stimulation [@packer15; @ronzitti17; @chen18b; @zhang18; @sridharan22] are of particular interest.
-Moreover, rigorous investigation of the importance of recording and stimulation capabilities relative to each other would be helpful in guiding technological development and experimental design.
+Moreover, rigorous investigation of the importance of recording and stimulation capabilities relative to each other would be helpful in guiding technological development and experimental design. -->
 
-In addition to controlling variables of interest, CLOC can serve a paradigm of decoupling variables.
+<!-- In addition to controlling variables of interest, CLOC can serve a paradigm of decoupling variables.
 This could be in the context of a circuit, where clamping the activity of a given node decouples its activity from all inputs except for the controller.
 This functionally severs links in the circuit, aiding in circuit identification and in testing the function of different nodes and connections [@willats-clinc].
 Moreover, CLOC could be used in the more general sense of controlling for confounding variables.
 For example, one might want to manipulate the synchrony of a population without changing the mean firing rate, or vice-versa.
-Whereas the conventional open-loop stimulation approach might accomplish this through tedious titration of stimulation parameters [@nandy19], the feedback control approach could simultaneously manipulate both variables as desired, requiring only a passable model of the system.
+Whereas the conventional open-loop stimulation approach might accomplish this through tedious titration of stimulation parameters [@nandy19], the feedback control approach could simultaneously manipulate both variables as desired, requiring only a passable model of the system. -->
 
-## Innovation
+<!-- ## Innovation
 Despite CLOC's great promise to be applied in these areas, it has not yet been widely applied in mesoscale neuroscience. 
 As outlined in @sec-aims-rationale, I identify three main reasons for this, which I will begin to address. 
 First, CLOC experiments are difficult and costly. 
@@ -74,4 +88,4 @@ I propose lowering the barrier to entry and the cost of experiment design and me
 Second, the algorithms previously used for CLOC are not well suited for actuation via multiple simultaneous light sources.
 I propose adapting more **powerful control theory methods** to enable multi-input CLOC, which to our knowledge **has not been done previously**.
 Third, technical and conceptual guidelines for the effective application of CLOC do not exist because **CLOC has not yet been applied to answer a complex scientific question**. 
-I propose to model how this can be done by controlling latent neural dynamics *in silico*, exploring how technical requirements scale with model and experiment parameters and inferring a causal relationship between latent variables and model behavior.
+I propose to model how this can be done by controlling latent neural dynamics *in silico*, exploring how technical requirements scale with model and experiment parameters and inferring a causal relationship between latent variables and model behavior. -->

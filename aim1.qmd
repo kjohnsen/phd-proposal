@@ -11,7 +11,7 @@ Finally, when the proposed experiment requires signal processing/control method 
 Taken together, these factors not only make CLOC experiments a significant investment for a researcher, but one laden with risk.
 Unknown properties of the system under study can make it hard to predict whether a proposed experiment (e.g., whether a given population of neurons can be controlled in a given way) is likely to succeed, and even more so when working with innovative methods with little precedent in the literature.
 
-However, these costs and risks can be mitigated through in silico prototyping.
+However, these costs and risks can be mitigated through *in-silico* prototyping.
 Given a reliable model of the system of interest, one can simulate a proposed experiment, assessing the effectiveness of a given setup.
 Alternate models can be tested to assess robustness of the given method to unknown model properties, or a single method can be validated on a variety of models to determine its general applicability.
 This strategy not only allows for a researcher to evaluate and optimize methods before committing significant resources to them, but also accelerates the development cycle.
@@ -156,8 +156,15 @@ The irradiance used for these simulations was 120% of the single-spike threshold
 In order to demonstrate Cleo's utility to the public, we implemented three example experiments to feature in the upcoming publication:
 
 1. Closed-loop inhibition of a traveling wave in a rodent somatosensory cortex model [@moldakarimov18].
+   This experiment features a simple on/off control scheme where light activating an inhibitory opsin is turned on whenever the number of spikes detected at the optrode exceeds a threshold.
+   The result is that while a wave of activity spreads outward through sensory cortex in response to a stimulus, the area around the optrode remains unperturbed.
+   An experiment of this sort could explore the consequences of traveling waves in sensory cortex on perception.
 2. Feedback control of layer 2/3 interneurons, disrupting plasticity in a model of primary visual cortex [@wilmes19].
+   In this model, a top-down reward signal to vasoactive intestinal peptide (VIP) interneurons inhibits a population of parvalbumin (PV) interneurons, in turn disinhibiting a population of pyramidal cells (PC).
+   However, using a proportional-integral (PI) feedback controller, we clamp the firing rate of interneurons, blocking this disinhibtion.
+   Without increased PC firing, synaptic weights corresponding to the rewarded stimulus no longer increase, thus demonstrating how feedback control can disrupt normal circuit function.
 3. Optogenetic evocation of sharp wave-ripples in an anatomically detailed model of hippocampus [@aussel18; @aussel22]. 
+   This uses linear quadratic regulator control to evoke a reference sharp wave-ripple LFP signature.
    See @fig-hpc for details, and note that feedback control, not looking ahead, so to speak, fails to evoke the reference signal at the desired time.
    The strategy I propose in @sec-aim2 should remedy this.
 
@@ -205,3 +212,8 @@ Fortunately, there is an alternate, potentially more accurate, LFP approximation
 Currently only channelrhodopsin-2 model parameters are included—comparing the effectiveness of different opsins will require first obtaining parameters. This is important since new opsins have been engineered with improved characteristics [@gunaydin10; @lin13; @klapoetke14; @hochbaum14; @mager18; @sridharan22; @kishi22], as well as chloride pumps [@gradinaru10; @chuong14; @berndt16], channels [@govorunova15; @govorunova17], and  other innovations [@berndt16; @vierock21]]. Thankfully, parameters for many opsins are available in published literature [@saran18; @gupta19a; @bansal20; @bansal20b; @bansal21a].
 
 Another limitation is support for multiple simultaneous opsins or light sources. At present, the user could manually include separate current terms for each opsin in neuron model equations or approximate spectral overlap by adding a fraction of a light source’s intensity to that of another, but this potentially slow workflow is antithetical to Cleo’s goal of requiring minimum work to test different scenarios. We plan on adding this functionality shortly, since it will be important for Aims 2 and 3.
+
+## Summary of contributions
+Thus, I have developed Cleo, a simulation environment facilitating and accelerating the adoption and development of CLOC methods.
+Multiple features were designed to reflect this need, for example, neural simulation and experimental configuration at an intermediate level of realism, relevant recording and stimulation modalities, modular software architecture, flexible interfacing that can be easily adapted to existing Brian models, and arbitrary closed-loop processing enabling realistic processing delays.
+Moreover, designing Cleo to help experimental labs to test and potentially adopt CLOC methods, we have developed virtual experiments to serve as examples as well as thorough online documentation. 

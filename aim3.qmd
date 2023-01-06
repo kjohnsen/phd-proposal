@@ -1,13 +1,13 @@
 # Aim 3: Control of latent population dynamics
 ## Rationale
-### Success of low-D dynamical models
+<!-- ### Success of low-D dynamical models -->
 As technology for recording from the brain has improved, systems neuroscience has shifted increasingly towards a reduced-dimensionality, population coding perspective in many brain areas [@kalaska83; @churchland12; @cunningham14; @barack21].
 This reflects the observation that while the activity of any single neuron can vary greatly across trials where external variables are controlled, underlying latent variables can be decoded from the population which are much more predictable and reproducible. 
 Moreover, formulating this latent variable as a dynamical state whose evolution can be predicted has been shown to improve inference and enable state-of-the-art "decoding" of downstream variables of interest such as movement [@pandarinath18; @willett21; @sani21a; @sani21], mood [@sani18], speech [@anumanchipalli19], and decision states [@morcos16; @kim21].
 Not only does this allow us to infer the output of a given brain region, but it allows us to form hypotheses about how it produces that output by analyzing the dynamical landscape of fixed points [@sussillo13; @sussillo14; @smith21].
 This is formalized in the Computation through Dynamics (CTD) framework [@vyas20].
 
-### The need to causally test latent factors
+<!-- ### The need to causally test latent factors -->
 However, while these latent variables have been used to successfully decode other variables of interest, this is a necessary, but insufficent, condition to demonstrate a causal relationship.
 That is, an association between neural activity variable $a$ and some other variable $b$ may reflect the causal relationship $a \rightarrow b$, but could also reflect $b \rightarrow a$ or $a \leftarrow c \rightarrow b$.
 This may be adequate for brain-computer interface (BCI) applications, but verification of that causal relationship is necessary for neuroscience's goal of deepening our understanding of the architecture and algorithms of brain computations.
@@ -15,20 +15,23 @@ This requires experimental control [@pearl09] on the level of neural populations
 
 > The challenge is nontrivial; testing CTD models requires a high degree of control over neural activity. The experimenter must be able to manipulate neural states arbitrarily in state space and then measure behavioral and neural consequences of such perturbations[.]
 
-### An ideal application for CLOC
+<!-- ### An ideal application for CLOC -->
 CLOC is a natural candidate for this kind of experimental control of latent states for various reasons. 
 The optimal state-space methods already formulated map directly to the latent dynamics models which have generated so much interest in recent systems neuroscience.
 High-dimensional optogenetic actuation is possible through micro-LED devices [@dufour15; @kwon15; @welkenhuysen16; @wang18; @mcalinden19; @mao19; @mao21; @ohta21; @antolik21; @jeon21; @kathe22; @eriksson22], two-photon targeting of individual neurons [@packer15; @ronzitti17; @chen18b; @zhang18; @sridharan22], and genetic targeting.
 Moreover, real-time feedback can drive a variable neural system towards complex latent state targets which would be attainable with low accuracy at best and not at all at worst with open-loop stimulation [^whyCL].
 However, while it is clear a high degree of control will be needed, it is unknown how this translates to recording, stimulation, and control parameters.
 Furthermore, finding optimal parameters would likely require extensive trial and error, as well actuation hardware that does not exist or is not readily available, making it costly if not infeasible to do *in vivo*.
+One significant open question is whether this kind of control will require actuation on the level of individual neurons, or whether lower-dimensional actuation will suffice.
 
 [^whyCL]: Low accuracy because open-loop stimulation would not counteract spontaneous variability. Inevitable model mismatch would result in open-loop stimulation potentially entirely missing the mark.
 
 ### Innovation
-Thus, to provide experimenters a proof of concept as well as a point of reference for future *in-vivo* experiments, I propose to develop technical and conceptual guidelines as I control the latent dynamics of simulated neural populations.
+Thus, to give a preliminary answer to this question, I propose to develop technical and conceptual guidelines as I control the latent dynamics of simulated neural populations.
 First, I will produce virtual models by training recurrent spiking neural networks with state-of-the-art, biologically plausible methods---each differing in their degrees of brain-like architecture and training procedure complexity.
-I will then use the simulation testbed of Aim 1 and the multi-input control methods of Aim 2 to explore how control quality varies with both experimental parameters (such as recording and stimulation channel counts or control algorithms) and system characteristics (such as the size, complexity of the network model)---thus giving researchers a tentative idea of the relative importance of each factor of CLOC.
+I will then use the simulation testbed of @sec-aim1 and the multi-input control methods of @sec-aim2 to explore how control quality varies with both experimental parameters (such as recording and stimulation channel counts or control algorithms) and system characteristics (such as the size, complexity of the network model).
+This will both give researchers a tentative idea of the relative importance of each factor of CLOC and, as parameters approach experimental realism, allow us to conjecture as to the number of independent actuators needed to control the latent dynamics of a brain system.
+My hypothesis is that control quality will plateau with a number of actuators on or near the same level of magnitude as the latent factors used to describe the neural activity---that the per-neuron actuation limit will not be needed.
 <!-- Finally, I will demonstrate the conceptual utility of CLOC by quantitatively assessing the causal relationship between these latent dynamics and "behavior" (model output). -->
 
 ## Approach
@@ -97,7 +100,7 @@ In the delayed center-out reaching task, for example, I would expect two factors
 ### Control of latent factors
 The next step is then to test whether these latent factors do in fact cause the behavior we observe.
 Importantly, the model and hypothesis from the previous step were formed without stimulation, since our stated goal is to causally test the latent factors we deduce *from passive observation*.
-Thus, I will first need to do expand the model by simulating random optogenetic stimulation and fitting an input model---e.g., an input matrix $B$ for the typical LDS case.
+Thus, I will first need to expand the model by simulating random optogenetic stimulation and fitting an input model---e.g., an input matrix $B$ for the typical LDS case.
 If this is insufficient to fit the data well, I may need to increase the dimensionality of the latent state $x$ to account for the actuator state (i.e., opsin kinetics) or dimensions of neural activity not arising during unperturbed activity.
 
 With an input model, I will then be able to run control experiments.
@@ -147,9 +150,9 @@ It has been shown that this can result in an RNN reusing computational motifs le
 
 ## Expected results
 In addition to the specific expectations for experimental and model parameters described above, I expect that control quality will be relatively low (error will be high) especially for low actuator counts $k$. 
-However, I do not anticipate that $k$ will need to approach the per-neuron limit either; rather, that low-error control will be possible with $k$ close to the same order of magnitude as the latent state dimensionality.
+However, as previously stated, I do not anticipate that $k$ will need to approach the per-neuron limit either; rather, that low-error control will be possible with $k$ close to the same order of magnitude as the latent state dimensionality.
 While expectations for each brain-like model feature are explained above, I predict that on the whole, control quality will decrease as models become more realistic.
-However, I predict that that that decrease will plateau, providing some level of assurance that the complexity of the real brain may not be an insurmountable barrier to future *in-vivo* experiments.
+However, I predict that that that decrease will plateau, providing some confidence in my results and assurance that the complexity of the real brain may not be an insurmountable barrier to future *in-vivo* experiments.
  
 <!-- ## Preliminary results -->
 
@@ -164,7 +167,7 @@ Another caveat to generalizing conclusions is that the proposed perturbations ma
 While it is beyond the scope of the proposed work to avoid this, I can at least quantify the phenomenon via the proxy of neural activity *unexplained* by our latent dynamical, assuming our intrinsic manifold is a subspace rather than a lower-dimensional attractor structure embedded therein [@vyas20; @duncker21].
 For example, if under passive observation we can predict 95% of neural activity, and that drops to 50% under perturbation, we could conclude that 45% of the activity is now unnatural, as it must be explained by dimensions of activity introduced by stimulation.
 
-Besides conceptual obstacles, the proposed work has practical challenges too---its large scale, to begin with. 
+Besides conceptual obstacles, the proposed work also has practical challenges, such as its large scale. 
 To adequately assess control prospects across the whole space of experiment and structural factors described could represent a prohibitively high computational cost.
 This can be mitigated by avoiding a grid search of this space, analyzing random combinations of features or just one at a time rather than every single combination.
 Another factor in the computational cost is the speed of the training, model fitting, and control simulations themselves.

@@ -28,4 +28,5 @@ In this aim I will translate more sophisticated model-based feedback control alg
 To our knowledge, CLOC has yet to be applied in answering complex systems neuroscience questions.
 In this aim, to pave the way for future *in-vivo* experiments that accomplish this, I propose to develop technical and conceptual guidelines as I control the latent dynamics of simulated neural populations.
 First, I will produce these virtual models by training recurrent spiking neural networks with state-of-the-art, biologically plausible methods---each differing in their degrees of brain-like architecture and training procedure complexity.
-I will then use the simulation testbed of Aim 1 to explore how recording, stimulation, and control requirements vary with the complexity and size of the system---thus giving researchers some idea of the relative importance of each factor of CLOC.
+I will then use the simulation testbed of Aim 1 to explore control quality varies with recording, stimulation, and control parameters and the complexity and size of the system---thus giving researchers a tentative idea of the relative importance of each factor of CLOC.
+I will test the hypothesis that low-dimensional dynamics can be manipulated with similarly low-dimensional, rather than per-neuron, actuation.

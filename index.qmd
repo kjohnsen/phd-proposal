@@ -14,8 +14,8 @@ Challenges to adoption include the complexity of implementing fast closed-loop e
 In this work I propose to begin to address these challenges in three aims.
 In Aim 1, I develop a simulation framework for easily prototyping closed-loop optogenetic control (CLOC) experiments *in silico*, thus allowing neuroscientists to test and iterate on experimental designs without the costs of in-vivo experiments or up-front investments in compatible hardware-software systems.
 In Aim 2, I will translate sophisticated model-based feedback control algorithms to the realistic experimental setting of multi-input CLOC---the simultaneous use of multiple light sources, which includes the bidirectional case of both excitatory and inhibitory opsins.
-I will demonstrate some advantages of multi-input CLOC and how it is not well accommodated by the algorithms previously demonstrated.
-Finally, in Aim 3, I will explore how recording, stimulation, and control requirements vary in an example application of CLOC—controlling the latent dynamics of simulated neural population activity and assessing their causal relationship with behavior.
+I will demonstrate some advantages of multi-input CLOC and test the virtues of more powerful and complex algorithms compared to the limited, simpler ones previously used.
+Finally, in Aim 3, I will explore how control quality varies with experimental parameters in a promising future application of CLOC---controlling the latent dynamics of simulated neural population activity---and test the hypothesis that per-neuron actuation will not be needed.
 I will model this population activity with recurrent spiking neural networks trained using state-of-the-art, biologically plausible methods, with differing degrees of brain-like architecture and task complexity.
 This work will thus provide the systems neuroscience community with a more accessible entry point for CLOC, more powerful algorithms for leveraging multi-input control, and a point of reference for designing CLOC experiments capable of answering complex scientific questions.
 

@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.2.280">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Developing and exploiting optogenetic feedback control in mesoscale neuroscience - 5&nbsp; Aim 2 - Multi-input CLOC</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../src/aim3.html" rel="next">
+<link href="../src/aim1.html" rel="prev">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark.min.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<script src="../site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
+<link href="../site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
+<link href="../site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+</head>
+
+<body class="nav-sidebar floating">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+    <div class="container-fluid d-flex justify-content-between">
+      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Aim 2 - Multi-input CLOC</span></h1>
+      <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
+        <i class="bi bi-chevron-right"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="../">Developing and exploiting optogenetic feedback control in mesoscale neuroscience</a> 
+        <div class="sidebar-tools-main tools-wide">
+    <a href="https://github.com/kjohnsen/phd-proposal/" title="Source Code" class="sidebar-tool px-1"><i class="bi bi-github"></i></a>
+    <a href="../Developing-and-exploiting-optogenetic-feedback-control-in-mesoscale-neuroscience.pdf" title="Download PDF" class="sidebar-tool px-1"><i class="bi bi-file-pdf"></i></a>
+  <a href="" class="quarto-color-scheme-toggle sidebar-tool" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
+</div>
+    </div>
+      </div>
+      <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+      </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../index.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Abstract</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../src/specific-aims.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Specific Aims</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../src/background.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Background</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../src/aim1.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Aim 1 - A CLOC simulation testbed</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../src/aim2.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Aim 2 - Multi-input CLOC</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../src/aim3.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Aim 3 - Control of latent population dynamics</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../src/timeline.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Proposed timeline</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../src/references.html" class="sidebar-item-text sidebar-link">References</a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#rationale" id="toc-rationale" class="nav-link active" data-scroll-target="#rationale">Rationale</a>
+  <ul>
+  <li><a href="#innovation" id="toc-innovation" class="nav-link" data-scroll-target="#innovation">Innovation</a></li>
+  </ul></li>
+  <li><a href="#approach" id="toc-approach" class="nav-link" data-scroll-target="#approach">Approach</a>
+  <ul>
+  <li><a href="#system-and-controller-formulation" id="toc-system-and-controller-formulation" class="nav-link" data-scroll-target="#system-and-controller-formulation">System and controller formulation</a></li>
+  <li><a href="#control-method-comparison-in-silico" id="toc-control-method-comparison-in-silico" class="nav-link" data-scroll-target="#control-method-comparison-in-silico">Control method comparison <em>in silico</em></a></li>
+  </ul></li>
+  <li><a href="#expected-results" id="toc-expected-results" class="nav-link" data-scroll-target="#expected-results">Expected results</a></li>
+  <li><a href="#preliminary-results" id="toc-preliminary-results" class="nav-link" data-scroll-target="#preliminary-results">Preliminary results</a></li>
+  <li><a href="#sec-aim2-pitfalls" id="toc-sec-aim2-pitfalls" class="nav-link" data-scroll-target="#sec-aim2-pitfalls">Potential pitfalls &amp; alternative strategies</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title"><span id="sec-aim2" class="quarto-section-identifier d-none d-lg-block"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Aim 2 - Multi-input CLOC</span></span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+</header>
+
+<!-- math macros -->
+<section id="rationale" class="level2">
+<h2 class="anchored" data-anchor-id="rationale">Rationale</h2>
+<!-- ### Advantages of multi-input control -->
+<p>The power of closed-loop optogenetic control (CLOC, henceforth referring specifically to feedback control; see <a href="background.html#sec-cl-types"><span>Section&nbsp;3.1.1</span></a>) is limited by the degrees of freedom provided by the optogenetic actuation scheme. One important distinction in possible actuation schemes is between unidirectional and bidirectional actuation, referring to whether a single opsin type or both excitatory and inhibitory opsins are used simultaneously. Unidirectional control has obvious shortcomings: for example, an excitatory opsin alone can only raise the firing rate of target neurons, not lower it or even clamp to a baseline level. This setup would also be unable to <em>lower</em> the firing rate quickly, in the case of a dynamic reference trajectory. Moreover, besides enabling bidirectional stimulation, general multi-input methods could enable more precise control by targeting different neurons simultaneously, such as stimulation of cells at different depths in a cortical column or across columns.</p>
+<!-- ### Advantages of model-based, optimal control -->
+<p>While a previous study <span class="citation" data-cites="newman15">(<a href="references.html#ref-newman15" role="doc-biblioref">Newman et al., 2015</a>)</span> has already laid the foundation for bidirectional CLOC, it does not feature the generalizability and scalability of the model-based, optimal control algorithms introduced by later work <span class="citation" data-cites="bolus21">(<a href="references.html#ref-bolus21" role="doc-biblioref">Bolus et al., 2021</a>)</span> (see <a href="background.html#sec-prev-work"><span>Section&nbsp;3.3</span></a>) for unidirectional actuation. This adaptive linear-quadratic regulator (LQR) approach is more robust to disturbances and can scale to multi-input multi-output (MIMO) systems. Moreover, its behavior can be easily configured by setting penalties on state error, the control signal, and even the derivative of the control signal to encourage smooth actuation.</p>
+<!-- ### Challenges of combining -->
+<p>Thus, a natural goal for furthering CLOC is to combine the advantages of multi-input/bidirectional actuation and model-based optimal control—however, this poses additional challenges and opportunities. The adaptive LQR method previously developed has limited application for multi-input actuation because it does not model the constraint that the input (light intensity) must be nonnegative. While violations of this constraint are relatively infrequent and of little consequence when using an excitatory opsin to reach elevated, slowly varying trajectories, a dual-input scenario would be different. For instance, the controller might call for negative inhibitory input rather than positive excitatory input. A heuristic workaround to this is to use light pairs (e.g., blue and red) and treat them as the positive and negative directions of a single actuator. This allows us to continue to use simple and fast LQR methods but fails to model inhibitory and excitatory opsins separately and precludes alternate light configurations, where there are not excitatory/inhibitory pairs each one overlapping little with others.</p>
+<section id="innovation" class="level3">
+<h3 class="anchored" data-anchor-id="innovation">Innovation</h3>
+<p>I propose addressing this problem using model predictive control (MPC), which is widely used for its flexibility in implementing optimal control with constraints. Rather than computing the control signal from the current error signal at each step, MPC looks ahead, optimizing over the predicted trajectory some finite number of steps into the future, in what is known as “receding horizon control.” The downside is that this requires solving an optimization problem (a quadratic program for straightforward linear dynamical systems) at every control step, which is more costly than the matrix operations typical of LQR. The latency caused by this computation causes real-time control performance to suffer. Even so, I hypothesize that MPC will be able to better optimize multi-input optogenetic stimulation while accommodating experimental constraints and considerations during real-time control on timescales relevant to network-level descriptions of neural activity. I plan to achieve this aim by adapting previously demonstrated linear models, adding input constraints and costs, and assessing control quality of MPC compared to the heuristic LQR approach previously described as I simulate multi-output feedback control of firing rates and gamma oscillations observed in local field potentials (LFP).</p>
+<div id="fig-mpc" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<div class="dark-invert">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="img/mpc-schematic.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="img/mpc-schematic.png" class="img-fluid figure-img" style="padding:.5em; background: white"></a></p>
+</figure>
+</div>
+</div>
+<p></p><figcaption class="figure-caption">Figure&nbsp;5.1: An illustration of how MPC optimizes the system input over a receding horizon. By <a href="https://en.wikipedia.org/wiki/File:MPC_scheme_basic.svg">Martin Behrendt</a>, licensed under <a href="https://creativecommons.org/licenses/by-sa/3.0/deed.en">CC BY-SA 3.0</a>.</figcaption><p></p>
+</figure>
+</div>
+</section>
+</section>
+<section id="approach" class="level2">
+<h2 class="anchored" data-anchor-id="approach">Approach</h2>
+<section id="system-and-controller-formulation" class="level3">
+<h3 class="anchored" data-anchor-id="system-and-controller-formulation">System and controller formulation</h3>
+<p>Naturally, the model is a vital element of MPC. I will use a previously developed Gaussian linear dynamical system (GLDS) model <span class="citation" data-cites="bolus21">(<a href="references.html#ref-bolus21" role="doc-biblioref">Bolus et al., 2021</a>)</span>, which has been shown to reliably capture firing rate dynamics in a light-driven spiking neuron system. The discrete-time GLDS is governed by the following equations:</p>
+<p><span class="math display">\[
+\begin{aligned}
+x_{t + 1} &amp;= Ax_{t} + Bu_{t} + w_t  \\
+y_{t} &amp;= Cx_{t} + d  \\
+z_{t} &amp;= y_{t} + v_t  \\
+\end{aligned}
+\]</span></p>
+<p>where <span class="math inline">\(x_{t} \in \mathbb{R}^n\)</span> is the <span class="math inline">\(n\)</span>-dimensional state, <span class="math inline">\(u_{t} \in \mathbb{R}^k\)</span> is the <span class="math inline">\(k\)</span>-dimensional stimulus (i.e., <span class="math inline">\(k = 2\)</span> for two opsins, one light source each), <span class="math inline">\(y_{t} \in \mathbb{R}^m\)</span> is the firing rate in spikes/timestep (for each of <span class="math inline">\(m\)</span> measured neurons), and <span class="math inline">\(z_{t} \in \mathbb{R}^m\)</span> is the number of binned spikes observed at time <span class="math inline">\(t\)</span>. <span class="math inline">\(A \in \mathbb{R}^{n \times n}\)</span>, <span class="math inline">\(B \in \mathbb{R}^{n \times k}\)</span>, and <span class="math inline">\(C \in \mathbb{R}^{m \times n}\)</span> are the state transition, input, and output matrices, respectively. <span class="math inline">\(w_{t} \sim \mathcal{N}\left( 0, Q \right)\)</span> and <span class="math inline">\(v_{t}\mathcal{\sim N}\left( 0, R \right)\)</span> are Gaussian-distributed process and measurement noise, respectively, and <span class="math inline">\(d \in \mathbb{R}^{m \times 1}\)</span> represents baseline firing rates. Model order (<span class="math inline">\(n\)</span>) and horizon length (<span class="math inline">\(T \in \mathbb{N}\)</span>) will be chosen to balance complexity and prediction error for noise-driven fitting data generated from the test network. The latent state <span class="math inline">\(x_{t}\)</span> will be estimated online using the Kalman filter <span class="citation" data-cites="kalman60">(<a href="references.html#ref-kalman60" role="doc-biblioref">Kalman, 1960</a>)</span>, driven by the prediction error <span class="math inline">\(z_{t} - {\widehat{y}}_{t|t - 1}\)</span>.</p>
+<p>I will set hard non-negative constraints on the light input as well as a ceiling determined by hardware limitations (i.e., the maximum voltage deliverable to the LED driver). To design an appropriate cost function, I will use a conventional per-time step quadratic form</p>
+<p><span class="math display">\[\ell( x_{t},r_{t},u_{t} ) = ( x_{t} - r_{t} )^{T}Q^{\text{ctrl}}( x_{t} - r_{t} ) + u^{T}R^{\text{ctrl}}u\ ,\]</span></p>
+<p>where <span class="math inline">\(r_{t} \in \mathbb{R}^n\)</span> is the reference trajectory at time <span class="math inline">\(t\)</span>. <span class="math inline">\(Q^{\text{ctrl}}\)</span> and <span class="math inline">\(R^{\text{ctrl}}\)</span> are real <span class="math inline">\(n \times n\)</span> and <span class="math inline">\(k \times k\)</span> matrices chosen to appropriately penalize tracking error and stimulus size, respectively. This quadratic cost function formulation lends the problem well to standard optimization techniques—combined with a linear dynamical system, it constitutes the classical linear-quadratic-Gaussian (LQG) control problem.</p>
+<p>Then, at every time step <span class="math inline">\(t\)</span> the controller solves the following quadratic program:</p>
+<p><span class="math display">\[
+\begin{aligned}
+    \text{minimize}{} \quad &amp; \sum_{\tau=t}^{t+T} \ell(x_\tau, u_\tau) \\
+    \text{subject to} \quad &amp; u_\tau \succeq 0 \\
+        &amp; x_{\tau + 1} = Ax_{\tau}+Bu_\tau \\
+\end{aligned}
+\]</span></p>
+<p>where <span class="math inline">\(T \in \mathbb{N}\)</span> is the number of steps in the prediction/control horizon and <span class="math inline">\(\succeq\)</span> indicates an inequality for each element of <span class="math inline">\(u_\tau \in \mathbb{R}^k\)</span>. This yields the solution <span class="math inline">\(\tilde{u}_\tau,...,\tilde{u}_{\tau+T-1}\)</span>, of which we take just the first step to apply to the system:</p>
+<p><span class="math display">\[ u_t = \tilde{u}_t \]</span></p>
+</section>
+<section id="control-method-comparison-in-silico" class="level3">
+<h3 class="anchored" data-anchor-id="control-method-comparison-in-silico">Control method comparison <em>in silico</em></h3>
+<p>To confirm my assumption that bidirectional and multi-channel configurations will improve control quality, I will test both unidirectional and bidirectional actuation as well as one-channel and multi-channel configurations for each experiment. (In the bidirectional actuation case, one “channel” includes both an inhibition-triggering and an excitation-triggering light source). Another condition of interest will be to penalize a low-pass-filtered version of the stimulus, which could reflect overheating or ion imbalances caused by prolonged stimulation <span class="citation" data-cites="yizhar11 kokaia13 stujenske15">(<a href="references.html#ref-kokaia13" role="doc-biblioref">Kokaia et al., 2013</a>; <a href="references.html#ref-stujenske15" role="doc-biblioref">Stujenske et al., 2015</a>; <a href="references.html#ref-yizhar11" role="doc-biblioref">Yizhar et al., 2011</a>)</span>. This could be added to the linear dynamics and quadratic cost functions without changing the optimization methods, but, as with opsin and channel count, the increased size of the problem could change which configuration performs best. I will also test open-loop, heuristic LQR, and MPC approaches to see whether MPC attains better performance despite a longer computational delay, as hypothesized. Control algorithm computation time will be measured and used during simulations as a realistic delay. To evaluate controller performance, I will use metrics such as the mean-squared error (MSE) between the reference firing rate and the Gaussian window-smoothed firing rate of the spikes received by the controller during the trial.</p>
+<p>In the first experiment, I will simulate multi-output control of firing rates in an attempt to clamp population activity. <span class="citation" data-cites="wagenaar05">Wagenaar et al. (<a href="references.html#ref-wagenaar05" role="doc-biblioref">2005</a>)</span> and <span class="citation" data-cites="newman13">Newman et al. (<a href="references.html#ref-newman13" role="doc-biblioref">2013</a>)</span> laid the foundation for this by clamping aggregate, population firing rates, and <span class="citation" data-cites="bolus21">Bolus et al. (<a href="references.html#ref-bolus21" role="doc-biblioref">2021</a>)</span> took this further by treating firing rates of individual neurons separately, though with a single optic fiber input. This is an obvious case where multiple inputs should provide more control, allowing us to manipulate neurons (or groups of neurons in the case of unsorted threshold crossings) more individually, each to its own baseline. The experiment will be performed on a Poisson linear dynamical system (PLDS) model <span class="citation" data-cites="macke11">(<a href="references.html#ref-macke11" role="doc-biblioref">Macke et al., 2011</a>)</span> fit to optogenetic input/spike output data from a spiking neural network (SNN) model. The SNN model will contain necessary features, such as cell types, time-varying exogenous input, and connectivity profiles, to produce stochastic firing patterns with unpredictable disturbances and will be simulated together with the recording and stimulation facilities of <a href="aim1.html"><span>Chapter&nbsp;4</span></a>.</p>
+<p>As another experiment, I propose another form of network-level control—manipulating the oscillatory signatures found in LFP signals. Gamma oscillations (30-90 Hz) are one such example, which have been shown to have time-varying properties and interact with other oscillatory bands. Interestingly, gamma rhythms can even show phase coherence in distant brain regions such as visual cortex in opposite hemispheres, which has been hypothesized to play a role in information integration <span class="citation" data-cites="buzsaki12a">(<a href="references.html#ref-buzsaki12a" role="doc-biblioref">Buzsáki and Wang, 2012</a>)</span>. I plan to test control methods on a virtual experiment of this phenomenon by simulating two populations of neurons exhibiting gamma oscillations <span class="citation" data-cites="wang96 brunel03">(<a href="references.html#ref-brunel03" role="doc-biblioref">Brunel and Wang, 2003</a>; <a href="references.html#ref-wang96" role="doc-biblioref">Wang and Buzsáki, 1996</a>)</span> with long-range connections mediating gamma frequency coherence, again using the framework from <a href="aim1.html"><span>Chapter&nbsp;4</span></a>. I will then perform feedback control on the LFP signal to counter the natural phase locking that arises, providing an opportunity to test how well LFP can be controlled on a &lt;100-ms timescale of a single gamma cycle.</p>
+<!-- ### Preparation for real-time experiments
+To inform future experiments where compute time is crucial for control performance, I will record compute time of LQR and MPC approaches for varying numbers of input and output channels $k$ and $m$. 
+For instance, the time required to solve the quadratic program for MPC would provide a preliminary estimate of the minimum control period we may want to use when implementing MPC in real time.
+To get a better idea of how this compute latency might affect a real experiment, I will also test multi-input MPC on a more realistic simulation, such as one of the example experiments from @sec-cleo-experiments, leveraging the latency simulation capabilities of the CLOC simulation framework. -->
+</section>
+</section>
+<section id="expected-results" class="level2">
+<h2 class="anchored" data-anchor-id="expected-results">Expected results</h2>
+<p>I expect that bidirectional, multi-channel, and model predictive control will be perform better than unidirectional, single-channel, and LQR control, respectively for both experiments, despite the added computational cost these methods require. I also expect that restricting the controller through hard constraints or prolonged stimulation penalties will also be possible with the more sophisticated methods without greatly increasing the error.</p>
+</section>
+<section id="preliminary-results" class="level2">
+<h2 class="anchored" data-anchor-id="preliminary-results">Preliminary results</h2>
+<p>Basic simulations controlling a linear dynamical system model fit to experimental data show the advantages of bidirectional control and of MPC (see <a href="#fig-mpc-sim">Figure&nbsp;<span>5.2</span></a>). Bidirectional actuation allows the system to avoid overshooting the reference, in the case of LQR, or to minimize error faster by first exciting then inhibiting, in the case of MPC. MPC’s advantages in looking ahead also clearly allow it to follow the reference more closely than the heuristic LQR controller (assigning negative inputs to the second light source).</p>
+<div class="cell" data-execution_count="6">
+<div class="cell-output cell-output-display" data-execution_count="6">
+<div id="fig-mpc-sim" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><a href="aim2_files/figure-html/fig-mpc-sim-output-1.svg" class="lightbox" data-gallery="quarto-lightbox-gallery-2" title="Simulated control of an linear dynamical system with 1- and 2-input control, using LQR and MPC controllers. The top panel of each contains the reference and the actual firing rate, in spikes/second. The bottom contains the light intensity, in terms of mW/mm2, where blue represents light for an excitatory opsin (such as ChR2) and red-orange that for an inhibitory opsin (such as Jaws)."><img src="aim2_files/figure-html/fig-mpc-sim-output-1.svg" class="img-fluid figure-img"></a></p>
+<p></p><figcaption class="figure-caption">Figure&nbsp;5.2: Simulated control of an linear dynamical system with 1- and 2-input control, using LQR and MPC controllers. The top panel of each contains the reference and the actual firing rate, in spikes/second. The bottom contains the light intensity, in terms of mW/mm<sup>2</sup>, where blue represents light for an excitatory opsin (such as ChR2) and red-orange that for an inhibitory opsin (such as Jaws).</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="sec-aim2-pitfalls" class="level2">
+<h2 class="anchored" data-anchor-id="sec-aim2-pitfalls">Potential pitfalls &amp; alternative strategies</h2>
+<p>There are some limitations in the proposed GLDS model that may need to be addressed. While it was adequate for the experiments in <span class="citation" data-cites="bolus21">Bolus et al. (<a href="references.html#ref-bolus21" role="doc-biblioref">2021</a>)</span>, a Poisson <span class="citation" data-cites="macke11">(<a href="references.html#ref-macke11" role="doc-biblioref">Macke et al., 2011</a>)</span> or other output nonlinearity may be needed in the case that a standard GLDS does not fit the data well. While this would likely make the estimation of <span class="math inline">\(x\)</span> more expensive, the underlying dynamics could remain linear, leaving the same underlying quadratic program for the controller to solve.</p>
+<p>This touches another potential concern: the speed of the algorithm. If the optimization problem takes too long to solve, there are a few options to explore. One is that some variations in the control scheme can help balance speed and performance, such as letting the control horizon be shorter than the prediction horizon, which shrinks the optimization problem. Likewise, the control period can be longer than the time step of the system, reducing how often the control signal is computed. If conventional methods such as these are unsuccessful, I may turn to methods such as that described in <span class="citation" data-cites="wang10">Wang and Boyd (<a href="references.html#ref-wang10" role="doc-biblioref">2010</a>)</span> or training an artificial neural network to approximate the exact solution of the quadratic program or to minimize the cost directly. Another potential solution is explicit MPC <span class="citation" data-cites="bemporad02">(<a href="references.html#ref-bemporad02" role="doc-biblioref">Bemporad et al., 2002</a>)</span>, which finds a piecewise-affine explicit solution to the quadratic program which can be faster than using a solver to obtain the implicit solution for small-enough problems.</p>
+
+
+<div id="refs" class="references csl-bib-body hanging-indent" role="doc-bibliography" style="display: none">
+<div id="ref-bemporad02" class="csl-entry" role="doc-biblioentry">
+Bemporad A, Morari M, Dua V, Pistikopoulos EN. 2002. The explicit linear quadratic regulator for constrained systems. <em>Automatica</em> <strong>38</strong>:3–20. doi:<a href="https://doi.org/10.1016/S0005-1098(01)00174-1">10.1016/S0005-1098(01)00174-1</a>
+</div>
+<div id="ref-bolus21" class="csl-entry" role="doc-biblioentry">
+Bolus MF, Willats AA, Rozell CJ, Stanley GB. 2021. State-space optimal feedback control of optogenetically driven neural activity. <em>Journal of neural engineering</em> <strong>18</strong>:036006. doi:<a href="https://doi.org/10.1101/2020.06.25.171785">10.1101/2020.06.25.171785</a>
+</div>
+<div id="ref-brunel03" class="csl-entry" role="doc-biblioentry">
+Brunel N, Wang X-J. 2003. What determines the frequency of fast network oscillations with irregular neural discharges? <span>I</span>. <span>Synaptic</span> dynamics and excitation-inhibition balance. <em>Journal of neurophysiology</em> <strong>90</strong>:415–430.
+</div>
+<div id="ref-buzsaki12a" class="csl-entry" role="doc-biblioentry">
+Buzsáki G, Wang X-J. 2012. Mechanisms of <span>Gamma Oscillations</span>. <em>Annual Review of Neuroscience</em> <strong>35</strong>:203–225. doi:<a href="https://doi.org/10.1146/annurev-neuro-062111-150444">10.1146/annurev-neuro-062111-150444</a>
+</div>
+<div id="ref-kalman60" class="csl-entry" role="doc-biblioentry">
+Kalman RE. 1960. A new approach to linear filtering and prediction problems. <em>Journal of Fluids Engineering, Transactions of the ASME</em> <strong>82</strong>:35–45. doi:<a href="https://doi.org/10.1115/1.3662552">10.1115/1.3662552</a>
+</div>
+<div id="ref-kokaia13" class="csl-entry" role="doc-biblioentry">
+Kokaia M, Andersson M, Ledri M. 2013. An optogenetic approach in epilepsy. <em>Neuropharmacology</em> <strong>69</strong>:89–95. doi:<a href="https://doi.org/10.1016/j.neuropharm.2012.05.049">10.1016/j.neuropharm.2012.05.049</a>
+</div>
+<div id="ref-macke11" class="csl-entry" role="doc-biblioentry">
+Macke JH, Buesing L, Cunningham JP, Yu BM, Shenoy KV, Sahani M. 2011. Empirical models of spiking in neural populationsAdvances in <span>Neural Information Processing Systems</span>. <span>Curran Associates, Inc.</span>
+</div>
+<div id="ref-newman15" class="csl-entry" role="doc-biblioentry">
+Newman JP, Fong MF, Millard DC, Whitmire CJ, Stanley GB, Potter SM. 2015. Optogenetic feedback control of neural activity. <em>eLife</em>. doi:<a href="https://doi.org/10.7554/eLife.07192">10.7554/eLife.07192</a>
+</div>
+<div id="ref-newman13" class="csl-entry" role="doc-biblioentry">
+Newman J, Zeller-Townson R, Fong M, Arcot Desai S, Gross R, Potter S. 2013. Closed-<span>Loop</span>, <span>Multichannel Experimentation Using</span> the <span>Open-Source NeuroRighter Electrophysiology Platform</span>. <em>Frontiers in Neural Circuits</em> <strong>6</strong>.
+</div>
+<div id="ref-stujenske15" class="csl-entry" role="doc-biblioentry">
+Stujenske JM, Spellman T, Gordon JA. 2015. Modeling the <span>Spatiotemporal Dynamics</span> of <span>Light</span> and <span>Heat Propagation</span> for <span>InVivo Optogenetics</span>. <em>Cell Reports</em> <strong>12</strong>:525–534. doi:<a href="https://doi.org/10.1016/j.celrep.2015.06.036">10.1016/j.celrep.2015.06.036</a>
+</div>
+<div id="ref-wagenaar05" class="csl-entry" role="doc-biblioentry">
+Wagenaar DA, Madhavan R, Pine J, Potter SM. 2005. Controlling bursting in cortical cultures with closed-loop multi-electrode stimulation. <em>Journal of Neuroscience</em> <strong>25</strong>:680–688. doi:<a href="https://doi.org/10.1523/JNEUROSCI.4209-04.2005">10.1523/JNEUROSCI.4209-04.2005</a>
+</div>
+<div id="ref-wang96" class="csl-entry" role="doc-biblioentry">
+Wang X-J, Buzsáki G. 1996. Gamma oscillation by synaptic inhibition in a hippocampal interneuronal network model. <em>Journal of neuroscience</em> <strong>16</strong>:6402–6413.
+</div>
+<div id="ref-wang10" class="csl-entry" role="doc-biblioentry">
+Wang Y, Boyd S. 2010. Fast <span>Model Predictive Control Using Online Optimization</span>. <em>IEEE TRANSACTIONS ON CONTROL SYSTEMS TECHNOLOGY</em> <strong>18</strong>:267. doi:<a href="https://doi.org/10.1109/TCST.2009.2017934">10.1109/TCST.2009.2017934</a>
+</div>
+<div id="ref-yizhar11" class="csl-entry" role="doc-biblioentry">
+Yizhar O, Fenno LE, Davidson TJ, Mogri M, Deisseroth K. 2011. Optogenetics in <span>Neural Systems</span>. <em>Neuron</em> <strong>71</strong>:9–34. doi:<a href="https://doi.org/10.1016/j.neuron.2011.06.004">10.1016/j.neuron.2011.06.004</a>
+</div>
+</div>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const disableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'prefetch';
+    }
+  }
+  const enableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'stylesheet';
+    }
+  }
+  const manageTransitions = (selector, allowTransitions) => {
+    const els = window.document.querySelectorAll(selector);
+    for (let i=0; i < els.length; i++) {
+      const el = els[i];
+      if (allowTransitions) {
+        el.classList.remove('notransition');
+      } else {
+        el.classList.add('notransition');
+      }
+    }
+  }
+  const toggleColorMode = (alternate) => {
+    // Switch the stylesheets
+    const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+    manageTransitions('#quarto-margin-sidebar .nav-link', false);
+    if (alternate) {
+      enableStylesheet(alternateStylesheets);
+      for (const sheetNode of alternateStylesheets) {
+        if (sheetNode.id === "quarto-bootstrap") {
+          toggleBodyColorMode(sheetNode);
+        }
+      }
+    } else {
+      disableStylesheet(alternateStylesheets);
+      toggleBodyColorPrimary();
+    }
+    manageTransitions('#quarto-margin-sidebar .nav-link', true);
+    // Switch the toggles
+    const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+    for (let i=0; i < toggles.length; i++) {
+      const toggle = toggles[i];
+      if (toggle) {
+        if (alternate) {
+          toggle.classList.add("alternate");     
+        } else {
+          toggle.classList.remove("alternate");
+        }
+      }
+    }
+    // Hack to workaround the fact that safari doesn't
+    // properly recolor the scrollbar when toggling (#1455)
+    if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+      manageTransitions("body", false);
+      window.scrollTo(0, 1);
+      setTimeout(() => {
+        window.scrollTo(0, 0);
+        manageTransitions("body", true);
+      }, 40);  
+    }
+  }
+  const isFileUrl = () => { 
+    return window.location.protocol === 'file:';
+  }
+  const hasAlternateSentinel = () => {  
+    let styleSentinel = getColorSchemeSentinel();
+    if (styleSentinel !== null) {
+      return styleSentinel === "alternate";
+    } else {
+      return false;
+    }
+  }
+  const setStyleSentinel = (alternate) => {
+    const value = alternate ? "alternate" : "default";
+    if (!isFileUrl()) {
+      window.localStorage.setItem("quarto-color-scheme", value);
+    } else {
+      localAlternateSentinel = value;
+    }
+  }
+  const getColorSchemeSentinel = () => {
+    if (!isFileUrl()) {
+      const storageValue = window.localStorage.getItem("quarto-color-scheme");
+      return storageValue != null ? storageValue : localAlternateSentinel;
+    } else {
+      return localAlternateSentinel;
+    }
+  }
+  let localAlternateSentinel = 'alternate';
+  // Dark / light mode switch
+  window.quartoToggleColorScheme = () => {
+    // Read the current dark / light value 
+    let toAlternate = !hasAlternateSentinel();
+    toggleColorMode(toAlternate);
+    setStyleSentinel(toAlternate);
+  };
+  // Ensure there is a toggle, if there isn't float one in the top right
+  if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+    const a = window.document.createElement('a');
+    a.classList.add('top-right');
+    a.classList.add('quarto-color-scheme-toggle');
+    a.href = "";
+    a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+    const i = window.document.createElement("i");
+    i.classList.add('bi');
+    a.appendChild(i);
+    window.document.body.appendChild(a);
+  }
+  // Switch to dark mode if need be
+  if (hasAlternateSentinel()) {
+    toggleColorMode(true);
+  } else {
+    toggleColorMode(false);
+  }
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../src/aim1.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Aim 1 - A CLOC simulation testbed</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../src/aim3.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Aim 3 - Control of latent population dynamics</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+<script>var lightboxQuarto = GLightbox({"descPosition":"bottom","selector":".lightbox","loop":true,"openEffect":"zoom","closeEffect":"zoom"});</script>
+
+
+
+</body></html>

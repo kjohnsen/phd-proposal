@@ -1,0 +1,733 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.2.280">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Developing and exploiting optogenetic feedback control in mesoscale neuroscience - 6&nbsp; Aim 3 - Control of latent population dynamics</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../src/timeline.html" rel="next">
+<link href="../src/aim2.html" rel="prev">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark.min.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<script src="../site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
+<link href="../site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
+<link href="../site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+</head>
+
+<body class="nav-sidebar floating">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+    <div class="container-fluid d-flex justify-content-between">
+      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Aim 3 - Control of latent population dynamics</span></h1>
+      <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
+        <i class="bi bi-chevron-right"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="../">Developing and exploiting optogenetic feedback control in mesoscale neuroscience</a> 
+        <div class="sidebar-tools-main tools-wide">
+    <a href="https://github.com/kjohnsen/phd-proposal/" title="Source Code" class="sidebar-tool px-1"><i class="bi bi-github"></i></a>
+    <a href="../Developing-and-exploiting-optogenetic-feedback-control-in-mesoscale-neuroscience.pdf" title="Download PDF" class="sidebar-tool px-1"><i class="bi bi-file-pdf"></i></a>
+  <a href="" class="quarto-color-scheme-toggle sidebar-tool" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
+</div>
+    </div>
+      </div>
+      <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+      </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../index.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Abstract</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../src/specific-aims.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Specific Aims</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../src/background.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Background</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../src/aim1.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Aim 1 - A CLOC simulation testbed</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../src/aim2.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Aim 2 - Multi-input CLOC</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../src/aim3.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Aim 3 - Control of latent population dynamics</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../src/timeline.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Proposed timeline</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../src/references.html" class="sidebar-item-text sidebar-link">References</a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#rationale" id="toc-rationale" class="nav-link active" data-scroll-target="#rationale">Rationale</a>
+  <ul>
+  <li><a href="#innovation" id="toc-innovation" class="nav-link" data-scroll-target="#innovation">Innovation</a></li>
+  </ul></li>
+  <li><a href="#approach" id="toc-approach" class="nav-link" data-scroll-target="#approach">Approach</a>
+  <ul>
+  <li><a href="#formulate-task-with-latent-dynamics-hypothesis" id="toc-formulate-task-with-latent-dynamics-hypothesis" class="nav-link" data-scroll-target="#formulate-task-with-latent-dynamics-hypothesis">Formulate task with latent dynamics hypothesis</a></li>
+  <li><a href="#train-rsnn-models" id="toc-train-rsnn-models" class="nav-link" data-scroll-target="#train-rsnn-models">Train RSNN models</a></li>
+  <li><a href="#fit-dynamical-systems-model" id="toc-fit-dynamical-systems-model" class="nav-link" data-scroll-target="#fit-dynamical-systems-model">Fit dynamical systems model</a></li>
+  <li><a href="#control-of-latent-factors" id="toc-control-of-latent-factors" class="nav-link" data-scroll-target="#control-of-latent-factors">Control of latent factors</a></li>
+  <li><a href="#exploration-of-experiment-parameters-and-expected-effects" id="toc-exploration-of-experiment-parameters-and-expected-effects" class="nav-link" data-scroll-target="#exploration-of-experiment-parameters-and-expected-effects">Exploration of experiment parameters and expected effects</a></li>
+  <li><a href="#sec-model-realism" id="toc-sec-model-realism" class="nav-link" data-scroll-target="#sec-model-realism">Exploration of model realism and expected effects</a></li>
+  </ul></li>
+  <li><a href="#expected-results" id="toc-expected-results" class="nav-link" data-scroll-target="#expected-results">Expected results</a></li>
+  <li><a href="#sec-aim3-pitfalls" id="toc-sec-aim3-pitfalls" class="nav-link" data-scroll-target="#sec-aim3-pitfalls">Potential pitfalls &amp; alternative strategies</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title"><span id="sec-aim3" class="quarto-section-identifier d-none d-lg-block"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Aim 3 - Control of latent population dynamics</span></span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+</header>
+
+<section id="rationale" class="level2">
+<h2 class="anchored" data-anchor-id="rationale">Rationale</h2>
+<!-- ### Success of low-D dynamical models -->
+<p>As technology for recording from the brain has improved, systems neuroscience has shifted increasingly towards a reduced-dimensionality, population coding perspective in many brain areas <span class="citation" data-cites="kalaska83 churchland12 cunningham14 barack21">(<a href="references.html#ref-barack21" role="doc-biblioref">Barack and Krakauer, 2021</a>; <a href="references.html#ref-churchland12" role="doc-biblioref">Churchland et al., 2012</a>; <a href="references.html#ref-cunningham14" role="doc-biblioref">Cunningham and Yu, 2014</a>; <a href="references.html#ref-kalaska83" role="doc-biblioref">Kalaska et al., 1983</a>)</span>. This reflects the observation that while the activity of any single neuron can vary greatly across trials where external variables are controlled, underlying latent variables can be decoded from the population which are much more predictable and reproducible. Moreover, formulating this latent variable as a dynamical state whose evolution can be predicted has been shown to improve inference and enable state-of-the-art “decoding” of downstream variables of interest such as movement <span class="citation" data-cites="pandarinath18 willett21 sani21a sani21">(<a href="references.html#ref-pandarinath18" role="doc-biblioref">Pandarinath et al., 2018</a>; <a href="references.html#ref-sani21a" role="doc-biblioref">Sani et al., 2021a</a>, <a href="references.html#ref-sani21" role="doc-biblioref">2021b</a>; <a href="references.html#ref-willett21" role="doc-biblioref">Willett et al., 2021</a>)</span>, mood <span class="citation" data-cites="sani18">(<a href="references.html#ref-sani18" role="doc-biblioref">Sani et al., 2018</a>)</span>, speech <span class="citation" data-cites="anumanchipalli19">(<a href="references.html#ref-anumanchipalli19" role="doc-biblioref">Anumanchipalli et al., 2019</a>)</span>, and decision states <span class="citation" data-cites="morcos16 kim21">(<a href="references.html#ref-kim21" role="doc-biblioref">Kim et al., 2021</a>; <a href="references.html#ref-morcos16" role="doc-biblioref">Morcos and Harvey, 2016</a>)</span>. Not only does this allow us to infer the output of a given brain region, but it allows us to form hypotheses about how it produces that output by analyzing the dynamical landscape of fixed points <span class="citation" data-cites="sussillo13 sussillo14 smith21">(<a href="references.html#ref-smith21" role="doc-biblioref">Smith et al., 2021</a>; <a href="references.html#ref-sussillo14" role="doc-biblioref">Sussillo, 2014</a>; <a href="references.html#ref-sussillo13" role="doc-biblioref">Sussillo and Barak, 2013</a>)</span>. This is formalized in the Computation through Dynamics (CTD) framework <span class="citation" data-cites="vyas20">(<a href="references.html#ref-vyas20" role="doc-biblioref">Vyas et al., 2020</a>)</span>.</p>
+<!-- ### The need to causally test latent factors -->
+<p>However, while these latent variables have been used to successfully decode other variables of interest, this is a necessary, but insufficent, condition to demonstrate a causal relationship. That is, an association between neural activity variable <span class="math inline">\(a\)</span> and some other variable <span class="math inline">\(b\)</span> may reflect the causal relationship <span class="math inline">\(a \rightarrow b\)</span>, but could also reflect <span class="math inline">\(b \rightarrow a\)</span> or <span class="math inline">\(a \leftarrow c \rightarrow b\)</span>. This may be adequate for brain-computer interface (BCI) applications, but verification of that causal relationship is necessary for neuroscience’s goal of deepening our understanding of the architecture and algorithms of brain computations. This requires experimental control <span class="citation" data-cites="pearl09">(<a href="references.html#ref-pearl09" role="doc-biblioref">Pearl, 2009</a>)</span> on the level of neural populations, but, as stated by <span class="citation" data-cites="vyas20">Vyas et al. (<a href="references.html#ref-vyas20" role="doc-biblioref">2020</a>)</span>,</p>
+<blockquote class="blockquote">
+<p>The challenge is nontrivial; testing CTD models requires a high degree of control over neural activity. The experimenter must be able to manipulate neural states arbitrarily in state space and then measure behavioral and neural consequences of such perturbations[.]</p>
+</blockquote>
+<!-- ### An ideal application for CLOC -->
+<p>CLOC is a natural candidate for this kind of experimental control of latent states for various reasons. The optimal state-space methods already formulated map directly to the latent dynamics models which have generated so much interest in recent systems neuroscience. High-dimensional optogenetic actuation is possible through micro-LED devices <span class="citation" data-cites="dufour15 kwon15 welkenhuysen16 wang18 mcalinden19 mao19 mao21 ohta21 antolik21 jeon21 kathe22 eriksson22">(<a href="references.html#ref-antolik21" role="doc-biblioref">Antolik et al., 2021</a>; <a href="references.html#ref-dufour15" role="doc-biblioref">Dufour and Koninck, 2015</a>; <a href="references.html#ref-eriksson22" role="doc-biblioref">Eriksson et al., 2022</a>; <a href="references.html#ref-jeon21" role="doc-biblioref">Jeon et al., 2021</a>; <a href="references.html#ref-kathe22" role="doc-biblioref">Kathe et al., 2022</a>; <a href="references.html#ref-kwon15" role="doc-biblioref">Kwon et al., 2015</a>; <a href="references.html#ref-mao21" role="doc-biblioref">Mao et al., 2021</a>; <a href="references.html#ref-mao19" role="doc-biblioref">Mao et al., 2019</a>; <a href="references.html#ref-mcalinden19" role="doc-biblioref">McAlinden et al., 2019</a>; <a href="references.html#ref-ohta21" role="doc-biblioref">Ohta et al., 2021</a>; <a href="references.html#ref-wang18" role="doc-biblioref">Wang et al., 2018</a>; <a href="references.html#ref-welkenhuysen16" role="doc-biblioref">Welkenhuysen et al., 2016</a>)</span>, two-photon targeting of individual neurons <span class="citation" data-cites="packer15 ronzitti17 chen18b zhang18 sridharan22">(<a href="references.html#ref-chen18b" role="doc-biblioref">Chen et al., 2018</a>; <a href="references.html#ref-packer15" role="doc-biblioref">Packer et al., 2015</a>; <a href="references.html#ref-ronzitti17" role="doc-biblioref">Ronzitti et al., 2017</a>; <a href="references.html#ref-sridharan22" role="doc-biblioref">Sridharan et al., 2022</a>; <a href="references.html#ref-zhang18" role="doc-biblioref">Zhang et al., 2018</a>)</span>, and genetic targeting. Moreover, real-time feedback can drive a variable neural system towards complex latent state targets which would be attainable with low accuracy at best and not at all at worst with open-loop stimulation <a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>. However, while it is clear a high degree of control will be needed, it is unknown how this translates to recording, stimulation, and control parameters. Furthermore, finding optimal parameters would likely require extensive trial and error, as well actuation hardware that does not exist or is not readily available, making it costly if not infeasible to do <em>in vivo</em>. One significant open question is whether this kind of control will require actuation on the level of individual neurons, or whether lower-dimensional actuation will suffice.</p>
+<section id="innovation" class="level3">
+<h3 class="anchored" data-anchor-id="innovation">Innovation</h3>
+<p>Thus, to give a preliminary answer to this question, I propose to develop technical and conceptual guidelines as I control the latent dynamics of simulated neural populations. First, I will produce virtual models by training recurrent spiking neural networks with state-of-the-art, biologically plausible methods—each differing in their degrees of brain-like architecture and training procedure complexity. I will then use the simulation testbed of <a href="aim1.html"><span>Chapter&nbsp;4</span></a> and the multi-input control methods of <a href="aim2.html"><span>Chapter&nbsp;5</span></a> to explore how control quality varies with both experimental parameters (such as recording and stimulation channel counts or control algorithms) and system characteristics (such as the size, complexity of the network model). This will both give researchers a tentative idea of the relative importance of each factor of CLOC and, as parameters approach experimental realism, allow us to conjecture as to the number of independent actuators needed to control the latent dynamics of a brain system. My hypothesis is that control quality will plateau with a number of actuators on or near the same level of magnitude as the latent factors used to describe the neural activity—that the per-neuron actuation limit will not be needed. <!-- Finally, I will demonstrate the conceptual utility of CLOC by quantitatively assessing the causal relationship between these latent dynamics and "behavior" (model output). --></p>
+</section>
+</section>
+<section id="approach" class="level2">
+<h2 class="anchored" data-anchor-id="approach">Approach</h2>
+<div id="fig-aim3overview" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><a href="img/aim3overview.jpg" class="lightbox" title="Overview of latent factor control experiments." data-gallery="quarto-lightbox-gallery-1"><img src="img/aim3overview.jpg" class="img-fluid figure-img"></a></p>
+<p></p><figcaption class="figure-caption">Figure&nbsp;6.1: Overview of latent factor control experiments.</figcaption><p></p>
+</figure>
+</div>
+<!-- :::{#fig-aim3overview layout="[[1,1,1],[1,1]]" layout-valign="center"} -->
+<!-- ![1: Design task(s)](img/a3-1.png){.nolightbox .a3step .dark-invert}
+
+![2: Construct spatial RSNN model](img/a3-2.png){.nolightbox .a3step .dark-invert}
+
+![3: Train RSNN to perform task](img/a3-3.png){.nolightbox .a3step .dark-invert}
+
+![4: Record using Cleo, fit model and decode latent factors, assess decoding quality](img/a3-4.png){.nolightbox .a3step .dark-invert}
+
+![5: Stimulate using Cleo, tune controller and control latent factors, assess control quality](img/a3-5.png){.nolightbox .a3step .dark-invert} -->
+<!-- ![6: Estimate the causal relationship between latents and model output, *including the uncertainty*](img/a3-6.png){.fragment .a3step} -->
+<!-- Overview of latent factor control experiments. -->
+<!-- ::: -->
+<section id="formulate-task-with-latent-dynamics-hypothesis" class="level3">
+<h3 class="anchored" data-anchor-id="formulate-task-with-latent-dynamics-hypothesis">Formulate task with latent dynamics hypothesis</h3>
+<p>To model an experiment of interest to neuroscientists, I will first choose a task where latent dynamic analyses have yielded testable hypotheses in animal research. For example, it is hypothesized that motor cortex works as a dynamical system where movement planning essentially sets an initial condition during a preparatory phase. This is demonstrated specifically by decoding reach direction in a delayed reach task from dorsal premotor cortex before movement onset <span class="citation" data-cites="churchland10 gallego17">(<a href="references.html#ref-churchland10" role="doc-biblioref">Churchland et al., 2010</a>; reviewed in <a href="references.html#ref-gallego17" role="doc-biblioref">Gallego et al., 2017</a>)</span> (see <a href="#fig-reach">Figure&nbsp;<span>6.2</span></a>). One way to causally test this hypothesis would be to manipulate the latent factors corresponding to a certain reach direction despite an absent or contradictory cue and verify whether the subject reaches in the predicted direction.</p>
+<div id="fig-reach" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><a href="img/santhanam.png" class="lightbox" title="Illustration of a delayed center-out reach experiment. From @santhanam09." data-gallery="quarto-lightbox-gallery-2"><img src="img/santhanam.png" class="img-fluid figure-img"></a></p>
+<p></p><figcaption class="figure-caption">Figure&nbsp;6.2: Illustration of a delayed center-out reach experiment. From <span class="citation" data-cites="santhanam09">Santhanam et al. (<a href="references.html#ref-santhanam09" role="doc-biblioref">2009</a>)</span>.</figcaption><p></p>
+</figure>
+</div>
+<p>Another potential latent dynamics hypothesis to test could involve sensory integration in decision making. In one “T-maze” task, for example, mice run down a maze, receive a variable number of left and right sensory cues, and at the end choose to go left or right, receiving a reward if they choose the side which they had received more cues from. <span class="citation" data-cites="morcos16">Morcos and Harvey (<a href="references.html#ref-morcos16" role="doc-biblioref">2016</a>)</span> find a variety of activity and behavioral patterns for identical evidence presentations and attribute it to different initial conditions in the latent space of population activity. Thus, one could test this hypothesis by driving the system to an identical latent state across trials and verifying that this variability goes away. Simply manipulating the latent decision variable to verify that it determines the animal’s left or right choice—as opposed to reflecting input from the population(s) actually driving behavior—could be of value as well.</p>
+</section>
+<section id="train-rsnn-models" class="level3">
+<h3 class="anchored" data-anchor-id="train-rsnn-models">Train RSNN models</h3>
+<p>After identifying a task and latent dynamics hypothesis to test, I will train recurrent spiking neural network (RSNN) models to perform the task. These RSNN models will be defined in 3D space to make them compatible with the electrode and optogenetics models from Aim 1. To avoid painstaking implementation of every known anatomical detail of the brain region(s) involved in the task—an approach which is not guaranteed to include every important detail or capture true circuitry—I propose using a simple, abstract form such as a rectangular prism of cortical tissue and measuring the effect of adding progressivley more brain-like structural constraints (see <a href="#sec-model-realism"><span>Section&nbsp;6.2.6</span></a>).</p>
+<p>I will then train these models to perform the given task. While a few different methods for training RSNNs exist, I plan on using e-prop <span class="citation" data-cites="bellec20">(<a href="references.html#ref-bellec20" role="doc-biblioref">Bellec et al., 2020</a>)</span>, a biologically plausible approximation to backpropagation through time (BPTT), the method typically used to train artificial recurrent neural networks (RNNs). This biological plausibility consists in updating synaptic weights using only local information about past activity—“eligibility traces”—and a top-down learning signal and enables learning sparsely firing spike-coding—as opposed to only rate-coding—solutions. While e-prop has been shown to learn complex tasks such as Atari games via reinforcement learning, I propose a simpler supervised learning approach. This is both more data-efficient and would directly allow for the learning of auxiliary variables, which has been shown in one study to make model dynamics more brain-like <span class="citation" data-cites="rajalingham22">(<a href="references.html#ref-rajalingham22" role="doc-biblioref">Rajalingham et al., 2022</a>)</span> (see <a href="#sec-aim3-pitfalls"><span>Section&nbsp;6.4</span></a>).</p>
+<p>To give a concrete example of inputs and outputs for the case of the delayed center-out reaching task before mentioned, inputs might include the task phase (stop or go), the target position, and the current hand position. The model output might be hand velocity, and the learning signal could be computed from the x/y distance between the current position and the center (target) before (after) the go cue is given. A regularizer term on acceleration could be added to ensure trajectories are smooth.</p>
+</section>
+<section id="fit-dynamical-systems-model" class="level3">
+<h3 class="anchored" data-anchor-id="fit-dynamical-systems-model">Fit dynamical systems model</h3>
+<p>After a model has been trained to some threshold performance level, I will record spikes and/or LFP from the network while it performs the task. The resulting data will then be used to fit a low-dimensional dynamical systems model. Seeing that the goal of the virtual experiment is to test the causal effect of a latent factor on model output, I propose using system identification methods that prioritize the discovery of those latent factors that are most relevant to behavior. The preferential subspace identification (PSID) method presented by <span class="citation" data-cites="sani21a">Sani et al. (<a href="references.html#ref-sani21a" role="doc-biblioref">2021a</a>)</span> is a good candidate, having been shown to predict behavior well with few dimensions. The linear system it produces is also ideal for the control theory methods I develop in Aim 2. In a follow-up study, <span class="citation" data-cites="sani21">Sani et al. (<a href="references.html#ref-sani21" role="doc-biblioref">2021b</a>)</span> introduce RNN-PSID supporting nonlinearities as well and find empirically that linear dynamics with only a nonlinear mapping from latent to behavior are often sufficient to describe experimental data well. Using a potentially nonlinear output mapping in this way would increase the expressiveness of my models while maintaining underlying linear dynamics for fast optimization.</p>
+<p>After fitting a model to data, I will identify latent factors corresponding to variables of interest. These could be individual components of the latent state <span class="math inline">\(x\)</span> directly or simple (e.g., linear) transformations of <span class="math inline">\(x\)</span>. In the delayed center-out reaching task, for example, I would expect two factors with which the state at the end of the preparatory period can be used to predict the cued target position.</p>
+</section>
+<section id="control-of-latent-factors" class="level3">
+<h3 class="anchored" data-anchor-id="control-of-latent-factors">Control of latent factors</h3>
+<p>The next step is then to test whether these latent factors do in fact cause the behavior we observe. Importantly, the model and hypothesis from the previous step were formed without stimulation, since our stated goal is to causally test the latent factors we deduce <em>from passive observation</em>. Thus, I will first need to expand the model by simulating random optogenetic stimulation and fitting an input model—e.g., an input matrix <span class="math inline">\(B\)</span> for the typical LDS case. If this is insufficient to fit the data well, I may need to increase the dimensionality of the latent state <span class="math inline">\(x\)</span> to account for the actuator state (i.e., opsin kinetics) or dimensions of neural activity not arising during unperturbed activity.</p>
+<p>With an input model, I will then be able to run control experiments. The methods from Aim 2 will calculate optimal actuation strategies as the simulation progresses to drive the identified latent factors to the desired state. Control quality will be assessed for each experiment using metrics such as mean-squared error (MSE) and will serve as the criterion for how successful the experiment was, seeing that low error serves the larger goal of testing the causal relationship with model behavior.</p>
+<!-- could be interesting to compute theoretical controllability from model fit too. what would that look like though? The controllability matrix will tell you where you can get to, but we want to know *how* controllable the system is in the directions we care about. Something like "directed controllability"? i remember Steve Brunton talking about the controllability and observability matrices being aligned differently. Oh, and I guess we can't use the typical controllability matrix for constrained inputs...  -->
+</section>
+<section id="exploration-of-experiment-parameters-and-expected-effects" class="level3">
+<h3 class="anchored" data-anchor-id="exploration-of-experiment-parameters-and-expected-effects">Exploration of experiment parameters and expected effects</h3>
+<p>To guide experimental design, I propose repeating the above process many times to explore how different factors affect control quality, thus informing which investments might be most fruitful. These factors might include:</p>
+<ul>
+<li><em>Control type</em>. Open-loop control is faster and easier but cannot counteract variability inherent to the system and in the presence of model mismatch will fail to reach the target. Closed-loop methods will almost certainly perform better, but are harder to implement. Moreover, closed-loop control offers a range of options spanning the cost/quality spectrum, with the fast linear quadratic regulator (LQR) on one end and the expensive long-horizon, high-resolution model predictive control (MPC) on the other.</li>
+<li><em>Total recording/stimulation channel count (<span class="math inline">\(m + k\)</span>)</em>. It may be helpful to think of these two parameters together, since they both require limited space in a device that is placed in or on the brain. I expect control quality to increase with channel count up to a point where the computational cost required for closed-loop control outweighs the benefits.</li>
+<li><em>Recording/stimulation channel ratio (<span class="math inline">\(m/k\)</span>)</em>. Related to the previous point, when space for interface is hardware, it is an open question whether the current landscape of neuroscience technology, which has prioritized high-channel-count recording over stimulation, is the most effective for causal perturbations of neural dynamics.</li>
+<li><em>Data collection budget</em>. Data collection is not free, and thus must be considered especially when considering the data-efficiency advantages of feedback control. This is also relevant for choosing models to control the system—with little training data, for example, a simple, easy-to-fit model may outperform a more expressive, data-hungry one.</li>
+<li><em>Optogenetic stimulation parameters</em>. These could include the number and type of opsins and genetic targeting. Using at least two opsins could be expected to perform better than just one, as shown in Aim 2, though many more might not be useful due to overlapping spectral sensitivity and increased computation time. The effect of genetic targeting will likely depend on how well the targeted population correlates with the latent factor of interest.</li>
+</ul>
+</section>
+<section id="sec-model-realism" class="level3">
+<h3 class="anchored" data-anchor-id="sec-model-realism">Exploration of model realism and expected effects</h3>
+<p>As explained above, I propose using abstract RSNN models with varying degrees of brain-like realism rather than extremely detailed models. This is because highly detailed models are difficult to develop and expensive to simulate—moreover, it is hard to say exactly when a model has enough to detail to behave similarly to a real brain. On the other hand, by assessing the effect of a handful of brain-like features on how well we can contol latent neural dynamics <em>in silico</em>, I hope to identify trends that give a rough outlook of doing so <em>in vivo</em>. For example, if control quality tends to drop with the addition of each feature, we might infer control of a real brain will be considerably more challenging than in simulations. On the other hand, if control quality does not decrease considerably with brain similarity, we might have reason to be more optimistic.</p>
+<p>The brain-like features I propose assessing include structural characteristics such as:</p>
+<ul>
+<li><em>Variability</em>. Brains are far from deterministic, with unpredictability on the level of synaptic transmission all the way up to firing rates across a population. Small-scale stochasticity encourages redundance and robustness, which may make the model harder to “hack,” or perturb unnaturally. I expect that large-scale variability, such as an unmodeled input to the region, will highlight the advantages of feedback control.</li>
+<li><em>Network size (how many neurons are in the model)</em>. More neurons would likely mean more dimensions along which activity can vary, complicating the prospect of arbitrary control.</li>
+<li><em>Subpopulation structure</em>. This could include constraining connectivity to circuits of brain regions, cortical layers, and cell types. This could also make control harder if the latent factor to control operates in cells that are multiple synapses away from those stimulated or if dynamics become driven by recurrent connections more than stimulation.</li>
+<li><em>Connectivity profiles</em>. Cell pairs within a given population might have a uniform or a spatially dependent connection probability. I expect this, like subpopulation structure, to encourage segregated dynamics which could be either easier or harder to perturb.</li>
+<li><em>Cell diversity</em>. Cells might have uniform or a random distribution of parameters such as membrane resistance, synaptic transmission delays, resting potentials, adaptivity, etc. Again, I expect this would encourage the segregation of neural dynamics.</li>
+<li><em>Neuron model complexity</em>. Individual cell models could range from simple leaky integrate-and-fire (LIF) to Hodgkin-Huxley dynamics. I do not expect this to considerably impact control quality.</li>
+</ul>
+<p>They also include characteristics about how the model is trained. A real brain regions is capable of performing not only one, simple, stereotyped task, but many tasks in many contexts. Therefore, another way to make models more brain-like is to diversify their experience—to train them on other tasks. It has been shown that this can result in an RNN reusing computational motifs learned in one task to solve others <span class="citation" data-cites="yang19 driscoll22">(<a href="references.html#ref-driscoll22" role="doc-biblioref">Driscoll et al., 2022</a>; <a href="references.html#ref-yang19" role="doc-biblioref">Yang et al., 2019</a>)</span>.</p>
+<!-- I don't know about the curriculum learning part...it's more about accelerating training on a single task (at least in kepple...rajan) than qualitatively changing dynamics. -->
+<!-- Another perspective worth exploring is that of "curriculum learning," which might focus on a single task but present it an different ways over time to facilitate learning [@soviany22; @kepple22]. -->
+<!-- don't really need to test task complexity right? We want a rough idea of how hard the real experiment will be, so we can just stick with the one real experiment -->
+<!-- - task complexity (e.g., # input streams) -->
+<!-- ### ~~Quantify the link between control quality and causal inference~~ -->
+</section>
+</section>
+<section id="expected-results" class="level2">
+<h2 class="anchored" data-anchor-id="expected-results">Expected results</h2>
+<p>In addition to the specific expectations for experimental and model parameters described above, I expect that control quality will be relatively low (error will be high) especially for low actuator counts <span class="math inline">\(k\)</span>. However, as previously stated, I do not anticipate that <span class="math inline">\(k\)</span> will need to approach the per-neuron limit either; rather, that low-error control will be possible with <span class="math inline">\(k\)</span> close to the same order of magnitude as the latent state dimensionality. While expectations for each brain-like model feature are explained above, I predict that on the whole, control quality will decrease as models become more realistic. However, I predict that that that decrease will plateau, providing some confidence in my results and assurance that the complexity of the real brain may not be an insurmountable barrier to future <em>in-vivo</em> experiments.</p>
+<!-- ## Preliminary results -->
+</section>
+<section id="sec-aim3-pitfalls" class="level2">
+<h2 class="anchored" data-anchor-id="sec-aim3-pitfalls">Potential pitfalls &amp; alternative strategies</h2>
+<p>One potential problem is that the RSNN models could learn dynamics that are not very brain-like. For example, they might learn a complicated feedforward function instead of tracking latent variables in a more natural way, in which case explicitly teaching the models to track variables of interest has been shown to make dynamics more brain-like <span class="citation" data-cites="rajalingham22">(<a href="references.html#ref-rajalingham22" role="doc-biblioref">Rajalingham et al., 2022</a>)</span>. Alternatively, the latent variables decoded could be dominated by very few neurons, thus producing “latent variables” which are not actually latent and distributed, as in the brain. This can be avoided by regularizing the state inference step to discourage sparsity, thus inferring the state from a more diverse set of neurons.</p>
+<p>Another caveat to generalizing conclusions is that the proposed perturbations may be unnatural—by perturbing the latent factors decoded from passive observation, I may unwittingly by pushing neurons “off-manifold,” causing them to fire in unnatural combinations <span class="citation" data-cites="shenoy21">(<a href="references.html#ref-shenoy21" role="doc-biblioref">Shenoy and Kao, 2021</a>)</span>. While it is beyond the scope of the proposed work to avoid this, I can at least quantify the phenomenon via the proxy of neural activity <em>unexplained</em> by our latent dynamical, assuming our intrinsic manifold is a subspace rather than a lower-dimensional attractor structure embedded therein <span class="citation" data-cites="vyas20 duncker21">(<a href="references.html#ref-duncker21" role="doc-biblioref">Duncker and Sahani, 2021</a>; <a href="references.html#ref-vyas20" role="doc-biblioref">Vyas et al., 2020</a>)</span>. For example, if under passive observation we can predict 95% of neural activity, and that drops to 50% under perturbation, we could conclude that 45% of the activity is now unnatural, as it must be explained by dimensions of activity introduced by stimulation.</p>
+<p>Besides conceptual obstacles, the proposed work also has practical challenges, such as its large scale. To adequately assess control prospects across the whole space of experiment and structural factors described could represent a prohibitively high computational cost. This can be mitigated by avoiding a grid search of this space, analyzing random combinations of features or just one at a time rather than every single combination. Another factor in the computational cost is the speed of the training, model fitting, and control simulations themselves. In the case that simulations are too slow with the Brian/Cleo framework described in Aim 1, it may be worth exploring simpler simulations for the training step which does not require Cleo. This could involve using fast differential equation solvers <span class="citation" data-cites="rackauckas17">(<a href="references.html#ref-rackauckas17" role="doc-biblioref">Rackauckas and Nie, 2017</a>)</span> for the training step or even a less biological learning algorithm such as backpropagation through time with surrogate gradients for the nondifferentiable spike threshold function <span class="citation" data-cites="zenke21">(<a href="references.html#ref-zenke21" role="doc-biblioref">Zenke and Vogels, 2021</a>)</span>. Training might also be accelerated using a form of “warm start” where weights are initialized from a pre-trained model, though care would need to be taken that the effects of the warm start on learned dynamics not overshadow those of the structural features being tested.</p>
+<p>Additionally, there is a possibility that RNN-PSID requires nonlinear terms to fit model data well, despite the authors’ findings that linear dynamics are often sufficient <span class="citation" data-cites="sani21">(<a href="references.html#ref-sani21" role="doc-biblioref">Sani et al., 2021b</a>)</span>. In the case that nonlinearities preclude the formulation of MPC as a fast quadratic program, I may need to turn to neural networks, which, after training, could quickly produce approximate solutions for nonlinear optimization problems (see <a href="aim2.html#sec-aim2-pitfalls"><span>Section&nbsp;5.5</span></a>).</p>
+
+
+<div id="refs" class="references csl-bib-body hanging-indent" role="doc-bibliography" style="display: none">
+<div id="ref-antolik21" class="csl-entry" role="doc-biblioentry">
+Antolik J, Sabatier Q, Galle C, Frégnac Y, Benosman R. 2021. Assessment of optogenetically-driven strategies for prosthetic restoration of cortical vision in large-scale neural simulation of <span>V1</span>. <em>Scientific Reports</em> <strong>11</strong>:1–18. doi:<a href="https://doi.org/10.1038/s41598-021-88960-8">10.1038/s41598-021-88960-8</a>
+</div>
+<div id="ref-anumanchipalli19" class="csl-entry" role="doc-biblioentry">
+Anumanchipalli GK, Chartier J, Chang EF. 2019. Speech synthesis from neural decoding of spoken sentences. <em>Nature</em> <strong>568</strong>:493–498. doi:<a href="https://doi.org/10.1038/s41586-019-1119-1">10.1038/s41586-019-1119-1</a>
+</div>
+<div id="ref-barack21" class="csl-entry" role="doc-biblioentry">
+Barack DL, Krakauer JW. 2021. Two views on the cognitive brain. <em>Nature Reviews Neuroscience</em> <strong>22</strong>:359–371. doi:<a href="https://doi.org/10.1038/s41583-021-00448-6">10.1038/s41583-021-00448-6</a>
+</div>
+<div id="ref-bellec20" class="csl-entry" role="doc-biblioentry">
+Bellec G, Scherr F, Subramoney A, Hajek E, Salaj D, Legenstein R, Maass W. 2020. A solution to the learning dilemma for recurrent networks of spiking neurons. <em>Nature Communications</em> <strong>11</strong>. doi:<a href="https://doi.org/10.1101/738385">10.1101/738385</a>
+</div>
+<div id="ref-chen18b" class="csl-entry" role="doc-biblioentry">
+Chen I-W, Papagiakoumou E, Emiliani V. 2018. Towards circuit optogenetics. <em>Current Opinion in Neurobiology</em>, Neurotechnologies <strong>50</strong>:179–189. doi:<a href="https://doi.org/10.1016/j.conb.2018.03.008">10.1016/j.conb.2018.03.008</a>
+</div>
+<div id="ref-churchland12" class="csl-entry" role="doc-biblioentry">
+Churchland MM, Cunningham JP, Kaufman MT, Foster JD, Nuyujukian P, Ryu SI, Shenoy KV, Shenoy KV. 2012. Neural population dynamics during reaching. <em>Nature</em> <strong>487</strong>:51–56. doi:<a href="https://doi.org/10.1038/nature11129">10.1038/nature11129</a>
+</div>
+<div id="ref-churchland10" class="csl-entry" role="doc-biblioentry">
+Churchland MM, Cunningham JP, Kaufman MT, Ryu SI, Shenoy KV. 2010. Cortical <span>Preparatory Activity</span>: <span>Representation</span> of&nbsp;<span>Movement</span> or <span>First Cog</span> in a <span>Dynamical Machine</span>? <em>Neuron</em> <strong>68</strong>:387–400. doi:<a href="https://doi.org/10.1016/j.neuron.2010.09.015">10.1016/j.neuron.2010.09.015</a>
+</div>
+<div id="ref-cunningham14" class="csl-entry" role="doc-biblioentry">
+Cunningham JP, Yu BM. 2014. Dimensionality reduction for large-scale neural recordings. <em>Nature neuroscience</em> <strong>17</strong>:1500–9. doi:<a href="https://doi.org/10.1038/nn.3776">10.1038/nn.3776</a>
+</div>
+<div id="ref-driscoll22" class="csl-entry" role="doc-biblioentry">
+Driscoll L, Shenoy K, Sussillo D. 2022. Flexible multitask computation in recurrent networks utilizes shared dynamical motifs. doi:<a href="https://doi.org/10.1101/2022.08.15.503870">10.1101/2022.08.15.503870</a>
+</div>
+<div id="ref-dufour15" class="csl-entry" role="doc-biblioentry">
+Dufour S, Koninck YD. 2015. Optrodes for combined optogenetics and electrophysiology in live animals. <em>Neurophotonics</em> <strong>2</strong>:031205. doi:<a href="https://doi.org/10.1117/1.NPh.2.3.031205">10.1117/1.NPh.2.3.031205</a>
+</div>
+<div id="ref-duncker21" class="csl-entry" role="doc-biblioentry">
+Duncker L, Sahani M. 2021. Dynamics on the manifold: <span>Identifying</span> computational dynamical activity from neural population recordings. <em>Current Opinion in Neurobiology</em>, Computational <span>Neuroscience</span> <strong>70</strong>:163–170. doi:<a href="https://doi.org/10.1016/j.conb.2021.10.014">10.1016/j.conb.2021.10.014</a>
+</div>
+<div id="ref-eriksson22" class="csl-entry" role="doc-biblioentry">
+Eriksson D, Schneider A, Thirumalai A, Alyahyay M, de la Crompe B, Sharma K, Ruther P, Diester I. 2022. Multichannel optogenetics combined with laminar recordings for ultra-controlled neuronal interrogation. <em>Nature Communications</em> <strong>13</strong>:985. doi:<a href="https://doi.org/10.1038/s41467-022-28629-6">10.1038/s41467-022-28629-6</a>
+</div>
+<div id="ref-gallego17" class="csl-entry" role="doc-biblioentry">
+Gallego JA, Perich MG, Miller LE, Solla SA. 2017. Neural <span>Manifolds</span> for the <span>Control</span> of <span>Movement</span>. <em>Neuron</em> <strong>94</strong>:978–984. doi:<a href="https://doi.org/10.1016/j.neuron.2017.05.025">10.1016/j.neuron.2017.05.025</a>
+</div>
+<div id="ref-jeon21" class="csl-entry" role="doc-biblioentry">
+Jeon S, Lee Y, Ryu D, Cho YK, Lee Y, Jun SB, Ji C-H. 2021. Implantable <span>Optrode Array</span> for <span>Optogenetic Modulation</span> and <span>Electrical Neural Recording</span>. <em>Micromachines</em> <strong>12</strong>:725. doi:<a href="https://doi.org/10.3390/mi12060725">10.3390/mi12060725</a>
+</div>
+<div id="ref-kalaska83" class="csl-entry" role="doc-biblioentry">
+Kalaska JF, Caminiti R, Georgopoulos AP. 1983. Cortical mechanisms related to the direction of two-dimensional arm movements: Relations in parietal area 5 and comparison with motor cortex. <em>Experimental Brain Research</em> <strong>51</strong>:247–260. doi:<a href="https://doi.org/10.1007/BF00237200">10.1007/BF00237200</a>
+</div>
+<div id="ref-kathe22" class="csl-entry" role="doc-biblioentry">
+Kathe C, Michoud F, Schönle P, Rowald A, Brun N, Ravier J, Furfaro I, Paggi V, Kim K, Soloukey S, Asboth L, Hutson TH, Jelescu I, Philippides A, Alwahab N, Gandar J, Huber D, De Zeeuw CI, Barraud Q, Huang Q, Lacour SP, Courtine G. 2022. Wireless closed-loop optogenetics across the entire dorsoventral spinal cord in mice. <em>Nature Biotechnology</em> <strong>40</strong>:198–208. doi:<a href="https://doi.org/10.1038/s41587-021-01019-x">10.1038/s41587-021-01019-x</a>
+</div>
+<div id="ref-kim21" class="csl-entry" role="doc-biblioentry">
+Kim TD, Luo TZ, Pillow JW, Brody CD. 2021. Inferring <span>Latent Dynamics Underlying Neural Population Activity</span> via <span>Neural Differential Equations</span>Proceedings of the 38th <span>International Conference</span> on <span>Machine Learning</span>. <span>PMLR</span>. pp. 5551–5561.
+</div>
+<div id="ref-kwon15" class="csl-entry" role="doc-biblioentry">
+Kwon KY, Lee H-M, Ghovanloo M, Weber A, Li W. 2015. Design, fabrication, and packaging of an integrated, wirelessly-powered optrode array for optogenetics application. <em>Frontiers in Systems Neuroscience</em> <strong>9</strong>.
+</div>
+<div id="ref-mao19" class="csl-entry" role="doc-biblioentry">
+Mao D, Li N, Xiong Z, Sun Y, Xu G. 2019. Single-<span>Cell Optogenetic Control</span> of <span>Calcium Signaling</span> with a <span>High-Density Micro-LED Array</span>. <em>iScience</em> <strong>21</strong>:403–412. doi:<a href="https://doi.org/10.1016/j.isci.2019.10.024">10.1016/j.isci.2019.10.024</a>
+</div>
+<div id="ref-mao21" class="csl-entry" role="doc-biblioentry">
+Mao D, Xiong Z, Donnelly M, Xu G. 2021. Brushing-<span>Assisted Two-Color Quantum-Dot Micro-LED Array Towards Bi-Directional Optogenetics</span>. <em>IEEE Electron Device Letters</em> <strong>42</strong>:1504–1507. doi:<a href="https://doi.org/10.1109/LED.2021.3108554">10.1109/LED.2021.3108554</a>
+</div>
+<div id="ref-mcalinden19" class="csl-entry" role="doc-biblioentry">
+McAlinden N, Cheng Y, Scharf R, Xie E, Gu E, Reiche CF, Sharma R, Tathireddy P, Tathireddy P, Rieth L, Blair S, Mathieson K. 2019. Multisite <span class="nocase">microLED</span> optrode array for neural interfacing. <em>Neurophotonics</em> <strong>6</strong>:035010. doi:<a href="https://doi.org/10.1117/1.NPh.6.3.035010">10.1117/1.NPh.6.3.035010</a>
+</div>
+<div id="ref-morcos16" class="csl-entry" role="doc-biblioentry">
+Morcos AS, Harvey CD. 2016. History-dependent variability in population dynamics during evidence accumulation in cortex. <em>Nature Neuroscience</em> <strong>19</strong>:1672–1681. doi:<a href="https://doi.org/10.1038/nn.4403">10.1038/nn.4403</a>
+</div>
+<div id="ref-ohta21" class="csl-entry" role="doc-biblioentry">
+Ohta Y, Guinto MC, Tokuda T, Kawahara M, Haruta M, Takehara H, Tashiro H, Sasagawa K, Onoe H, Yamaguchi R, Koshimizu Y, Isa K, Isa T, Kobayashi K, Akay YM, Akay M, Ohta J. 2021. Micro-<span>LED Array-Based Photo-Stimulation Devices</span> for <span>Optogenetics</span> in <span>Rat</span> and <span>Macaque Monkey Brains</span>. <em>IEEE Access</em> <strong>9</strong>:127937–127949. doi:<a href="https://doi.org/10.1109/ACCESS.2021.3111666">10.1109/ACCESS.2021.3111666</a>
+</div>
+<div id="ref-packer15" class="csl-entry" role="doc-biblioentry">
+Packer AM, Russell LE, Dalgleish HWP, Häusser M. 2015. Simultaneous all-optical manipulation and recording of neural circuit activity with cellular resolution in vivo. <em>Nature Methods</em> <strong>12</strong>:140–146. doi:<a href="https://doi.org/10.1038/nmeth.3217">10.1038/nmeth.3217</a>
+</div>
+<div id="ref-pandarinath18" class="csl-entry" role="doc-biblioentry">
+Pandarinath C, O’Shea DJ, Collins J, Jozefowicz R, Stavisky SD, Kao JC, Trautmann EM, Kaufman MT, Ryu SI, Hochberg LR, Henderson JM, Shenoy KV, Abbott LF, Sussillo D. 2018. Inferring single-trial neural population dynamics using sequential auto-encoders. <em>Nature Methods</em> <strong>15</strong>:805–815. doi:<a href="https://doi.org/10.1038/s41592-018-0109-9">10.1038/s41592-018-0109-9</a>
+</div>
+<div id="ref-pearl09" class="csl-entry" role="doc-biblioentry">
+Pearl J. 2009. Causality. <span>New York</span>: <span>Cambridge University Press</span>. doi:<a href="https://doi.org/10.1017/CBO9780511803161">10.1017/CBO9780511803161</a>
+</div>
+<div id="ref-rackauckas17" class="csl-entry" role="doc-biblioentry">
+Rackauckas C, Nie Q. 2017. <span>DifferentialEquations</span>.jl <span>A Performant</span> and <span>Feature-Rich Ecosystem</span> for <span>Solving Differential Equations</span> in <span>Julia</span>. <em>Journal of Open Research Software</em> <strong>5</strong>:15. doi:<a href="https://doi.org/10.5334/jors.151">10.5334/jors.151</a>
+</div>
+<div id="ref-rajalingham22" class="csl-entry" role="doc-biblioentry">
+Rajalingham R, Piccato A, Jazayeri M. 2022. Recurrent neural networks with explicit representation of dynamic latent variables can mimic behavioral patterns in a physical inference task. <em>Nature Communications</em> <strong>13</strong>:1–15. doi:<a href="https://doi.org/10.1038/s41467-022-33581-6">10.1038/s41467-022-33581-6</a>
+</div>
+<div id="ref-ronzitti17" class="csl-entry" role="doc-biblioentry">
+Ronzitti E, Conti R, Zampini V, Tanese D, Foust AJ, Klapoetke N, Boyden ES, Papagiakoumou E, Emiliani V. 2017. Submillisecond <span>Optogenetic Control</span> of <span>Neuronal Firing</span> with <span>Two-Photon Holographic Photoactivation</span> of <span>Chronos</span>. <em>Journal of Neuroscience</em> <strong>37</strong>:10679–10689. doi:<a href="https://doi.org/10.1523/JNEUROSCI.1246-17.2017">10.1523/JNEUROSCI.1246-17.2017</a>
+</div>
+<div id="ref-sani21a" class="csl-entry" role="doc-biblioentry">
+Sani OG, Abbaspourazad H, Wong YT, Pesaran B, Shanechi MM. 2021a. Modeling behaviorally relevant neural dynamics enabled by preferential subspace identification. <em>Nature Neuroscience</em> <strong>24</strong>:140–149. doi:<a href="https://doi.org/10.1038/s41593-020-00733-0">10.1038/s41593-020-00733-0</a>
+</div>
+<div id="ref-sani21" class="csl-entry" role="doc-biblioentry">
+Sani OG, Pesaran B, Shanechi MM, Hsieh M. 2021b. Where is all the nonlinearity: Flexible nonlinear modeling of behaviorally relevant neural dynamics using recurrent neural networks. <em>bioRxiv</em> 2021.09.03.458628. doi:<a href="https://doi.org/10.1101/2021.09.03.458628">10.1101/2021.09.03.458628</a>
+</div>
+<div id="ref-sani18" class="csl-entry" role="doc-biblioentry">
+Sani OG, Yang Y, Lee MB, Dawes HE, Chang EF, Shanechi MM. 2018. Mood variations decoded from multi-site intracranial human brain activity. <em>Nature Biotechnology</em> <strong>36</strong>:954–961. doi:<a href="https://doi.org/10.1038/nbt.4200">10.1038/nbt.4200</a>
+</div>
+<div id="ref-santhanam09" class="csl-entry" role="doc-biblioentry">
+Santhanam G, Yu BM, Gilja V, Ryu SI, Afshar A, Sahani M, Shenoy KV. 2009. Factor-<span>Analysis Methods</span> for <span>Higher-Performance Neural Prostheses</span>. <em>Journal of Neurophysiology</em> <strong>102</strong>:1315–1330. doi:<a href="https://doi.org/10.1152/jn.00097.2009">10.1152/jn.00097.2009</a>
+</div>
+<div id="ref-shenoy21" class="csl-entry" role="doc-biblioentry">
+Shenoy KV, Kao JC. 2021. Measurement, manipulation and modeling of brain-wide neural population dynamics. <em>Nature Communications</em> <strong>12</strong>:1–5. doi:<a href="https://doi.org/10.1038/s41467-020-20371-1">10.1038/s41467-020-20371-1</a>
+</div>
+<div id="ref-smith21" class="csl-entry" role="doc-biblioentry">
+Smith JTH, Linderman SW, Sussillo D. 2021. <a href="https://arxiv.org/abs/2111.01256">Reverse engineering recurrent neural networks with <span>Jacobian</span> switching linear dynamical systems</a>Advances in <span>Neural Information Processing Systems</span>. pp. 16700–16713.
+</div>
+<div id="ref-sridharan22" class="csl-entry" role="doc-biblioentry">
+Sridharan S, Gajowa MA, Ogando MB, Jagadisan UK, Abdeladim L, Sadahiro M, Bounds HA, Hendricks WD, Turney TS, Tayler I, Gopakumar K, Oldenburg IA, Brohawn SG, Adesnik H. 2022. High-performance microbial opsins for spatially and temporally precise perturbations of large neuronal networks. <em>Neuron</em> <strong>110</strong>:1139–1155.e6. doi:<a href="https://doi.org/10.1016/j.neuron.2022.01.008">10.1016/j.neuron.2022.01.008</a>
+</div>
+<div id="ref-sussillo14" class="csl-entry" role="doc-biblioentry">
+Sussillo D. 2014. Neural circuits as computational dynamical systems. <em>Current Opinion in Neurobiology</em>, Theoretical and computational neuroscience <strong>25</strong>:156–163. doi:<a href="https://doi.org/10.1016/j.conb.2014.01.008">10.1016/j.conb.2014.01.008</a>
+</div>
+<div id="ref-sussillo13" class="csl-entry" role="doc-biblioentry">
+Sussillo D, Barak O. 2013. Opening the <span>Black Box</span>: <span>Low-Dimensional Dynamics</span> in <span>High-Dimensional Recurrent Neural Networks</span>. <em>Neural Computation</em> <strong>25</strong>:626–649. doi:<a href="https://doi.org/10.1162/NECO_a_00409">10.1162/NECO_a_00409</a>
+</div>
+<div id="ref-vyas20" class="csl-entry" role="doc-biblioentry">
+Vyas S, Golub MD, Sussillo D, Shenoy KV. 2020. Computation through <span>Neural Population Dynamics</span>. <em>Annual Review of Neuroscience</em> <strong>43</strong>:249–275. doi:<a href="https://doi.org/10.1146/annurev-neuro-092619-094115">10.1146/annurev-neuro-092619-094115</a>
+</div>
+<div id="ref-wang18" class="csl-entry" role="doc-biblioentry">
+Wang L, Huang K, Zhong C, Wang L, Lu Y. 2018. Fabrication and modification of implantable optrode arrays for in vivo optogenetic applications. <em>Biophysics Reports</em> <strong>4</strong>:82–93. doi:<a href="https://doi.org/10.1007/s41048-018-0052-4">10.1007/s41048-018-0052-4</a>
+</div>
+<div id="ref-welkenhuysen16" class="csl-entry" role="doc-biblioentry">
+Welkenhuysen M, Hoffman L, Luo Z, De Proft A, Van den Haute C, Baekelandt V, Debyser Z, Gielen G, Puers R, Braeken D. 2016. An integrated multi-electrode-optrode array for in vitro optogenetics. <em>Scientific Reports</em> <strong>6</strong>:20353. doi:<a href="https://doi.org/10.1038/srep20353">10.1038/srep20353</a>
+</div>
+<div id="ref-willett21" class="csl-entry" role="doc-biblioentry">
+Willett FR, Avansino DT, Hochberg LR, Henderson JM, Shenoy KV. 2021. High-performance brain-to-text communication via handwriting. <em>Nature</em> <strong>593</strong>:249–254. doi:<a href="https://doi.org/10.1038/s41586-021-03506-2">10.1038/s41586-021-03506-2</a>
+</div>
+<div id="ref-yang19" class="csl-entry" role="doc-biblioentry">
+Yang GR, Joglekar MR, Song HF, Newsome WT, Wang X-J. 2019. Task representations in neural networks trained to perform many cognitive tasks. <em>Nature Neuroscience</em> <strong>22</strong>:297–306. doi:<a href="https://doi.org/10.1038/s41593-018-0310-2">10.1038/s41593-018-0310-2</a>
+</div>
+<div id="ref-zenke21" class="csl-entry" role="doc-biblioentry">
+Zenke F, Vogels TP. 2021. The <span>Remarkable Robustness</span> of <span>Surrogate Gradient Learning</span> for <span>Instilling Complex Function</span> in <span>Spiking Neural Networks</span>. <em>Neural Computation</em> <strong>33</strong>:899–925. doi:<a href="https://doi.org/10.1162/neco_a_01367">10.1162/neco_a_01367</a>
+</div>
+<div id="ref-zhang18" class="csl-entry" role="doc-biblioentry">
+Zhang Z, Russell LE, Packer AM, Gauld OM, Häusser M. 2018. Closed-loop all-optical interrogation of neural circuits in vivo. <em>Nature Methods</em> <strong>15</strong>:1037–1040. doi:<a href="https://doi.org/10.1038/s41592-018-0183-z">10.1038/s41592-018-0183-z</a>
+</div>
+</div>
+</section>
+<section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn1"><p>Low accuracy because open-loop stimulation would not counteract spontaneous variability. Inevitable model mismatch would result in open-loop stimulation potentially entirely missing the mark.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const disableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'prefetch';
+    }
+  }
+  const enableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'stylesheet';
+    }
+  }
+  const manageTransitions = (selector, allowTransitions) => {
+    const els = window.document.querySelectorAll(selector);
+    for (let i=0; i < els.length; i++) {
+      const el = els[i];
+      if (allowTransitions) {
+        el.classList.remove('notransition');
+      } else {
+        el.classList.add('notransition');
+      }
+    }
+  }
+  const toggleColorMode = (alternate) => {
+    // Switch the stylesheets
+    const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+    manageTransitions('#quarto-margin-sidebar .nav-link', false);
+    if (alternate) {
+      enableStylesheet(alternateStylesheets);
+      for (const sheetNode of alternateStylesheets) {
+        if (sheetNode.id === "quarto-bootstrap") {
+          toggleBodyColorMode(sheetNode);
+        }
+      }
+    } else {
+      disableStylesheet(alternateStylesheets);
+      toggleBodyColorPrimary();
+    }
+    manageTransitions('#quarto-margin-sidebar .nav-link', true);
+    // Switch the toggles
+    const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+    for (let i=0; i < toggles.length; i++) {
+      const toggle = toggles[i];
+      if (toggle) {
+        if (alternate) {
+          toggle.classList.add("alternate");     
+        } else {
+          toggle.classList.remove("alternate");
+        }
+      }
+    }
+    // Hack to workaround the fact that safari doesn't
+    // properly recolor the scrollbar when toggling (#1455)
+    if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+      manageTransitions("body", false);
+      window.scrollTo(0, 1);
+      setTimeout(() => {
+        window.scrollTo(0, 0);
+        manageTransitions("body", true);
+      }, 40);  
+    }
+  }
+  const isFileUrl = () => { 
+    return window.location.protocol === 'file:';
+  }
+  const hasAlternateSentinel = () => {  
+    let styleSentinel = getColorSchemeSentinel();
+    if (styleSentinel !== null) {
+      return styleSentinel === "alternate";
+    } else {
+      return false;
+    }
+  }
+  const setStyleSentinel = (alternate) => {
+    const value = alternate ? "alternate" : "default";
+    if (!isFileUrl()) {
+      window.localStorage.setItem("quarto-color-scheme", value);
+    } else {
+      localAlternateSentinel = value;
+    }
+  }
+  const getColorSchemeSentinel = () => {
+    if (!isFileUrl()) {
+      const storageValue = window.localStorage.getItem("quarto-color-scheme");
+      return storageValue != null ? storageValue : localAlternateSentinel;
+    } else {
+      return localAlternateSentinel;
+    }
+  }
+  let localAlternateSentinel = 'alternate';
+  // Dark / light mode switch
+  window.quartoToggleColorScheme = () => {
+    // Read the current dark / light value 
+    let toAlternate = !hasAlternateSentinel();
+    toggleColorMode(toAlternate);
+    setStyleSentinel(toAlternate);
+  };
+  // Ensure there is a toggle, if there isn't float one in the top right
+  if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+    const a = window.document.createElement('a');
+    a.classList.add('top-right');
+    a.classList.add('quarto-color-scheme-toggle');
+    a.href = "";
+    a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+    const i = window.document.createElement("i");
+    i.classList.add('bi');
+    a.appendChild(i);
+    window.document.body.appendChild(a);
+  }
+  // Switch to dark mode if need be
+  if (hasAlternateSentinel()) {
+    toggleColorMode(true);
+  } else {
+    toggleColorMode(false);
+  }
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../src/aim2.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Aim 2 - Multi-input CLOC</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../src/timeline.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Proposed timeline</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+<script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","selector":".lightbox","loop":true,"descPosition":"bottom","openEffect":"zoom"});</script>
+
+
+
+</body></html>

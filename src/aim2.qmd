@@ -104,25 +104,23 @@ In the first experiment, I will simulate multi-output control of firing rates in
 @wagenaar05 and @newman13 laid the foundation for this by clamping aggregate, population firing rates, and @bolus21 took this further by treating firing rates of individual neurons separately, though with a single optic fiber input.
 This is an obvious case where multiple inputs should provide more control, allowing us to manipulate neurons (or groups of neurons in the case of unsorted threshold crossings) more individually, each to its own baseline.
 The experiment will be performed on a Poisson linear dynamical system (PLDS) model [@macke11] fit to optogenetic input/spike output data from a spiking neural network (SNN) model.
-The SNN model will contain necessary features, such as cell types, time-varying exogenous input, and connectivity profiles, to produce stochastic firing patterns with unpredictable disturbances.
+The SNN model will contain necessary features, such as cell types, time-varying exogenous input, and connectivity profiles, to produce stochastic firing patterns with unpredictable disturbances and will be simulated together with the recording and stimulation facilities of @sec-aim1.
 
 As another experiment, I propose another form of network-level control---manipulating the oscillatory signatures found in LFP signals.
+Gamma oscillations (30-90 Hz) are one such example, which have been shown to have time-varying properties and interact with other oscillatory bands.
+Interestingly, gamma rhythms can even show phase coherence in distant brain regions such as visual cortex in opposite hemispheres, which has been hypothesized to play a role in information integration [@buzsaki12a].
+I plan to test control methods on a virtual experiment of this phenomenon by simulating two populations of neurons exhibiting gamma oscillations [@wang96; @brunel03] with long-range connections mediating gamma frequency coherence, again using the framework from @sec-aim1.
+I will then perform feedback control on the LFP signal to counter the natural phase locking that arises, providing an opportunity to test how well LFP can be controlled on a <100-ms timescale of a single gamma cycle.
 
-All experiments will be performed on a simulated randomly connected network of excitatory and inhibitory leaky integrate-and-fire (LIF) neurons or a Poisson linear dynamical system [@macke11] model fit to simulated data.
-The framework of Aim 1 will be leveraged to simulate electrode recording and optogenetic stimulation, and spikes from individual neurons will be used as inputs to the controller.
-In all experiments I will compare my MPC approach to the unconstrained LQR controller developed previously [@bolus21].
-I will also compare to an optimal open-loop stimulus computed over a whole-trial horizon.
-Noise will be provided to the network where needed to simulate an external disturbance.
 
-### Preparation for real-time experiments
+<!-- ### Preparation for real-time experiments
 To inform future experiments where compute time is crucial for control performance, I will record compute time of LQR and MPC approaches for varying numbers of input and output channels $k$ and $m$. 
 For instance, the time required to solve the quadratic program for MPC would provide a preliminary estimate of the minimum control period we may want to use when implementing MPC in real time.
-To get a better idea of how this compute latency might affect a real experiment, I will also test multi-input MPC on a more realistic simulation, such as one of the example experiments from @sec-cleo-experiments, leveraging the latency simulation capabilities of the CLOC simulation framework.
+To get a better idea of how this compute latency might affect a real experiment, I will also test multi-input MPC on a more realistic simulation, such as one of the example experiments from @sec-cleo-experiments, leveraging the latency simulation capabilities of the CLOC simulation framework. -->
 
 ## Expected results
-I expect that bidirectional control will be perform better than unidirectional control at the aforementioned tasks of clamping baseline activities and following a dynamic reference trajectory.
-I also expect that MPC will attain higher performance than LQR for all multi-input conditions and especially in the case of a dynamic reference.
-While MPC will be considerably slower than LQR, it should be fast enough for control of neural phenomena on the timescale of hundreds of milliseconds.
+I expect that bidirectional, multi-channel, and model predictive control will be perform better than unidirectional, single-channel, and LQR control, respectively for both experiments, despite the added computational cost these methods require.
+I also expect that restricting the controller through hard constraints or prolonged stimulation penalties will also be possible with the more sophisticated methods without greatly increasing the error.
 
 ## Preliminary results
 Basic simulations controlling a linear dynamical system model fit to experimental data show the advantages of bidirectional control and of MPC (see @fig-mpc-sim).
@@ -372,9 +370,7 @@ plot(lqr1plot, lqr2plot, mpc1plot, mpc2plot, layout=4)
 
 ## Potential pitfalls & alternative strategies {#sec-aim2-pitfalls}
 There are some limitations in the proposed GLDS model that may need to be addressed.
-While it was adequate for the experiments in @bolus21, a Poisson linear dynamical system model [@macke11] may be needed in the case that negative predicted firing rates (because the output is not constrained to be nonnegative) produce significant model mismatch error.
-Also, in case the data is not fit well by a GLDS, I may explore the impact of making parts of the model nonlinear.
-The output equation $y=Cx+d$, for example, could be replaced by a nonlinear equation of the form $y=f(x)$.
+While it was adequate for the experiments in @bolus21, a Poisson [@macke11] or other output nonlinearity may be needed in the case that a standard GLDS does not fit the data well.
 While this would likely make the estimation of $x$ more expensive, the underlying dynamics could remain linear, leaving the same underlying quadratic program for the controller to solve.
 
 This touches another potential concern: the speed of the algorithm.

@@ -6,5 +6,9 @@ index.tex
 index.aux
 index.log
 index.toc
+index.acn
+index.glo
+index.ist
 **/*_files/
 *Developing*.tex
+site_libs/*

@@ -20,16 +20,15 @@ book:
   downloads: [pdf]
   chapters:
     - index.qmd
-    - specific-aims.qmd
-    - background.qmd
-    - aim1.qmd
-    - aim2.qmd
-    - aim3.qmd
-    - timeline.qmd
-    - references.qmd
+    - src/specific-aims.qmd
+    - src/background.qmd
+    - src/aim1.qmd
+    - src/aim2.qmd
+    - src/aim3.qmd
+    - src/timeline.qmd
+    - src/references.qmd
 
-bibliography: references.json
-csl: elife.csl
+bibliography: references.bib
 
 execute: 
   freeze: auto
@@ -45,15 +44,31 @@ format:
     filters:
     - lightbox
     lightbox: auto
+    csl: elife.csl
 
   pdf:
-    documentclass: scrreprt
+    documentclass: gatechthesis
+    # template: gtthesis.tex
+    template-partials: 
+      - latex/title.tex
+      - latex/toc.tex
+      - latex/before-body.tex
+      - latex/after-body.tex
+      - latex/biblio.tex
     papersize: letter
-    include-in-header: header.tex
-    latex-auto-install: false
+    fontsize: 12pt
+    include-in-header: latex/header.tex
+    cite-method: biblatex
+    latex-auto-install: true
+    fontfamily: mathptmx
     # mainfont: TeX Gyre Pagella
     # mathfont: TeX Gyre Pagella Math
     # sansfont: Open Sans
-    # sansfont: Source Sans 3
-    colorlinks: true
+    # colorlinks: true
     link-citations: true
+    # latex-max-runs: 1
+    # keep-tex: true
+    crossref: 
+      fig-prefix: ""  # since somehow it was getting Figure Figure
+      sec-prefix: ""  # since somehow it was getting Section subsection
+    pdf-engine: pdflatex  # couldn't change font otherwise

@@ -1,0 +1,15 @@
+# References {.unnumbered}
+
+::::{.content-visible when-format="html"}
+
+::: {#refs}
+:::
+
+::::
+
+:::{.content-visible when-format="pdf"}
+
+\vspace*{-40pt}
+\makeBibliography
+
+:::

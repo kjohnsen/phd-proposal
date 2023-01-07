@@ -1,13 +1,7 @@
 
 ```{mermaid}
-%%{
-  init: {
-    'theme': 'default',
-    'themeVariables': {
-      'fontFamily': 'Source Sans 3'
-    }
-  }
-}%%
+%%| fig-width: 6.5
+%%{ init: {'fontFamily': 'Source Sans Pro, Open Sans, trebuchet ms, Arial, sans-serif'}}%%
 gantt
     dateFormat  YYYY-MM-DD
     axisFormat  %b '%y
@@ -22,9 +16,9 @@ gantt
     paper revisions :a1revise, after a1wait, 6w
 
     section Aim 2
-    refine control code :a2code, after f31, 4w
-    add multi-input opto to Cleo :a2multi, after a2code, 2w
-    design and run simulations :a2run, after a2multi, 4w
+    %% refine control code :a2code, after f31, 4w
+    %% add multi-input opto to Cleo :a2multi, after a2code, 2w
+    design and run simulations :a2run, after f31, 10w
     analyze results :a2analyze, after a2run a1revise intern, 4w
     write paper :a2paper, after a2analyze, 8w
     submission to JNE :milestone, a2submit, after a2paper, 3d
@@ -32,10 +26,10 @@ gantt
     paper revisions :a2revise, after a3train a2wait, 4w
 
     section Aim 3
-    set up project infrastructure :a3infra, after a2submit, 4w
-    configure and train RSNN models : a3train, after a3infra, 8w
-    configure system ID and control methods :a3sysctrl, after a3train a2revise, 6w
-    design and run experiments :a3expt, after a3sysctrl, 3w
+    %% set up project infrastructure :a3infra, after a2submit, 4w
+    configure and train RSNN models : a3train, after a2submit, 12w
+    %% configure system ID and control methods :a3sysctrl, after a3train a2revise, 6w
+    perform system ID and control experiments :a3expt, after a3train a2revise, 9w
     analyze data :a3analyze, after a3expt, 3w
     write paper :a3paper, after a3analyze, 8w
     submission to Nat. Neuro :milestone, a3submit, after a3paper, 3d
@@ -43,7 +37,7 @@ gantt
 
     section Other
     F31 submission :f31, after a1submit, 4w
-    possible internship :intern, 2023-05-01, 120d
+    possible internship :intern, 2023-05-01, 12w
     prepare dissertation :prep, after a3submit, 8w
     defend :milestone, after prep, 2d
 

@@ -1,4 +1,4 @@
-# Aim 1: A CLOC simulation testbed {#sec-aim1}
+# Aim 1 - A CLOC simulation testbed {#sec-aim1}
 
 ## Rationale
 

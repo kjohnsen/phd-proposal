@@ -19,9 +19,11 @@ Finally, in Aim 3, I will explore how control quality varies with experimental p
 I will model this population activity with recurrent spiking neural networks trained using state-of-the-art, biologically plausible methods, with differing degrees of brain-like architecture and task complexity.
 This work will thus provide the systems neuroscience community with a more accessible entry point for CLOC, more powerful algorithms for leveraging multi-input control, and a point of reference for designing CLOC experiments capable of answering complex scientific questions.
 
-::: {.hidden}
+<!-- ::: {.hidden}
 # Front Matter {.unnumbered}
-:::
+::: -->
+
+:::{.content-hidden when-format="pdf"}
 
 ## Thesis committee {.unnumbered}
 
@@ -41,3 +43,5 @@ This work will thus provide the systems neuroscience community with a more acces
 |   Patricio Vela         | Georgia Institute of Technology \                    |
 |                         | Electrical and Computer Engineering                  |
 +-------------------------+------------------------------------------------------+
+
+:::

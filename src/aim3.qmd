@@ -1,4 +1,4 @@
-# Aim 3: Control of latent population dynamics
+# Aim 3 - Control of latent population dynamics
 ## Rationale
 <!-- ### Success of low-D dynamical models -->
 As technology for recording from the brain has improved, systems neuroscience has shifted increasingly towards a reduced-dimensionality, population coding perspective in many brain areas [@kalaska83; @churchland12; @cunningham14; @barack21].

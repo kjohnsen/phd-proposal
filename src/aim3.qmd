@@ -1,11 +1,10 @@
-# Aim 3 - Control of latent population dynamics
+# Aim 3 - Control of latent population dynamics {#sec-aim3}
 ## Rationale
 <!-- ### Success of low-D dynamical models -->
 As technology for recording from the brain has improved, systems neuroscience has shifted increasingly towards a reduced-dimensionality, population coding perspective in many brain areas [@kalaska83; @churchland12; @cunningham14; @barack21].
 This reflects the observation that while the activity of any single neuron can vary greatly across trials where external variables are controlled, underlying latent variables can be decoded from the population which are much more predictable and reproducible. 
 Moreover, formulating this latent variable as a dynamical state whose evolution can be predicted has been shown to improve inference and enable state-of-the-art "decoding" of downstream variables of interest such as movement [@pandarinath18; @willett21; @sani21a; @sani21], mood [@sani18], speech [@anumanchipalli19], and decision states [@morcos16; @kim21].
-Not only does this allow us to infer the output of a given brain region, but it allows us to form hypotheses about how it produces that output by analyzing the dynamical landscape of fixed points [@sussillo13; @sussillo14; @smith21].
-This is formalized in the Computation through Dynamics (CTD) framework [@vyas20].
+Not only does this allow us to infer the output of a given brain region, but it allows us to form hypotheses about how it produces that output by analyzing the dynamical landscape of fixed points [@sussillo13; @sussillo14; @smith21]---a view formalized in the Computation through Dynamics (CTD) framework [@vyas20].
 
 <!-- ### The need to causally test latent factors -->
 However, while these latent variables have been used to successfully decode other variables of interest, this is a necessary, but insufficent, condition to demonstrate a causal relationship.
@@ -21,17 +20,17 @@ The optimal state-space methods already formulated map directly to the latent dy
 High-dimensional optogenetic actuation is possible through micro-LED devices [@dufour15; @kwon15; @welkenhuysen16; @wang18; @mcalinden19; @mao19; @mao21; @ohta21; @antolik21; @jeon21; @kathe22; @eriksson22], two-photon targeting of individual neurons [@packer15; @ronzitti17; @chen18b; @zhang18; @sridharan22], and genetic targeting.
 Moreover, real-time feedback can drive a variable neural system towards complex latent state targets which would be attainable with low accuracy at best and not at all at worst with open-loop stimulation [^whyCL].
 However, while it is clear a high degree of control will be needed, it is unknown how this translates to recording, stimulation, and control parameters.
-Furthermore, finding optimal parameters would likely require extensive trial and error, as well actuation hardware that does not exist or is not readily available, making it costly if not infeasible to do *in vivo*.
 One significant open question is whether this kind of control will require actuation on the level of individual neurons, or whether lower-dimensional actuation will suffice.
+I hypothesize that the latter is the case, but testing this hypothesis will likely require extensive trial and error, as well actuation hardware that does not exist or is not readily available, making it costly if not infeasible to do *in vivo*.
 
-[^whyCL]: Low accuracy because open-loop stimulation would not counteract spontaneous variability. Inevitable model mismatch would result in open-loop stimulation potentially entirely missing the mark.
+[^whyCL]: Low accuracy because open-loop stimulation would not counteract spontaneous variability. Inevitable model mismatch would result in open-loop stimulation potentially entirely missing the target state.
 
 ### Innovation
 Thus, to give a preliminary answer to this question, I propose to develop technical and conceptual guidelines as I control the latent dynamics of simulated neural populations.
 First, I will produce virtual models by training recurrent spiking neural networks with state-of-the-art, biologically plausible methods---each differing in their degrees of brain-like architecture and training procedure complexity.
-I will then use the simulation testbed of @sec-aim1 and the multi-input control methods of @sec-aim2 to explore how control quality varies with both experimental parameters (such as recording and stimulation channel counts or control algorithms) and system characteristics (such as the size, complexity of the network model).
+I will then use the simulation testbed of Aim 1 and the multi-input control methods of Aim 2 to explore how control quality varies with both experimental parameters (such as recording and stimulation channel counts or control algorithms) and system characteristics (such as the size, complexity of the network model).
 This will both give researchers a tentative idea of the relative importance of each factor of CLOC and, as parameters approach experimental realism, allow us to conjecture as to the number of independent actuators needed to control the latent dynamics of a brain system.
-My hypothesis is that control quality will plateau with a number of actuators on or near the same level of magnitude as the latent factors used to describe the neural activity---that the per-neuron actuation limit will not be needed.
+My hypothesis is that control quality will plateau with a number of actuators on or near the same level of magnitude as the latent factors used to describe the neural activity---that per-neuron actuation limit not be needed.
 <!-- Finally, I will demonstrate the conceptual utility of CLOC by quantitatively assessing the causal relationship between these latent dynamics and "behavior" (model output). -->
 
 ## Approach
@@ -62,11 +61,11 @@ One way to causally test this hypothesis would be to manipulate the latent facto
 
 ![Illustration of a delayed center-out reach experiment. From @santhanam09.](img/santhanam.png){#fig-reach}
 
-Another potential latent dynamics hypothesis to test could involve sensory integration in decision making.
+<!-- Another potential latent dynamics hypothesis to test could involve sensory integration in decision making.
 In one "T-maze" task, for example, mice run down a maze, receive a variable number of left and right sensory cues, and at the end choose to go left or right, receiving a reward if they choose the side which they had received more cues from.
 @morcos16 find a variety of activity and behavioral patterns for identical evidence presentations and attribute it to different initial conditions in the latent space of population activity.
 Thus, one could test this hypothesis by driving the system to an identical latent state across trials and verifying that this variability goes away.
-Simply manipulating the latent decision variable to verify that it determines the animal's left or right choice---as opposed to reflecting input from the population(s) actually driving behavior---could be of value as well.
+Simply manipulating the latent decision variable to verify that it determines the animal's left or right choice---as opposed to reflecting input from the population(s) actually driving behavior---could be of value as well. -->
 
 ### Train RSNN models
 After identifying a task and latent dynamics hypothesis to test, I will train recurrent spiking neural network (RSNN) models to perform the task.

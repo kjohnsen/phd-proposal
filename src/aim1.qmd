@@ -2,16 +2,12 @@
 
 ## Rationale
 
-CLOC experiments are difficult and costly.
-This can be a barrier to entry for neuroscientists that find CLOC's advantages attractive.
-Their lab might lack the funds or time to invest in hardware and software infrastructure.
-Or, they may possess the resources but do not want to spend them without some assurance that their proposed experiment would be fruitful.
-Finally, when the proposed experiment requires signal processing/control method development, iterating on designs *in-vivo* may be cumbersome, given the additional cost of animal care and training.
-These factors make CLOC experiments risky, especially since it is often hard to predict whether a proposed experiment will succeed.
-
+CLOC experiments can be difficult and costly, posing a barrier to entry for neuroscientists that find CLOC's advantages attractive.
+Their lab might lack the funds or time to invest in hardware and software infrastructure or the confidence that such an investment would yield successful experiments.
+Moreover, when the proposed experiment requires signal processing/control method development, iterating on designs *in-vivo* may be cumbersome, given the additional cost of animal care and training.
 However, these costs and risks can be mitigated through *in-silico* prototyping.
-Given a reliable model of the system of interest, one can simulate a proposed experiment, assessing the effectiveness of a given setup.
-Alternate models can be tested to assess robustness of the given method to unknown model properties, or a single method can be validated on a variety of models to determine its general applicability.
+Given a reliable model of the system of interest, one can simulate an experiment and assess its effectiveness.
+Alternate models of a system can be tested to assess robustness of a method to unknown model properties, or that method can be validated on a variety of systems to determine its general applicability.
 This strategy not only allows for a researcher to evaluate and optimize methods before committing significant resources to them, but also accelerates the development cycle.
 
 ### Innovation
@@ -23,14 +19,13 @@ I thus provide a low-cost environment to design and develop CLOC methods, as wel
 
 ### Guiding principles
 Two factors drove our choice of recording and stimulation models to integrate into Cleo.
-First, because a main purpose of Cleo is to enable prototyping of experiments, we focused on models at the level of the parameters an experimenter is able to alter---this led us to choose models embeddedi n physical, 3D space.
+First, because a main purpose of Cleo is to enable prototyping of experiments, we focused on models at the level of the parameters an experimenter is able to alter---this led us to choose models embedded in physical, 3D space.
 Second, we assumed that highly realistic models of individual neurons are not needed to capture most mesoscale-level phenomena.
 Accordingly, Cleo was developed with the intention of using point neurons models, rather than multi-compartment neuron models with realistic morphologies.
 
-In addition to our modeling priorities, the goals of usability, flexibility, and extensibility guided our choices in software dependencies and infrastructure.
+In addition to our modeling priorities, the goals of usability and extensibility guided our choices in software dependencies and infrastructure.
 Ease of use is important to make Cleo as accessible as possible to researchers with varied backgrounds, and motivated Cleo’s modular design, which allows users to add different recording or stimulation devices with little or no modification to the underlying network model.
-Flexibility in the underlying simulator, in addition to enabling compatibility with a wide variety of models, is necessary for arbitrarily interacting with the simulation in a closed-loop fashion.
-Finally, extensibility is important for the testbed to remain relevant under changing needs in the future, allowing for new functionality to be easily added in a "plug-in," modular architecture.
+Additionally, extensibility is important for the testbed to remain relevant under changing needs in the future, allowing for new functionality to be easily added in a "plug-in," modular architecture.
 
 
 ### Closed-loop simulation architecture {#sec-cleo-arch}
@@ -39,11 +34,10 @@ Finally, extensibility is important for the testbed to remain relevant under cha
 
 We chose Brian 2 [@stimberg19] as the spiking neural network simulator to build Cleo around.
 Brian has the advantages of being flexible and intuitive, where models are defined with user-provided mathematical equations.
-Moreover, it is written in Python, an open-source, intuitive language [@bogdanchikov13] widely used in computational neuroscience [@davison09; @muller15].
-Users do not need to use any other languages to use Brian.
+Moreover, it is written in Python, an open-source, intuitive language [@bogdanchikov13] widely used in computational neuroscience [@davison09; @muller15]---users do not need to use any other languages to use Brian and Cleo.
 Brian is also relatively fast (especially since it is developed primarily for point neuron simulations), as shown in benchmarks [@stimberg19].
 
-Cleo provides three modules—recording, stimulation, and closed-loop processing—for integration with an existing Brian model (see @fig-cleo-arch).
+Cleo provides three modules---recording, stimulation, and closed-loop processing---for integration with an existing Brian model (see @fig-cleo-arch).
 Cleo’s functionality centers around a `CLSimulator` object that orchestrates the interactions between these three modules and the Brian simulation by injecting devices, running the simulation, and communicating with an `IOProcessor` object at each time step.
 The `IOProcessor` receives recorder measurements according to a specified sampling rate and returns any updates to stimulator devices.
 To simulate the effects of latency in closed-loop control, Cleo provides a `LatencyIOProcessor` class which stores control signals in a buffer to later deliver them after an arbitrary delay.
@@ -71,11 +65,11 @@ To approximate sorted and multi-spike recording without filtering and thresholdi
 :::{#fig-elec}
 ![](img/fig-electrodes.png)
 
-Illustration of LFP and spiking from Cleo’s electrophysiology module. (A) The probabilistic spike detection model. All spikes within the 100% detection radius, 50% of spikes at the 50% detection radius, and none of those outside the threshold radius are recorded. The detection probability decays with 1/r. (B) An example plot generated by Cleo showing the positions of neurons and electrode contacts. (C) Randomly generated spikes for the neurons shown in B. Top: the sorted spike signal, which gives the ground truth source neuron for every spike as a perfect proxy for spike sorting. Bottom: multi-unit spikes, where spikes are reported on every channel they are detected on, regardless of the source neuron. (D) The TKLFP signal generated from the spikes in C for each channel. Y-axis units are not shown.
+Illustration of LFP and spiking from Cleo’s electrophysiology module. (A) The probabilistic spike detection model. All spikes within the 100% detection radius, 50% of spikes at the 50% detection radius, and none of those outside the threshold radius are recorded. The detection probability decays with $1/r$. (B) An example plot generated by Cleo showing the positions of neurons and electrode contacts. (C) Randomly generated spikes for the neurons shown in B. Top: the sorted spike signal, which gives the ground truth source neuron for every spike as a perfect proxy for spike sorting. Bottom: multi-unit spikes, where spikes are reported on every channel they are detected on, regardless of the source neuron. (D) The TKLFP signal generated from the spikes in C for each channel. Y-axis units are not shown.
 :::
 
 <!-- #### LFP -->
-In order to approximate cortical LFP without recurring to morphological neurons and biophysical forward modeling, we implemented the kernel LFP approximation from [@telenczuk20], which we term TKLFP (Teleńczuk kernel LFP).
+In order to approximate cortical LFP without recurring to morphological neurons and biophysical forward modeling, we implemented the kernel LFP approximation from @telenczuk20, which we term TKLFP (Teleńczuk kernel LFP).
 This method approximates the per-spike contribution to LFP (termed uLFP: unitary LFP) with a delayed Gaussian function, where amplitude and delay depend on the position of the neuron relative to the electrode.
 <!-- While the original study included reference peak amplitude $A_0$ values at just four cortical depths, we inferred these values for arbitrary depths by performing cubic interpolation on data from their figure 5 and assumed that this profile dropped to zero at 600 µm below the soma and 1000 µm above. -->
 This implementation is available as a standalone Python package on PyPI [@johnsen22].
@@ -92,8 +86,7 @@ Cleo includes absorbance, scattering, and refraction parameters for 473-nm (blue
 Independent of the light propagation model, Cleo provides two different opsin models.
 One is a four-state Markov model as presented in [@evans16], which captures rise, peak, plateau, and fall dynamics as the opsin is activated and deactivated through a Markov process.
 Additionally, by defining conductance rather than current directly, the model is able to reproduce the photocurrent’s dependence on the membrane potential (see @fig-opto).
-While the four-state model fits experimental data fairly well, the code is structured so that the three- or six-state models in [@evans16]
-could also be easily implemented.
+<!-- While the four-state model fits experimental data fairly well, the code is structured so that the three- or six-state models in [@evans16] could also be easily implemented. -->
 Because the Markov model depends on somewhat realistic membrane potential and resistance values, however, it is not well suited for many pre-existing models that do not.
 To that end, Cleo also provides a simplified model that delivers current (of arbitrary units) proportional to light at the neuron.
 Users can also specify both the probability that cells of a target population express an opsin and the per-cell expression level.
@@ -140,7 +133,7 @@ In order to demonstrate Cleo's utility to the public, we implemented three examp
 3. Optogenetic evocation of sharp wave-ripples in an anatomically detailed model of hippocampus [@aussel18; @aussel22]. 
    This uses linear quadratic regulator control to evoke a reference sharp wave-ripple LFP signature.
    See @fig-hpc for details, and note that feedback control, not looking ahead, so to speak, fails to evoke the reference signal at the desired time.
-   The strategy I propose in @sec-aim2 should remedy this.
+   The strategy I propose in Aim 2 should remedy this.
 
 ::: {#fig-hpc}
 ![](img/fig-case-study-3.png)
@@ -156,8 +149,11 @@ Input $\text{Irr}_0$ is the light intensity at the tip of each optic fiber.
 The system output TKLFP refers to the Teleńczuk kernel LFP approximation.
 :::
 
-### Open-source code and documentation
-Cleo is open-source and can be installed from the Python Package Index under the name `cleosim`. The code can be found on [GitHub](https://github.com/Sensory-Information-Processing-Lab/Cleo). Documentation, including an overview, tutorials, and API reference, can be found at <https://cleosim.readthedocs.io>. 
+<!-- ### Open-source code and documentation -->
+Additionally, we have endeavored to make Cleo accessible to the public to aid in the exploration and adoption of CLOC methods.
+Cleo is open-source and can be installed from the Python Package Index under the name `cleosim`.
+The code can be found on [GitHub](https://github.com/Sensory-Information-Processing-Lab/Cleo).
+Documentation, including an overview, tutorials, and API reference, can be found at <https://cleosim.readthedocs.io>.
 
 
 ## Limitations
@@ -174,13 +170,13 @@ If a sufficiently realistic model for the studied system does not exist, however
 In these cases we suggest that a workaround could be to test a variety of potential models to identify which experimental configurations would be robust to unknown properties of the system.
 Indeed, the desired experiment in this case could be one that best adjudicates between these hypotheses.
 
-Regarding optogenetics, currently only channelrhodopsin-2 model parameters are included---comparing the effectiveness of different opsins will require first obtaining parameters.
+<!-- Regarding optogenetics, currently only channelrhodopsin-2 model parameters are included---comparing the effectiveness of different opsins will require first obtaining parameters.
 This is important since improved opsins [@gunaydin10; @lin13; @klapoetke14; @hochbaum14; @mager18; @sridharan22; @kishi22], chloride pumps [@gradinaru10; @chuong14; @berndt16], channels [@govorunova15; @govorunova17], and  other innovations [@berndt16; @vierock21] have been engineered.
 Thankfully, parameters for many opsins are available in published literature [@saran18; @gupta19a; @bansal20; @bansal20b; @bansal21a].
 Another limitation is support for multiple simultaneous opsins or light sources.
-At present, the user could manually include separate current terms for each opsin which is slow and cumbersome, but I plan on remedying this shortly to better support multi-channel optogenetics for @sec-aim2 and @sec-aim3.
+At present, the user could manually include separate current terms for each opsin which is slow and cumbersome, but I plan on remedying this shortly to better support multi-channel optogenetics for Aims 2 and 3. -->
 
 ## Summary of contributions
 Cleo thus provides a simulation environment facilitating and accelerating the adoption and development of CLOC methods.
 Multiple features were designed to reflect this need, for example, neural simulation and experimental configuration at an intermediate level of realism, relevant recording and stimulation modalities, modular software architecture, flexible interfacing that can be easily adapted to existing Brian models, and arbitrary closed-loop processing enabling realistic processing delays.
-Moreover, designing Cleo to help experimental labs to test and potentially adopt CLOC methods, we have developed virtual experiments to serve as examples as well as thorough online documentation.
+Moreover, we have developed virtual experiments to serve as examples as well as thorough online documentation so Cleo can help experimental labs test and potentially adopt CLOC methods.

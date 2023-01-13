@@ -150,7 +150,7 @@
     \@school\\
     \@department\\
     \vspace{3\baselineskip}
-    Georgia Institute of Technology\\
+    Georgia Institute of Technology and Emory University\\
     \vspace{\baselineskip}
     #1 \ #2
     \vfill

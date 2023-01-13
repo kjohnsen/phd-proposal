@@ -25,21 +25,21 @@ This work will thus equip the systems neuroscience community to more fully take 
 
 ## Thesis committee {.unnumbered}
 
-+------------------------:+:-----------------------------------------------------+
-|    Nabil Imam           | Georgia Institute of Technology \                    |
-|                         | Computational Science and Engineering                |
-+-------------------------+------------------------------------------------------+
-|    Chethan Pandarinath  | Emory University & Georgia Institute of Technology \ |
-|                         | Biomedical Engineering                               |
-+-------------------------+------------------------------------------------------+
-|  **Christopher Rozell** | Georgia Institute of Technology \                    |
-|     **(advisor)**       | Electrical and Computer Engineering                  |
-+-------------------------+------------------------------------------------------+
-|   Garrett Stanley       | Georgia Institute of Technology & Emory University \ |
-|                         | Biomedical Engineering                               |
-+-------------------------+------------------------------------------------------+
-|   Patricio Vela         | Georgia Institute of Technology \                    |
-|                         | Electrical and Computer Engineering                  |
-+-------------------------+------------------------------------------------------+
++----------------------------:+:-----------------------------------------------------+
+|    Dr. Nabil Imam           | Georgia Institute of Technology \                    |
+|                             | Computational Science and Engineering                |
++-----------------------------+------------------------------------------------------+
+|    Dr. Chethan Pandarinath  | Emory University & Georgia Institute of Technology \ |
+|                             | Biomedical Engineering                               |
++-----------------------------+------------------------------------------------------+
+|  **Dr. Christopher Rozell** | Georgia Institute of Technology \                    |
+|         **(advisor)**       | Electrical and Computer Engineering                  |
++-----------------------------+------------------------------------------------------+
+|   Dr. Garrett Stanley       | Georgia Institute of Technology & Emory University \ |
+|                             | Biomedical Engineering                               |
++-----------------------------+------------------------------------------------------+
+|   Dr. Patricio Vela         | Georgia Institute of Technology \                    |
+|                             | Electrical and Computer Engineering                  |
++-----------------------------+------------------------------------------------------+
 
 :::

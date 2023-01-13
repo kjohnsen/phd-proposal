@@ -19,10 +19,10 @@ In Aim 1, I attempt to address these obstacles by developing a simulation framew
 We demonstrate the software's utility in different virtual experiments and provide it to the public as open-source software with thorough documentation.
 
 ## Aim 2: Multi-input CLOC
-Multi-input CLOC---the simultaneous use of multiple light sources---is necessary for precise manipulation of neural systems, especially when bidirectional actuation (both excitatory and inhibitory opsins) is needed to maintain naturalistic activity levels.
-However, the basic control theory methods previously used for CLOC, while fast, do not take actuator constraints into account and are thus likely to be inadequate for multi-actuator (i.e., multi-light source) problems.
+Multi-input CLOC---the simultaneous use of multiple light sources and/or opsins---is necessary for precise manipulation of neural systems.
+However, the basic control theory methods previously used for CLOC, while fast, do not take actuator constraints into account and are thus likely to be inadequate for multi-actuator problems.
 The field of control theory provides elegant, powerful---if slower---solutions to this class of problems, but applying them requires interdisciplinary expertise.
-In this aim I will translate more sophisticated model-based feedback control algorithms to the multi-input CLOC setting and assess their merits *in silico* for real-time control of brain networks.
+In this aim I will translate more sophisticated model-based feedback control algorithms to the multi-input CLOC setting and assess their merits compared to limited, simpler methods *in silico* for real-time control of brain networks.
 
 ## Aim 3: Using CLOC to manipulate latent neural dynamics
 To our knowledge, CLOC has yet to be applied in answering complex systems neuroscience questions.

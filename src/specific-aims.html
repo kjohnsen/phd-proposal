@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Developing and exploiting optogenetic feedback control in mesoscale neuroscience - 2&nbsp; Specific Aims</title>
+<title>Towards Optogenetic Feedback Control of Neural Population Dynamics - 2&nbsp; Specific Aims</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -85,10 +85,10 @@ ul.task-list li input[type="checkbox"] {
   <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation floating overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
-      <a href="../">Developing and exploiting optogenetic feedback control in mesoscale neuroscience</a> 
+      <a href="../">Towards Optogenetic Feedback Control of Neural Population Dynamics</a> 
         <div class="sidebar-tools-main tools-wide">
     <a href="https://github.com/kjohnsen/phd-proposal/" title="Source Code" class="sidebar-tool px-1"><i class="bi bi-github"></i></a>
-    <a href="../Developing-and-exploiting-optogenetic-feedback-control-in-mesoscale-neuroscience.pdf" title="Download PDF" class="sidebar-tool px-1"><i class="bi bi-file-pdf"></i></a>
+    <a href="../Towards-Optogenetic-Feedback-Control-of-Neural-Population-Dynamics.pdf" title="Download PDF" class="sidebar-tool px-1"><i class="bi bi-file-pdf"></i></a>
   <a href="" class="quarto-color-scheme-toggle sidebar-tool" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
 </div>
     </div>
@@ -180,7 +180,7 @@ ul.task-list li input[type="checkbox"] {
 <section id="sec-aims-rationale" class="level2">
 <h2 class="anchored" data-anchor-id="sec-aims-rationale">Rationale</h2>
 <p>As the importance of causal inference becomes increasingly recognized in neuroscience, the need for technology enabling precise manipulation of neural variables becomes apparent. Feedback control is an important class of such manipulations for its ability to increase inference power by reducing response variability. Widely used throughout the engineering disciplines, it has had a significant impact through a variety of techniques (e.g., voltage clamp, dynamic clamp) on cellular neuroscience. However, feedback control also has great potential at the mesoscale/systems level, potentially enabling researchers to <em>unambiguously infer the downstream effects of circuit/population-level neural activity</em>.</p>
-<p>For a number of reasons, though, <em>this potential has not been widely realized</em>. The main challenges to wider adoption do not appear to lie with available technology, as the requirements of feedback control are beginning to be met by the ever-improving computational power and stimulation/recording tools (such as optogenetics and large-scale neural recording) already available to neuroscientists. I posit that the main challenges to adoption rather include the <strong>complexity of implementing</strong> fast closed-loop experiments, the need to <strong>adapt the mature methods of control theory</strong> to the idiosyncratic constraints of systems neuroscience experiments, and the <strong>lack of established technical guidelines</strong> for applying feedback control to address complex scientific questions. <strong>The proposed work aims to begin to address these challenges, and thus strengthen the set of causal tools available to probe neural systems.</strong></p>
+<p>For a number of reasons, though, <em>this potential has not been widely realized</em>. <!-- The main challenges to wider adoption do not appear to lie with available technology, as the requirements of feedback control are beginning to be met by the ever-improving computational power and stimulation/recording tools (such as optogenetics and large-scale neural recording) already available to neuroscientists. --> I posit that the main challenges to adoption rather include the <strong>complexity of implementing</strong> fast closed-loop experiments, the need to <strong>adapt the mature methods of control theory</strong> to the idiosyncratic constraints of systems neuroscience experiments, and the <strong>lack of established technical guidelines</strong> for applying feedback control to address complex scientific questions. <strong>The proposed work aims to begin to address these challenges, and thus strengthen the set of causal tools available to probe neural systems.</strong></p>
 </section>
 <section id="aim-1-a-cloc-experiment-simulation-testbed" class="level2">
 <h2 class="anchored" data-anchor-id="aim-1-a-cloc-experiment-simulation-testbed">Aim 1: A CLOC experiment simulation testbed</h2>
@@ -188,11 +188,11 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="aim-2-multi-input-cloc" class="level2">
 <h2 class="anchored" data-anchor-id="aim-2-multi-input-cloc">Aim 2: Multi-input CLOC</h2>
-<p>Multi-input CLOC—the simultaneous use of multiple light sources—is necessary for precise manipulation of neural systems, especially when bidirectional actuation (both excitatory and inhibitory opsins) is needed to maintain naturalistic activity levels. However, the basic control theory methods previously used in conjuction with CLOC do not take actuator constraints into account and are thus inadequate for multi-actuator (i.e., multi-light source) problems. The field of control theory provides elegant, powerful solutions to this class of problems, but applying them requires interdisciplinary expertise. In this aim I will translate more sophisticated model-based feedback control algorithms to the multi-input CLOC setting and demonstrate the advantages both of bidirectional actuation and these algorithmic improvements.</p>
+<p>Multi-input CLOC—the simultaneous use of multiple light sources and/or opsins—is necessary for precise manipulation of neural systems. However, the basic control theory methods previously used for CLOC, while fast, do not take actuator constraints into account and are thus likely to be inadequate for multi-actuator problems. The field of control theory provides elegant, powerful—if slower—solutions to this class of problems, but applying them requires interdisciplinary expertise. In this aim I will translate more sophisticated model-based feedback control algorithms to the multi-input CLOC setting and assess their merits compared to limited, simpler methods <em>in silico</em> for real-time control of brain networks.</p>
 </section>
 <section id="aim-3-using-cloc-to-manipulate-latent-neural-dynamics" class="level2">
 <h2 class="anchored" data-anchor-id="aim-3-using-cloc-to-manipulate-latent-neural-dynamics">Aim 3: Using CLOC to manipulate latent neural dynamics</h2>
-<p>To our knowledge, CLOC has yet to be applied in answering complex systems neuroscience questions. In this aim, to pave the way for future <em>in-vivo</em> experiments that accomplish this, I propose to develop technical and conceptual guidelines as I control the latent dynamics of simulated neural populations. First, I will produce these virtual models by training recurrent spiking neural networks with state-of-the-art, biologically plausible methods—each differing in their degrees of brain-like architecture and training procedure complexity. I will then use the simulation testbed of Aim 1 to explore control quality varies with recording, stimulation, and control parameters and the complexity and size of the system—thus giving researchers a tentative idea of the relative importance of each factor of CLOC. I will test the hypothesis that low-dimensional dynamics can be manipulated with similarly low-dimensional, rather than per-neuron, actuation.</p>
+<p>To our knowledge, CLOC has yet to be applied in answering complex systems neuroscience questions. In this aim, to pave the way for future <em>in-vivo</em> experiments that accomplish this, I propose to develop technical and conceptual guidelines as I control the latent dynamics of simulated neural populations. First, I will produce these virtual models by training recurrent spiking neural networks with state-of-the-art, biologically plausible methods—each differing in their degrees of brain-like architecture and training procedure complexity. I will then use the simulation testbed of Aim 1 to explore how control quality varies with recording, stimulation, and control parameters and the complexity and size of the system—thus giving researchers a tentative idea of the relative importance of each factor of CLOC. I will test the hypothesis that low-dimensional dynamics can be manipulated with similarly low-dimensional, rather than per-neuron, actuation.</p>
 
 
 </section>
